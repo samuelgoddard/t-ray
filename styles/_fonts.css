@@ -1,0 +1,40 @@
+/* @font-face {
+  font-family: 'Raglan Sans';
+  src: url('../public/fonts/RaglanSans-Regular.woff2') format('woff2'),
+      url('../public/fonts/RaglanSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
+
+
+@font-face {
+  font-family: 'Albert Extrabold';
+  src: local('Albert Extrabold'), local('Albert-Extrabold'),
+      url('../public/fonts/Albert-Extrabold.woff2') format('woff2'),
+      url('../public/fonts/Albert-Extrabold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fake Receipt';
+  src: local('FakeReceipt-Regular'),
+      url('../public/fonts/FakeReceipt-Regular.woff2') format('woff2'),
+      url('../public/fonts/FakeReceipt-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Banana Grotesk Medium';
+  src: local('Banana Grotesk Medium'), local('BananaGrotesk-Medium'),
+      url('../public/fonts/BananaGrotesk-Medium.woff2') format('woff2'),
+      url('../public/fonts/BananaGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+

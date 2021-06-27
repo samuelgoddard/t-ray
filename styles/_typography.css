@@ -1,0 +1,81 @@
+body {
+  @apply font-sans antialiased text-off-black bg-off-white dark:bg-off-black dark:text-off-white;
+}
+
+/* Content Stylings */
+.content > p {
+  @apply mb-5;
+
+  &:last-of-type {
+    @apply mb-0;
+  }
+}
+
+.content > p a {
+  @apply underline;
+
+  &:hover, &:focus {
+    @apply underline;
+  }
+}
+
+/* Heading Defaults */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
+  @apply p-0 mb-6 font-display uppercase;
+}
+
+/* Content Headings */
+.content > h1,
+.content > .h1 {
+  @apply text-4xl;
+}
+  
+.content > h2,
+.content > .h2 {
+  @apply text-3xl;
+}
+
+.text-upright {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.text-upright--rotate {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  @apply rotate-180;
+}
+
+.text-indent {
+  text-indent: 3.5vw;
+}
+
+.will-change {
+  will-change: transform;
+}
+
+html.has-scroll-smooth {
+  overflow: hidden; }
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.has-scroll-smooth body {
+  overflow: hidden; }
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh; }
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap; }
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%; }
