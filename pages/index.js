@@ -69,7 +69,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="overflow-hidden">
+              <div className="overflow-hidden mx-[-5vw] md:mx-[-3vw] xl:mx-[-2vw] pt-[4vw]">
                 <div className="w-full py-[1.5vw] md:py-[1vw] xl:py-[0.5vw] bg-pink dark:bg-yellow rotate-[3deg] scale-125 whitespace-nowrap text-off-black font-display uppercase tracking-tight text-[2.5vw] md:text-[1.75vw] mb-[18vw] md:mb-[14vw]">
                   <div className="flex space-x-[1vw] items-center justify-center will-change" data-scroll data-scroll-direction="horizontal" data-scroll-speed="0.7">
                     <span>New Drop!</span>
