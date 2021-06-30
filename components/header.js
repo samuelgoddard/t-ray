@@ -10,7 +10,11 @@ export default function Header() {
     <header className="pt-[5vw] md:pt-[3vw] xl:pt-[2vw] fixed z-50 top-0 left-0 w-full">
       <Container>
         <div className="flex flex-wrap">
-          <Logo/>
+          <Link href="/">
+            <a className="block">
+              <Logo/>
+            </a>
+          </Link>
 
           <div className="mx-auto hidden md:block">
             <nav>
@@ -45,7 +49,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/music">
                     <a aria-label="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[19px] xl:text-[22px] p-1 md:p-2">
                       Music
                     </a>

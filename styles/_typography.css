@@ -79,3 +79,19 @@ html.has-scroll-dragging {
   vertical-align: top;
   white-space: nowrap;
   height: 100%; }
+
+
+
+  body {
+  overscroll-behavior-y: none;
+  user-select: none;
+}
+
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+}

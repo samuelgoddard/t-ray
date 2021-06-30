@@ -13,7 +13,7 @@ import Image from 'next/image'
 import trayImage from '@/public/images/t-ray.webp'
 import trayPortrait from '@/public/images/t-ray-portrait.webp'
 
-export default function Home() {
+export default function Music() {
   return (
     <Layout>
       <Head>
@@ -40,7 +40,7 @@ export default function Home() {
           <Container>
             <m.div variants={fade}>
               <div className="relative mb-[28vw]">
-                <h1 className="uppercase text-[13vw] leading-[0.95] text-red text-center break-all will-change">ImReallyATrex</h1>
+                <h1 className="uppercase text-[13vw] leading-[0.95] text-red text-center break-all will-change">Music</h1>
                 
                 <div className="absolute inset-0 z-10 w-full h-full mt-[15vw] md:mt-[15.5vw] flex items-center justify-center">
                   <m.div
@@ -85,33 +85,6 @@ export default function Home() {
                     <span>Listen Here!</span>
                     <span><Logo/></span>
                     <span>New Drop!</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-center mb-[16vw]">
-                <div className="w-11/12 md:w-9/12">
-                  <div className="flex flex-wrap md:mx-[-3vw] items-center">
-                    <div className="w-full md:w-7/12 md:px-[3vw] mb-8 md:mb-0 will-change" data-scroll-speed="0.35">
-                      <Image
-                        src={trayPortrait}
-                        alt="Placeholder"
-                        layout="responsive"
-                        className="w-full dark:mix-blend-lighten rounded-md will-change"
-                        placeholder="blur"
-                      />
-                    </div>
-                    <div className="w-full md:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
-                      <p className="text-[3.2vw] md:text-[1.9vw] 2xl:text-[1.5vw] leading-[4.6vw] md:leading-[2.7vw] 2xl:leading-[2.2vw] text-indent tracking-tight mb-5 md:mb-8">T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010. He and the band found international success the following year with the release of the singles “Twilight” and “Lick Ya Down” before releasing their debut album, Bajan Style, in 2012.</p>
-
-                      <ul className="text-[2.9vw] md:text-[1.6vw] 2xl:text-[1.3vw] leading-[4.3vw] md:leading-[2.4vw] 2xl:leading-[2vw] tracking-tight">
-                        <li><span className="text-red dark:text-yellow mr-3">→</span> On Youtube</li>
-                        <li><span className="text-red dark:text-yellow mr-3">→</span> On Instagram</li>
-                        <li><span className="text-red dark:text-yellow mr-3">→</span> On Twitter</li>
-                        <li><span className="text-red dark:text-yellow mr-3">→</span> On Spotify</li>
-                        <li><span className="text-red dark:text-yellow mr-3">→</span> On Apple Music</li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
               </div>

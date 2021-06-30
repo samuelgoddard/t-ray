@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
       <Header />
 
       <AnimatePresence exitBeforeEnter>
-        <LocomotiveScrollProvider
+        {/* <LocomotiveScrollProvider
           options={
             {
               smooth: true,
@@ -25,11 +25,11 @@ export default function App({ Component, pageProps }) {
           }
           watch={[]}
           containerRef={containerRef}
-        >
-          <main data-scroll-container ref={containerRef}>
+        > */}
+          {/* <main data-scroll-container ref={containerRef}> */}
             <Component {...pageProps} key={router.asPath} />
-          </main>
-        </LocomotiveScrollProvider>
+          {/* </main> */}
+        {/* </LocomotiveScrollProvider> */}
       </AnimatePresence>
     </ThemeProvider>
   )
