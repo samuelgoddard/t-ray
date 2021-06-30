@@ -82,9 +82,8 @@ html.has-scroll-dragging {
 
 
 
-  body {
+body {
   overscroll-behavior-y: none;
-  user-select: none;
 }
 
 .scroll-container {

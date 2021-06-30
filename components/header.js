@@ -38,6 +38,20 @@ export default function Header() {
             </nav>
           </div>
 
+          <div className="mx-auto hidden md:block">
+            <nav>
+              <ul className="flex items-center">
+                <li>
+                  <Link href="/jam">
+                    <a aria-label="Navigate to about page" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[19px] xl:text-[22px] p-1 md:p-2">
+                      JAM MODE
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
           <div className="ml-auto">
             <nav>
               <ul className="flex">

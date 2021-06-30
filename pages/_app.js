@@ -14,23 +14,22 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
       <Header />
-
-      <AnimatePresence exitBeforeEnter>
-        {/* <LocomotiveScrollProvider
-          options={
-            {
-              smooth: true,
-              lerp: 0.05
-            }
+      <LocomotiveScrollProvider
+        options={
+          {
+            smooth: true,
+            lerp: 0.05
           }
-          watch={[]}
-          containerRef={containerRef}
-        > */}
-          {/* <main data-scroll-container ref={containerRef}> */}
+        }
+        watch={[]}
+        containerRef={containerRef}
+      >
+        <main data-scroll-container ref={containerRef}>
+          <AnimatePresence exitBeforeEnter>
             <Component {...pageProps} key={router.asPath} />
-          {/* </main> */}
-        {/* </LocomotiveScrollProvider> */}
-      </AnimatePresence>
+          </AnimatePresence>
+        </main>
+      </LocomotiveScrollProvider>
     </ThemeProvider>
   )
 }

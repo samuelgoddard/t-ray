@@ -6,8 +6,7 @@ import FancyLink from '@/components/fancyLink'
 import Logo from '@/components/logo'
 import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
-import MotionScroll from "@/components/motion-scroll"
-
+// import MotionScroll from "@/components/motion-scroll"
 
 import Image from 'next/image'
 import trayImage from '@/public/images/t-ray.webp'
@@ -26,8 +25,6 @@ export default function Home() {
         <meta name="og:title" content="Website Title" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-
-      <MotionScroll>
       
       <LazyMotion features={domMax}>
         <m.div
@@ -120,8 +117,7 @@ export default function Home() {
           </Container>
         </m.div>
       </LazyMotion>
-      
-      </MotionScroll>
+
       <Footer />
     </Layout>
   )

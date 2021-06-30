@@ -4,24 +4,22 @@ import {
   useViewportScroll,
   useTransform,
   useSpring,
-  motion
+  LazyMotion,
+  domAnimation,
+  m
 } from "framer-motion"
 
 const MotionScroll = ({ children }) => {
-  // scroll container
   const scrollRef = useRef(null)
 
-  // page scrollable height based on content length
   const [pageHeight, setPageHeight] = useState(0)
 
-  // update scrollable height when browser is resizing
   const resizePageHeight = useCallback(entries => {
     for (let entry of entries) {
       setPageHeight(entry.contentRect.height)
     }
   }, [])
 
-  // observe when browser is resizing
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver(entries =>
       resizePageHeight(entries)
@@ -30,27 +28,24 @@ const MotionScroll = ({ children }) => {
     return () => resizeObserver.disconnect()
   }, [scrollRef, resizePageHeight])
 
-  const { scrollY } = useViewportScroll() // measures how many pixels user has scrolled vertically
-  // as scrollY changes between 0px and the scrollable height, create a negative scroll value...
-  // ... based on current scroll position to translateY the document in a natural way
+  const { scrollY } = useViewportScroll()
+
   const transform = useTransform(scrollY, [0, pageHeight], [0, -pageHeight])
   const physics = { damping: 15, mass: 0.27, stiffness: 55 } // easing of smooth scroll
-  const spring = useSpring(transform, physics) // apply easing to the negative scroll value
+  const spring = useSpring(transform, physics)
 
   return (
-    <>
-      <motion.div
+    <LazyMotion features={domAnimation}>
+      <m.div
         ref={scrollRef}
-        style={{ y: spring }} // translateY of scroll container using negative scroll value
+        style={{ y: spring }}
         className="scroll-container"
       >
         {children}
-      </motion.div>
-      {/* blank div that has a dynamic height based on the content's inherent height */}
-      {/* this is neccessary to allow the scroll container to scroll... */}
-      {/* ... using the browser's native scroll bar */}
+      </m.div>
+    
       <div style={{ height: pageHeight }} />
-    </>
+    </LazyMotion>
   )
 }
 
