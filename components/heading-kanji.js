@@ -12,7 +12,7 @@ export default function HeadingKanji({ heading, subHeading, kanji }) {
 
       { kanji && (
         <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-5vw] z-0">
-          <div className="w-[13vw] md:w-[10vw]" data-scroll data-scroll-speed="0.35">
+          <div className="w-[13vw] md:w-[10vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
             <Image
               src={kanji}
               alt="Placeholder"
