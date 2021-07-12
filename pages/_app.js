@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
         options={
           {
             smooth: true,
-            lerp: 0.05
+            lerp: 0.075
           }
         }
         watch={[]}
