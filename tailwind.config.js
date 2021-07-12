@@ -34,8 +34,8 @@ module.exports = {
           '100%': { transform: 'translateX(0%)' },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(2px)' },
-          '50%': { transform: 'translateY(-8px)' },
+          '0%, 100%': { transform: 'translateY(1.1%)' },
+          '50%': { transform: 'translateY(-1.55%)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(0deg)' },
