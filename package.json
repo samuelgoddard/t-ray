@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "embla-carousel": "^4.5.3",
     "file-loader": "^6.2.0",
     "framer-motion": "^4.1.17",
     "locomotive-scroll": "^4.1.1",

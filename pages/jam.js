@@ -2,15 +2,9 @@ import Head from 'next/head'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import FancyLink from '@/components/fancyLink'
-import Logo from '@/components/logo'
 import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
-// import MotionScroll from "@/components/motion-scroll"
 
-import Image from 'next/image'
-import trayImage from '@/public/images/t-ray.webp'
-import trayPortrait from '@/public/images/t-ray-portrait.webp'
 import Player from '../components/player'
 
 export default function Jam() {
@@ -37,7 +31,7 @@ export default function Jam() {
         >
           <Container>
             <m.div variants={fade}>
-            <h1 className="uppercase text-[10vw] leading-[0.95] text-red text-center break-all will-change mb-[3vw]">Jam Mode</h1>
+            <h1 className="uppercase text-[11vw] md:text-[12vw] leading-[0.95] text-red text-center break-all will-change mb-[3vw]">Jam Mode</h1>
 
             <div className="flex justify-center">
               <div className="w-8/12">

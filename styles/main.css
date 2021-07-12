@@ -6,6 +6,7 @@
 @import 'tailwindcss/components';
 
 /* Custom Styles */
+@import '_carousel.css';
 @import '_typography.css';
 
 /* Tailwind Utilities */
