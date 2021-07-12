@@ -91,7 +91,7 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="fixed bottom-0 left-0 z-40 ml-[3vw] md:ml-[2vw] mb-[20vh] pointer">
+          <div className="fixed bottom-0 left-0 z-40 ml-[3vw] md:ml-[2vw] pointer">
             <button
               aria-label="Enable Vibe Mode"
               className="block uppercase text-[16px] md:text-[20px] xl:text-[24px] tracking-tight my-8 relative"
@@ -125,7 +125,7 @@ export default function Header() {
             </button>
           </div>
 
-          <div className="fixed bottom-0 right-0 z-40 mr-[-180px] md:mr-[-160px] xl:mr-[-170px] mb-[40vh] rotate-90 pointer">
+          <div className="fixed bottom-0 right-0 z-40 mr-[-180px] md:mr-[-160px] xl:mr-[-170px] mb-[15rem] rotate-90 pointer">
             <PlayerWidget />
           </div>
         </div>
