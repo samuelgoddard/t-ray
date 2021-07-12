@@ -11,7 +11,7 @@ export default function Header() {
   const {theme, setTheme} = useTheme()
 
   return (
-    <header className="pt-[5vw] md:pt-[3vw] xl:pt-[2vw] fixed z-50 top-0 left-0 w-full">
+    <header className="pt-[5vw] md:pt-[3vw] xl:pt-[2vw] fixed z-50 top-0 left-0 w-full font-mono">
       <Container>
         <div className="flex flex-wrap">
           <Link href="/">
