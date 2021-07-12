@@ -99,7 +99,7 @@ export default function Home() {
                       placeholder="blur"
                     />
 
-                    <div className="absolute bottom-0 left-0 ml-[-6.5vw] md:ml-[-5vw] mb-[-6.5vw] md:mb-[-5vw] will-change" data-scroll data-scroll-speed="0.45">
+                    <div className="absolute bottom-0 left-0 ml-[-6.5vw] md:ml-[-5vw] mb-[-6.5vw] md:mb-[-5vw] will-change" data-scroll data-scroll-speed="0.75">
                       <div className="w-[20vw] md:w-[14.5vw] motion-safe:animate-spin-slow">
                         <Image
                           src={homeKanji}
