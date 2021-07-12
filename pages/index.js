@@ -6,6 +6,7 @@ import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import HistoryCarousel from '@/components/history-carousel'
+import Rollover from '@/components/rollover'
 import Image from 'next/image'
 import trayImage from '@/public/images/t-ray.webp'
 import trayPortrait from '@/public/images/t-ray-portrait.webp'
@@ -162,11 +163,46 @@ export default function Home() {
                       <p className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010. He and the band found international success the following year with the release of the singles “Twilight” and “Lick Ya Down” before releasing their debut album, Bajan Style, in 2012.</p>
 
                       <ul className="text-[17px] md:text-[20px] xl:text-[22px] leading-[1.25] tracking-tight">
-                        <li className="mb-2"><span className="text-red dark:text-yellow mr-3">→</span> On Youtube</li>
-                        <li className="mb-2"><span className="text-red dark:text-yellow mr-3">→</span> On Instagram</li>
-                        <li className="mb-2"><span className="text-red dark:text-yellow mr-3">→</span> On Twitter</li>
-                        <li className="mb-2"><span className="text-red dark:text-yellow mr-3">→</span> On Spotify</li>
-                        <li className="mb-2"><span className="text-red dark:text-yellow mr-3">→</span> On Apple Music</li>
+                        <li className="mb-2">
+                          <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <div className="overflow-hidden relative">
+                              <Rollover label="On Youtube" underline />
+                            </div>
+                          </a>
+                        </li>
+                        <li className="mb-2">
+                          <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <div className="overflow-hidden relative">
+                              <Rollover label="On Instagram" underline />
+                            </div>
+                          </a>
+                        </li>
+                        <li className="mb-2">
+                          <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <div className="overflow-hidden relative">
+                              <Rollover label="On Twitter" underline />
+                            </div>
+                          </a>
+                        </li>
+                        <li className="mb-2">
+                          <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <div className="overflow-hidden relative">
+                              <Rollover label="On Spotify" underline />
+                            </div>
+                          </a>
+                        </li>
+                        <li className="mb-2">
+                          <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <div className="overflow-hidden relative">
+                              <Rollover label="On Apple Music" underline />
+                            </div>
+                          </a>
+                        </li>
                       </ul>
                     </div>
                   </div>
