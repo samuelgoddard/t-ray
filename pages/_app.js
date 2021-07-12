@@ -5,6 +5,8 @@ import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import Header from '@/components/header'
+import SEO from '@/helpers/seo.config'
+import { DefaultSeo } from 'next-seo'
 
 export default function App({ Component, pageProps }) {
   const containerRef = useRef(null)
@@ -13,7 +15,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider attribute="class">
+      <DefaultSeo {...SEO} />
       <Header />
+      
       <LocomotiveScrollProvider
         options={
           {

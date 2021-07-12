@@ -1,8 +1,6 @@
-import Head from 'next/head'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import FancyLink from '@/components/fancyLink'
 import Logo from '@/components/logo'
 import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
@@ -15,6 +13,7 @@ import trayText from '@/public/images/imreallyatrex.svg'
 import trayTextDark from '@/public/images/imreallyatrexdark.svg'
 import homeKanji from '@/public/images/home-kanji.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
+import { NextSeo } from 'next-seo'
 
 const SLIDE_COUNT = 5
 const slides = Array.from(Array(SLIDE_COUNT).keys())
@@ -22,17 +21,28 @@ const slides = Array.from(Array(SLIDE_COUNT).keys())
 export default function Home() {
   return (
     <Layout>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <title>Nextjs boilerplate - Home</title>
-        <meta
-        name="description"
-        content="nextJS boilerplate"
-        />
-        <meta name="og:title" content="Website Title" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      
+      <NextSeo
+        title="I'm Really A Trex"
+        description="T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010."
+        openGraph={{
+          url: 'https://t-ray.vercel.app/',
+          title: `I'm Really A Trex | T-Ray`,
+          description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
+          images: [
+            {
+              url: '/images/social.jpg',
+              width: 1200,
+              height: 630,
+              alt: `I'm Really A Trex | T-Ray Logo`,
+            },
+          ],
+          site_name: `I'm Really A Trex | T-Ray`,
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+      />
+
       <LazyMotion features={domMax}>
         <m.div
           initial="initial"
