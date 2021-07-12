@@ -1,5 +1,5 @@
 body {
-  @apply font-sans antialiased text-off-black bg-off-white dark:bg-off-black dark:text-off-white;
+  @apply font-sans antialiased text-off-black bg-off-white dark:bg-off-black dark:text-off-white transition-colors ease-in-out duration-500;
 }
 
 /* Content Stylings */

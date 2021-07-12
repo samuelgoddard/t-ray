@@ -64,7 +64,7 @@ export default function Header() {
               <ul className="flex">
                 <li>
                   <Link href="/">
-                    <a aria-label="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] bg-off-black text-off-white dark:bg-off-white dark:text-off-black p-1 md:p-2 group rounded-2xl">
+                    <a aria-label="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] bg-off-black text-off-white dark:bg-off-white dark:text-off-black p-1 md:p-2 group rounded-2xl transition-colors duration-500 ease-in-out">
                       <div className="relative overflow-hidden">
                         <Rollover label="Bio" />
                       </div>

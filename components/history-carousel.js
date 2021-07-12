@@ -36,7 +36,7 @@ const HistoryCarousel = ({ slides }) => {
                   />
                 </div>
 
-                <h2 className="text-outline embla__slide__title text-3xl md:text-4xl xl:text-5xl transition-colors ease-in-out duration-300">2010</h2>
+                <h2 className="text-outline embla__slide__title text-3xl md:text-4xl xl:text-5xl">2010</h2>
 
                 <p className="w-11/12 md:w-10/12 text-lg md:text-xl xl:text-2xl tracking-tight leading-tight md:leading-tight xl:leading-tight block">Professionally speaking, I became a revenue-generating musician when my former band “Cover Drive” was discovered on YouTube by a UK-based record label when I was 17.</p>
               </div>

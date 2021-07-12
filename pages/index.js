@@ -58,7 +58,7 @@ export default function Home() {
                 <h1 className="uppercase text-[13vw] leading-[0.82] text-red text-center break-all will-change relative">
                   ImReallyA Trex
 
-                  <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100">
+                  <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500">
                     <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
                       <Image
                         src={trayText}
@@ -69,7 +69,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0">
+                  <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500">
                     <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
                       <Image
                         src={trayTextDark}
@@ -120,7 +120,7 @@ export default function Home() {
               </div>
 
               <div className="overflow-hidden mx-[-5vw] md:mx-[-3vw] xl:mx-[-2vw] pt-[4vw]">
-                <div className="w-full py-[1.5vw] md:py-[1vw] xl:py-[0.5vw] bg-pink dark:bg-yellow rotate-[3deg] whitespace-nowrap text-off-black font-display uppercase tracking-tight text-[4vw] md:text-[2.25vw] xl:text-[2vw] mb-[18vw] md:mb-[14vw]">
+                <div className="w-full py-[1.5vw] md:py-[1vw] xl:py-[0.5vw] bg-pink dark:bg-yellow transition-colors ease-in-out duration-500 rotate-[3deg] whitespace-nowrap text-off-black font-display uppercase tracking-tight text-[4vw] md:text-[2.25vw] xl:text-[2vw] mb-[18vw] md:mb-[14vw]">
                   <div className="relative flex overflow-x-hidden will-change">
                     <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
                       <span className="mx-3">New Drop!</span>
@@ -165,7 +165,7 @@ export default function Home() {
                       <ul className="text-[17px] md:text-[20px] xl:text-[22px] leading-[1.25] tracking-tight">
                         <li className="mb-2">
                           <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
                             <div className="overflow-hidden relative">
                               <Rollover label="On Youtube" underline />
                             </div>
@@ -173,7 +173,7 @@ export default function Home() {
                         </li>
                         <li className="mb-2">
                           <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
                             <div className="overflow-hidden relative">
                               <Rollover label="On Instagram" underline />
                             </div>
@@ -181,7 +181,7 @@ export default function Home() {
                         </li>
                         <li className="mb-2">
                           <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
                             <div className="overflow-hidden relative">
                               <Rollover label="On Twitter" underline />
                             </div>
@@ -189,7 +189,7 @@ export default function Home() {
                         </li>
                         <li className="mb-2">
                           <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
                             <div className="overflow-hidden relative">
                               <Rollover label="On Spotify" underline />
                             </div>
@@ -197,7 +197,7 @@ export default function Home() {
                         </li>
                         <li className="mb-2">
                           <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                            <span className="text-red dark:text-yellow mr-3">→</span>
+                            <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
                             <div className="overflow-hidden relative">
                               <Rollover label="On Apple Music" underline />
                             </div>
