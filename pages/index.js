@@ -228,7 +228,7 @@ export default function Home() {
                 <div className="w-full md:w-11/12">
                   <div className="flex flex-wrap justify-center md:-mx-4">
                     <div className="w-full md:w-1/3 md:px-4">
-                      <div className="w-9/12 mx-auto mb-6" data-scroll data-scroll-speed="0.15">
+                      <div className="w-9/12 mx-auto mb-6" data-scroll data-scroll-speed="0.85">
                         <Image
                           src={tee}
                           alt="Placeholder"
@@ -246,7 +246,7 @@ export default function Home() {
                     </div>
 
                     <div className="w-full md:w-1/3 md:px-4 hidden md:block">
-                      <div className="w-9/12 mx-auto mb-6" data-scroll data-scroll-speed="0.45">
+                      <div className="w-9/12 mx-auto mb-6" data-scroll data-scroll-speed="0.25">
                         <Image
                           src={tee}
                           alt="Placeholder"
@@ -264,7 +264,7 @@ export default function Home() {
                     </div>
 
                     <div className="w-full md:w-1/3 md:px-4 hidden md:block">
-                      <div className="w-9/12 mx-auto mb-6" data-scroll data-scroll-speed="0.75">
+                      <div className="w-9/12 mx-auto mb-6" data-scroll data-scroll-speed="0.85">
                         <Image
                           src={tee}
                           alt="Placeholder"
