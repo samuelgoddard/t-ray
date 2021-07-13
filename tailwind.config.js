@@ -23,6 +23,7 @@ module.exports = {
         'spin-slow': 'spin 12s linear infinite',
         wiggle: 'wiggle 0.9s ease-in-out infinite',
         float: 'float 5s ease-in-out infinite',
+        'float-wobble': 'floatWobble 5s ease-in-out infinite',
       },
       keyframes: {
         marquee: {
@@ -36,6 +37,10 @@ module.exports = {
         float: {
           '0%, 100%': { transform: 'translateY(1.1%)' },
           '50%': { transform: 'translateY(-1.55%)' },
+        },
+        floatWobble: {
+          '0%, 100%': { transform: 'translateY(1.25%) rotateZ(2deg) scale(1.05)' },
+          '50%': { transform: 'translateY(-1.25%) rotateZ(-5deg) scale(1)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(0deg)' },
