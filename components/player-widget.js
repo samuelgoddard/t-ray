@@ -37,7 +37,7 @@ class PlayerWidget extends React.Component {
 
   render () {
     return (
-      <div className="bg-yellow rounded-full p-3 px-6 max-w-[450px] flex overflow-hidden">
+      <div className="bg-yellow rounded-full p-3 px-3 md:px-6 max-w-[450px] flex overflow-hidden">
         {/* {JSON.stringify(this.state.playing.currentlyPlaying)} */}
         <ReactHowler 
           onLoad={this.handleOnLoad}
@@ -51,7 +51,7 @@ class PlayerWidget extends React.Component {
         />
 
         <button className="text-off-black block w-auto" onClick={() => this.handleClick() }>
-          <div className="mr-[10px]">
+          <div className="md:mr-[10px]">
             { this.state.playing ? (
               <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -64,7 +64,7 @@ class PlayerWidget extends React.Component {
           </div>
         </button>
 
-        <span className="uppercase text-[16px] md:text-[20px] xl:text-[24px] tracking-tight dark:text-off-black block flex-1 overflow-hidden">
+        <span className="uppercase text-[16px] md:text-[20px] xl:text-[24px] tracking-tight dark:text-off-black flex-1 overflow-hidden hidden md:block">
           <div className="relative flex overflow-x-hidden">
             <div className="motion-safe:animate-marquee whitespace-nowrap">
               <span className="mx-1">Girl From Osaka</span>
