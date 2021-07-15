@@ -175,7 +175,7 @@ export default function Header(currentlyPlaying) {
         <m.div
           animate={isMenuOpen ? "open" : "closed"}
           variants={variants}
-          className={`fixed inset-0 z-50 bg-red py-[20px] md:py-[25px] flex md:hidden ${isMenuOpen ? '' : 'pointer-events-none' }`}
+          className={`fixed inset-0 z-50 bg-red py-[20px] md:py-[25px] flex md:hidden opacity-0 ${isMenuOpen ? '' : 'pointer-events-none' }`}
         >
           <button
             className="absolute top-0 right-0 p-2 bg-black rounded-full bg-opacity-20 text-white z-50 block m-[20px]"

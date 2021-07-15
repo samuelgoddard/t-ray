@@ -33,6 +33,7 @@ export default function App({ Component, pageProps }) {
                   alt="Placeholder"
                   layout="responsive"
                   className="w-full will-change"
+                  priority
                 />
               </div>
             </div>
