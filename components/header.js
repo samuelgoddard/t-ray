@@ -8,7 +8,7 @@ import Image from 'next/image'
 import themeToggleActive from '@/public/images/theme-toggle-active.svg'
 import themeToggleActiveDark from '@/public/images/theme-toggle-active-dark.svg'
 
-export default function Header() {
+export default function Header(isCurrentlyPlaying) {
   const {theme, setTheme} = useTheme()
 
   return (
@@ -142,7 +142,7 @@ export default function Header() {
           </div>
 
           <div className="fixed bottom-0 right-0 z-40 mr-[-180px] md:mr-[-160px] xl:mr-[-170px] mb-[14.5rem] rotate-90 pointer hidden md:block">
-            <PlayerWidget />
+            <PlayerWidget isCurrentlyPlaying={isCurrentlyPlaying} />
           </div>
         </div>
       </Container>
