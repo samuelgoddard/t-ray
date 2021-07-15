@@ -69,7 +69,7 @@ export default function Header(currentlyPlaying) {
             </div>
 
             <div className="ml-auto relative z-10">
-              <button className="block md:hidden w-14 h-auto py-[10px]" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
+              <button className="block md:hidden w-14 h-auto py-[10px] text-off-black dark:text-off-white" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
                 <span className="block w-full h-[3px] mb-2 bg-current"></span>
                 <span className="block ml-auto w-3/4 h-[3px] bg-current"></span>
               </button>

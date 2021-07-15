@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
       
       <Header currentlyPlaying={isIntroAccepted} />
 
-      <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 ${isIntroAccepted ? 'opacity-0 scale-110 pointer-events-none' : 'h-full'}`}>
+      <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full ${isIntroAccepted ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
         <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
           <div className="relative">
             <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-0">
