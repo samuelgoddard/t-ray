@@ -14,7 +14,6 @@ export default function App({ Component, pageProps }) {
   const [isIntroAccepted, setIntroAccepted] = useState(false);
 
   const toggleIntroAccepted = () => {
-    console.log('test')
     setIntroAccepted(!isIntroAccepted)
   };
 

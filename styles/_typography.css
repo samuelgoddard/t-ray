@@ -35,15 +35,19 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
   @apply text-3xl;
 }
 
-.text-upright {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+@responsive {
+  .text-upright {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
 }
 
-.text-upright--rotate {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  @apply rotate-180;
+@responsive {
+  .text-upright--rotate {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    @apply rotate-180;
+  }
 }
 
 .text-indent {
