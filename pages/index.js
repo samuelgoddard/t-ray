@@ -1,9 +1,9 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
 import Logo from '@/components/logo'
-import { fade, intro } from "@/helpers/transitions"
+import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import HistoryCarousel from '@/components/history-carousel'

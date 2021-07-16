@@ -23,27 +23,29 @@ export default function App({ Component, pageProps }) {
       
       <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
 
-      <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full ${isIntroAccepted ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
-        <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
-          <div className="relative">
-            <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-0">
-              <div className="w-[15vw] md:w-[14vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
-                <Image
-                  src={japaneseCharacters}
-                  alt="Placeholder"
-                  layout="responsive"
-                  className="w-full will-change"
-                  priority
-                />
+      { !isIntroAccepted && (
+        <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
+          <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
+            <div className="relative">
+              <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-0">
+                <div className="w-[15vw] md:w-[14vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
+                  <Image
+                    src={japaneseCharacters}
+                    alt="Placeholder"
+                    layout="responsive"
+                    className="w-full will-change"
+                    priority
+                  />
+                </div>
+              </div>
+              <div>
+                <span className="block uppercase text-[7vw] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display mb-5">ImReallyATrex</span>
+                <span className="block uppercase text-[20px] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display">Click To Enter</span>
               </div>
             </div>
-            <div>
-              <span className="block uppercase text-[7vw] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display mb-5">ImReallyATrex</span>
-              <span className="block uppercase text-[20px] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display">Click To Enter</span>
-            </div>
-          </div>
-        </button>
-      </div>
+          </button>
+        </div>
+      )}
 
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.asPath} />

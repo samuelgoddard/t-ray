@@ -15,6 +15,7 @@ import HeadingKanji from '@/components/heading-kanji'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import MetaTeaser from '@/components/meta-teaser'
 import { NextSeo } from 'next-seo'
+import Link from 'next/link'
 
 export default function News() {
   const containerRef = useRef(null)
@@ -117,79 +118,24 @@ export default function News() {
 
                   <div className="border-t border-current w-11/12 mx-auto mb-[20vw] md:mb-[16vw]">
                     <ul>
-                      <li className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                        <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                          <MetaTeaser/>
-                        </span>
+                      <li className="">
+                        <Link href="/news">
+                          <a className="flex flex-wrap justify-start py-5 items-center border-b border-current">
+                            <span className="block w-full lg:w-auto mb-3 lg:mb-0">
+                              <MetaTeaser/>
+                            </span>
 
-                        <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">2022 Tour Dates Announced</span>
+                            <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">2022 Tour Dates Announced</span>
 
-                        <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                          <span>Spotify</span>
-                          <span>&bull;</span>
-                          <span>Apple Music</span>
-                          <span>&bull;</span>
-                          <span>Amazon</span>
-                        </span>
-                      </li>
-                      <li className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                        <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                          <MetaTeaser/>
-                        </span>
-
-                        <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">Vogue Interview</span>
-
-                        <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                          <span>Read Article</span>
-                        </span>
-                      </li>
-                      <li className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                        <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                          <MetaTeaser/>
-                        </span>
-
-                        <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">Behind The Scenes</span>
-
-                        <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                          <span>Read Article</span>
-                        </span>
-                      </li>
-                      <li className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                        <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                          <MetaTeaser/>
-                        </span>
-
-                        <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">“TELEPHONE LOVE” (Official Video)</span>
-
-                        <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                          <span>Spotify</span>
-                          <span>&bull;</span>
-                          <span>Apple Music</span>
-                          <span>&bull;</span>
-                          <span>Amazon</span>
-                        </span>
-                      </li>
-                      <li className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                        <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                          <MetaTeaser/>
-                        </span>
-
-                        <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">Photoshoot: GQ</span>
-
-                        <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                          <span>Read Article</span>
-                        </span>
-                      </li>
-                      <li className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                        <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                          <MetaTeaser/>
-                        </span>
-
-                        <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">New Website Launched</span>
-
-                        <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                          <span>Read Article</span>
-                        </span>
+                            <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
+                              <span>Spotify</span>
+                              <span>&bull;</span>
+                              <span>Apple Music</span>
+                              <span>&bull;</span>
+                              <span>Amazon</span>
+                            </span>
+                          </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
