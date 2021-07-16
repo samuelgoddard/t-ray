@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider attribute="class">
       <DefaultSeo {...SEO} />
       
-      <Header currentlyPlaying={isIntroAccepted} />
+      <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
 
       <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full ${isIntroAccepted ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
         <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>

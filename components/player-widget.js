@@ -8,7 +8,7 @@ class PlayerWidget extends React.Component {
 
     this.state = {
       loaded: false,
-      playing: this.props.isCurrentlyPlaying
+      playing: true
     }
 
     this.handleOnLoad = this.handleOnLoad.bind(this)
@@ -38,7 +38,6 @@ class PlayerWidget extends React.Component {
   render () {
     return (
       <div className="bg-yellow rounded-full p-3 px-3 md:px-6 max-w-[450px] flex overflow-hidden">
-        {/* {JSON.stringify(this.state.playing.currentlyPlaying)} */}
         <ReactHowler 
           onLoad={this.handleOnLoad}
           ref={(ref) => (this.playerFull = ref)}
@@ -46,7 +45,7 @@ class PlayerWidget extends React.Component {
           preload={true}
           src='/stems/girl-from-osaka.mp3'
           playing={this.state.playing}
-          volume={0.5}
+          volume={0}
           mute={false}
         />
 

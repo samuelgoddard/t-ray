@@ -20,6 +20,8 @@ module.exports = {
       animation: {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
+        'marquee-slow': 'marquee 75s linear infinite',
+        'marquee-slow-2': 'marquee2 75s linear infinite',
         'spin-slow': 'spin 12s linear infinite',
         wiggle: 'wiggle 0.9s ease-in-out infinite',
         float: 'float 5s ease-in-out infinite',
