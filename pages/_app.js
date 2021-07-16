@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
       
       <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
 
-      { !isIntroAccepted && (
+      {/* { !isIntroAccepted && (
         <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
           <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
             <div className="relative">
@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
             </div>
           </button>
         </div>
-      )}
+      )} */}
 
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.asPath} />
