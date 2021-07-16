@@ -238,13 +238,13 @@ export default function Home() {
                     <div className="w-10/12 md:w-11/12 max-w-screen-3xl mx-auto">
                       <div className="flex flex-wrap justify-center md:-mx-4">
                         <div className="w-full md:w-1/3 md:px-4 block">
-                          <ProductTeaser href="#" title="Dino Tee" price={45} image={tee} />
+                          <ProductTeaser href="/product" title="Dino Tee" price={45} image={tee} />
                         </div>
                         <div className="w-full md:w-1/3 md:px-4 hidden md:block">
-                          <ProductTeaser href="#" title="Dino Tee" price={45} image={tee} />
+                          <ProductTeaser href="/product" title="Dino Tee" price={45} image={tee} />
                         </div>
                         <div className="w-full md:w-1/3 md:px-4 hidden md:block">
-                          <ProductTeaser href="#" title="Dino Tee" price={45} image={tee} />
+                          <ProductTeaser href="/product" title="Dino Tee" price={45} image={tee} />
                         </div>
                       </div>
                     </div>
