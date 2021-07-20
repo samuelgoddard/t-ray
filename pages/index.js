@@ -1,3 +1,4 @@
+// import { client } from '@/helpers/shopify-client'
 import { useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
@@ -11,19 +12,50 @@ import Rollover from '@/components/rollover'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import ProductTeaser from '@/components/product-teaser'
 import Image from 'next/image'
+import Link from 'next/link'
+import ImageWrapper from '@/components/image-wrapper'
 import trayImage from '@/public/images/t-ray.webp'
-import trayPortrait from '@/public/images/t-ray-portrait.webp'
 import trayText from '@/public/images/imreallyatrex.svg'
 import trayTextDark from '@/public/images/imreallyatrexdark.svg'
 import tee from '@/public/images/tee.webp'
 import homeKanji from '@/public/images/home-kanji.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import { NextSeo } from 'next-seo'
+import BlockContent from '@sanity/block-content-to-react'
+import SanityPageService from '@/services/sanityPageService'
 
-const SLIDE_COUNT = 5
-const slides = Array.from(Array(SLIDE_COUNT).keys())
+const query = `{
+  "home": *[_type == "home"][0]{
+    title,
+    seo {
+      ...,
+      shareGraphic {
+        asset->
+      }
+    },
+    contentImage {
+      asset -> {
+        ...
+      }
+    },
+    historyStories[] {
+      descriptionText,
+      year,
+      image {
+        asset -> {
+          ...
+        }
+      },
+    },
+    introBioText,
+    contentBioText,
+  },
+}`
 
-export default function Home() {
+const pageService = new SanityPageService(query)
+
+export default function Home(initialData) {
+  const { data: { home }  } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
 
   return (
@@ -49,6 +81,7 @@ export default function Home() {
           cardType: 'summary_large_image',
         }}
       />
+
       <LazyMotion features={domMax}>
         <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
           <div data-scroll-container ref={containerRef}>
@@ -126,52 +159,65 @@ export default function Home() {
                   
                   <div className="flex justify-center mb-[14vw] md:mb-[10vw]">
                     <div className="w-11/12 md:w-8/12" data-scroll data-scroll-speed="1">
-                      <p className="text-[23px] md:text-[32px] xl:text-[40px] 2xl:text-[46px] leading-[1.175] text-indent tracking-tight">T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010. He and the band found international success the following year with the release of the singles “Twilight” and “Lick Ya Down” before releasing their debut album, Bajan Style, in 2012.</p>
-                    </div>
-                  </div>
-
-                  <div className="overflow-hidden mx-[-5vw] md:mx-[-3vw] xl:mx-[-2vw] pt-[4vw]">
-                    <div className="w-full py-[1.5vw] md:py-[1vw] xl:py-[0.5vw] bg-pink dark:bg-yellow transition-colors ease-in-out duration-500 rotate-[3deg] whitespace-nowrap text-off-black font-display uppercase tracking-tight text-[4vw] md:text-[2.25vw] xl:text-[2vw] mb-[18vw] md:mb-[14vw]">
-                      <div className="relative flex overflow-x-hidden will-change">
-                        <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
-                          <span className="mx-3">New Drop!</span>
-                          <span className="mx-3"><Logo/></span>
-                          <span className="mx-3">Listen Here!</span>
-                          <span className="mx-3"><Logo/></span>
-                          <span className="mx-3">New Drop!</span>
-                          <span className="mx-3"><Logo/></span>
-                          <span className="mx-3">Listen Here!</span>
-                          <span className="mx-3"><Logo/></span>
-                        </div>
-
-                        <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
-                          <span className="mx-3">New Drop!</span>
-                          <span className="mx-3"><Logo/></span>
-                          <span className="mx-3">Listen Here!</span>
-                          <span className="mx-3"><Logo/></span>
-                          <span className="mx-3">New Drop!</span>
-                          <span className="mx-3"><Logo/></span>
-                          <span className="mx-3">Listen Here!</span>
-                          <span className="mx-3"><Logo/></span>
-                        </div>
+                      <div className="text-[23px] md:text-[32px] xl:text-[40px] 2xl:text-[46px] leading-[1.175] text-indent tracking-tight">
+                        <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.introBioText} />
                       </div>
                     </div>
                   </div>
+
+                  <Link href="/music">
+                    <a className="overflow-hidden mx-[-5vw] md:mx-[-3vw] xl:mx-[-2vw] pt-[4vw]">
+                      <div className="w-full py-[1.5vw] md:py-[1vw] xl:py-[0.5vw] bg-pink dark:bg-yellow transition-colors ease-in-out duration-500 rotate-[3deg] whitespace-nowrap text-off-black font-display uppercase tracking-tight text-[4vw] md:text-[2.25vw] xl:text-[2vw] mb-[18vw] md:mb-[14vw]">
+                        <div className="relative flex overflow-x-hidden will-change">
+                          <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
+                            <span className="mx-3">New Drop!</span>
+                            <span className="mx-3"><Logo/></span>
+                            <span className="mx-3">Listen Here!</span>
+                            <span className="mx-3"><Logo/></span>
+                            <span className="mx-3">New Drop!</span>
+                            <span className="mx-3"><Logo/></span>
+                            <span className="mx-3">Listen Here!</span>
+                            <span className="mx-3"><Logo/></span>
+                          </div>
+
+                          <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
+                            <span className="mx-3">New Drop!</span>
+                            <span className="mx-3"><Logo/></span>
+                            <span className="mx-3">Listen Here!</span>
+                            <span className="mx-3"><Logo/></span>
+                            <span className="mx-3">New Drop!</span>
+                            <span className="mx-3"><Logo/></span>
+                            <span className="mx-3">Listen Here!</span>
+                            <span className="mx-3"><Logo/></span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </Link>
 
                   <div className="flex justify-center mb-[25vw] md:mb-[16vw]">
                     <div className="w-11/12 md:w-10/12 xl:w-9/12">
                       <div className="flex flex-wrap md:mx-[-3vw] items-center md:items-start xl:items-center">
                         <div className="w-full md:w-6/12 xl:w-7/12 md:px-[3vw] mb-8 md:mb-0 will-change bg-off-white dark:bg-off-black transition-colors ease-in-out duration-500" data-scroll-speed="0.35">
-                          <Image
-                            src={trayPortrait}
+                          <ImageWrapper
+                            image={home.contentImage.asset}
+                            className="w-full dark:mix-blend-lighten rounded-md will-change"
+                            baseWidth={1200}
+                            baseHeight={1500}
+                            alt={'T-Ray Portrait'}
+                          />
+                          {/* <Image
+                            src={home.contentImage.src}
                             alt="Placeholder"
                             layout="responsive"
                             className="w-full dark:mix-blend-lighten rounded-md will-change"
                             placeholder="blur"
-                          />
+                          /> */}
                         </div>
                         <div className="w-full md:w-6/12 xl:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
-                          <p className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010. He and the band found international success the following year with the release of the singles “Twilight” and “Lick Ya Down” before releasing their debut album, Bajan Style, in 2012.</p>
+                          <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">
+                            <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentBioText} />
+                          </div>
 
                           <ul className="text-[17px] md:text-[20px] xl:text-[22px] leading-[1.25] tracking-tight">
                             <li className="mb-2">
@@ -226,7 +272,7 @@ export default function Home() {
               
               <m.div variants={fade}>
                 <div className="mb-[32vw] md:mb-[15vw] xl:mb-[20vw]">
-                  <HistoryCarousel slides={slides} />
+                  <HistoryCarousel slides={home.historyStories} />
                 </div>
               </m.div>
               
@@ -269,4 +315,11 @@ export default function Home() {
       </LazyMotion>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const props = await pageService.fetchQuery(context)
+  return { 
+    props: props
+  };
 }

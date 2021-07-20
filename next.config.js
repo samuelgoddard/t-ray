@@ -1,4 +1,7 @@
 module.exports = {
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
   webpack(config, options) {
     const { isServer } = options;
     config.module.rules.push({

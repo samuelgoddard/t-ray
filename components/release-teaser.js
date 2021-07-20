@@ -1,33 +1,40 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import MetaTeaser from '@/components/meta-teaser'
 
-export default function ReleaseTeaser({ href, image, title, date, type }) {
+import MetaTeaser from '@/components/meta-teaser'
+import ImageWrapper from '@/components/image-wrapper'
+
+export default function ReleaseTeaser({image, title, date, type, purchaseLinks, video }) {
   return(
     <div>
       <div className="w-full mb-6">
-        <Image
-          src={image}
-          alt="Placeholder"
-          layout="responsive"
+        <ImageWrapper
+          image={image}
           className="w-full rounded-md will-change"
-          placeholder="blur"
+          baseWidth={video ? 1200 : 720}
+          baseHeight={video ? 720 : 720}
+          alt={'T-Ray Album'}
         />
       </div>
         
       <div className="flex justify-center mb-4 md:mb-6">
-        <MetaTeaser />
+        <MetaTeaser date={date} type={type}/>
       </div>
       
       <h3 className="text-[19px] md:text-[21px] xl:text-[26px] text-center mb-2 xl:mb-4 leading-none">{title}</h3>
 
-      <span className="flex uppercase justify-center space-x-2 text-lg">
-        <span>Spotify</span>
-        <span>&bull;</span>
-        <span>Apple Music</span>
-        <span>&bull;</span>
-        <span>Amazon</span>
-      </span>
+      {purchaseLinks && (
+        <span className="flex uppercase justify-center space-x-2 text-lg">
+          {purchaseLinks.map((e, i) => {
+            return (
+              <>
+                <a href={e.url} target="_blank" rel="noopener noreferrer">{e.title}</a>
+                { i !== purchaseLinks.length - 1 && (
+                  <span>&bull;</span>
+                )}
+              </>
+            )
+          })}
+        </span>
+      )}
     </div>
   )
 }
