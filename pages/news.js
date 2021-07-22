@@ -27,6 +27,7 @@ const query = `{
         ...
       }
     },
+    externalUrl,
     date,
     slug {
       current
@@ -139,18 +140,49 @@ export default function News(initialData) {
                       <div className="flex flex-wrap md:-mx-12 xl:-mx-16 justify-center">
                         <div className="w-full md:w-2/3 md:px-12 xl:px-16 mb-8 md:mb-0">
                           {musicVideos.map((e, i) => {
+                            let href = null;
+
+                            if (e.externalUrl) {
+                              href = e.externalUrl
+                            } else if (e.slug) {
+                              href = `/news/${e.slug.current}`
+                            } else {
+                              href = null
+                            }
                             return (
                               <div className="mb-10 md:mb-16 xl:mb-20" key={i}>
-                                <ReleaseTeaser video image={e.teaserImage.asset} title={e.title} date={e.date} type="Music Video" purchaseLinks={e.purchaseLinks} />
+                                <ReleaseTeaser
+                                  href={href}
+                                  video
+                                  image={e.teaserImage.asset}
+                                  title={e.title} date={e.date}
+                                  type="Music Video"
+                                  purchaseLinks={e.purchaseLinks}
+                                />
                               </div>  
                             )
                           })}
                         </div>
                         <div className="w-9/12 md:w-1/3 md:px-12 xl:px-16 mb-8 md:mt-[6vw]" data-scroll data-scroll-speed={1.2}>
                           {feed.map((e, i) => {
+                            let href = null;
+
+                            if (e.externalUrl) {
+                              href = e.externalUrl
+                            } else if (e.slug) {
+                              href = `/news/${e.slug.current}`
+                            } else {
+                              href = null
+                            }
                             return (
                               <div className="mb-10 md:mb-16 xl:mb-20" key={i}>
-                                <ReleaseTeaser image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} title={e.title} date={e.date} type="Music Video" purchaseLinks={e.purchaseLinks} />
+                                <ReleaseTeaser
+                                  href={href}
+                                  image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} title={e.title}
+                                  date={e.date}
+                                  type={e.type ? e.type : "Latest News"}
+                                  purchaseLinks={e.purchaseLinks}
+                                />
                               </div>  
                             )
                           })}
@@ -185,18 +217,7 @@ export default function News(initialData) {
                     </ul>
                   </div>
 
-
-                  <span className="text-[8vw] leading-[0.82] text-red will-change relative block font-display uppercase pb-4 mb-6 md:mb-12 xl:mb-14 border-b border-red">Got Email?</span>
-
-                  <div className="w-10/12 md:w-8/12">
-                    <p className="text-[22px] md:text-[32px] xl:text-[38px] 2xl:text-[46px] leading-[1.2] tracking-tight mb-5 md:mb-8">Get updates, drops, advance ticket infomation and more direct to your inbox. No spam!</p>
-                  </div>
-
-                  <div className="flex lg:mb-[18vw] pt-[50px] md:pt-[100px] xl:pt-[180px]">
-                    <div className="w-full">
-                      <Footer />
-                    </div>
-                  </div>
+                  <Footer />
                 </m.div>
               </Container>
           

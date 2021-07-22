@@ -14,6 +14,7 @@ import musicText from '@/public/images/music.svg'
 import musicTextDark from '@/public/images/music-dark.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import { NextSeo } from 'next-seo'
+import MetaTeaser from '@/components/meta-teaser'
 import BlockContent from '@sanity/block-content-to-react'
 import SanityPageService from '@/services/sanityPageService'
 
@@ -122,16 +123,19 @@ export default function Music(initialData) {
                           />
                         </div>
                         <div className="w-full md:w-6/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
-                          <div className="xl:rotate-2 mb-5 md:mb-8 md:-ml-4 xl:-ml-8">
-                            <h2 className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">Latest Release</h2>
-                            <span className="hidden xl:block -mt-2 text-[32px] md:text-[37px] xl:text-[42px] leading-none font-display uppercase text-outline">Latest Release</span>
+                          <div className="mb-5 md:mb-8">
+                            <MetaTeaser date={music[0].date} type={music[0].type} latest />
+                          </div>
+                          
+                          <div className="mb-5 md:mb-8">
+                            <h2 className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">{music[0].title}</h2>
                           </div>
 
-                          <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">
+                          <div className="text-[19px] md:text-[20px] xl:text-[22px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">
                             <BlockContent serializers={{ container: ({ children }) => children }} blocks={music[0].descriptionText} />
                           </div>
 
-                          <ul className="text-[17px] md:text-[20px] xl:text-[22px] leading-[1.25] tracking-tight">
+                          <ul className="text-[17px] md:text-[18px] xl:text-[20px] leading-[1.25] tracking-tight">
                             {music[0].purchaseLinks.map((e, index) => {
                               return (
                                 <li className="mb-2" key={index}>
@@ -158,7 +162,7 @@ export default function Music(initialData) {
                       <div className="flex flex-wrap md:-mx-6">
                         {music.slice(1).map((e, index) => {
                           return (
-                            <div key={index} className="w-full md:w-1/2 lg:w-1/3 md:px-6 mb-8 md:mb-0">
+                            <div key={index} className={`w-full md:w-1/2 lg:w-1/3 md:px-6 mb-8 md:mb-0 ${index == 1 ? 'md:mt-20' : ''} ${index == 2 ? 'lg:mt-40' : ''}`}>
                               <ReleaseTeaser image={e.coverArtwork.asset} title={e.title} date={e.date} type={e.type} purchaseLinks={e.purchaseLinks} />
                             </div>
                           )
@@ -167,18 +171,7 @@ export default function Music(initialData) {
                     </div>
                   </div>
 
-                  {/* Email Newsletter @TODO Abstract away to component */}
-                  <span className="text-[8vw] leading-[0.82] text-red will-change relative block font-display uppercase pb-4 mb-6 md:mb-12 xl:mb-14 border-b border-red">Got Email?</span>
-
-                  <div className="w-10/12 md:w-8/12">
-                    <p className="text-[22px] md:text-[32px] xl:text-[38px] 2xl:text-[46px] leading-[1.2] tracking-tight mb-5 md:mb-8">Get updates, drops, advance ticket infomation and more direct to your inbox. No spam!</p>
-                  </div>
-
-                  <div className="flex lg:mb-[18vw] pt-[50px] md:pt-[100px] xl:pt-[180px]">
-                    <div className="w-full">
-                      <Footer />
-                    </div>
-                  </div>
+                  <Footer />
                 </m.div>
               </Container>
           

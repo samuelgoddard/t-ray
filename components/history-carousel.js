@@ -31,13 +31,17 @@ const HistoryCarousel = ({ slides }) => {
                   <ImageWrapper
                     image={slide.image.asset}
                     className="embla__slide__img will-change"
-                    baseWidth={720}
-                    baseHeight={460}
+                    baseWidth={1808}
+                    baseHeight={1114}
                   />
                 </div>
 
                 {slide.year && (
-                  <h2 className="text-outline embla__slide__title text-3xl md:text-4xl xl:text-5xl">{slide.year}</h2>
+                  <h2 className="text-outline embla__slide__title text-3xl md:text-4xl xl:text-5xl mb-1 md:mb-2 xl:mb-3">{slide.year}</h2>
+                )}
+
+                {slide.title && (
+                  <h3 className="text-outline text-xl md:text-2xl xl:text-3xl">{slide.title}</h3>
                 )}
 
                 {slide.descriptionText && (

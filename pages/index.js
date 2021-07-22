@@ -3,7 +3,6 @@ import { useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import Logo from '@/components/logo'
 import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
@@ -12,13 +11,14 @@ import Rollover from '@/components/rollover'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import ProductTeaser from '@/components/product-teaser'
 import Image from 'next/image'
-import Link from 'next/link'
+import Ticker from '@/components/ticker'
 import ImageWrapper from '@/components/image-wrapper'
 import trayImage from '@/public/images/t-ray.webp'
 import trayText from '@/public/images/imreallyatrex.svg'
 import trayTextDark from '@/public/images/imreallyatrexdark.svg'
 import tee from '@/public/images/tee.webp'
 import homeKanji from '@/public/images/home-kanji.svg'
+import kanjiItsMe from '@/public/images/kanji-its-me.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import { NextSeo } from 'next-seo'
 import BlockContent from '@sanity/block-content-to-react'
@@ -41,6 +41,7 @@ const query = `{
     historyStories[] {
       descriptionText,
       year,
+      title,
       image {
         asset -> {
           ...
@@ -94,7 +95,7 @@ export default function Home(initialData) {
             >
               <Container>
                 <m.div variants={fade}>
-                  <div className="relative mb-[15vw] md:mb-[30vw] xl:mb-[30vw]">
+                  <div className="relative mb-[15vw] md:mb-[30vw] xl:mb-[35vw]">
                     <h1 className={`uppercase text-[13vw] leading-[0.82] text-center break-all will-change relative text-red`}>
                       ImReallyA Trex
 
@@ -123,15 +124,11 @@ export default function Home(initialData) {
                       </div>
                     </h1>
                     
-                    <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[15.5vw] flex items-center justify-center">
-                      <m.div
-                        drag
-                        dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                        dragElastic={0.45}
-                        dragTransition={{ bounceDamping: 20 }}
-                        className="w-11/12 md:w-7/12 relative will-change cursor-move"
+                    <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[21vw] flex items-center justify-center">
+                      <div
+                        className="w-11/12 md:w-7/12 relative will-change"
                         data-scroll
-                        data-scroll-speed="1.25"
+                        data-scroll-speed="1.5"
                       >
                         <Image
                           src={trayImage}
@@ -153,7 +150,7 @@ export default function Home(initialData) {
                             />
                           </div>
                         </div>
-                      </m.div>
+                      </div>
                     </div>
                   </div>
                   
@@ -164,44 +161,20 @@ export default function Home(initialData) {
                       </div>
                     </div>
                   </div>
+                </m.div>
+              </Container>
 
-                  <Link href="/music">
-                    <a className="overflow-hidden mx-[-5vw] md:mx-[-3vw] xl:mx-[-2vw] pt-[4vw]">
-                      <div className="w-full py-[1.5vw] md:py-[1vw] xl:py-[0.5vw] bg-pink dark:bg-yellow transition-colors ease-in-out duration-500 rotate-[3deg] whitespace-nowrap text-off-black font-display uppercase tracking-tight text-[4vw] md:text-[2.25vw] xl:text-[2vw] mb-[18vw] md:mb-[14vw]">
-                        <div className="relative flex overflow-x-hidden will-change">
-                          <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
-                            <span className="mx-3">New Drop!</span>
-                            <span className="mx-3"><Logo/></span>
-                            <span className="mx-3">Listen Here!</span>
-                            <span className="mx-3"><Logo/></span>
-                            <span className="mx-3">New Drop!</span>
-                            <span className="mx-3"><Logo/></span>
-                            <span className="mx-3">Listen Here!</span>
-                            <span className="mx-3"><Logo/></span>
-                          </div>
-
-                          <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
-                            <span className="mx-3">New Drop!</span>
-                            <span className="mx-3"><Logo/></span>
-                            <span className="mx-3">Listen Here!</span>
-                            <span className="mx-3"><Logo/></span>
-                            <span className="mx-3">New Drop!</span>
-                            <span className="mx-3"><Logo/></span>
-                            <span className="mx-3">Listen Here!</span>
-                            <span className="mx-3"><Logo/></span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </Link>
-
+              <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
+              
+              <Container>
+                <m.div variants={fade}>
                   <div className="flex justify-center mb-[25vw] md:mb-[16vw]">
                     <div className="w-11/12 md:w-10/12 xl:w-9/12">
                       <div className="flex flex-wrap md:mx-[-3vw] items-center md:items-start xl:items-center">
                         <div className="w-full md:w-6/12 xl:w-7/12 md:px-[3vw] mb-8 md:mb-0 will-change bg-off-white dark:bg-off-black transition-colors ease-in-out duration-500" data-scroll-speed="0.35">
                           <ImageWrapper
                             image={home.contentImage.asset}
-                            className="w-full dark:mix-blend-lighten rounded-md will-change"
+                            className="w-full mix-blend-multiply dark:mix-blend-lighten rounded-md will-change"
                             baseWidth={1200}
                             baseHeight={1500}
                             alt={'T-Ray Portrait'}
@@ -296,17 +269,7 @@ export default function Home(initialData) {
                     </div>
                   </div>
 
-                  <span className="text-[8vw] leading-[0.82] text-red will-change relative block font-display uppercase pb-4 mb-6 md:mb-12 xl:mb-14 border-b border-red">Got Email?</span>
-
-                  <div className="w-10/12 md:w-8/12">
-                    <p className="text-[22px] md:text-[32px] xl:text-[38px] 2xl:text-[46px] leading-[1.2] tracking-tight mb-5 md:mb-8">Get updates, drops, advance ticket infomation and more direct to your inbox. No spam!</p>
-                  </div>
-
-                  <div className="flex lg:mb-[18vw] pt-[50px] md:pt-[100px] xl:pt-[180px]">
-                    <div className="w-full">
-                      <Footer />
-                    </div>
-                  </div>
+                  <Footer/>
                 </m.div>
               </Container>
             </m.div>

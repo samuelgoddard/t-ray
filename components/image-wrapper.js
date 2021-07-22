@@ -6,7 +6,7 @@ const customImageBuilder = (imageUrlBuilder, options, baseWidth, baseHeight, fil
   return ignoreCropping ? imageUrlBuilder.fit('clip') : imageUrlBuilder
     .size(baseWidth || options.originalImageDimensions.width, baseHeight || options.originalImageDimensions.height)
     .fit(fill ? 'fill' : 'clip')
-    .quality(95);
+    .quality(100);
 };
 
 function ImageWrapper({ image, sizes, className, alt, baseWidth, baseHeight, noPlaceholder, fill, objectFit, ignoreCropping, priority, next }) {
@@ -41,7 +41,7 @@ function ImageWrapper({ image, sizes, className, alt, baseWidth, baseHeight, noP
   }
 
   return (
-    <div className={`${className} ${ noPlaceholder ? '' : 'bg-grey-100 dark:bg-grey-700'}`}>
+    <div className={`${className} ${ noPlaceholder ? '' : ''}`}>
       <Img
         src={imageProps.src}
         { ...( !removeWidth && { width: setBaseWidth } ) }

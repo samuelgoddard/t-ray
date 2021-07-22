@@ -8,8 +8,8 @@
 }
 
 .embla__viewport.is-draggable {
-  cursor: move;
-  cursor: grab;
+  cursor: none;
+  cursor: none;
 }
 
 .embla__viewport.is-dragging {
