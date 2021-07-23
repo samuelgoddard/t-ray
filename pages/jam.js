@@ -4,10 +4,14 @@ import Footer from '@/components/footer'
 import Container from '@/components/container'
 import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 
 import Player from '../components/player'
+import { useRef } from 'react'
 
 export default function Jam() {
+  const containerRef = useRef(null)
+
   return (
     <Layout>
       <Head>
@@ -22,29 +26,32 @@ export default function Jam() {
       </Head>
       
       <LazyMotion features={domMax}>
-        <m.div
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          className="mb-12 md:mb-16 xl:mb-24 mt-[18vw] md:mt-[13vw] lg:mt-[11vw] xl:mt-[10vw] 2xl:mt-[9vw]"
-          data-scroll-section
-        >
-          <Container>
-            <m.div variants={fade}>
-            <h1 className="uppercase text-[11vw] md:text-[12vw] leading-[0.95] text-red text-center break-all will-change mb-[3vw]">Jam Mode</h1>
+        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
+          <m.div
+            data-scroll-container
+            ref={containerRef}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            className="mb-12 md:mb-16 xl:mb-24 mt-[18vw] md:mt-[13vw] lg:mt-[11vw] xl:mt-[10vw] 2xl:mt-[9vw]"
+            data-scroll-section
+          >
+            <Container>
+              <m.div variants={fade}>
+                <h1 className="uppercase text-[11vw] md:text-[12vw] leading-[0.95] text-red text-center break-all will-change mb-[3vw]">Jam Mode</h1>
 
-            <div className="flex justify-center">
-              <div className="w-8/12">
-                <Player/>
-              </div>
-            </div>
+                <div className="flex justify-center mb-[20vw] md:mb-[18vw]">
+                  <div className="w-8/12">
+                    <Player/>
+                  </div>
+                </div>
 
-            </m.div>
-          </Container>
-        </m.div>
+                <Footer />
+              </m.div>
+            </Container>
+          </m.div>
+        </LocomotiveScrollProvider>
       </LazyMotion>
-
-      <Footer />
     </Layout>
   )
 }

@@ -7,16 +7,12 @@ import { LazyMotion, domMax, m } from "framer-motion"
 import ReleaseTeaser from '@/components/release-teaser'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import Image from 'next/image'
-import albumArtwork from '@/public/images/album-art.jpg'
-import videoArtwork from '@/public/images/video-art.jpg'
 import newsText from '@/public/images/news.svg'
 import newsTextDark from '@/public/images/news-dark.svg'
 import HeadingKanji from '@/components/heading-kanji'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
-import MetaTeaser from '@/components/meta-teaser'
 import { NextSeo } from 'next-seo'
-import Link from 'next/link'
-import BlockContent from '@sanity/block-content-to-react'
+import ListTeaser from '@/components/list-teaser'
 import SanityPageService from '@/services/sanityPageService'
 
 const query = `{
@@ -50,6 +46,7 @@ const query = `{
   },
   "musicVideos": *[_type == "musicVideos"] | order(date desc) {
     title,
+    url,
     teaserImage {
       asset -> {
         ...
@@ -135,18 +132,19 @@ export default function News(initialData) {
                     </h1>
                   </div>
 
-                  <div className="flex justify-center mb-[25vw] md:mb-[2vw] max-w-screen-2xl mx-auto mt-20 md:mt-0">
+                  <div className="flex justify-center mb-[25vw] md:mb-[14vw] max-w-screen-2xl mx-auto mt-20 md:mt-0">
                     <div className="w-10/12 md:w-10/12 xl:w-10/12">
                       <div className="flex flex-wrap md:-mx-12 xl:-mx-16 justify-center">
                         <div className="w-full md:w-2/3 md:px-12 xl:px-16 mb-8 md:mb-0">
-                          {musicVideos.map((e, i) => {
+                          {musicVideos.slice(0,3).map((e, i) => {
                             let href = null;
+                            let external = false;
 
-                            if (e.externalUrl) {
-                              href = e.externalUrl
-                            } else if (e.slug) {
-                              href = `/news/${e.slug.current}`
+                            if (e.url) {
+                              href = e.url
+                              external = true
                             } else {
+                              external = false
                               href = null
                             }
                             return (
@@ -154,6 +152,8 @@ export default function News(initialData) {
                                 <ReleaseTeaser
                                   href={href}
                                   video
+                                  musicVideo
+                                  external={external}
                                   image={e.teaserImage.asset}
                                   title={e.title} date={e.date}
                                   type="Music Video"
@@ -164,11 +164,13 @@ export default function News(initialData) {
                           })}
                         </div>
                         <div className="w-9/12 md:w-1/3 md:px-12 xl:px-16 mb-8 md:mt-[6vw]" data-scroll data-scroll-speed={1.2}>
-                          {feed.map((e, i) => {
+                          {feed.slice(0, 3).map((e, i) => {
                             let href = null;
+                            let external = false;
 
                             if (e.externalUrl) {
                               href = e.externalUrl
+                              external = true
                             } else if (e.slug) {
                               href = `/news/${e.slug.current}`
                             } else {
@@ -176,8 +178,16 @@ export default function News(initialData) {
                             }
                             return (
                               <div className="mb-10 md:mb-16 xl:mb-20" key={i}>
+                                { i === 2 && (
+                                  <div className="w-full bg-pink text-center rounded-md p-8 mb-10 md:mb-16 xl:mb-20">
+                                    <span className="text-yellow font-display uppercase text-lg md:text-xl xl:text-2xl block mb-3">@imreallyatrex</span>
+
+                                    <span className="inline-block border-white border rounded-full text-white px-4 py-1 text-sm">Follow on Instagram</span>
+                                  </div>
+                                )}
                                 <ReleaseTeaser
                                   href={href}
+                                  external={external}
                                   image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} title={e.title}
                                   date={e.date}
                                   type={e.type ? e.type : "Latest News"}
@@ -195,25 +205,40 @@ export default function News(initialData) {
 
                   <div className="border-t border-current w-11/12 mx-auto mb-[20vw] md:mb-[16vw]">
                     <ul>
-                      <li className="">
-                        <Link href="/news">
-                          <a className="flex flex-wrap justify-start py-5 items-center border-b border-current">
-                            <span className="block w-full lg:w-auto mb-3 lg:mb-0">
-                              {/* <MetaTeaser/> */}
-                            </span>
+                      {musicVideos.slice(3).map((e, i) => {
+                        let href = null;
+                        let external = false;
 
-                            <span className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">2022 Tour Dates Announced</span>
+                        if (e.url) {
+                          href = e.url
+                          external = true
+                        } else {
+                          external = false
+                          href = null
+                        }
+                        return (
+                          <li key={i}>
+                            <ListTeaser title={e.title} date={e.date} type="Music Video" href={href} external={external} purchaseLinks={e.purchaseLinks} />
+                          </li>
+                        )
+                      })}
+                      {feed.slice(3).map((e, i) => {
+                        let href = null;
 
-                            <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base ml-auto w-full md:w-auto">
-                              <span>Spotify</span>
-                              <span>&bull;</span>
-                              <span>Apple Music</span>
-                              <span>&bull;</span>
-                              <span>Amazon</span>
-                            </span>
-                          </a>
-                        </Link>
-                      </li>
+                        if (e.externalUrl) {
+                          href = e.externalUrl
+                        } else if (e.slug) {
+                          href = `/news/${e.slug.current}`
+                        } else {
+                          href = null
+                        }
+
+                        return (
+                          <li key={i}>
+                            <ListTeaser title={e.title} date={e.date} type={e.type ? e.type : "Latest News"} purchaseLinks={e.purchaseLinks} />
+                          </li>
+                        )
+                      })}
                     </ul>
                   </div>
 

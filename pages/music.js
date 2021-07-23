@@ -124,7 +124,7 @@ export default function Music(initialData) {
                         </div>
                         <div className="w-full md:w-6/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
                           <div className="mb-5 md:mb-8">
-                            <MetaTeaser date={music[0].date} type={music[0].type} latest />
+                            <MetaTeaser marqueeForce date={music[0].date} type={music[0].type} latest />
                           </div>
                           
                           <div className="mb-5 md:mb-8">
@@ -163,7 +163,7 @@ export default function Music(initialData) {
                         {music.slice(1).map((e, index) => {
                           return (
                             <div key={index} className={`w-full md:w-1/2 lg:w-1/3 md:px-6 mb-8 md:mb-0 ${index == 1 ? 'md:mt-20' : ''} ${index == 2 ? 'lg:mt-40' : ''}`}>
-                              <ReleaseTeaser image={e.coverArtwork.asset} title={e.title} date={e.date} type={e.type} purchaseLinks={e.purchaseLinks} />
+                              <ReleaseTeaser marqueeForce image={e.coverArtwork.asset} title={e.title} date={e.date} type={e.type} purchaseLinks={e.purchaseLinks} href={null} />
                             </div>
                           )
                         })}

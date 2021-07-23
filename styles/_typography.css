@@ -23,19 +23,18 @@ a, button {
     transition-property: background-color, opacity, transform, mix-blend-mode;
     z-index: 9999;
     mix-blend-mode: difference;
+    overflow: visible;
 }
 
-.cursor--link-hovered {
-  transform: translate(-50%, -50%) scale(0.4);
-  @apply bg-opacity-80 dark:bg-opacity-80;
-}
-
+/* 
 .cursor--clicked {
-  transform: translate(-50%, -50%) scale(0.4) !important;
-}
+  @apply font-mono block text-white leading-none text-xl;
+  &:before {
+    content: 'WATCH ON YOUTUBE'
+  }
+} */
 
 .cursor-motion {
-  @apply bg-red dark:bg-pink;
   position: fixed;
   left: 0;
   top: 0;
@@ -45,6 +44,36 @@ a, button {
   mix-blend-mode: difference;
   z-index: 999;
   pointer-events: none;
+  
+  @apply font-mono block text-white leading-none text-2xl bg-red dark:bg-pink;
+
+  &:before {
+    @apply opacity-0;
+  }
+}
+
+
+.cursor--link-hovered {
+  transform: translate(-50%, -50%) scale(0.4);
+  @apply bg-opacity-80 dark:bg-opacity-80;
+}
+
+.cursor--link-hovered-music-video {
+  @apply bg-transparent !important;
+
+  &:before {
+    @apply opacity-100;
+    content: 'WATCH VIDEO'
+  }
+}
+
+.cursor--link-hovered-article {
+  @apply bg-transparent !important;
+
+  &:before {
+    @apply opacity-100;
+    content: 'READ MORE'
+  }
 }
 
 /* Content Stylings */
@@ -151,6 +180,36 @@ html.has-scroll-dragging {
   -webkit-text-fill-color: rgba(0,0,0,0);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: currentColor;
+}
+
+.meta-teaser__ticker, .meta-teaser__text {
+  @apply transition-opacity duration-300;
+}
+.release-teaser__image {
+  @apply transition-transform ease-in-out duration-1000;
+}
+
+.release-teaser__title {
+  @apply transition ease-in-out duration-500;
+}
+
+.release-teaser:hover,
+.release-teaser:focus {
+  .release-teaser__image {
+    @apply scale-105;
+  }
+  
+  .release-teaser__title {
+    @apply text-red;
+  }
+
+  .meta-teaser__text {
+    @apply opacity-0;
+  }
+  
+  .meta-teaser__ticker {
+    @apply opacity-100;
+  }
 }
 
 /* body {
