@@ -168,7 +168,7 @@ export default function Header({currentlyPlaying, route}) {
             </div>
 
             <div className="fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer block">
-              <PlayerWidget isCurrentlyPlaying={currentlyPlaying} />
+              {/* <PlayerWidget isCurrentlyPlaying={currentlyPlaying} /> */}
             </div>
           </div>
 
