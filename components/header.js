@@ -86,22 +86,22 @@ export default function Header({currentlyPlaying, route}) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/music">
-                      <a aria-label="Navigate to about page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
-                        <div className="relative overflow-hidden z-10">
-                          <Rollover label="Music" />
-                        </div>
-                        <div className={`active-pill absolute inset-0 z-0 ${route === '/music' ? 'opacity-100' : 'opacity-0' }`}></div>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/news">
                       <a aria-label="Navigate to about page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route === '/news' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="News" />
                         </div>
                         <div className={`active-pill absolute inset-0 z-0 ${route === '/news' ? 'opacity-100' : 'opacity-0' }`}></div>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/music">
+                      <a aria-label="Navigate to about page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                        <div className="relative overflow-hidden z-10">
+                          <Rollover label="Music" />
+                        </div>
+                        <div className={`active-pill absolute inset-0 z-0 ${route === '/music' ? 'opacity-100' : 'opacity-0' }`}></div>
                       </a>
                     </Link>
                   </li>
