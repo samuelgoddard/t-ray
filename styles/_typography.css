@@ -182,6 +182,10 @@ html.has-scroll-dragging {
   -webkit-text-stroke-color: currentColor;
 }
 
+.rounded-md {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
 .meta-teaser__ticker, .meta-teaser__text {
   @apply transition-opacity duration-300;
 }
