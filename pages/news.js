@@ -47,6 +47,11 @@ const query = `{
   "musicVideos": *[_type == "musicVideos"] | order(date desc) {
     title,
     url,
+    videoSnippetUrl {
+      asset-> {
+        ...
+      }
+    },
     teaserImage {
       asset -> {
         ...
@@ -152,6 +157,7 @@ export default function News(initialData) {
                                 <ReleaseTeaser
                                   href={href}
                                   video
+                                  videoOverlay={e.videoSnippetUrl ? e.videoSnippetUrl.asset.url : true}
                                   musicVideo
                                   external={external}
                                   image={e.teaserImage.asset}
