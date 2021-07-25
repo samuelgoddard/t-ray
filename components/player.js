@@ -8,17 +8,23 @@ class Player extends React.Component {
     super(props)
 
     this.state = {
+      filesLoaded: false,
       loaded: false,
       guitar: false,
       guitarMuted: false,
+      guitarLoaded: false,
       drums: false,
       drumsMuted: false,
+      drumsLoaded: false,
       bass: false,
       bassMuted: false,
+      bassLoaded: false,
       vocals: false,
       vocalsMuted: false,
+      vocalsLoaded: false,
       keys: false,
       keysMuted: false,
+      keysLoaded: false,
       playing: false,
       keysVolume: 1.0,
       guitarVolume: 1.0,
@@ -172,9 +178,20 @@ class Player extends React.Component {
     return (
       <>
         <div className="flex">
-          <button className="dark:bg-yellow dark:text-off-black bg-red text-off-white font-mono py-2 px-3 block rounded-lg" onClick={this.toggleAllTracks}>
-            { this.state.playing ? (<>Pause</>) : (<>Play</> ) }
-          </button>
+
+          <div className="block w-full">
+            <span className="block">Vocals Loaded... {JSON.stringify(this.state.vocalsLoaded)}</span>
+            <span className="block">Guitar Loaded... {JSON.stringify(this.state.guitarLoaded)}</span>
+            <span className="block">Bass Loaded... {JSON.stringify(this.state.bassLoaded)}</span>
+            <span className="block">Keys Loaded... {JSON.stringify(this.state.keysLoaded)}</span>
+            <span className="block">Drums Loaded... {JSON.stringify(this.state.drumsLoaded)}</span>
+          </div>
+
+          {this.state.vocalsLoaded && this.state.guitarLoaded && this.state.bassLoaded && this.state.keysLoaded && this.state.drumsLoaded && (
+            <button className="dark:bg-yellow dark:text-off-black bg-red text-off-white font-mono py-2 px-3 block rounded-lg" onClick={this.toggleAllTracks}>
+              { this.state.playing ? (<>Pause</>) : (<>Play</> ) }
+            </button>
+          )}
 
           { this.state.playing && (
             <button className="bg-off-black text-off-white font-mono py-2 px-3 block rounded-lg ml-2" onClick={this.handleStop}>Reset</button>
@@ -216,6 +233,7 @@ class Player extends React.Component {
           playing={this.state.drums}
           volume={this.state.drumsVolume}
           mute={this.state.drumsMuted}
+          onLoad={() => this.setState({ drumsLoaded: true })}
         />
         <ReactHowler
           ref={(ref) => (this.playerBass = ref)}
@@ -225,6 +243,7 @@ class Player extends React.Component {
           playing={this.state.bass}
           volume={this.state.bassVolume}
           mute={this.state.bassMuted}
+          onLoad={() => this.setState({ bassLoaded: true })}
         />
         <ReactHowler
           ref={(ref) => (this.playerKeys = ref)}
@@ -234,6 +253,7 @@ class Player extends React.Component {
           playing={this.state.keys}
           volume={this.state.keysVolume}
           mute={this.state.keysMuted}
+          onLoad={() => this.setState({ keysLoaded: true })}
         />
         <ReactHowler
           ref={(ref) => (this.playerGuitar = ref)}
@@ -243,6 +263,7 @@ class Player extends React.Component {
           playing={this.state.guitar}
           volume={this.state.guitarVolume}
           mute={this.state.guitarMuted}
+          onLoad={() => this.setState({ guitarLoaded: true })}
         />
         <ReactHowler
           ref={(ref) => (this.playerVocals = ref)}
@@ -252,6 +273,7 @@ class Player extends React.Component {
           playing={this.state.vocals}
           volume={this.state.vocalsVolume}
           mute={this.state.vocalsMuted}
+          onLoad={() => this.setState({ vocalsLoaded: true })}
         />
 
 

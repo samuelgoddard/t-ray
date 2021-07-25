@@ -15,10 +15,10 @@ export default function Cursor() {
   const [hidden, setHidden] = useState(false);
   
   useEffect(() => {
-      addEventListeners();
-      handleLinkHoverEvents();
-      return () => removeEventListeners();
-  }, []);
+        addEventListeners();
+        handleLinkHoverEvents();
+        return () => removeEventListeners();
+    }, []);
   
   const addEventListeners = () => {
       document.addEventListener("mousemove", onMouseMove);

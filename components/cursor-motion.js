@@ -9,7 +9,7 @@ const isMobile = () => {
 
 export default function CursorMotion() {
   if (typeof navigator !== "undefined" && isMobile()) return null;
-
+  
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
@@ -19,14 +19,14 @@ export default function CursorMotion() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 45, stiffness: 600 };
+  const springConfig = { damping: 50, stiffness: 500 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e) => {
-      cursorX.set(e.clientX - 12);
-      cursorY.set(e.clientY - 12);
+      cursorX.set(e.clientX - 8);
+      cursorY.set(e.clientY - 8);
     };
 
     addEventListeners();
@@ -41,7 +41,7 @@ export default function CursorMotion() {
   }, []);
 
   const addEventListeners = () => {
-    // document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseenter", onMouseEnter);
     document.addEventListener("mouseleave", onMouseLeave);
     document.addEventListener("mousedown", onMouseDown);
@@ -49,11 +49,15 @@ export default function CursorMotion() {
   };
   
   const removeEventListeners = () => {
-    // document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseenter", onMouseEnter);
     document.removeEventListener("mouseleave", onMouseLeave);
     document.removeEventListener("mousedown", onMouseDown);
     document.removeEventListener("mouseup", onMouseUp);
+  };
+
+  const onMouseMove = (e) => {
+    setPosition({ x: e.clientX, y: e.clientY });
   };
 
   const onMouseDown = () => {
@@ -93,8 +97,11 @@ export default function CursorMotion() {
     "cursor--link-hovered": linkHovered,
     "cursor--link-hovered-music-video": musicVideoLinkHovered,
   });
+  
+  const cursorInnerClasses = classNames("cursor-inner", {});
 
   return (
+    <>
     <motion.div
       className={cursorClasses}
       style={{
@@ -102,5 +109,10 @@ export default function CursorMotion() {
         translateY: cursorYSpring,
       }}
     />
+    <div
+      className={cursorInnerClasses}
+      style={{ left: `${position.x}px`, top: `${position.y}px` }}
+    />
+    </>
   );
 }

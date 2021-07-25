@@ -45,6 +45,24 @@ a, button {
   z-index: 999;
   pointer-events: none;
   
+  @apply font-mono block text-white leading-none text-2xl bg-red dark:bg-pink opacity-30;
+
+  &:before {
+    @apply opacity-0;
+  }
+}
+
+.cursor-inner {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  
+  z-index: 9999;
+  pointer-events: none;
+  
   @apply font-mono block text-white leading-none text-2xl bg-red dark:bg-pink;
 
   &:before {
@@ -54,12 +72,11 @@ a, button {
 
 
 .cursor--link-hovered {
-  transform: translate(-50%, -50%) scale(0.4);
-  @apply bg-opacity-80 dark:bg-opacity-80;
+  transform: translate(-50%, -50%) scale(1.25);
 }
 
 .cursor--link-hovered-music-video {
-  @apply bg-transparent !important;
+  @apply bg-transparent border-transparent !important;
 
   &:before {
     @apply opacity-100;
