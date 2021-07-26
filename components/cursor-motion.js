@@ -2,14 +2,8 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import classNames from "classnames";
 
-const isMobile = () => {
-  const ua = navigator.userAgent;
-  return /Android|Mobi/i.test(ua);
-};
-
 export default function CursorMotion() {
-  if (typeof navigator !== "undefined" && isMobile()) return null;
-  
+
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);

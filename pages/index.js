@@ -16,9 +16,7 @@ import ImageWrapper from '@/components/image-wrapper'
 import trayImage from '@/public/images/t-ray.webp'
 import trayText from '@/public/images/imreallyatrex.svg'
 import trayTextDark from '@/public/images/imreallyatrexdark.svg'
-import tee from '@/public/images/tee.webp'
 import homeKanji from '@/public/images/home-kanji.svg'
-import kanjiItsMe from '@/public/images/kanji-its-me.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import { NextSeo } from 'next-seo'
 import BlockContent from '@sanity/block-content-to-react'
@@ -84,9 +82,14 @@ export default function Home(initialData) {
       />
 
       <LazyMotion features={domMax}>
-        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
+        <LocomotiveScrollProvider
+          options={{ 
+            smooth: true, lerp: 0.075
+          }}
+          watch={[]}
+          containerRef={containerRef}
+        >
           <div data-scroll-container ref={containerRef}>
-
             <m.div
               initial="initial"
               animate="enter"
@@ -165,7 +168,9 @@ export default function Home(initialData) {
                 </m.div>
               </Container>
 
-              <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
+              <div className="overflow-hidden">
+                <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
+              </div>
               
               <Container>
                 <m.div variants={fade}>

@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ noPad }) {
   return (
     <>
       <span className="text-[8vw] leading-[0.82] text-red will-change relative block font-display uppercase pb-4 mb-6 md:mb-12 xl:mb-14 border-b border-red">Got Email?</span>
@@ -9,7 +9,7 @@ export default function Footer() {
       
       <div className="flex lg:mb-[18vw] pt-[50px] md:pt-[100px] xl:pt-[180px]">
         <div className="w-full">
-          <footer className="mb-5 md:mb-10 lg:mb-[185px]">
+          <footer className={`mb-5 md:mb-10 ${noPad ? '' : 'lg:mb-[185px]'}`}>
             <div className="flex flex-wrap font-mono text-base md:text-lg">
               <span className="block">&copy; { new Date().getFullYear() }</span>
               <nav className="ml-auto block">

@@ -45,7 +45,7 @@ a, button {
   z-index: 999;
   pointer-events: none;
   
-  @apply font-mono block text-white leading-none text-2xl bg-red dark:bg-pink opacity-30;
+  @apply font-mono text-white leading-none text-2xl bg-red dark:bg-pink opacity-30 hidden md:block;
 
   &:before {
     @apply opacity-0;
@@ -63,7 +63,7 @@ a, button {
   z-index: 9999;
   pointer-events: none;
   
-  @apply font-mono block text-white leading-none text-2xl bg-red dark:bg-pink;
+  @apply font-mono text-white leading-none text-2xl bg-red dark:bg-pink hidden md:block;
 
   &:before {
     @apply opacity-0;
@@ -206,7 +206,7 @@ html.has-scroll-dragging {
 .meta-teaser__ticker, .meta-teaser__text {
   @apply transition-opacity duration-300;
 }
-.release-teaser__image {
+.release-teaser__image, .release-teaser__video {
   @apply transition-transform ease-in-out duration-1000;
 }
 
@@ -218,6 +218,10 @@ html.has-scroll-dragging {
 .release-teaser:focus {
   .release-teaser__image {
     @apply scale-105;
+  }
+
+  .release-teaser__video {
+    @apply scale-125;
   }
   
   .release-teaser__title {

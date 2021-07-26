@@ -157,7 +157,7 @@ export default function News(initialData) {
                                 <ReleaseTeaser
                                   href={href}
                                   video
-                                  videoOverlay={e.videoSnippetUrl ? e.videoSnippetUrl.asset.url : true}
+                                  videoOverlay={e.videoSnippetUrl ? e.videoSnippetUrl.asset.url : false}
                                   musicVideo
                                   external={external}
                                   image={e.teaserImage.asset}

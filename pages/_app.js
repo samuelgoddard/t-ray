@@ -27,53 +27,53 @@ export default function App({ Component, pageProps }) {
       <DefaultSeo {...SEO} />
 
       <CartProvider>
-          <div className={`transition-opacity duration-300 ease-in-out ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-[400ms]'}`}>
-            <Header
-              currentlyPlaying={isIntroAccepted} route={router.asPath}
-            />
-          </div>
+        <div className={`transition-opacity duration-300 ease-in-out ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-[400ms]'}`}>
+          <Header
+            currentlyPlaying={isIntroAccepted} route={router.asPath}
+          />
+        </div>
 
-          {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-50">
-            <span className="block">Jam mode loaded: {JSON.stringify(globalMusicPlaying)}</span>
-            <span className="block">Global music playing: {JSON.stringify(globalJamModeAccepted)}</span>
-          </div> */}
+        {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-50">
+          <span className="block">Jam mode loaded: {JSON.stringify(globalMusicPlaying)}</span>
+          <span className="block">Global music playing: {JSON.stringify(globalJamModeAccepted)}</span>
+        </div> */}
 
-          {/* { !isIntroAccepted && (
-            <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
-              <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
-                <div className="relative">
-                  <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-[50]">
-                    <div className="w-[15vw] md:w-[14vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
-                      <Image
-                        src={japaneseCharacters}
-                        alt="Placeholder"
-                        layout="responsive"
-                        className="w-full will-change"
-                        priority
-                      />
-                    </div>
-                  </div>
-                  <div className="relative z-[60]">
-                    <span className="block uppercase text-[7vw] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display mb-5">ImReallyATrex</span>
-                    <span className="block uppercase text-[20px] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display">Click To Enter</span>
+        {/* { !isIntroAccepted && (
+          <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
+            <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
+              <div className="relative">
+                <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-[50]">
+                  <div className="w-[15vw] md:w-[14vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
+                    <Image
+                      src={japaneseCharacters}
+                      alt="Placeholder"
+                      layout="responsive"
+                      className="w-full will-change"
+                      priority
+                    />
                   </div>
                 </div>
-              </button>
-            </div>
-          )} */}
+                <div className="relative z-[60]">
+                  <span className="block uppercase text-[7vw] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display mb-5">ImReallyATrex</span>
+                  <span className="block uppercase text-[20px] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display">Click To Enter</span>
+                </div>
+              </div>
+            </button>
+          </div>
+        )} */}
 
-          <CursorMotion/>
+        <CursorMotion/>
 
-          <Context.Provider
-            value={
-              [globalMusicPlaying, setGlobalMusicPlaying],
-              [globalJamModeAccepted, setGlobalJamModeAccepted]
-            }
-          >
-            <AnimatePresence exitBeforeEnter>
-              <Component {...pageProps} key={router.asPath} />
-            </AnimatePresence>
-          </Context.Provider>
+        <Context.Provider
+          value={
+            [globalMusicPlaying, setGlobalMusicPlaying],
+            [globalJamModeAccepted, setGlobalJamModeAccepted]
+          }
+        >
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </Context.Provider>
       </CartProvider>
     </ThemeProvider>
   )

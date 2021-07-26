@@ -110,7 +110,8 @@ export default function Header({currentlyPlaying, route}) {
                   </li>
                   <li>
                     <button onClick={() => modalTrayBag.current.open()}>
-                      <span className="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl">
+                      <span className="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
+                        <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
                         <div className="relative overflow-hidden">
                           <Rollover label="Bag" />
                         </div>
@@ -125,7 +126,7 @@ export default function Header({currentlyPlaying, route}) {
               </nav>
             </div>
 
-            <div className="fixed md:bottom-0 top md:top-auto left-0 z-0 md:z-40 ml-0 mx-auto md:mx-0 md:w-auto md:ml-[30px] pointer mb-[5px] flex md:block justify-center w-full">
+            <div className={`fixed md:bottom-0 top md:top-auto left-0 z-0 md:z-40 ml-0 mx-auto md:mx-0 md:w-auto md:ml-[30px] pointer mb-[5px] flex md:block justify-center w-full transition-opacity ease-in-out duration-500 delay-300 ${ route.includes('/products') ? 'opacity-0 pointer-events-none' : '' }`}>
               <button
                 aria-label="Enable Vibe Mode"
                 className="block uppercase text-[16px] md:text-[20px] xl:text-[24px] tracking-tight mx-2 md:mx-0  my-1 md:my-8 relative group"
