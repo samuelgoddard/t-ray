@@ -23,6 +23,7 @@ module.exports = {
         'marquee-slow': 'marquee 75s linear infinite',
         'marquee-slow-2': 'marquee2 75s linear infinite',
         'spin-slow': 'spin 12s linear infinite',
+        'spin-reverse': 'rotateReverse 1s linear infinite',
         wiggle: 'wiggle 0.9s ease-in-out infinite',
         float: 'float 5s ease-in-out infinite',
         'float-wobble': 'floatWobble 5s ease-in-out infinite',
@@ -47,7 +48,11 @@ module.exports = {
         wiggle: {
           '0%, 100%': { transform: 'rotate(0deg)' },
           '50%': { transform: 'rotate(6deg)' },
-        }
+        },
+        rotateReverse: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
+        },
       }, 
       colors: {
         'black': '#000000',

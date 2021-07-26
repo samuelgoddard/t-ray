@@ -53,13 +53,11 @@ export default function Header({currentlyPlaying, route}) {
                 <ul className="flex items-center">
                   <li>
                     <Link href="/jam">
-                      <a aria-label="Navigate to jam page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl ${route === '/jam' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                      <a aria-label="Navigate to jam page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl`}>
                         <svg className="w-7 inline-block absolute top-0 left-0 md:mt-[10px] z-10 xl:mt-[14px] ml-3" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.777c0 3.5 1.558 8.578 6.25 8.578 4.693 0 6.25-5.078 6.25-8.579 0-10.83-12.5-10.83-12.5 0zm5.32 7.955c-3.994 0-4.987-4.686-4.987-7.693 0-10.35 9.973-10.35 9.973 0 0 3.006-.992 7.693-4.986 7.693zM12.501 8.777c0 3.5 1.557 8.578 6.25 8.578 4.692 0 6.249-5.078 6.249-8.579 0-10.83-12.499-10.83-12.499 0zm5.32 7.955c-3.996 0-4.987-4.686-4.987-7.693 0-10.35 9.972-10.35 9.972 0 0 3.006-.992 7.693-4.986 7.693z" fill="currentColor"/><path d="M.333 9.102c0 2.47 1.814 4.36 4.053 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.104-6.075-8.104 0zM12.833 9.102c0 2.47 1.814 4.36 4.052 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.103-6.075-8.103 0z" fill="currentColor"/></svg>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Jam Mode" />
                         </div>
-
-                        <div className={`active-pill absolute inset-0 z-0 ${route === '/jam' ? 'opacity-100' : 'opacity-0' }`}></div>
                       </a>
                     </Link>
                   </li>

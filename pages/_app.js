@@ -5,19 +5,18 @@ import { useRouter } from 'next/router'
 import Header from '@/components/header'
 import SEO from '@/helpers/seo.config'
 import { DefaultSeo } from 'next-seo'
-import japaneseCharacters from '@/public/images/japanese-characters.svg'
+// import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import Image from 'next/image'
-import { useState } from 'react'
-import Cursor from '@/components/cursor'
+import { useState, useContext } from 'react'
+// import Cursor from '@/components/cursor'
+import { Context } from '@/context/state';
 import CursorMotion from '@/components/cursor-motion'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [isIntroAccepted, setIntroAccepted] = useState(false);
-
-  const toggleIntroAccepted = () => {
-    setIntroAccepted(!isIntroAccepted)
-  };
+  const [globalMusicPlaying, setGlobalMusicPlaying] = useState(true);
+  const [globalJamModeAccepted, setGlobalJamModeAccepted] = useState(false);
 
   return (
     <ThemeProvider attribute="class">
@@ -26,7 +25,16 @@ export default function App({ Component, pageProps }) {
       div></> }
       <DefaultSeo {...SEO} />
       
-      <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
+      <div className={`transition-opacity duration-300 ease-in-out ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-[400ms]'}`}>
+        <Header
+          currentlyPlaying={isIntroAccepted} route={router.asPath}
+        />
+      </div>
+
+      {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-50">
+        <span className="block">Jam mode loaded: {JSON.stringify(globalMusicPlaying)}</span>
+        <span className="block">Global music playing: {JSON.stringify(globalJamModeAccepted)}</span>
+      </div> */}
 
       {/* { !isIntroAccepted && (
         <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
@@ -54,9 +62,16 @@ export default function App({ Component, pageProps }) {
 
       <CursorMotion/>
 
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.asPath} />
-      </AnimatePresence>
+      <Context.Provider
+        value={
+          [globalMusicPlaying, setGlobalMusicPlaying],
+          [globalJamModeAccepted, setGlobalJamModeAccepted]
+        }
+      >
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.asPath} />
+        </AnimatePresence>
+      </Context.Provider>
     </ThemeProvider>
   )
 }
