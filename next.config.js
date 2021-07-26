@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['cdn.sanity.io'],
+    domains: ['cdn.sanity.io', 'cdn.shopify.com'],
   },
   webpack(config, options) {
     const { isServer } = options;

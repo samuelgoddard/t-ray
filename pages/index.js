@@ -1,5 +1,5 @@
-// import { client } from '@/helpers/shopify-client'
 import { useRef } from 'react'
+import { getAllProductsInCollection } from '../lib/shopify'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
@@ -56,7 +56,7 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
-  const { data: { home }  } = pageService.getPreviewHook(initialData)()
+  const { data: { home, products } } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
 
   return (
@@ -86,6 +86,7 @@ export default function Home(initialData) {
       <LazyMotion features={domMax}>
         <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
           <div data-scroll-container ref={containerRef}>
+
             <m.div
               initial="initial"
               animate="enter"
@@ -179,13 +180,6 @@ export default function Home(initialData) {
                             baseHeight={1500}
                             alt={'T-Ray Portrait'}
                           />
-                          {/* <Image
-                            src={home.contentImage.src}
-                            alt="Placeholder"
-                            layout="responsive"
-                            className="w-full dark:mix-blend-lighten rounded-md will-change"
-                            placeholder="blur"
-                          /> */}
                         </div>
                         <div className="w-full md:w-6/12 xl:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
                           <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">
@@ -256,15 +250,13 @@ export default function Home(initialData) {
                   <div className="justify-center mb-[25vw] md:mb-[16vw] md:mt-[-3.5vw] flex">
                     <div className="w-10/12 md:w-11/12 max-w-screen-3xl mx-auto">
                       <div className="flex flex-wrap justify-center md:-mx-4">
-                        <div className="w-full md:w-1/3 md:px-4 block">
-                          <ProductTeaser href="/product" title="Dino Tee" price={45} image={tee} />
-                        </div>
-                        <div className="w-full md:w-1/3 md:px-4 hidden md:block">
-                          <ProductTeaser href="/product" title="Dino Tee" price={45} image={tee} />
-                        </div>
-                        <div className="w-full md:w-1/3 md:px-4 hidden md:block">
-                          <ProductTeaser href="/product" title="Dino Tee" price={45} image={tee} />
-                        </div>
+                        {products.map((product, index) => {
+                          return (
+                            <div className="w-full md:w-1/3 md:px-4 block" key={index}>
+                              <ProductTeaser href={`/products/${product.node.handle}`} title={product.node.title} price={product.node.variants.edges[0].node.price} image={product.node.images.edges[0].node.originalSrc} imageWidth={product.node.images.edges[0].node.width} imageHeight={product.node.images.edges[0].node.height} />
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   </div>
@@ -281,8 +273,10 @@ export default function Home(initialData) {
 }
 
 export async function getStaticProps(context) {
-  const props = await pageService.fetchQuery(context)
-  return { 
-    props: props
-  };
+  const cms = await pageService.fetchQuery(context)
+  const products = await getAllProductsInCollection()
+
+  return {
+    props: { ...cms, products }
+  }
 }

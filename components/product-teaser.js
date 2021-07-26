@@ -4,7 +4,7 @@ import Image from 'next/image'
 import addToBag from '@/public/images/add-to-bag.svg'
 import productBg from '@/public/images/product-bg.svg'
 
-export default function ProductTeaser({ href, image, title, price }) {
+export default function ProductTeaser({ href, image, title, price, imageWidth, imageHeight }) {
   return(
     <Link href={href}>
       <a className="group relative block w-full pt-2 md:pt-4 xl:pt-6 2xl:pt-10">
@@ -15,7 +15,8 @@ export default function ProductTeaser({ href, image, title, price }) {
               alt="Placeholder"
               layout="responsive"
               className="w-full md:group-hover:scale-110 transition ease-in-out duration-500 delay-75 md:group-hover:-rotate-6"
-              placeholder="blur"
+              width={imageWidth}
+              height={imageHeight}
             />
           </div>
 
