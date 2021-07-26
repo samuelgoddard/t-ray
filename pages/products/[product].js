@@ -1,5 +1,5 @@
 import { getProductSlugs, getProduct } from '@/lib/shopify'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
@@ -16,9 +16,51 @@ import tee from '@/public/images/tee.webp'
 import japaneseCharactersYellow from '@/public/images/japanese-characters-yellow.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import { NextSeo } from 'next-seo'
+import { useCartContext, useAddToCartContext } from '@/context/store'
 
 export default function Product({ productData }) {
   const containerRef = useRef(null)
+  const [variantPrice, setVariantPrice] = useState(productData.variants.edges[0].node.price)
+
+  const [quantity, setQuantity] = useState(1)
+  const [variantId, setVariantId] = useState(productData.variants.edges[0].node.id)
+  const [variant, setVariant] = useState(productData.variants.edges[0])
+  const isLoading = useCartContext()[2]
+  const addToCart = useAddToCartContext()
+
+  function handleSizeChange(e) {
+    setVariantId(e)
+    // send back size change
+    const selectedVariant = productData.variants.edges.filter(v => v.node.id === e).pop()
+    setVariantPrice(selectedVariant.node.price)
+
+    // update variant
+    setVariant(selectedVariant)
+  }
+
+  function updateQuantity(e) {
+    if (e === '') {
+      setQuantity('')
+    } else {
+      setQuantity(Math.floor(e))
+    }
+  }
+
+  async function handleAddToCart() {
+    const varId = variant.node.id
+    // update store context
+    if (quantity !== '') {
+      addToCart({
+        productTitle: productData.title,
+        productHandle: productData.handle,
+        productImage: productData.images.edges[0].node,
+        variantId: varId,
+        variantPrice: variant.node.price,
+        variantTitle: variant.node.title,
+        variantQuantity: quantity
+      })
+    }
+  }
 
   return (
     <Layout>
@@ -107,21 +149,34 @@ export default function Product({ productData }) {
                       <div className="w-auto">
                         <span className="uppercase">Ships in 1-3 Days (US Only)</span>
                       </div>
-                      <div className="w-auto ml-auto">
-                        <div className="flex space-x-5 uppercase text-xl md:text-2xl 
+                      
+                      <div className="w-auto ml-auto mb-5">
+                        {/* <div className="flex space-x-5 uppercase text-xl md:text-2xl 
                         xl:text-3xl w-full justify-end mb-5">
                           <span>Black</span>
                           <span>Red</span>
                           <span>White</span>
-                        </div>
+                        </div> */}
                         <div className="flex space-x-8 uppercase text-xl md:text-2xl xl:text-3xl w-full justify-end">
-                          <span>XS</span>
-                          <span>S</span>
-                          <span>M</span>
-                          <span>L</span>
-                          <span>XL</span>
-                          <span>2XL</span>
+                          {
+                            productData.variants.edges.map(item => (
+                              <button
+                                onClick={() => handleSizeChange(item.node.id)}
+                                id={item.node.id}
+                                key={item.node.id}
+                                className={`block p-2 rounded-md ${ variantId === item.node.id ? 'bg-red' : ''}`}
+                              >
+                                {item.node.title}
+                              </button>
+                            ))
+                          }
                         </div>
+                      </div>
+
+                      <div className="w-full text-right">
+                        <button onClick={handleAddToCart} className={`bg-yellow text-off-black font-display uppercase leading-none p-5 ${ isLoading ? 'cursor-disabled opacity-10' : ''}`}>
+                          ADD TO CART
+                        </button>
                       </div>
                     </div>
                   </div>

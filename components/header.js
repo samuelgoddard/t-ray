@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import Container from './container'
@@ -9,6 +9,9 @@ import Image from 'next/image'
 import themeToggleActive from '@/public/images/theme-toggle-active.svg'
 import themeToggleActiveDark from '@/public/images/theme-toggle-active-dark.svg'
 import { LazyMotion, domAnimation, m } from "framer-motion"
+import ModalTray from '@/components/modal-tray'
+import CartTray from '@/components/cart-tray'
+import { useCartContext } from '@/context/store'
 
 const variants = {
   open: { opacity: 1 },
@@ -17,7 +20,9 @@ const variants = {
 
 export default function Header({currentlyPlaying, route}) {
   const {theme, setTheme} = useTheme()
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false)
+  const modalTrayBag = useRef(null)
+  const [cart, checkoutUrl] = useCartContext()
 
   return (
     <LazyMotion features={domAnimation}>
@@ -104,13 +109,17 @@ export default function Header({currentlyPlaying, route}) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
-                      <a aria-label="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl">
+                    <button onClick={() => modalTrayBag.current.open()}>
+                      <span className="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl">
                         <div className="relative overflow-hidden">
                           <Rollover label="Bag" />
                         </div>
-                      </a>
-                    </Link>
+                      </span>
+                    </button>
+
+                    <ModalTray ref={modalTrayBag}>
+                      <CartTray cart={cart} checkoutUrl={checkoutUrl} />
+                    </ModalTray>
                   </li>
                 </ul>
               </nav>
