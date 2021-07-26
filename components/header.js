@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import Container from './container'
 import Logo from '@/components/logo'
-// import PlayerWidget from '@/components/player-widget'
+import PlayerWidget from '@/components/player-widget'
 import Rollover from '@/components/rollover'
 import Image from 'next/image'
 import themeToggleActive from '@/public/images/theme-toggle-active.svg'
@@ -176,6 +176,7 @@ export default function Header({currentlyPlaying, route}) {
             </div>
 
             <div className="fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer block">
+              <PlayerWidget />
               {/* <PlayerWidget isCurrentlyPlaying={currentlyPlaying} /> */}
             </div>
           </div>

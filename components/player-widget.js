@@ -8,7 +8,7 @@ class PlayerWidget extends React.Component {
 
     this.state = {
       loaded: false,
-      playing: true
+      playing: false
     }
 
     this.handleOnLoad = this.handleOnLoad.bind(this)
@@ -45,7 +45,7 @@ class PlayerWidget extends React.Component {
           preload={true}
           src='/stems/girl-from-osaka.mp3'
           playing={this.state.playing}
-          volume={0}
+          volume={0.5}
           mute={false}
         />
 
