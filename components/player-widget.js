@@ -4,7 +4,7 @@ import { Howl } from 'howler'
 
 var track = new Howl({
   src: ['./stems/girl-from-osaka.mp3'],
-  volume: 0.7,
+  volume: 0.7
 });
 
 function PlayerWidget() {
