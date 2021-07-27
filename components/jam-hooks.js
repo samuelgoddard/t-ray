@@ -14,27 +14,27 @@ import { JamContext } from '@/context/jam'
 
 var drums = new Howl({ 
   src: ['/stems/im-fine-drums.mp3'],
-  preload: true,
+  loop: true,
   volume: 0.75,
 })
 var bass = new Howl({
   src: ['/stems/im-fine-bass.mp3'],
-  preload: true,
+  loop: true,
   volume: 0.75,
 })
 var guitar = new Howl({
   src: ['/stems/im-fine-guitar.mp3'],
-  preload: true,
+  loop: true,
   volume: 0.75,
 })
 var vox = new Howl({
   src: ['/stems/im-fine-vox.mp3'],
-  preload: true,
+  loop: true,
   volume: 0.75,
 })
 var keys = new Howl({
   src: ['/stems/im-fine-keys.mp3'],
-  preload: true,
+  loop: true,
   volume: 0.75,
 })
 
@@ -223,6 +223,7 @@ export default function Player() {
       
       {/* Play Button / Widget */}
       <m.div variants={fade} className="w-1/4 absolute bottom-0 left-0 ml-[30px] mb-[30px] z-20">
+
       {isDrumsLoaded && isBassLoaded && isGuitarLoaded && isVoxLoaded && isKeysLoaded ? (
         <div className="flex items-center space-x-3">
           <button className="dark:bg-yellow dark:text-off-black bg-red text-off-black font-mono py-2 px-3 block rounded-lg" onClick={() => togglePlay() }>

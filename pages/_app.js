@@ -43,14 +43,14 @@ export default function App({ Component, pageProps }) {
               [isKeysLoaded, setIsKeysLoaded]
             }
           >
-            <div className="fixed bottom-0 left-[40vw] z-[10000] bg-white text-black text-[12px] p-2">
+            {/* <div className="fixed bottom-0 left-[40vw] z-[10000] bg-white text-black text-[12px] p-2">
               
               <span className="block">Drums Loaded: {JSON.stringify(isDrumsLoaded)}</span>
               <span className="block">Bass Loaded: {JSON.stringify(isBassLoaded)}</span>
               <span className="block">Guitar Loaded: {JSON.stringify(isGuitarLoaded)}</span>
               <span className="block">Vox Loaded: {JSON.stringify(isVoxLoaded)}</span>
               <span className="block">Keys Loaded: {JSON.stringify(isKeysLoaded)}</span>
-            </div>
+            </div> */}
 
             <div className={`transition duration-300 ease-in-out ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-[400ms]'}`}>
               <Header
