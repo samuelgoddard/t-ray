@@ -102,7 +102,7 @@ a, button {
 
 /* Content Stylings */
 .content > p {
-  @apply mb-5;
+  @apply mb-5 md:mb-8;
 
   &:last-of-type {
     @apply mb-0;
@@ -114,6 +114,24 @@ a, button {
 
   &:hover, &:focus {
     @apply underline;
+  }
+}
+
+.content > ul {
+  @apply mt-5 md:mt-8 text-[3.7vw] md:text-[2.2vw] lg:text-[20px] list-inside;
+  text-indent: 0 !important;
+
+  li {
+    @apply block mb-2 md:mb-3;
+
+    a {
+      @apply underline;
+    }
+    
+    &:before {
+      content: '→';
+      @apply pr-3 dark:text-yellow text-red;
+    }
   }
 }
 

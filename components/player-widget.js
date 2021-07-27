@@ -28,6 +28,7 @@ export default function PlayerWidget() {
       }
     }
   }
+
   if (!isMobile) {
     if (theme === 'dark') {
       Howler.volume(1);

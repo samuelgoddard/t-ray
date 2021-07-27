@@ -186,7 +186,7 @@ export default function News(initialData) {
                               <div className="mb-10 md:mb-16 xl:mb-20" key={i}>
                                 { i === 2 && (
                                   <div className="w-full bg-pink text-center rounded-md p-8 mb-10 md:mb-16 xl:mb-20">
-                                    <span className="text-yellow font-display uppercase text-lg md:text-lg xl:text-2xl block mb-3 leading-noneb block break-all">@imreallyatrex</span>
+                                    <span className="text-yellow font-display uppercase text-lg md:text-lg xl:text-2xl block mb-3 leading-noneb break-all">@imreallyatrex</span>
 
                                     <span className="inline-block border-white border rounded-full text-white px-4 py-1 text-sm">Follow on Instagram</span>
                                   </div>

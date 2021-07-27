@@ -167,10 +167,8 @@ export default function Home(initialData) {
                 </m.div>
               </Container>
 
-              <div className="overflow-x-hidden">
-                <div className="py-[1.5vw] md:py-[1vw] xl:py-[0.5vw]">
-                  <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
-                </div>
+              <div className="py-[1.5vw] md:py-[1vw] xl:py-[2.5vw] overflow-hidden">
+                <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
               </div>
               
               <Container>

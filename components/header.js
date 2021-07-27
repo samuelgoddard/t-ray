@@ -13,7 +13,7 @@ import ModalTray from '@/components/modal-tray'
 import CartTray from '@/components/cart-tray'
 import { Context } from '@/context/state'
 import { useCartContext } from '@/context/store'
-import { isMobile } from "react-device-detect";
+import { isMobile } from "react-device-detect"
 
 const variants = {
   open: { opacity: 1 },

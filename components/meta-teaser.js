@@ -8,8 +8,12 @@ export default function MetaTeaser({ date, type, latest, marqueeForce}) {
     <span className="inline-block rounded-full border border-current font-mono uppercase px-3 py-1 text-center mx-auto text-xs relative overflow-hidden">
       <span className={`flex space-x-3 meta-teaser__text ${ marqueeForce ? 'opacity-0' :'opacity-100'}`}>
         <span>{`${da}.${mo}.${ye}`}</span>
-        <span>&bull;</span>
-        <span>{type}</span>
+        { type && (
+          <>
+            <span>&bull;</span>
+            <span>{type}</span>
+          </>
+        )}
         { latest && (
           <>
             <span>&bull;</span>
