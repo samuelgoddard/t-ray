@@ -12,11 +12,31 @@ import { fade } from '@/helpers/transitions'
 import { Howl } from 'howler'
 import { JamContext } from '@/context/jam'
 
-var drums = new Howl({ src: ['/stems/im-fine-drums.mp3'], preload: true, volume: 0.75 })
-var bass = new Howl({ src: ['/stems/im-fine-bass.mp3'], preload: true, volume: 0.75 })
-var guitar = new Howl({ src: ['/stems/im-fine-guitar.mp3'], preload: true, volume: 0.75 })
-var vox = new Howl({ src: ['/stems/im-fine-vox.mp3'], preload: true, volume: 0.75 })
-var keys = new Howl({ src: ['/stems/im-fine-keys.mp3'], preload: true, volume: 0.75 })
+var drums = new Howl({ 
+  src: ['/stems/im-fine-drums.mp3'],
+  preload: true,
+  volume: 0.75,
+})
+var bass = new Howl({
+  src: ['/stems/im-fine-bass.mp3'],
+  preload: true,
+  volume: 0.75,
+})
+var guitar = new Howl({
+  src: ['/stems/im-fine-guitar.mp3'],
+  preload: true,
+  volume: 0.75,
+})
+var vox = new Howl({
+  src: ['/stems/im-fine-vox.mp3'],
+  preload: true,
+  volume: 0.75,
+})
+var keys = new Howl({
+  src: ['/stems/im-fine-keys.mp3'],
+  preload: true,
+  volume: 0.75,
+})
 
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -31,13 +51,11 @@ export default function Player() {
   const [isKeysPlaying, setIsKeysPlaying] = useState(true)
   const [isKeysLoaded, setIsKeysLoaded] = useContext(JamContext)
   
-  useEffect(() => {
-    drums.once('load', function(){ setIsDrumsLoaded(true) });
-    bass.once('load', function(){ setIsBassLoaded(true) });
-    guitar.once('load', function(){ setIsGuitarLoaded(true) });
-    vox.once('load', function(){ setIsVoxLoaded(true) });
-    keys.once('load', function(){ setIsKeysLoaded(true) });
-  });
+  bass.on('load', function(){ setIsBassLoaded(true) });
+  guitar.on('load', function(){ setIsGuitarLoaded(true) });
+  vox.on('load', function(){ setIsVoxLoaded(true) });
+  keys.on('load', function(){ setIsKeysLoaded(true) });
+  drums.on('load', function(){ setIsDrumsLoaded(true) });
 
   const togglePlay = () => {
     if (isPlaying == false) {
@@ -58,14 +76,12 @@ export default function Player() {
   }
 
   const stop = () => {
-    if (isPlaying == true) {
-      drums.pause();
-      bass.pause();
-      guitar.pause();
-      vox.pause();
-      keys.pause();
-      setIsPlaying(false);
-    }
+    drums.pause();
+    bass.pause();
+    guitar.pause();
+    vox.pause();
+    keys.pause();
+    setIsPlaying(false);
   }
 
   const toggleDrums = () => {
@@ -125,6 +141,8 @@ export default function Player() {
       exit="exit"
       className="h-screen overflow-hidden relative"
     >
+
+      
       {/* Floor */}
       <m.div variants={fade} className="absolute bottom-0 left-0 right-0 scale-150 -rotate-2 bg-black bg-opacity-[0.15] dark:bg-opacity-50 w-full h-[12vh]">
       </m.div>
