@@ -139,7 +139,6 @@ export default function Home(initialData) {
                           alt="Placeholder"
                           layout="responsive"
                           className="w-full will-change pointer-events-none"
-                          placeholder="blur"
                           priority
                         />
 
@@ -168,8 +167,10 @@ export default function Home(initialData) {
                 </m.div>
               </Container>
 
-              <div className="overflow-hidden">
-                <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
+              <div className="overflow-x-hidden">
+                <div className="py-[1.5vw] md:py-[1vw] xl:py-[0.5vw]">
+                  <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
+                </div>
               </div>
               
               <Container>

@@ -10,14 +10,20 @@ import Image from 'next/image'
 import { useState, useContext } from 'react'
 // import Cursor from '@/components/cursor'
 import { Context } from '@/context/state';
+import { JamContext } from '@/context/jam';
 import { CartProvider } from '@/context/store'
 import CursorMotion from '@/components/cursor-motion'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [isIntroAccepted, setIntroAccepted] = useState(false);
-  const [globalMusicPlaying, setGlobalMusicPlaying] = useState(true);
-  const [globalJamModeAccepted, setGlobalJamModeAccepted] = useState(false);
+  const [globalMusicPlaying, setGlobalMusicPlaying] = useState(false);
+  
+  const [isDrumsLoaded, setIsDrumsLoaded] = useState(false)
+  const [isBassLoaded, setIsBassLoaded] = useState(false)
+  const [isGuitarLoaded, setIsGuitarLoaded] = useState(false)
+  const [isVoxLoaded, setIsVoxLoaded] = useState(false)
+  const [isKeysLoaded, setIsKeysLoaded] = useState(false)
 
   return (
     <ThemeProvider attribute="class">
@@ -27,52 +33,61 @@ export default function App({ Component, pageProps }) {
       <DefaultSeo {...SEO} />
 
       <CartProvider>
-        <div className={`transition-opacity duration-300 ease-in-out ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-[400ms]'}`}>
-          <Header
-            currentlyPlaying={isIntroAccepted} route={router.asPath}
-          />
-        </div>
+        <Context.Provider value={[globalMusicPlaying, setGlobalMusicPlaying]}>
+          <JamContext.Provider
+            value={
+              [isDrumsLoaded, setIsDrumsLoaded],
+              [isBassLoaded, setIsBassLoaded],
+              [isGuitarLoaded, setIsGuitarLoaded],
+              [isVoxLoaded, setIsVoxLoaded],
+              [isKeysLoaded, setIsKeysLoaded]
+            }
+          >
+            <div className="fixed top-0 left-0 z-[10000] bg-white text-black">
+              Global: {JSON.stringify(globalMusicPlaying)}
+            </div>
 
-        {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-50">
-          <span className="block">Jam mode loaded: {JSON.stringify(globalMusicPlaying)}</span>
-          <span className="block">Global music playing: {JSON.stringify(globalJamModeAccepted)}</span>
-        </div> */}
+            <div className={`transition duration-300 ease-in-out ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-[400ms]'}`}>
+              <Header
+                currentlyPlaying={isIntroAccepted} route={router.asPath}
+              />
+            </div>
 
-        {/* { !isIntroAccepted && (
-          <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
-            <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
-              <div className="relative">
-                <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-[50]">
-                  <div className="w-[15vw] md:w-[14vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
-                    <Image
-                      src={japaneseCharacters}
-                      alt="Placeholder"
-                      layout="responsive"
-                      className="w-full will-change"
-                      priority
-                    />
+            {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-50">
+              <span className="block">Jam mode loaded: {JSON.stringify(globalMusicPlaying)}</span>
+              <span className="block">Global music playing: {JSON.stringify(globalJamModeAccepted)}</span>
+            </div> */}
+
+            {/* { !isIntroAccepted && (
+              <div className={`bg-off-black text-white fixed z-50 inset-0 w-full flex items-center justify-center transition ease-in-out duration-500 h-full`}>
+                <button aria-label="Enter Site" className="block" onClick={() => toggleIntroAccepted() }>
+                  <div className="relative">
+                    <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-10vw] z-[50]">
+                      <div className="w-[15vw] md:w-[14vw] opacity-70 dark:opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
+                        <Image
+                          src={japaneseCharacters}
+                          alt="Placeholder"
+                          layout="responsive"
+                          className="w-full will-change"
+                          priority
+                        />
+                      </div>
+                    </div>
+                    <div className="relative z-[60]">
+                      <span className="block uppercase text-[7vw] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display mb-5">ImReallyATrex</span>
+                      <span className="block uppercase text-[20px] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display">Click To Enter</span>
+                    </div>
                   </div>
-                </div>
-                <div className="relative z-[60]">
-                  <span className="block uppercase text-[7vw] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display mb-5">ImReallyATrex</span>
-                  <span className="block uppercase text-[20px] leading-[0.82] text-white text-center break-all will-change relative font-bold font-display">Click To Enter</span>
-                </div>
+                </button>
               </div>
-            </button>
-          </div>
-        )} */}
+            )} */}
 
-        <CursorMotion/>
+            <CursorMotion/>
 
-        <Context.Provider
-          value={
-            [globalMusicPlaying, setGlobalMusicPlaying],
-            [globalJamModeAccepted, setGlobalJamModeAccepted]
-          }
-        >
-          <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.asPath} />
-          </AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} key={router.asPath} />
+            </AnimatePresence>
+          </JamContext.Provider>
         </Context.Provider>
       </CartProvider>
     </ThemeProvider>

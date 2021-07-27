@@ -1,24 +1,40 @@
 // import raf from 'raf'
-import React, { useState } from 'react'
+import { useContext } from 'react'
 import { Howl } from 'howler'
+import { Context } from '@/context/state'
+import { useTheme } from 'next-themes'
 
 var track = new Howl({
   src: ['./stems/girl-from-osaka.mp3'],
-  volume: 0.7
+  volume: 0.75
 });
 
-function PlayerWidget() {
-  const [isPlaying, setIsPlaying] = useState(false);
+export default function PlayerWidget() {
+  const [globalMusicPlaying, setGlobalMusicPlaying] = useContext(Context)
+  const {theme, setTheme} = useTheme()
 
   const togglePlay = () => {
-    if (isPlaying == false) {
+    if (globalMusicPlaying == false) {
       track.play()
-      setIsPlaying(true);
-    } else if (isPlaying == true) {
+      setGlobalMusicPlaying(true);
+    } else if (globalMusicPlaying == true) {
       track.pause()
-      setIsPlaying(false);
+      setGlobalMusicPlaying(false);
     }
   }
+  
+  if (theme === 'dark') {
+    Howler.volume(1);
+  } else {
+    Howler.volume(0.5);
+  }
+
+  if (globalMusicPlaying == false) {
+    track.pause();
+  } else if (globalMusicPlaying == true) {
+    // track.fade(0, 0.75, 1000);
+  }
+
 
   return (
     <div className="bg-yellow rounded-full p-3 px-3 md:px-6 max-w-[450px] flex overflow-hidden">
@@ -35,7 +51,7 @@ function PlayerWidget() {
 
       <button className="text-off-black block w-auto" onClick={() => togglePlay() }>
         <div className="md:mr-[10px]">
-          { isPlaying ? (
+          { globalMusicPlaying ? (
             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
             </svg>
@@ -75,5 +91,3 @@ function PlayerWidget() {
     </div>
   )
 }
-
-export default PlayerWidget

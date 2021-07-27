@@ -7,7 +7,7 @@ import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Context } from '@/context/state'
-import Player from '@/components/player'
+import Player from '@/components/jam-hooks'
 
 export default function Jam() {
   const containerRef = useRef(null)
