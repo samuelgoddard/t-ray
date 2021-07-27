@@ -50,12 +50,23 @@ export default function Player() {
   const [isVoxLoaded, setIsVoxLoaded] = useContext(JamContext)
   const [isKeysPlaying, setIsKeysPlaying] = useState(true)
   const [isKeysLoaded, setIsKeysLoaded] = useContext(JamContext)
-  
-  bass.on('load', function(){ setIsBassLoaded(true) });
-  guitar.on('load', function(){ setIsGuitarLoaded(true) });
-  vox.on('load', function(){ setIsVoxLoaded(true) });
-  keys.on('load', function(){ setIsKeysLoaded(true) });
-  drums.on('load', function(){ setIsDrumsLoaded(true) });
+
+  useEffect(() => {
+    if (isBassLoaded == 'loaded' && isGuitarLoaded == 'loaded' && isVoxLoaded == 'loaded' && isKeysLoaded == 'loaded' && isDrumsLoaded == 'loaded') {
+      null
+    } else {
+      const intervalId = setInterval(() => { 
+        setIsBassLoaded(bass.state())
+        setIsGuitarLoaded(guitar.state())
+        setIsVoxLoaded(vox.state())
+        setIsKeysLoaded(keys.state())
+        setIsDrumsLoaded(drums.state())
+        console.log(bass.state())
+      }, 2500);
+    
+      return () => clearInterval(intervalId);
+    }
+  });
 
   const togglePlay = () => {
     if (isPlaying == false) {
@@ -142,7 +153,14 @@ export default function Player() {
       className="h-screen overflow-hidden relative"
     >
 
-      
+<div className="fixed bottom-0 left-[40vw] z-[10000] bg-white text-black text-[12px] p-2">            
+  <span className="block">Drums Loaded: {JSON.stringify(bass.state())}</span>
+  <span className="block">Bass Loaded: {JSON.stringify(guitar.state())}</span>
+  <span className="block">Guitar Loaded: {JSON.stringify(vox.state())}</span>
+  <span className="block">Vox Loaded: {JSON.stringify(keys.state())}</span>
+  <span className="block">Keys Loaded: {JSON.stringify(drums.state())}</span>
+</div>
+
       {/* Floor */}
       <m.div variants={fade} className="absolute bottom-0 left-0 right-0 scale-150 -rotate-2 bg-black bg-opacity-[0.15] dark:bg-opacity-50 w-full h-[12vh]">
       </m.div>
@@ -224,7 +242,7 @@ export default function Player() {
       {/* Play Button / Widget */}
       <m.div variants={fade} className="w-1/4 absolute bottom-0 left-0 ml-[30px] mb-[30px] z-20">
 
-      {isDrumsLoaded && isBassLoaded && isGuitarLoaded && isVoxLoaded && isKeysLoaded ? (
+      {isDrumsLoaded =='loaded' && isBassLoaded =='loaded' && isGuitarLoaded =='loaded' && isVoxLoaded =='loaded' && isKeysLoaded =='loaded' ? (
         <div className="flex items-center space-x-3">
           <button className="dark:bg-yellow dark:text-off-black bg-red text-off-black font-mono py-2 px-3 block rounded-lg" onClick={() => togglePlay() }>
             { isPlaying ? (<>Pause</>) : (<>Play</> ) }

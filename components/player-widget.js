@@ -29,6 +29,7 @@ export default function PlayerWidget() {
     Howler.volume(0.5);
   }
 
+
   if (globalMusicPlaying == false) {
     track.pause();
   } else if (globalMusicPlaying == true) {
