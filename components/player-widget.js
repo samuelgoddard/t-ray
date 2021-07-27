@@ -3,37 +3,45 @@ import { useContext } from 'react'
 import { Howl } from 'howler'
 import { Context } from '@/context/state'
 import { useTheme } from 'next-themes'
+import { isMobile } from "react-device-detect"
+var track = null;
 
-var track = new Howl({
-  src: ['./stems/girl-from-osaka.mp3'],
-  volume: 0.75
-});
+if (!isMobile) {
+  track = new Howl({
+    src: ['./stems/girl-from-osaka.mp3'],
+    volume: 0.75
+  });
+}
 
 export default function PlayerWidget() {
   const [globalMusicPlaying, setGlobalMusicPlaying] = useContext(Context)
   const {theme, setTheme} = useTheme()
 
   const togglePlay = () => {
-    if (globalMusicPlaying == false) {
-      track.play()
-      setGlobalMusicPlaying(true);
-    } else if (globalMusicPlaying == true) {
-      track.pause()
-      setGlobalMusicPlaying(false);
+    if (!isMobile) {
+      if (globalMusicPlaying == false) {
+        track.play()
+        setGlobalMusicPlaying(true);
+      } else if (globalMusicPlaying == true) {
+        track.pause()
+        setGlobalMusicPlaying(false);
+      }
     }
   }
-  
-  if (theme === 'dark') {
-    Howler.volume(1);
-  } else {
-    Howler.volume(0.5);
+  if (!isMobile) {
+    if (theme === 'dark') {
+      Howler.volume(1);
+    } else {
+      Howler.volume(0.5);
+    }
   }
 
-
-  if (globalMusicPlaying == false) {
-    track.pause();
-  } else if (globalMusicPlaying == true) {
-    // track.fade(0, 0.75, 1000);
+  if (!isMobile) {
+    if (globalMusicPlaying == false) {
+      track.pause();
+    } else if (globalMusicPlaying == true) {
+      // track.fade(0, 0.75, 1000);
+    }
   }
 
 

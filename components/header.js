@@ -13,6 +13,7 @@ import ModalTray from '@/components/modal-tray'
 import CartTray from '@/components/cart-tray'
 import { Context } from '@/context/state'
 import { useCartContext } from '@/context/store'
+import { isMobile } from "react-device-detect";
 
 const variants = {
   open: { opacity: 1 },
@@ -183,10 +184,12 @@ export default function Header({currentlyPlaying, route}) {
               </button>
             </div>
 
-            <div className="fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer hidden md:block">
-              <PlayerWidget />
-              {/* <PlayerWidget isCurrentlyPlaying={currentlyPlaying} /> */}
-            </div>
+            { !isMobile && (
+              <div className="fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer">
+                <PlayerWidget />
+                {/* <PlayerWidget isCurrentlyPlaying={currentlyPlaying} /> */}
+              </div>
+            )}
           </div>
 
           {/* TESTL {JSON.stringify(route)} */}
