@@ -1,4 +1,5 @@
 html {
+  scroll-behavior: smooth;
   @screen md {
     cursor: none !important;
   }

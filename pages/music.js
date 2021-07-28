@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import { fade } from "@/helpers/transitions"
+import { fade, fadeDelay, imageScale, reveal } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import Rollover from '@/components/rollover'
@@ -80,30 +80,39 @@ export default function Music(initialData) {
                 <m.div variants={fade}>
                   {/* Hero Heading */}
                   <div className="relative mb-[3vw]">
-                    <h1 className={`uppercase text-[13vw] leading-[1.25] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
-                      Music
+                    
+                    <h1 className={`uppercase text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
+                      <m.span variants={fadeDelay} className="block">Music</m.span>
 
-                      <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 ml-[-0.1em]">
-                        <div className="w-[63.5vw] pointer-events-none motion-safe:animate-float">
-                          <Image
-                            src={musicText}
-                            alt="Music Lettering"
-                            layout="responsive"
-                            className="w-full will-change"
-                            priority
-                          />
+                      <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.22em] ml-[-0.1em]">
+                        <div className="overflow-hidden">
+                          <m.div variants={fade}>
+                            <div className="w-[63.5vw] pointer-events-none motion-safe:animate-float">
+                              <Image
+                                src={musicText}
+                                alt="Music Lettering"
+                                layout="responsive"
+                                className="w-full will-change"
+                                priority
+                              />
+                            </div>
+                          </m.div>
                         </div>
                       </div>
 
-                      <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 ml-[-0.1em]">
-                        <div className="w-[63.5vw] pointer-events-none motion-safe:animate-float">
-                          <Image
-                            src={musicTextDark}
-                            alt="Music Lettering"
-                            layout="responsive"
-                            className="w-full will-change"
-                            priority
-                          />
+                      <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.22em] ml-[-0.1em]">
+                        <div className="overflow-hidden">
+                          <m.div variants={fade}>
+                            <div className="w-[63.5vw] pointer-events-none motion-safe:animate-float">
+                              <Image
+                                src={musicTextDark}
+                                alt="Music Lettering"
+                                layout="responsive"
+                                className="w-full will-change"
+                                priority
+                              />
+                            </div>
+                          </m.div>
                         </div>
                       </div>
                     </h1>
@@ -114,21 +123,25 @@ export default function Music(initialData) {
                     <div className="w-11/12 md:w-10/12 xl:w-11/12">
                       <div className="flex flex-wrap md:mx-[-3vw] items-center">
                         <div className="w-full md:w-6/12 md:px-[3vw] mb-8 md:mb-0 will-change" data-scroll-speed="0.35">
-                          <ImageWrapper
-                            image={music[0].coverArtwork.asset}
-                            className="w-full rounded-md will-change"
-                            baseWidth={900}
-                            baseHeight={900}
-                            alt={'T-Ray Album'}
-                          />
+                          <div className="relative overflow-hidden rounded-md">
+                            <m.div variants={imageScale}>
+                              <ImageWrapper
+                                image={music[0].coverArtwork.asset}
+                                className="w-full rounded-md will-change"
+                                baseWidth={900}
+                                baseHeight={900}
+                                alt={'T-Ray Album'}
+                              />
+                            </m.div>
+                          </div>
                         </div>
                         <div className="w-full md:w-6/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
                           <div className="mb-5 md:mb-8">
                             <MetaTeaser marqueeForce date={music[0].date} type={music[0].type} latest />
                           </div>
                           
-                          <div className="mb-5 md:mb-8">
-                            <h2 className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">{music[0].title}</h2>
+                          <div className="mb-5 md:mb-8 relative overflow-hidden">
+                            <m.h2 variants={reveal} className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">{music[0].title}</m.h2>
                           </div>
 
                           <div className="text-[19px] md:text-[20px] xl:text-[22px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">

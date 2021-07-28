@@ -99,18 +99,18 @@ export default function Home(initialData) {
             >
               <Container>
                 <m.div variants={fade}>
-                  <div className="relative mb-[15vw] md:mb-[30vw] xl:mb-[35vw]">
+                  <div className="relative mb-[15vw] md:mb-[29vw] xl:mb-[27vw]">
                     <h1 className={`uppercase text-[13vw] leading-[0.82] text-center break-all will-change relative text-red`}>
                       <span className="block overflow-hidden relative">
-                        <m.span variants={reveal} className="block">ImReally</m.span>
+                        <m.span variants={fadeDelay} className="block">ImReally</m.span>
                       </span>
                       <span className="block overflow-hidden relative">
-                        <m.span variants={reveal} className="block">A Trex</m.span>
+                        <m.span variants={fadeDelay} className="block">A Trex</m.span>
                       </span>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500">
                         <div className="overflow-hidden">
-                          <m.div variants={reveal}>
+                          <m.div variants={fade}>
                             <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
                               <Image
                                 src={trayText}
@@ -126,7 +126,7 @@ export default function Home(initialData) {
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500">
                         <div className="overflow-hidden">
-                          <m.div variants={reveal}>
+                          <m.div variants={fade}>
                             <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
                               <Image
                                 src={trayTextDark}
@@ -141,7 +141,7 @@ export default function Home(initialData) {
                       </div>
                     </h1>
                     
-                    <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[21vw] flex items-center justify-center">
+                    <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[18vw] xl:mt-[13vw] flex items-center justify-center">
                       <div
                         className="w-11/12 md:w-7/12 relative will-change"
                         data-scroll

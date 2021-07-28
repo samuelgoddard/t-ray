@@ -110,11 +110,11 @@ export default function News(initialData) {
                   <div className="relative mb-[10px] md:mb-[3vw]">
                     <div className="overflow-hidden">
                       <h1 className={`uppercase text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
-                        <m.span variants={reveal} className="block">News</m.span>
+                        <m.span variants={fadeDelay} className="block">News</m.span>
 
                         <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
                           <div className="overflow-hidden">
-                            <m.div variants={reveal}>
+                            <m.div variants={fade}>
                               <div className="w-[59vw] pointer-eveants-none motion-safe:animate-float">
                                 <Image
                                   src={newsText}
@@ -129,7 +129,7 @@ export default function News(initialData) {
                         </div>
 
                         <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
-                          <m.div variants={fadeDelay} className="w-[59vw] pointer-events-none motion-safe:animate-float">
+                          <m.div variants={fade} className="w-[59vw] pointer-events-none motion-safe:animate-float">
                             <Image
                               src={newsTextDark}
                               alt="News Lettering"
