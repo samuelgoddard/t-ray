@@ -113,15 +113,19 @@ export default function News(initialData) {
                         <m.span variants={reveal} className="block">News</m.span>
 
                         <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
-                          <m.div variants={fadeDelay} className="w-[59vw] pointer-eveants-none motion-safe:animate-float">
-                            <Image
-                              src={newsText}
-                              alt="News Lettering"
-                              layout="responsive"
-                              className="w-full will-change"
-                              priority
-                            />
-                          </m.div>
+                          <div className="overflow-hidden">
+                            <m.div variants={reveal}>
+                              <div className="w-[59vw] pointer-eveants-none motion-safe:animate-float">
+                                <Image
+                                  src={newsText}
+                                  alt="News Lettering"
+                                  layout="responsive"
+                                  className="w-full will-change"
+                                  priority
+                                />
+                              </div>
+                            </m.div>
+                          </div>
                         </div>
 
                         <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">

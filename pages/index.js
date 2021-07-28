@@ -109,27 +109,35 @@ export default function Home(initialData) {
                       </span>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500">
-                        <m.div variants={fadeDelay} className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
-                          <Image
-                            src={trayText}
-                            alt="ImReallyATrex"
-                            layout="responsive"
-                            className="w-full will-change"
-                            priority
-                          />
-                        </m.div>
+                        <div className="overflow-hidden">
+                          <m.div variants={reveal}>
+                            <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
+                              <Image
+                                src={trayText}
+                                alt="ImReallyATrex"
+                                layout="responsive"
+                                className="w-full will-change"
+                                priority
+                              />
+                            </div>
+                          </m.div>
+                        </div>
                       </div>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500">
-                        <m.div variants={fadeDelay} className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
-                          <Image
-                            src={trayTextDark}
-                            alt="ImReallyATrex"
-                            layout="responsive"
-                            className="w-full will-change"
-                            priority
-                          />
-                        </m.div>
+                        <div className="overflow-hidden">
+                          <m.div variants={reveal}>
+                            <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
+                              <Image
+                                src={trayTextDark}
+                                alt="ImReallyATrex"
+                                layout="responsive"
+                                className="w-full will-change"
+                                priority
+                              />
+                            </div>
+                          </m.div>
+                        </div>
                       </div>
                     </h1>
                     
