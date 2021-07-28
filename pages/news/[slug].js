@@ -86,7 +86,7 @@ export default function News(initialData) {
                       </Link>
                     </div>
 
-                    <div className="w-full mb-12 md:mb-28 xl:mb-40">
+                    <div className="w-full mb-12 md:mb-28 xl:mb-40 will-change">
                       <ImageWrapper
                         image={teaserImage}
                         className="w-full will-change release-teaser__image"

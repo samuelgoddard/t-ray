@@ -27,6 +27,7 @@ module.exports = {
         wiggle: 'wiggle 0.9s ease-in-out infinite',
         float: 'float 5s ease-in-out infinite',
         'float-wobble': 'floatWobble 5s ease-in-out infinite',
+        'float-wobble-fast': 'floatWobbleFast 3s ease-in-out infinite',
       },
       keyframes: {
         marquee: {
@@ -44,6 +45,10 @@ module.exports = {
         floatWobble: {
           '0%, 100%': { transform: 'translateY(1.25%) rotateZ(2deg) scale(1.05)' },
           '50%': { transform: 'translateY(-1.25%) rotateZ(-5deg) scale(1)' },
+        },
+        floatWobbleFast: {
+          '0%, 100%': { transform: 'translateY(1.2%) rotateZ(1deg) scale(1.025)' },
+          '50%': { transform: 'translateY(-3.5%) rotateZ(-10deg) scale(1)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(0deg)' },

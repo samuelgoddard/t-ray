@@ -118,7 +118,7 @@ a, button {
 }
 
 .content > ul {
-  @apply mt-5 md:mt-8 text-[3.7vw] md:text-[2.2vw] lg:text-[20px] list-inside;
+  @apply mt-5 md:mt-8 mb-5 md:mb-8 text-[3.7vw] md:text-[2.2vw] lg:text-[20px] list-inside;
   text-indent: 0 !important;
 
   li {
@@ -307,4 +307,15 @@ html.has-scroll-dragging {
   0%   {transform: scale(0); opacity: 0}
   80%   {transform: scale(1.1); opacity: 1}
   100%   {transform: scale(0.95); opacity: 0}
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

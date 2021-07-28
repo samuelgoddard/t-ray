@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [isIntroAccepted, setIntroAccepted] = useState(false);
   const [globalMusicPlaying, setGlobalMusicPlaying] = useState(false);
+  const [globalFooterInView, setGlobalFooterInView] = useState(false);
   const [jamAccepted, setJamAccepted] = useState(false);
   
   const [isDrumsLoaded, setIsDrumsLoaded] = useState(false)
@@ -37,7 +38,8 @@ export default function App({ Component, pageProps }) {
         <Context.Provider 
           value={
             [globalMusicPlaying, setGlobalMusicPlaying],
-            [jamAccepted, setJamAccepted]
+            [jamAccepted, setJamAccepted],
+            [globalFooterInView, setGlobalFooterInView]
           }
         >
           <JamContext.Provider

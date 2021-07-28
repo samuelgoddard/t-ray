@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import { fade, intro } from "@/helpers/transitions"
+import { fade, intro, reveal, fadeDelay } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import ReleaseTeaser from '@/components/release-teaser'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
@@ -106,38 +106,42 @@ export default function News(initialData) {
               data-scroll-section
             >
               <Container>
-                <m.div variants={fade}>
-                  <div className="relative mb-[3vw]">
-                    <h1 className={`uppercase text-[13vw] leading-[1.25] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
-                      News
+                <div>
+                  <div className="relative mb-[10px] md:mb-[3vw]">
+                    <div className="overflow-hidden">
+                      <h1 className={`uppercase text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
+                        <m.span variants={reveal} className="block">News</m.span>
 
-                      <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[0.065em] ml-[0.025em]">
-                        <div className="w-[59vw] pointer-eveants-none motion-safe:animate-float">
-                          <Image
-                            src={newsText}
-                            alt="News Lettering"
-                            layout="responsive"
-                            className="w-full will-change"
-                            priority
-                          />
+                        <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
+                          <m.div variants={fadeDelay} className="w-[59vw] pointer-eveants-none motion-safe:animate-float">
+                            <Image
+                              src={newsText}
+                              alt="News Lettering"
+                              layout="responsive"
+                              className="w-full will-change"
+                              priority
+                            />
+                          </m.div>
                         </div>
-                      </div>
 
-                      <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[0.065em] ml-[0.025em]">
-                        <div className="w-[59vw] pointer-events-none motion-safe:animate-float">
-                          <Image
-                            src={newsTextDark}
-                            alt="News Lettering"
-                            layout="responsive"
-                            className="w-full will-change"
-                            priority
-                          />
+                        <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
+                          <m.div variants={fadeDelay} className="w-[59vw] pointer-events-none motion-safe:animate-float">
+                            <Image
+                              src={newsTextDark}
+                              alt="News Lettering"
+                              layout="responsive"
+                              className="w-full will-change"
+                              priority
+                            />
+                          </m.div>
                         </div>
-                      </div>
-                    </h1>
+                      </h1>
+                    </div>
                   </div>
-
-                  <div className="flex justify-center mb-[25vw] md:mb-[14vw] max-w-screen-2xl mx-auto mt-20 md:mt-0">
+                </div>
+                
+                <m.div variants={fade}>
+                  <div className="flex justify-center mb-[25vw] md:mb-[14vw] max-w-screen-2xl mx-auto mt-8 md:mt-0">
                     <div className="w-10/12 md:w-10/12 xl:w-10/12">
                       <div className="flex flex-wrap md:-mx-12 xl:-mx-16 justify-center">
                         <div className="w-full md:w-2/3 md:px-12 xl:px-16 mb-8 md:mb-0">
@@ -224,7 +228,7 @@ export default function News(initialData) {
                         }
                         return (
                           <li key={i}>
-                            <ListTeaser title={e.title} date={e.date} type="Music Video" href={href} external={external} purchaseLinks={e.purchaseLinks} />
+                            <ListTeaser title={e.title} date={e.date} type="Music Video" href={href} external={external} image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} purchaseLinks={e.purchaseLinks} />
                           </li>
                         )
                       })}
@@ -241,7 +245,7 @@ export default function News(initialData) {
 
                         return (
                           <li key={i}>
-                            <ListTeaser title={e.title} date={e.date} type={e.type ? e.type : "Latest News"} purchaseLinks={e.purchaseLinks} />
+                            <ListTeaser title={e.title} date={e.date} type={e.type ? e.type : "Latest News"} image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} purchaseLinks={e.purchaseLinks} />
                           </li>
                         )
                       })}

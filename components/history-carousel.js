@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react'
 import { useEmblaCarousel } from 'embla-carousel/react'
 import ImageWrapper from '@/components/image-wrapper';
-import BlockContent from '@sanity/block-content-to-react'
+// import BlockContent from '@sanity/block-content-to-react'
 
 const HistoryCarousel = ({ slides }) => {
   const [viewportRef, embla] = useEmblaCarousel({
@@ -10,6 +10,7 @@ const HistoryCarousel = ({ slides }) => {
     loop: true,
     inViewThreshold: 0.65
   });
+
   const onSelect = useCallback(() => {
     if (!embla) return;
   }, [embla]);

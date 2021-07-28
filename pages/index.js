@@ -1,14 +1,14 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { getAllProductsInCollection } from '../lib/shopify'
 import Layout from '@/components/layout'
-import Footer from '@/components/footer'
 import Container from '@/components/container'
-import { fade } from "@/helpers/transitions"
+import { fade, fadeDelay, reveal } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import HistoryCarousel from '@/components/history-carousel'
 import Rollover from '@/components/rollover'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import Footer from '@/components/footer'
 import ProductTeaser from '@/components/product-teaser'
 import Image from 'next/image'
 import Ticker from '@/components/ticker'
@@ -101,10 +101,15 @@ export default function Home(initialData) {
                 <m.div variants={fade}>
                   <div className="relative mb-[15vw] md:mb-[30vw] xl:mb-[35vw]">
                     <h1 className={`uppercase text-[13vw] leading-[0.82] text-center break-all will-change relative text-red`}>
-                      ImReallyA Trex
+                      <span className="block overflow-hidden relative">
+                        <m.span variants={reveal} className="block">ImReally</m.span>
+                      </span>
+                      <span className="block overflow-hidden relative">
+                        <m.span variants={reveal} className="block">A Trex</m.span>
+                      </span>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500">
-                        <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
+                        <m.div variants={fadeDelay} className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
                           <Image
                             src={trayText}
                             alt="ImReallyATrex"
@@ -112,11 +117,11 @@ export default function Home(initialData) {
                             className="w-full will-change"
                             priority
                           />
-                        </div>
+                        </m.div>
                       </div>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500">
-                        <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
+                        <m.div variants={fadeDelay} className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
                           <Image
                             src={trayTextDark}
                             alt="ImReallyATrex"
@@ -124,7 +129,7 @@ export default function Home(initialData) {
                             className="w-full will-change"
                             priority
                           />
-                        </div>
+                        </m.div>
                       </div>
                     </h1>
                     

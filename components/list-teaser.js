@@ -2,6 +2,7 @@ import MetaTeaser from "@/components/meta-teaser"
 import Link from "next/link"
 import ConditionalWrap from "conditional-wrap"
 import Rollover from "@/components/rollover"
+import ImageWrapper from "./image-wrapper"
 
 export default function ListTeaser({ image, title, date, type, purchaseLinks, video, href, external }) {
   return (
@@ -18,7 +19,26 @@ export default function ListTeaser({ image, title, date, type, purchaseLinks, vi
           </Link>
         )}
       >
-        <a {...(external ? {target: '_blank', rel: 'noopener noreferrer'} : {})} className="block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none text-outline uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0">{title}</a>
+        <a {...(external ? {target: '_blank', rel: 'noopener noreferrer'} : {})} className={`block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none uppercase font-display lg:pl-[5vw] pr-4 mb-4 md:mb-0 relative ${ href ? 'group hover:text-red transition ease-in-out duration-300' : ''}`}>
+          <span className="inline-block relative w-auto">
+            {title}
+          
+            { image && (
+              <div className="absolute top-0 right-0 w-[190px] h-[250px] mr-[-10%] mt-[-17%] rounded-lg opacity-0 rotate-0 scale-75 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-6 ease-in-out duration-300 transition z-[20] hidden md:block">
+                <div className="absolute w-full h-full rounded-lg overflow-hidden animate-float-wobble-fast origin-center">
+                  <ImageWrapper
+                    image={image}
+                    className="will-change w-full h-full object-cover object-center"
+                    baseWidth={720}
+                    baseHeight={720}
+                    fill={true}
+                    alt={'T-Ray Album'}
+                  />
+                </div>
+              </div>
+            )}
+          </span>
+        </a>
       </ConditionalWrap>
 
       {purchaseLinks && (

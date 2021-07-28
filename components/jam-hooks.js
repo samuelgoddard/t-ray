@@ -340,7 +340,7 @@ export default function Player() {
 
           <span className="uppercase text-[16px] md:text-[20px] xl:text-[22px] tracking-tight dark:text-off-black flex-1 overflow-hidden hidden md:block">
             <div className="relative flex overflow-x-hidden">
-              <div className="motion-safe:animate-marquee whitespace-nowrap">
+              <div className="motion-safe:animate-marquee whitespace-nowrap font-mono">
                 <span className="mx-1">I'm Fine</span>
                 <span className="mx-1 text-[18px]">&bull;</span>
                 <span className="mx-1">I'm Fine</span>
