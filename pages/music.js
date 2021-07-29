@@ -19,8 +19,25 @@ import BlockContent from '@sanity/block-content-to-react'
 import SanityPageService from '@/services/sanityPageService'
 
 const query = `{
-  "music": *[_type == "music"] | order(date desc) {
+  "music": *[_type == "music" && (featured == null || featured == false)] {
     title,
+    featured,
+    coverArtwork {
+      asset -> {
+        ...
+      }
+    },
+    descriptionText,
+    date,
+    type,
+    purchaseLinks[]{
+      title,
+      url
+    }
+  },
+  "featuredMusic": *[_type == "music" && featured == true] {
+    title,
+    featured,
     coverArtwork {
       asset -> {
         ...
@@ -39,7 +56,7 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function Music(initialData) {
-  const { data: { music }  } = pageService.getPreviewHook(initialData)()
+  const { data: { music, featuredMusic }} = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
 
   return (
@@ -119,53 +136,57 @@ export default function Music(initialData) {
                   </div>
                   
                   {/* Latest Release */}
-                  <div className="flex justify-center mb-[25vw] md:mb-[16vw] max-w-screen-2xl mx-auto">
-                    <div className="w-11/12 md:w-10/12 xl:w-11/12">
-                      <div className="flex flex-wrap md:mx-[-3vw] items-center">
-                        <div className="w-full md:w-6/12 md:px-[3vw] mb-8 md:mb-0 will-change" data-scroll-speed="0.35">
-                          <div className="relative overflow-hidden rounded-md">
-                            <m.div variants={imageScale}>
-                              <ImageWrapper
-                                image={music[0].coverArtwork.asset}
-                                className="w-full rounded-md will-change"
-                                baseWidth={900}
-                                baseHeight={900}
-                                alt={'T-Ray Album'}
-                              />
-                            </m.div>
-                          </div>
-                        </div>
-                        <div className="w-full md:w-6/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
-                          <div className="mb-5 md:mb-8">
-                            <MetaTeaser marqueeForce date={music[0].date} type={music[0].type} latest />
-                          </div>
-                          
-                          <div className="mb-5 md:mb-8 relative overflow-hidden">
-                            <m.h2 variants={reveal} className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">{music[0].title}</m.h2>
-                          </div>
+                  {featuredMusic.map((e, index) => {
+                    return (
+                      <div key={index} className="flex justify-center mb-[25vw] md:mb-[16vw] max-w-screen-2xl mx-auto">
+                        <div className="w-11/12 md:w-10/12 xl:w-11/12">
+                          <div className="flex flex-wrap md:mx-[-3vw] items-center">
+                            <div className="w-full md:w-6/12 md:px-[3vw] mb-8 md:mb-0 will-change" data-scroll-speed="0.35">
+                              <div className="relative overflow-hidden rounded-md">
+                                <m.div variants={imageScale}>
+                                  <ImageWrapper
+                                    image={e.coverArtwork.asset}
+                                    className="w-full rounded-md will-change"
+                                    baseWidth={900}
+                                    baseHeight={900}
+                                    alt={'T-Ray Album'}
+                                  />
+                                </m.div>
+                              </div>
+                            </div>
+                            <div className="w-full md:w-6/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
+                              <div className="mb-5 md:mb-8">
+                                <MetaTeaser marqueeForce date={e.date} type={e.type} latest />
+                              </div>
+                              
+                              <div className="mb-5 md:mb-8 relative overflow-hidden">
+                                <m.h2 variants={reveal} className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">{e.title}</m.h2>
+                              </div>
 
-                          <div className="text-[19px] md:text-[20px] xl:text-[22px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">
-                            <BlockContent serializers={{ container: ({ children }) => children }} blocks={music[0].descriptionText} />
-                          </div>
+                              <div className="text-[19px] md:text-[20px] xl:text-[22px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">
+                                <BlockContent serializers={{ container: ({ children }) => children }} blocks={e.descriptionText} />
+                              </div>
 
-                          <ul className="text-[17px] md:text-[18px] xl:text-[20px] leading-[1.25] tracking-tight">
-                            {music[0].purchaseLinks.map((e, index) => {
-                              return (
-                                <li className="mb-2" key={index}>
-                                  <a href={e.url} className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                    <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                    <div className="overflow-hidden relative">
-                                      <Rollover label={`On ${e.title}`} underline />
-                                    </div>
-                                  </a>
-                                </li>
-                              )
-                            })}
-                          </ul>
+                              <ul className="text-[17px] md:text-[18px] xl:text-[20px] leading-[1.25] tracking-tight">
+                                {e.purchaseLinks.map((e, index) => {
+                                  return (
+                                    <li className="mb-2" key={index}>
+                                      <a href={e.url} className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                                        <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
+                                        <div className="overflow-hidden relative">
+                                          <Rollover label={`On ${e.title}`} underline />
+                                        </div>
+                                      </a>
+                                    </li>
+                                  )
+                                })}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    )
+                  })}
 
                   {/* Further Releases */}
                   <HeadingKanji heading="Releases" kanji={japaneseCharacters} />
@@ -173,7 +194,7 @@ export default function Music(initialData) {
                   <div className="flex justify-center mb-[25vw] md:mb-[16vw] max-w-screen-2xl mx-auto mt-20 md:mt-0">
                     <div className="w-9/12 md:w-10/12 xl:w-11/12">
                       <div className="flex flex-wrap md:-mx-6">
-                        {music.slice(1).map((e, index) => {
+                        {music.map((e, index) => {
                           return (
                             <div key={index} className={`w-full md:w-1/2 lg:w-1/3 md:px-6 mb-8 md:mb-0 ${index == 1 ? 'md:mt-20' : ''} ${index == 2 ? 'lg:mt-40' : ''}`}>
                               <ReleaseTeaser marqueeForce image={e.coverArtwork.asset} title={e.title} date={e.date} type={e.type} purchaseLinks={e.purchaseLinks} href={null} />
