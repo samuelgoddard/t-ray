@@ -150,17 +150,6 @@ export default function Home(initialData) {
                           data-scroll-speed="1.5"
                         >
                           <div className="relative overflow-hidden rounded-lg -rotate-2">
-                            <m.div variants={imageScale}>
-                              <div className="relative z-0">
-                                <Image
-                                  src={trayImage}
-                                  alt="Placeholder"
-                                  layout="responsive"
-                                  className="w-full will-change pointer-events-none rounded-lg"
-                                  priority
-                                />
-                              </div>
-                            </m.div>
                             <div className="absolute inset-0 w-full z-10 scale-[1.0025]">
                               <Image
                                 src={trayImageFrame}
@@ -170,6 +159,19 @@ export default function Home(initialData) {
                                 priority
                               />
                             </div>
+                            <m.div variants={imageScale}>
+                              <div className="relative z-0">
+                                <Image
+                                  src={trayImage}
+                                  alt="Placeholder"
+                                  layout="responsive"
+                                  className="w-full will-change pointer-events-none rounded-lg"
+                                  data-scroll
+                                  data-scroll-speed="-0.85"
+                                  priority
+                                />
+                              </div>
+                            </m.div>
                           </div>
 
                           <div className="absolute bottom-0 left-0 ml-[15px] md:ml-[-5vw] mb-[-8.5vw] md:mb-[-5vw] will-change z-30" data-scroll data-scroll-speed="0.75">
