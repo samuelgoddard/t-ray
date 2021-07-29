@@ -14,6 +14,7 @@ import { JamContext } from '@/context/jam'
 import { Context } from '@/context/state'
 import kanji from '@/public/images/japanese-characters-black.svg'
 import letsJamText from '@/public/images/letsjamtext.svg'
+import letsJamTextDark from '@/public/images/letsjamtextdark.svg'
 
 var drums = new Howl({ 
   src: ['/stems/im-fine-drums.mp3'],
@@ -515,14 +516,54 @@ export default function Player() {
         </m.div>
 
         <Container>
-          <m.div variants={fade} className="mb-12 md:mb-16 xl:mb-24 mt-[18vw] md:mt-[13vw] lg:mt-[11vw] xl:mt-[10vw] 2xl:mt-[9vw] relative z-10">
-            <h1 className="uppercase text-[11vw] md:text-[10vw] text-red text-center break-all will-change mb-[3vw] leading-[0.85]">
+          <m.div variants={fade} className="mb-12 md:mb-16 xl:mb-24 mt-[18vw] md:mt-[20vh] lg:mt-[22vh] xl:mt-[21vh] 2xl:mt-[24vh] relative z-10">
+            {/* <h1 className="uppercase text-[11vw] md:text-[10vw] text-red text-center break-all will-change mb-[3vw] leading-[0.85]">
               <span className="relative overflow-hidden block">
                 <m.span variants={reveal} className="block">
                   LET’S JAM!
                 </m.span>
               </span>
-            </h1>
+            </h1> */}
+
+            <div className="relative">
+              <h1 className="uppercase text-[10vw] leading-[0.95] text-center will-change block text-red dark:text-red relative z-10">
+                <span className="block overflow-hidden relative">
+                  <m.span variants={fadeDelay} className="block">LET’S JAM!</m.span>
+                </span>
+              </h1>
+              <div className="absolute inset-0 flex justify-center pointer-events-none z-20 opacity-100 dark:opacity-0">
+                <div className="overflow-hidden xl:pt-[4px]">
+                  <m.div variants={fade}>
+                    <div className="w-[77.75vw] pointer-events-none motion-safe:animate-float mt-[-1.25vw]">
+                      <Image
+                        src={letsJamText}
+                        alt="Let's Jam"
+                        layout="responsive"
+                        className="w-full will-change"
+                        priority
+                      />
+                    </div>
+                  </m.div>
+                </div>
+              </div>
+
+              <div className="absolute inset-0 flex justify-center pointer-events-none z-20 opacity-0 dark:opacity-100">
+                <div className="overflow-hidden xl:pt-[4px]">
+                  <m.div variants={fade}>
+                    <div className="w-[76.5vw] pointer-events-none motion-safe:animate-float ml-[-0.1vw] mt-[-0.8vw]">
+                      <Image
+                        src={letsJamTextDark}
+                        alt="Let's Jam"
+                        layout="responsive"
+                        className="w-full will-change"
+                        priority
+                      />
+                    </div>
+                  </m.div>
+                </div>
+              </div>
+            </div>
+
 
             <div className="flex justify-center mb-[20vw] md:mb-[18vw]">
               <div className="w-full lg:w-10/12 xl:w-1/2">
