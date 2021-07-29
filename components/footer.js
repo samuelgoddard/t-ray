@@ -33,7 +33,7 @@ export default function Footer({ noPad }) {
       
       <div className="flex lg:mb-[18vw] pt-[50px] md:pt-[120px] xl:pt-[200px]">
         <div className="w-full">
-          <footer className={`mb-5 md:mb-10`}>
+          <footer className={`mb-5 md:mb-6`}>
             <div className="flex flex-wrap font-mono text-[13px] md:text-lg">
               <span className="block">&copy; { new Date().getFullYear() }</span>
               <nav className="ml-auto block">
@@ -41,7 +41,7 @@ export default function Footer({ noPad }) {
                   <li>
                     <a className="block group" href="mailto:press@imreallyatrex.com">
                       <div className="overflow-hidden relative transition-colors ease-in-out duration-500">
-                        <Rollover label="Press" />
+                        <Rollover animatedUnderline label="Press" />
                       </div>
                     </a>
                   </li>
@@ -49,7 +49,7 @@ export default function Footer({ noPad }) {
                     <Link href="/terms">
                       <a className="block group">
                         <div className="overflow-hidden relative transition-colors ease-in-out duration-500">
-                          <Rollover label="Terms &amp; Conditions" />
+                          <Rollover animatedUnderline label="Terms &amp; Conditions" />
                         </div>
                       </a>
                     </Link>

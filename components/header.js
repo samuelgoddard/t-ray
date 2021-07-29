@@ -54,14 +54,14 @@ export default function Header({currentlyPlaying, route}) {
               <nav>
                 <ul className="flex items-center">
                   <li>                    
-                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] px-1 md:px-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
-                      <Rollover label="Insta" />
+                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="uppercase block text-[16px] md:text-[17px] xl:text-[22px] mx-1 md:mx-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
+                      <Rollover animatedUnderline underlineDotted label="Insta" />
                     </a>
                   </li>
                   <li className="ml-1 md:ml-2 transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">&bull;</li>
                   <li>
-                    <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] px-1 md:px-2 my-1 md:my-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
-                      <Rollover label="Youtube" />
+                    <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="uppercase block text-[16px] md:text-[17px] xl:text-[22px] mx-1 md:mx-2 my-1 md:my-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
+                      <Rollover animatedUnderline underlineDotted label="Youtube" />
                     </a>
                   </li>
                 </ul>
@@ -76,7 +76,7 @@ export default function Header({currentlyPlaying, route}) {
                       <a onClick={() => stopGlobalMusic() } aria-label="Navigate to jam page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl transition ease-in-out duration-500 text-off-black dark:text-off-white ${route === '/jam' ? 'scale-0' : 'scale-100'}`}>
                         <svg className="w-7 inline-block absolute top-0 left-0 md:mt-[10px] z-10 xl:mt-[14px] ml-3" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.777c0 3.5 1.558 8.578 6.25 8.578 4.693 0 6.25-5.078 6.25-8.579 0-10.83-12.5-10.83-12.5 0zm5.32 7.955c-3.994 0-4.987-4.686-4.987-7.693 0-10.35 9.973-10.35 9.973 0 0 3.006-.992 7.693-4.986 7.693zM12.501 8.777c0 3.5 1.557 8.578 6.25 8.578 4.692 0 6.249-5.078 6.249-8.579 0-10.83-12.499-10.83-12.499 0zm5.32 7.955c-3.996 0-4.987-4.686-4.987-7.693 0-10.35 9.972-10.35 9.972 0 0 3.006-.992 7.693-4.986 7.693z" fill="currentColor"/><path d="M.333 9.102c0 2.47 1.814 4.36 4.053 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.104-6.075-8.104 0zM12.833 9.102c0 2.47 1.814 4.36 4.052 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.103-6.075-8.103 0z" fill="currentColor"/></svg>
                         <div className="relative overflow-hidden z-10">
-                          <Rollover label="Jam Mode" />
+                          <Rollover animatedUnderline underlineDotted label="Jam Mode" />
                         </div>
                       </a>
                     </Link>
@@ -97,7 +97,7 @@ export default function Header({currentlyPlaying, route}) {
                     <Link href="/">
                       <a aria-label="Navigate to biography page" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative ${route === '/' ? 'text-off-white dark:text-off-black ' : ''}`}>
                         <div className="relative overflow-hidden z-10">
-                          <Rollover label="Bio" />
+                          <Rollover animatedUnderline={route != '/'} underlineDotted label="Bio" />
                         </div>
                         <div className={`active-pill absolute inset-0 z-0 ${route === '/' ? 'opacity-100' : 'opacity-0' }`}></div>
                       </a>
@@ -105,11 +105,11 @@ export default function Header({currentlyPlaying, route}) {
                   </li>
                   <li>
                     <Link href="/feed">
-                      <a aria-label="Navigate to the latest feed" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route === '/feed' ? 'text-off-white dark:text-off-black ' : ''}`}>
+                      <a aria-label="Navigate to the latest feed" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route.includes('/feed') ? 'text-off-white dark:text-off-black ' : ''}`}>
                         <div className="relative overflow-hidden z-10">
-                          <Rollover label="Feed" />
+                          <Rollover animatedUnderline={!route.includes('/feed')} underlineDotted label="Feed" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 ${route === '/feed' ? 'opacity-100' : 'opacity-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 ${route.includes('/feed') ? 'opacity-100' : 'opacity-0' }`}></div>
                       </a>
                     </Link>
                   </li>
@@ -117,7 +117,7 @@ export default function Header({currentlyPlaying, route}) {
                     <Link href="/music">
                       <a aria-label="Navigate to music page" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black ' : ''}`}>
                         <div className="relative overflow-hidden z-10">
-                          <Rollover label="Music" />
+                          <Rollover animatedUnderline={route != '/music'} underlineDotted label="Music" />
                         </div>
                         <div className={`active-pill absolute inset-0 z-0 ${route === '/music' ? 'opacity-100' : 'opacity-0' }`}></div>
                       </a>
@@ -130,7 +130,7 @@ export default function Header({currentlyPlaying, route}) {
                           <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition-opacity ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
                         )}
                         <div className="relative overflow-hidden">
-                          <Rollover label="Bag" />
+                          <Rollover animatedUnderline underlineDotted label="Bag" />
                         </div>
                       </span>
                     </button>
@@ -233,7 +233,7 @@ export default function Header({currentlyPlaying, route}) {
                           <m.span
                             animate={isMenuOpen ? "open" : "closed"}
                             variants={revealVariants}
-                            transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                            transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                             className="block"
                           >Bio</m.span>
                         </span>
@@ -247,7 +247,7 @@ export default function Header({currentlyPlaying, route}) {
                           <m.span
                             animate={isMenuOpen ? "open" : "closed"}
                             variants={revealVariants}
-                            transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                            transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                             className="block"
                           >Feed</m.span>
                         </span>
@@ -261,7 +261,7 @@ export default function Header({currentlyPlaying, route}) {
                           <m.span
                             animate={isMenuOpen ? "open" : "closed"}
                             variants={revealVariants}
-                            transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                            transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                             className="block"
                           >Music</m.span>
                         </span>
@@ -274,7 +274,7 @@ export default function Header({currentlyPlaying, route}) {
                         <m.span
                           animate={isMenuOpen ? "open" : "closed"}
                           variants={revealVariants}
-                          transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                          transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                           className="block"
                         >Bag</m.span>
                       </span>
@@ -299,7 +299,7 @@ export default function Header({currentlyPlaying, route}) {
                         <m.span
                           animate={isMenuOpen ? "open" : "closed"}
                           variants={revealVariants}
-                          transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                          transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                           className="block"
                         >Insta</m.span>
                       </span>
@@ -310,7 +310,7 @@ export default function Header({currentlyPlaying, route}) {
                       <m.span
                         animate={isMenuOpen ? "open" : "closed"}
                         variants={revealVariants}
-                        transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                        transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                         className="block"
                       >&bull;</m.span>
                     </span>
@@ -321,7 +321,7 @@ export default function Header({currentlyPlaying, route}) {
                         <m.span
                           animate={isMenuOpen ? "open" : "closed"}
                           variants={revealVariants}
-                          transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                          transition={{ delay: 0.1, duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
                           className="block"
                         >Youtube</m.span>
                       </span>

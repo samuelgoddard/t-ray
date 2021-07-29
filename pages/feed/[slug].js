@@ -1,6 +1,7 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
+import { useRouter } from 'next/router'
 import Container from '@/components/container'
 import { fade, intro } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
@@ -34,6 +35,18 @@ const pageService = new SanityPageService(query)
 export default function News(initialData) {
   const { data: { title, date, slug, teaserImage, contentBlocks }  } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
+  const router = useRouter()
+  const [copied, setCopied] = useState(false);
+  
+  const copy = () => {
+    const el = document.createElement("input");
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    setCopied(true);
+  }
 
   return (
     <Layout>
@@ -76,13 +89,45 @@ export default function News(initialData) {
                     </div>
                     <h1 className="text-red font-display uppercase text-[8vw] md:text-[7.5vw] xl:text-[7vw] 2xl:text-[120px] leading-[0.9] w-full md:w-11/12 block">{title}</h1>
 
-                    <div className="flex flex-wrap items-center mt-8 mb-6 md:mb-8 md:mt-12 xl:mt-16 transition-colors ease-in-out duration-500">
-                      <a href="#" className="block uppercase text-[12px] md:text-base">Copy Link</a>
-                      <span className="block uppercase text-[10px] mx-2 md:mx-3">&bull;</span>
-                      <a href="#" className="block uppercase text-[12px] md:text-base">Share On Twitter</a>
+                    <div className="flex flex-wrap items-center mt-8 mb-6 md:mb-8 md:mt-12 xl:mt-16">
+                      <button className="block group uppercase text-[12px] md:text-base focus:border-none" onClick={copy}>
+                        <div className="overflow-hidden relative transition-colors ease-in-out duration-500">
+                          <div className={`relative py-[2px]`}>
+                            <div className={`transition-transform ease-in-out duration-500 w-full will-change md:group-hover:translate-y-[32px] md:group-focus:translate-y-[32px]`}>
+                              <span className={`md:block absolute top-0 left-0 mt-[-32px]`}>{!copied ? "Copy link" : "Link Copied"}</span>
+                              <span className={`block`}>{!copied ? "Copy link" : "Link Copied"}</span>
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-current w-0 group-hover:w-full group-focus:w-full transition-all ease-in-out duration-300 delay-150"></div>
+                          </div>
+                        </div>
+                      </button>
 
-                      <Link href="/news">
-                        <a className="ml-auto block uppercase text-[12px] md:text-base">Back to feed</a>
+                      <span className="block uppercase text-[10px] mx-2 md:mx-3">&bull;</span>
+
+                      <a target="_blank" rel="noopener noreferrer" href={`http://twitter.com/share?text=${title}&url=https://iamreallyatrex.com${router.asPath}`} className="block group uppercase text-[12px] md:text-base focus:border-none">
+                        <div className="overflow-hidden relative transition-colors ease-in-out duration-500">
+                          <div className={`relative py-[2px]`}>
+                            <div className={`transition-transform ease-in-out duration-500 w-full will-change md:group-hover:translate-y-[32px] md:group-focus:translate-y-[32px]`}>
+                              <span className={`md:block absolute top-0 left-0 mt-[-32px]`}>Share On Twitter</span>
+                              <span className={`block`}>Share On Twitter</span>
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-current w-0 group-hover:w-full group-focus:w-full transition-all ease-in-out duration-300 delay-150"></div>
+                          </div>
+                        </div>
+                      </a>
+
+                      <Link href="/feed">
+                      <a className="block group uppercase text-[12px] md:text-base focus:border-none ml-auto">
+                        <div className="overflow-hidden relative transition-colors ease-in-out duration-500">
+                          <div className={`relative py-[2px]`}>
+                            <div className={`transition-transform ease-in-out duration-500 w-full will-change md:group-hover:translate-y-[32px] md:group-focus:translate-y-[32px]`}>
+                              <span className={`md:block absolute top-0 left-0 mt-[-32px]`}>Back To Feed</span>
+                              <span className={`block`}>Back To Feed</span>
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-current w-0 group-hover:w-full group-focus:w-full transition-all ease-in-out duration-300 delay-150"></div>
+                          </div>
+                        </div>
+                      </a>
                       </Link>
                     </div>
 

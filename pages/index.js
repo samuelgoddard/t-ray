@@ -13,7 +13,8 @@ import ProductTeaser from '@/components/product-teaser'
 import Image from 'next/image'
 import Ticker from '@/components/ticker'
 import ImageWrapper from '@/components/image-wrapper'
-import trayImage from '@/public/images/t-ray.webp'
+import trayImage from '@/public/images/t-frame.jpg'
+import trayImageFrame from '@/public/images/t-frame-front.png'
 import trayText from '@/public/images/imreallyatrex.svg'
 import trayTextDark from '@/public/images/imreallyatrexdark.svg'
 import homeKanji from '@/public/images/home-kanji.svg'
@@ -148,19 +149,30 @@ export default function Home(initialData) {
                           data-scroll
                           data-scroll-speed="1.5"
                         >
-                          <div className="relative overflow-hidden">
+                          <div className="relative overflow-hidden rounded-lg -rotate-2">
                             <m.div variants={imageScale}>
+                              <div className="relative z-0">
+                                <Image
+                                  src={trayImage}
+                                  alt="Placeholder"
+                                  layout="responsive"
+                                  className="w-full will-change pointer-events-none rounded-lg"
+                                  priority
+                                />
+                              </div>
+                            </m.div>
+                            <div className="absolute inset-0 w-full z-10 scale-[1.0025]">
                               <Image
-                                src={trayImage}
+                                src={trayImageFrame}
                                 alt="Placeholder"
                                 layout="responsive"
-                                className="w-full will-change pointer-events-none"
+                                className="w-full will-change pointer-events-none rounded-lg"
                                 priority
                               />
-                            </m.div>
+                            </div>
                           </div>
 
-                          <div className="absolute bottom-0 left-0 ml-[15px] md:ml-[-5vw] mb-[-8.5vw] md:mb-[-5vw] will-change" data-scroll data-scroll-speed="0.75">
+                          <div className="absolute bottom-0 left-0 ml-[15px] md:ml-[-5vw] mb-[-8.5vw] md:mb-[-5vw] will-change z-30" data-scroll data-scroll-speed="0.75">
                             <div className="w-[28vw] md:w-[14.5vw] motion-safe:animate-spin-slow">
                               <m.div variants={scaleUp}>
                                 <Image
