@@ -75,11 +75,11 @@ export default function News(initialData) {
   return (
     <Layout>
       <NextSeo
-        title="I'm Really A Trex"
+        title="Feed"
         description="T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010."
         openGraph={{
           url: 'https://t-ray.vercel.app/',
-          title: `I'm Really A Trex | T-Ray`,
+          title: `Feed | I'm Really A Trex`,
           description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
           images: [
             {
@@ -89,14 +89,14 @@ export default function News(initialData) {
               alt: `I'm Really A Trex | T-Ray Logo`,
             },
           ],
-          site_name: `I'm Really A Trex | T-Ray`,
+          site_name: `Feed | I'm Really A Trex`,
         }}
         twitter={{
           cardType: 'summary_large_image',
         }}
       />
       <LazyMotion features={domMax}>
-        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
+        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.11 }} watch={[]} containerRef={containerRef}>
           <div data-scroll-container ref={containerRef}>
             <m.div
               initial="initial"
@@ -110,15 +110,15 @@ export default function News(initialData) {
                   <div className="relative mb-[10px] md:mb-[3vw]">
                     <div className="overflow-hidden">
                       <h1 className={`uppercase text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
-                        <m.span variants={fadeDelay} className="block">News</m.span>
+                        <m.span variants={fadeDelay} className="block">Feed</m.span>
 
-                        <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
+                        <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.08em] ml-[0.025em]">
                           <div className="overflow-hidden">
                             <m.div variants={fade}>
-                              <div className="w-[59vw] pointer-eveants-none motion-safe:animate-float">
+                              <div className="w-[47vw] pointer-eveants-none motion-safe:animate-float">
                                 <Image
-                                  src={newsText}
-                                  alt="News Lettering"
+                                  src={newsTextDark}
+                                  alt="Feed Lettering"
                                   layout="responsive"
                                   className="w-full will-change"
                                   priority
@@ -128,11 +128,11 @@ export default function News(initialData) {
                           </div>
                         </div>
 
-                        <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.13em] ml-[0.025em]">
-                          <m.div variants={fade} className="w-[59vw] pointer-events-none motion-safe:animate-float">
+                        <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.08em] ml-[0.025em]">
+                          <m.div variants={fade} className="w-[47vw] pointer-events-none motion-safe:animate-float">
                             <Image
-                              src={newsTextDark}
-                              alt="News Lettering"
+                              src={newsText}
+                              alt="Feed Lettering"
                               layout="responsive"
                               className="w-full will-change"
                               priority
@@ -186,7 +186,7 @@ export default function News(initialData) {
                               href = e.externalUrl
                               external = true
                             } else if (e.slug) {
-                              href = `/news/${e.slug.current}`
+                              href = `/feed/${e.slug.current}`
                             } else {
                               href = null
                             }
@@ -242,7 +242,7 @@ export default function News(initialData) {
                         if (e.externalUrl) {
                           href = e.externalUrl
                         } else if (e.slug) {
-                          href = `/news/${e.slug.current}`
+                          href = `/feed/${e.slug.current}`
                         } else {
                           href = null
                         }

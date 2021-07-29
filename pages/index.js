@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { getAllProductsInCollection } from '../lib/shopify'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import { fade, fadeDelay, reveal } from "@/helpers/transitions"
+import { fade, fadeDelay, imageScale, reveal, scaleUp } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import HistoryCarousel from '@/components/history-carousel'
@@ -84,7 +84,7 @@ export default function Home(initialData) {
       <LazyMotion features={domMax}>
         <LocomotiveScrollProvider
           options={{ 
-            smooth: true, lerp: 0.075
+            smooth: true, lerp: 0.11
           }}
           watch={[]}
           containerRef={containerRef}
@@ -147,23 +147,29 @@ export default function Home(initialData) {
                         data-scroll
                         data-scroll-speed="1.5"
                       >
-                        <Image
-                          src={trayImage}
-                          alt="Placeholder"
-                          layout="responsive"
-                          className="w-full will-change pointer-events-none"
-                          priority
-                        />
+                        <div className="relative overflow-hidden">
+                          <m.div variants={imageScale}>
+                            <Image
+                              src={trayImage}
+                              alt="Placeholder"
+                              layout="responsive"
+                              className="w-full will-change pointer-events-none"
+                              priority
+                            />
+                          </m.div>
+                        </div>
 
                         <div className="absolute bottom-0 left-0 ml-[-6.5vw] md:ml-[-5vw] mb-[-6.5vw] md:mb-[-5vw] will-change" data-scroll data-scroll-speed="0.75">
                           <div className="w-[20vw] md:w-[14.5vw] motion-safe:animate-spin-slow">
-                            <Image
-                              src={homeKanji}
-                              alt="Kanji Letters"
-                              layout="responsive"
-                              className="w-full will-change"
-                              priority
-                            />
+                            <m.div variants={scaleUp}>
+                              <Image
+                                src={homeKanji}
+                                alt="Kanji Letters"
+                                layout="responsive"
+                                className="w-full will-change"
+                                priority
+                              />
+                            </m.div>
                           </div>
                         </div>
                       </div>
@@ -180,9 +186,9 @@ export default function Home(initialData) {
                 </m.div>
               </Container>
 
-              <div className="py-[1.5vw] md:py-[1vw] xl:py-[2.5vw] overflow-hidden">
+              <m.div variants={fade} className="py-[1.5vw] md:py-[1vw] xl:py-[2.5vw] overflow-hidden">
                 <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
-              </div>
+              </m.div>
               
               <Container>
                 <m.div variants={fade}>
@@ -190,13 +196,17 @@ export default function Home(initialData) {
                     <div className="w-11/12 md:w-10/12 xl:w-9/12">
                       <div className="flex flex-wrap md:mx-[-3vw] items-center md:items-start xl:items-center">
                         <div className="w-full md:w-6/12 xl:w-7/12 md:px-[3vw] mb-8 md:mb-0 will-change bg-off-white dark:bg-off-black transition-colors ease-in-out duration-500" data-scroll-speed="0.35">
-                          <ImageWrapper
-                            image={home.contentImage.asset}
-                            className="w-full mix-blend-multiply dark:mix-blend-lighten rounded-md will-change"
-                            baseWidth={1200}
-                            baseHeight={1500}
-                            alt={'T-Ray Portrait'}
-                          />
+                          <div className="relative overflow-hidden">
+                            {/* <m.div variants={imageScale}> */}
+                              <ImageWrapper
+                                image={home.contentImage.asset}
+                                className="w-full mix-blend-multiply dark:mix-blend-lighten rounded-md will-change"
+                                baseWidth={900}
+                                baseHeight={1150}
+                                alt={'T-Ray Portrait'}
+                              />
+                            {/* </m.div> */}
+                          </div>
                         </div>
                         <div className="w-full md:w-6/12 xl:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
                           <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">
@@ -205,44 +215,28 @@ export default function Home(initialData) {
 
                           <ul className="text-[17px] md:text-[20px] xl:text-[22px] leading-[1.25] tracking-tight">
                             <li className="mb-2">
-                              <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                <div className="overflow-hidden relative">
-                                  <Rollover label="On Youtube" underline />
-                                </div>
-                              </a>
+                              <div className="relative overflow-hidden">
+                                <m.div variants={reveal}>
+                                  <a href="https://www.youtube.com/c/ImReallyATRex" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                                    <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
+                                    <div className="overflow-hidden relative">
+                                      <Rollover label="On Youtube" underline />
+                                    </div>
+                                  </a>
+                                </m.div>
+                              </div>
                             </li>
                             <li className="mb-2">
-                              <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                <div className="overflow-hidden relative">
-                                  <Rollover label="On Instagram" underline />
-                                </div>
-                              </a>
-                            </li>
-                            <li className="mb-2">
-                              <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                <div className="overflow-hidden relative">
-                                  <Rollover label="On Twitter" underline />
-                                </div>
-                              </a>
-                            </li>
-                            <li className="mb-2">
-                              <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                <div className="overflow-hidden relative">
-                                  <Rollover label="On Spotify" underline />
-                                </div>
-                              </a>
-                            </li>
-                            <li className="mb-2">
-                              <a href="#" className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                <div className="overflow-hidden relative">
-                                  <Rollover label="On Apple Music" underline />
-                                </div>
-                              </a>
+                              <div className="relative overflow-hidden">
+                                <m.div variants={reveal}>
+                                  <a href="https://www.instagram.com/imreallyatrex" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                                    <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
+                                    <div className="overflow-hidden relative">
+                                      <Rollover label="On Instagram" underline />
+                                    </div>
+                                  </a>
+                                </m.div>
+                              </div>
                             </li>
                           </ul>
                         </div>

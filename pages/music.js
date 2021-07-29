@@ -84,7 +84,7 @@ export default function Music(initialData) {
       />
 
       <LazyMotion features={domMax}>
-        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
+        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.11 }} watch={[]} containerRef={containerRef}>
           <div data-scroll-container ref={containerRef}>
             <m.div
               initial="initial"
@@ -171,12 +171,16 @@ export default function Music(initialData) {
                                 {e.purchaseLinks.map((e, index) => {
                                   return (
                                     <li className="mb-2" key={index}>
-                                      <a href={e.url} className="flex items-center group" rel="noopener noreferrer" target="_blank">
-                                        <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
-                                        <div className="overflow-hidden relative">
-                                          <Rollover label={`On ${e.title}`} underline />
-                                        </div>
-                                      </a>
+                                      <div className="relative overflow-hidden">
+                                        <m.div variants={reveal}>
+                                          <a href={e.url} className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                                            <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
+                                            <div className="overflow-hidden relative">
+                                              <Rollover label={`On ${e.title}`} underline />
+                                            </div>
+                                        </a>
+                                        </m.div>
+                                      </div>
                                     </li>
                                   )
                                 })}

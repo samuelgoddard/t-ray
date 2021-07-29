@@ -45,3 +45,15 @@ export const imageScale = {
 		transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
 	}
 }
+
+export const scaleUp = {
+	initial: { scale: 0.5 },
+  enter: { 
+    scale: 1,
+    transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+  },
+	exit: {
+    scale: 0.5,
+		transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+	}
+}

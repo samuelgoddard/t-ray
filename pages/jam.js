@@ -11,7 +11,7 @@ import Player from '@/components/jam-hooks'
 
 export default function Jam() {
   const containerRef = useRef(null)
-  const [globalMusicPlaying, setGlobalMusicPlaying] = useContext(Context);
+  // const [globalMusicPlaying, setGlobalMusicPlaying] = useContext(Context);
 
   return (
     <Layout>

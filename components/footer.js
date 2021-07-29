@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Rollover from '@/components/rollover'
+// import { m } from 'framer-motion'
+// import { reveal } from '@/helpers/transitions'
 
 export default function Footer({ noPad }) {  
   return (
@@ -9,7 +11,11 @@ export default function Footer({ noPad }) {
       <form action="https://Imreallyatrex.us6.list-manage.com/subscribe/post?u=289394a8587c1f294da11e765&amp;id=cfeafc48e4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate relative" target="_blank" noValidate>
         <div id="mc_embed_signup_scroll">
           <label htmlFor="mce-EMAIL" className="sr-only">Newsletter Signup</label>
-          <input type="email" name="EMAIL" className="email text-[8vw] leading-[0.82] text-red will-change relative font-display uppercase pb-0 mb-6 md:mb-12 xl:mb-14 border-b border-off-black dark:border-off-white placeholder-current bg-transparent hover:border-b-red dark:hover:border-b-red focus:border-b-red dark:focus:border-b-red focus:outline-none block w-full pr-[8vw] transition-colors ease-in-out duration-300 hover:placeholder-shown:text-opacity-20 text-opacity-100" id="mce-EMAIL" placeholder="Got Email?" required />
+          <div className="overflow-hidden relative mb-6 md:mb-12 xl:mb-14">
+            {/* <m.div variants={reveal}> */}
+              <input type="email" name="EMAIL" className="email text-[8vw] leading-[0.82] text-red will-change relative font-display uppercase border-b border-off-black dark:border-off-white placeholder-current bg-transparent hover:border-b-red dark:hover:border-b-red focus:border-b-red dark:focus:border-b-red focus:outline-none block w-full pr-[8vw] transition-colors ease-in-out duration-300 hover:placeholder-shown:text-opacity-20 text-opacity-100 mb-0 pb-0" id="mce-EMAIL" placeholder="Got Email?" required />
+            {/* </m.div> */}
+          </div>
           
           <div className="sr-only" aria-hidden="true">
             <input type="text" name="b_289394a8587c1f294da11e765_cfeafc48e4" tabIndex="-1" defaultValue="" />

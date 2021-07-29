@@ -20,6 +20,12 @@ const variants = {
   closed: { opacity: 0 },
 }
 
+const revealVariants = {
+  initial: { y: '100%' },
+  open: { y: 0 },
+  closed: { y: '100%' },
+}
+
 export default function Header({currentlyPlaying, route}) {
   const {theme, setTheme} = useTheme()
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -89,7 +95,7 @@ export default function Header({currentlyPlaying, route}) {
                 <ul className="flex">
                   <li>
                     <Link href="/">
-                      <a aria-label="Navigate to about page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative ${route === '/' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                      <a aria-label="Navigate to biography page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative ${route === '/' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Bio" />
                         </div>
@@ -98,18 +104,18 @@ export default function Header({currentlyPlaying, route}) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/news">
-                      <a aria-label="Navigate to about page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route === '/news' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                    <Link href="/feed">
+                      <a aria-label="Navigate to the latest feed" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route === '/feed' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
                         <div className="relative overflow-hidden z-10">
-                          <Rollover label="News" />
+                          <Rollover label="Feed" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 ${route === '/news' ? 'opacity-100' : 'opacity-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 ${route === '/feed' ? 'opacity-100' : 'opacity-0' }`}></div>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/music">
-                      <a aria-label="Navigate to about page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                      <a aria-label="Navigate to music page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Music" />
                         </div>
@@ -118,9 +124,11 @@ export default function Header({currentlyPlaying, route}) {
                     </Link>
                   </li>
                   <li>
-                    <button onClick={() => modalTrayBag.current.open()}>
-                      <span className="Navigate to about page" className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
-                        <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
+                    <button aria-label="Open Bag" onClick={() => modalTrayBag.current.open()}>
+                      <span className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
+                        { cart?.length > 0 && (
+                          <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
+                        )}
                         <div className="relative overflow-hidden">
                           <Rollover label="Bag" />
                         </div>
@@ -191,8 +199,6 @@ export default function Header({currentlyPlaying, route}) {
               </div>
             )}
           </div>
-
-          {/* TESTL {JSON.stringify(route)} */}
         </Container>
 
 
@@ -223,30 +229,64 @@ export default function Header({currentlyPlaying, route}) {
                   <li className="mb-px">
                     <Link href="/">
                       <a aria-label="Navigate to biography page" className="text-yellow font-display leading-none uppercase text-[55px]" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
-                        Bio
+                        <span className="block relative overflow-hidden">
+                          <m.span
+                            animate={isMenuOpen ? "open" : "closed"}
+                            variants={revealVariants}
+                            transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                            className="block"
+                          >Bio</m.span>
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                  <li className="mb-px">
+                    <Link href="/feed">
+                      <a aria-label="Navigate to the latest feed" className="text-yellow font-display leading-none uppercase text-[55px]" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
+                        <span className="block relative overflow-hidden">
+                          <m.span
+                            animate={isMenuOpen ? "open" : "closed"}
+                            variants={revealVariants}
+                            transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                            className="block"
+                          >Feed</m.span>
+                        </span>
                       </a>
                     </Link>
                   </li>
                   <li className="mb-px">
                     <Link href="/music">
                       <a aria-label="Navigate to music page" className="text-yellow font-display leading-none uppercase text-[55px]" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
-                        Music
+                        <span className="block relative overflow-hidden">
+                          <m.span
+                            animate={isMenuOpen ? "open" : "closed"}
+                            variants={revealVariants}
+                            transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                            className="block"
+                          >Music</m.span>
+                        </span>
                       </a>
                     </Link>
                   </li>
                   <li className="mb-px">
-                    <Link href="/news">
-                      <a aria-label="Navigate to latest news page" className="text-yellow font-display leading-none uppercase text-[55px]" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
-                        News
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="mb-px">
-                    <Link href="/">
-                      <a aria-label="Open Bag" className="text-yellow font-display leading-none uppercase text-[55px]" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
-                        Bag
-                      </a>
-                    </Link>
+                    <button aria-label="Open Bag" className="text-yellow font-display leading-none uppercase text-[55px] relative focus:border-none" onClick={() => modalTrayBag.current.open()}>
+                      <span className="block relative overflow-hidden">
+                        <m.span
+                          animate={isMenuOpen ? "open" : "closed"}
+                          variants={revealVariants}
+                          transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                          className="block"
+                        >Bag</m.span>
+                      </span>
+
+                      { cart?.length > 0 && (
+                        <m.span
+                        animate={isMenuOpen ? "open" : "closed"}
+                        variants={variants}
+                        transition={{ delay: 0.08, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
+                        className={`absolute top-0 right-0 mt-[2px] mr-[-20px] bg-blue text-off-white text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-300 font-sans z-10 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</m.span>
+                      )}
+                    </button>
                   </li>
                 </ul>
               </nav>
@@ -254,14 +294,37 @@ export default function Header({currentlyPlaying, route}) {
               <nav className="mt-auto">
                 <ul className="flex items-center">
                   <li>
-                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="text-white uppercase text-[24px]">
-                      Insta
+                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="text-white uppercase text-[20px]">
+                      <span className="block relative overflow-hidden">
+                        <m.span
+                          animate={isMenuOpen ? "open" : "closed"}
+                          variants={revealVariants}
+                          transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                          className="block"
+                        >Insta</m.span>
+                      </span>
                     </a>
                   </li>
-                  <li className="text-white mx-2">&bull;</li>
+                  <li className="text-white mx-2">
+                    <span className="block relative overflow-hidden">
+                      <m.span
+                        animate={isMenuOpen ? "open" : "closed"}
+                        variants={revealVariants}
+                        transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                        className="block"
+                      >&bull;</m.span>
+                    </span>
+                  </li>
                   <li>
-                    <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="text-white uppercase text-[24px]">
-                      Youtube
+                    <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="text-white uppercase text-[20px]">
+                    <span className="block relative overflow-hidden">
+                        <m.span
+                          animate={isMenuOpen ? "open" : "closed"}
+                          variants={revealVariants}
+                          transition={{ delay: 0.1, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+                          className="block"
+                        >Youtube</m.span>
+                      </span>
                     </a>
                   </li>
                 </ul>

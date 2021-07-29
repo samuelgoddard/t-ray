@@ -59,7 +59,7 @@ export default function News(initialData) {
         }}
       />
       <LazyMotion features={domMax}>
-        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.075 }} watch={[]} containerRef={containerRef}>
+        <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.11 }} watch={[]} containerRef={containerRef}>
           <div data-scroll-container ref={containerRef}>
             <m.div
               initial="initial"
