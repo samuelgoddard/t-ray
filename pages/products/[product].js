@@ -123,6 +123,24 @@ export default function Product(initialData) {
             >              
               <m.div variants={fade}>
                 <div className="relative min-h-screen flex items-center justify-center mb-12 md:mb-[9vw] xl:mb-[12vw]">
+                  {productData.images && (
+                    <div className="w-[55vw] md:w-[25vw] absolute top-0 left-0 right-0 mx-auto h-[100vh] flex flex-wrap items-center pointer-events-none z-10" data-scroll data-scroll-speed={2}>
+                      <m.div variants={scaleUp} className="w-full">
+                        <div className="w-full">
+                          <Image
+                            src={productData.images.edges[0].node.originalSrc}
+                            alt="Placeholder"
+                            layout="responsive"
+                            className="w-full"
+                            width={productData.images.edges[0].node.width}
+                            height={productData.images.edges[0].node.height}
+                            priority
+                          />
+                        </div>
+                      </m.div>
+                    </div>
+                  )}
+
                   <div className="w-full mt-[-6vw]">
                     <div className="flex flex-wrap items-end px-[20px] md:px-[30px] mb-[2vw]">
                       <div className="w-14 md:w-20 xl:w-32 text-red dark:text-yellow">
@@ -158,22 +176,6 @@ export default function Product(initialData) {
                           </m.div>
                         </div>
                       </h1>
-
-                      {productData.images && (
-                        <div className="w-[55vw] md:w-[28vw] absolute top-0 left-0 right-0 mx-auto mt-[-32vw] md:mt-[-12vw]" data-scroll data-scroll-speed={2}>
-                          <m.div variants={scaleUp}>
-                            <Image
-                              src={productData.images.edges[0].node.originalSrc}
-                              alt="Placeholder"
-                              layout="responsive"
-                              className="w-full"
-                              width={productData.images.edges[0].node.width}
-                              height={productData.images.edges[0].node.height}
-                              priority
-                            />
-                          </m.div>
-                        </div>
-                      )}
                     </div>
 
                     <div className="flex flex-wrap items-end px-[20px] md:px-[30px] absolute bottom-0 left-0 right-0 w-full mb-[20px] md:mb-[30px]">

@@ -97,10 +97,10 @@ export default function Home(initialData) {
               className="mt-[100px] md:mt-[140px] xl:mt-[160px]"
               data-scroll-section
             >
-              <Container>
+              <Container bleedMobile>
                 <m.div variants={fade}>
-                  <div className="relative mb-[15vw] md:mb-[29vw] xl:mb-[27vw]">
-                    <h1 className={`uppercase text-[13vw] leading-[0.82] text-center break-all will-change relative text-red`}>
+                  <div className="relative mb-[15vw] md:mb-[29vw] xl:mb-[27vw]px">
+                    <h1 className={`uppercase text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-red`}>
                       <span className="block overflow-hidden relative">
                         <m.span variants={fadeDelay} className="block">ImReally</m.span>
                       </span>
@@ -109,9 +109,9 @@ export default function Home(initialData) {
                       </span>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500">
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden xl:pt-[4px]">
                           <m.div variants={fade}>
-                            <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
+                            <div className="w-[85vw] pointer-events-none motion-safe:animate-float">
                               <Image
                                 src={trayText}
                                 alt="ImReallyATrex"
@@ -125,9 +125,9 @@ export default function Home(initialData) {
                       </div>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500">
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden xl:pt-[4px]">
                           <m.div variants={fade}>
-                            <div className="w-[88.65vw] pointer-events-none motion-safe:animate-float">
+                            <div className="w-[85vw] pointer-events-none motion-safe:animate-float">
                               <Image
                                 src={trayTextDark}
                                 alt="ImReallyATrex"
@@ -141,42 +141,44 @@ export default function Home(initialData) {
                       </div>
                     </h1>
                     
-                    <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[18vw] xl:mt-[13vw] flex items-center justify-center">
-                      <div
-                        className="w-11/12 md:w-7/12 relative will-change"
-                        data-scroll
-                        data-scroll-speed="1.5"
-                      >
-                        <div className="relative overflow-hidden">
-                          <m.div variants={imageScale}>
-                            <Image
-                              src={trayImage}
-                              alt="Placeholder"
-                              layout="responsive"
-                              className="w-full will-change pointer-events-none"
-                              priority
-                            />
-                          </m.div>
-                        </div>
-
-                        <div className="absolute bottom-0 left-0 ml-[-6.5vw] md:ml-[-5vw] mb-[-6.5vw] md:mb-[-5vw] will-change" data-scroll data-scroll-speed="0.75">
-                          <div className="w-[20vw] md:w-[14.5vw] motion-safe:animate-spin-slow">
-                            <m.div variants={scaleUp}>
+                    <div className="">
+                      <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[18vw] xl:mt-[13vw] flex items-center justify-center">
+                        <div
+                          className="w-full md:w-7/12 relative will-change"
+                          data-scroll
+                          data-scroll-speed="1.5"
+                        >
+                          <div className="relative overflow-hidden">
+                            <m.div variants={imageScale}>
                               <Image
-                                src={homeKanji}
-                                alt="Kanji Letters"
+                                src={trayImage}
+                                alt="Placeholder"
                                 layout="responsive"
-                                className="w-full will-change"
+                                className="w-full will-change pointer-events-none"
                                 priority
                               />
                             </m.div>
+                          </div>
+
+                          <div className="absolute bottom-0 left-0 ml-[15px] md:ml-[-5vw] mb-[-8.5vw] md:mb-[-5vw] will-change" data-scroll data-scroll-speed="0.75">
+                            <div className="w-[28vw] md:w-[14.5vw] motion-safe:animate-spin-slow">
+                              <m.div variants={scaleUp}>
+                                <Image
+                                  src={homeKanji}
+                                  alt="Kanji Letters"
+                                  layout="responsive"
+                                  className="w-full will-change"
+                                  priority
+                                />
+                              </m.div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="flex justify-center mb-[14vw] md:mb-[10vw]">
+                  <div className="flex justify-center mb-[14vw] md:mb-[10vw] px-[15px] md:px-0">
                     <div className="w-11/12 md:w-8/12" data-scroll data-scroll-speed="1">
                       <div className="text-[23px] md:text-[32px] xl:text-[40px] 2xl:text-[46px] leading-[1.175] text-indent tracking-tight">
                         <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.introBioText} />
@@ -192,7 +194,7 @@ export default function Home(initialData) {
               
               <Container>
                 <m.div variants={fade}>
-                  <div className="flex justify-center mb-[25vw] md:mb-[16vw]">
+                  <div className="flex justify-center mb-[25vw] md:mb-[18vw]">
                     <div className="w-11/12 md:w-10/12 xl:w-9/12">
                       <div className="flex flex-wrap md:mx-[-3vw] items-center md:items-start xl:items-center">
                         <div className="w-full md:w-6/12 xl:w-7/12 md:px-[3vw] mb-8 md:mb-0 will-change bg-off-white dark:bg-off-black transition-colors ease-in-out duration-500" data-scroll-speed="0.35">
@@ -209,7 +211,7 @@ export default function Home(initialData) {
                           </div>
                         </div>
                         <div className="w-full md:w-6/12 xl:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
-                          <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">
+                          <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">
                             <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentBioText} />
                           </div>
 
@@ -249,7 +251,7 @@ export default function Home(initialData) {
               </Container>
               
               <m.div variants={fade}>
-                <div className="mb-[32vw] md:mb-[15vw] xl:mb-[20vw]">
+                <div className="mb-[32vw] md:mb-[18vw] xl:mb-[22vw]">
                   <HistoryCarousel slides={home.historyStories} />
                 </div>
               </m.div>
@@ -258,12 +260,12 @@ export default function Home(initialData) {
                 <m.div variants={fade}>
                   <HeadingKanji heading="Swag!" subHeading="Get the merch and get the vibe" kanji={japaneseCharacters} />
 
-                  <div className="justify-center mb-[25vw] md:mb-[16vw] md:mt-[-3.5vw] flex">
-                    <div className="w-10/12 md:w-11/12 max-w-screen-3xl mx-auto">
+                  <div className="justify-center mb-[25vw] md:mb-[16vw] mt-[5vw] md:mt-[-7.5vw] flex">
+                    <div className="w-full md:w-11/12 max-w-screen-3xl mx-auto">
                       <div className="flex flex-wrap justify-center md:-mx-4">
                         {products.map((product, index) => {
                           return (
-                            <div className="w-full md:w-1/3 md:px-4 block" key={index}>
+                            <div className="w-1/2 md:w-1/3 md:px-4 block mb-4 md:mb-0" key={index}>
                               <ProductTeaser href={`/products/${product.node.handle}`} title={product.node.title} price={product.node.variants.edges[0].node.price} image={product.node.images.edges[0].node.originalSrc} imageWidth={product.node.images.edges[0].node.width} imageHeight={product.node.images.edges[0].node.height} />
                             </div>
                           )

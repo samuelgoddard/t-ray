@@ -27,7 +27,7 @@
 
 .embla__slide {
   position: relative;
-  min-width: 65%;
+  min-width: 85%;
   padding-left: 5vw;
 
   @screen md {

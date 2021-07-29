@@ -83,14 +83,14 @@ a, button {
   transform: translate(-50%, -50%) scale(1.25);
 }
 
-.cursor--link-hovered-music-video {
+/* .cursor--link-hovered-music-video {
   @apply bg-transparent border-transparent !important;
 
   &:before {
     @apply opacity-100;
     content: 'WATCH VIDEO'
   }
-}
+} */
 
 .cursor--link-hovered-article {
   @apply bg-transparent !important;

@@ -193,7 +193,7 @@ export default function Header({currentlyPlaying, route}) {
             </div>
 
             { !isMobile && (
-              <div className="fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer">
+              <div className={`fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer transition-opacity ease-in-out duration-500 delay-300 ${ route.includes('/products') ? 'opacity-0 pointer-events-none' : '' }`}>
                 <PlayerWidget />
                 {/* <PlayerWidget isCurrentlyPlaying={currentlyPlaying} /> */}
               </div>

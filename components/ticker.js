@@ -13,40 +13,40 @@ export default function Ticker({href, word1, word2}) {
               <div className="relative flex overflow-x-hidden will-change">
                 <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                 </div>
 
                 <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
-                  <span className="mx-3"><Logo/></span>
+                  <span className="mx-3"><Logo ticker/></span>
                 </div>
               </div>
             </m.div>

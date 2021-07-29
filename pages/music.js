@@ -96,7 +96,7 @@ export default function Music(initialData) {
               <Container>
                 <m.div variants={fade}>
                   {/* Hero Heading */}
-                  <div className="relative mb-[3vw]">
+                  <div className="relative mb-[8vw] md:mb-[7vw] xl:mb-[6vw]">
                     
                     <h1 className={`uppercase text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
                       <m.span variants={fadeDelay} className="block">Music</m.span>
@@ -160,10 +160,10 @@ export default function Music(initialData) {
                               </div>
                               
                               <div className="mb-5 md:mb-8 relative overflow-hidden">
-                                <m.h2 variants={reveal} className="text-[32px] md:text-[37px] xl:text-[42px] leading-none mb-0 pb-0">{e.title}</m.h2>
+                                <m.h2 variants={reveal} className="text-[32px] md:text-[30px] xl:text-[42px] leading-none mb-0 pb-0">{e.title}</m.h2>
                               </div>
 
-                              <div className="text-[19px] md:text-[20px] xl:text-[22px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">
+                              <div className="text-[19px] md:text-[19px] xl:text-[22px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 max-w-xl">
                                 <BlockContent serializers={{ container: ({ children }) => children }} blocks={e.descriptionText} />
                               </div>
 
@@ -199,8 +199,35 @@ export default function Music(initialData) {
                     <div className="w-9/12 md:w-10/12 xl:w-11/12">
                       <div className="flex flex-wrap md:-mx-6">
                         {music.map((e, index) => {
+                          let scrollSpeed = 0;
+                          
+                          if (index == 0) {
+                            scrollSpeed = 0;
+                          } else if (index == 1) {
+                            scrollSpeed = 0.5;
+                          } else if (index == 2) {
+                            scrollSpeed = 0.8;
+                          } else if (index == 3) {
+                            scrollSpeed = 0;
+                          } else if (index == 4) {
+                            scrollSpeed = 0.5;
+                          } else if (index == 5) {
+                            scrollSpeed = 0.8;
+                          } else if (index == 6) {
+                            scrollSpeed = 0;
+                          } else if (index == 7) {
+                            scrollSpeed = 0.5;
+                          } else if (index == 8) {
+                            scrollSpeed = 0.8;
+                          }
+
                           return (
-                            <div key={index} className={`w-full md:w-1/2 lg:w-1/3 md:px-6 mb-8 md:mb-0 ${index == 1 ? 'md:mt-20' : ''} ${index == 2 ? 'lg:mt-40' : ''}`}>
+                            <div
+                              key={index}
+                              data-scroll
+                              data-scroll-speed={ scrollSpeed }
+                              className={`w-full md:w-1/2 lg:w-1/3 md:px-6 mb-8 md:mb-16 xl:mb-0 ${index == 1 ? 'md:mt-20' : ''} ${index == 2 ? 'lg:mt-40' : ''}`}
+                            >
                               <ReleaseTeaser marqueeForce image={e.coverArtwork.asset} title={e.title} date={e.date} type={e.type} purchaseLinks={e.purchaseLinks} href={null} />
                             </div>
                           )

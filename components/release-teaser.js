@@ -54,14 +54,14 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
       </ConditionalWrap>
 
       {purchaseLinks && (
-        <span className="xl:flex xl:flex-wrap uppercase justify-center space-x-2 text-lg">
+        <span className="xl:flex xl:flex-wrap uppercase justify-center md:space-x-2 text-[14px] md:text-[16px]">
           {purchaseLinks.map((e, i) => {
             return (
               <div key={i} className="xl:flex xl:flex-wrap items-center text-center">
-                <div className="overflow-hidden relative">
-                  <m.div variants={reveal}>
+                <div className="overflow-hidden relative pb-[3px] w-full flex justify-center xl:inline-block xl:w-auto">
+                  <m.div variants={reveal} className="w-auto">
                     <a href={e.url} target="_blank" rel="noopener noreferrer" className="group block p-0 m-0 h-[25px]">
-                      <div className="overflow-hidden inline-block">
+                      <div className="overflow-hidden w-auto block xl:inline-block">
                         <Rollover animatedUnderline label={e.title} />
                       </div>
                     </a>
@@ -70,7 +70,7 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
                 { i !== purchaseLinks.length - 1 && (
                   <div className="hidden xl:inline-block">
                     <m.div variants={reveal}>
-                      <span className="ml-2 mt-[-10px]">&bull;</span>
+                      <span className="ml-2 mt-[-13px] text-[12px]">&bull;</span>
                     </m.div>
                   </div>
                 )}

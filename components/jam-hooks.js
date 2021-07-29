@@ -8,11 +8,12 @@ import trayAnime from '@/public/images/t-anime.svg'
 import clouds from '@/public/images/clouds.svg'
 import Link from 'next/link'
 import Image from 'next/image'
-import { fade } from '@/helpers/transitions'
+import { fade, fadeDelay, reveal } from '@/helpers/transitions'
 import { Howl } from 'howler'
 import { JamContext } from '@/context/jam'
 import { Context } from '@/context/state'
 import kanji from '@/public/images/japanese-characters-black.svg'
+import letsJamText from '@/public/images/letsjamtext.svg'
 
 var drums = new Howl({ 
   src: ['/stems/im-fine-drums.mp3'],
@@ -107,11 +108,11 @@ export default function Player() {
   }
 
   const stop = () => {
-    drums.pause();
-    bass.pause();
-    guitar.pause();
-    vox.pause();
-    keys.pause();
+    drums.stop();
+    bass.stop();
+    guitar.stop();
+    vox.stop();
+    keys.stop();
     setIsPlaying(false);
   }
 
@@ -198,8 +199,36 @@ export default function Player() {
           </div>
           <div className="relative">
             <div className="relative z-20">
-              <h2 className="uppercase text-[10vw] md:text-[8.5vw] leading-[0.95] text-center will-change block relative z-20 text-off-white dark:text-off-white">LET’S JAM!</h2>
-              <span className="text-[22px] md:text-[25px] xl:text-[28px] 2xl:text-[32px] leading-[0.95] text-center block relative z-20 uppercase text-off-white dark:text-off-white">Get ready to jam with T-Ray</span>
+              <div className="relative">
+                <h2 className="uppercase text-[10vw] leading-[0.95] text-center will-change block text-off-white dark:text-off-white relative z-10">
+                  <span className="block overflow-hidden relative">
+                    <m.span variants={fadeDelay} className="block">LET’S JAM!</m.span>
+                  </span>
+                </h2>
+                <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 z-20">
+                  <div className="overflow-hidden xl:pt-[4px]">
+                    <m.div variants={fade}>
+                      <div className="w-[78vw] pointer-events-none motion-safe:animate-float ml-[-1.2vw] mt-[-1.3vw]">
+                        <Image
+                          src={letsJamText}
+                          alt="Let's Jam"
+                          layout="responsive"
+                          className="w-full will-change"
+                          priority
+                        />
+                      </div>
+                    </m.div>
+                  </div>
+                </div>
+              </div>
+
+              <span className="text-[22px] md:text-[25px] xl:text-[28px] 2xl:text-[32px] leading-[0.95] text-center block relative z-20 uppercase text-off-white dark:text-off-white">
+                <span className="block overflow-hidden relative">
+                  <m.span variants={reveal} className="block">
+                    Get ready to jam with T-Ray
+                  </m.span>
+                </span>
+              </span>
             </div>
 
             <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-8vw] z-0">
@@ -215,9 +244,99 @@ export default function Player() {
 
             <div className="flex justify-center relative z-10 mt-8">
               {isDrumsLoaded =='loaded' && isBassLoaded =='loaded' && isGuitarLoaded =='loaded' && isVoxLoaded =='loaded' && isKeysLoaded =='loaded' ? (
-                <button onClick={() => acceptJam() } className="bg-off-black block text-off-white font-mono uppercase px-6 py-3 rounded-lg text-[22px]">Ready! Let’s Jam!</button>
+                <button onClick={() => acceptJam() } className="bg-off-black block text-off-white font-mono uppercase px-6 py-3 rounded-lg text-[22px] h-[60px] w-[320px] relative">
+                  <div className={`block w-full whitespace-nowrap absolute top-0 left-0 right-0 px-3 mt-[14px]`}>
+                    <div className="overflow-hidden relative">
+                      <m.div variants={reveal}>
+                        <div className="relative flex overflow-x-hidden will-change">
+                          <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                          </div>
+
+                          <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Ready! Let's Jam!</span>
+                            <span className="mx-3">&bull;</span>
+                          </div>
+                        </div>
+                      </m.div>
+                    </div>
+                  </div>
+                </button>
               ) : (
-                <button disabled className="bg-off-black block text-off-white font-mono uppercase px-6 py-3 rounded-lg text-[22px]">Preparing Jam Mode...</button>
+                <button disabled className="bg-off-black block text-off-white font-mono uppercase px-6 py-3 rounded-lg text-[22px] h-[60px] w-[320px] relative">
+                  <div className={`block w-full whitespace-nowrap absolute top-0 left-0 right-0 px-3 mt-[14px]`}>
+                    <div className="overflow-hidden relative">
+                      <m.div variants={reveal}>
+                        <div className="relative flex overflow-x-hidden will-change">
+                          <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                          </div>
+
+                          <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                            <span>Preparing Jam Mode</span>
+                            <span className="mx-3">&bull;</span>
+                          </div>
+                        </div>
+                      </m.div>
+                    </div>
+                  </div>
+                </button>
               )}
             </div>
           </div>
@@ -226,7 +345,13 @@ export default function Player() {
             <div className="flex items-center justify-center w-full">
               <div>
                 <svg className="mx-auto w-[32px] mb-3 text-yellow" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 7H.77a.765.765 0 01-.545-.228.782.782 0 01-.225-.55V.778C0 .57.081.374.225.228A.765.765 0 01.77 0H10c.204 0 .4.082.544.228a.782.782 0 01.225.55v5.444a.782.782 0 01-.225.55A.765.765 0 0110 7zM.77.778v5.444H10V.778H.77z" fill="currentColor"/><path d="M2.962 4.577h4.307v.807H2.962v-.807zM1.615 1.615h.808v.808h-.808v-.808zM2.962 1.615h.807v.808h-.807v-.808zM4.577 1.615h.808v.808h-.808v-.808zM6.192 1.615H7v.808h-.808v-.808zM1.615 4.577h.808v.807h-.808v-.807zM1.615 2.961h.808v.808h-.808v-.808zM2.962 2.961h.807v.808h-.807v-.808zM4.577 2.961h.808v.808h-.808v-.808zM7.808 1.615h1.346v.808H7.808v-.808zM7.808 2.961h1.346v.808H7.808v-.808zM6.192 2.961H7v.808h-.808v-.808zM8.077 4.577h1.077v.807H8.077v-.807z" fill="currentColor"/><path d="M10 7H.77a.765.765 0 01-.545-.228.782.782 0 01-.225-.55V.778C0 .57.081.374.225.228A.765.765 0 01.77 0H10c.204 0 .4.082.544.228a.782.782 0 01.225.55v5.444a.782.782 0 01-.225.55A.765.765 0 0110 7zM.77.778v5.444H10V.778H.77z" fill="currentColor"/><path d="M2.962 4.577h4.307v.807H2.962v-.807zM1.615 1.615h.808v.808h-.808v-.808zM2.962 1.615h.807v.808h-.807v-.808zM4.577 1.615h.808v.808h-.808v-.808zM6.192 1.615H7v.808h-.808v-.808zM1.615 4.577h.808v.807h-.808v-.807zM1.615 2.961h.808v.808h-.808v-.808zM2.962 2.961h.807v.808h-.807v-.808zM4.577 2.961h.808v.808h-.808v-.808zM7.808 1.615h1.346v.808H7.808v-.808zM7.808 2.961h1.346v.808H7.808v-.808zM6.192 2.961H7v.808h-.808v-.808zM8.077 4.577h1.077v.807H8.077v-.807z" fill="currentColor"/></svg>
-                <span className="block text-yellow text-center text-xl">Get your keyboard ready!</span>
+                <span className="block text-yellow text-center text-xl">
+                  <span className="block overflow-hidden relative">
+                    <m.span variants={reveal} className="block">
+                      Get your keyboard ready!
+                    </m.span>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -351,7 +476,7 @@ export default function Player() {
                 <span className="mx-1 text-[18px]">&bull;</span>
               </div>
 
-              <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap">
+              <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap font-mono">
                 <span className="mx-1">I'm Fine</span>
                 <span className="mx-1 text-[18px]">&bull;</span>
                 <span className="mx-1">I'm Fine</span>
@@ -391,7 +516,13 @@ export default function Player() {
 
         <Container>
           <m.div variants={fade} className="mb-12 md:mb-16 xl:mb-24 mt-[18vw] md:mt-[13vw] lg:mt-[11vw] xl:mt-[10vw] 2xl:mt-[9vw] relative z-10">
-            <h1 className="uppercase text-[11vw] md:text-[10vw] leading-[0.95] text-red text-center break-all will-change mb-[3vw]">LET’S JAM!</h1>
+            <h1 className="uppercase text-[11vw] md:text-[10vw] text-red text-center break-all will-change mb-[3vw] leading-[0.85]">
+              <span className="relative overflow-hidden block">
+                <m.span variants={reveal} className="block">
+                  LET’S JAM!
+                </m.span>
+              </span>
+            </h1>
 
             <div className="flex justify-center mb-[20vw] md:mb-[18vw]">
               <div className="w-full lg:w-10/12 xl:w-1/2">
