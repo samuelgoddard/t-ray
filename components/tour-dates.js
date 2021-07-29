@@ -7,6 +7,7 @@ export default function TourDates({ dates }) {
       {dates.map((e,i) => {
         return(
           <ConditionalWrap
+            key={i}
             condition={!!e.url && !e.soldOut}
             wrap={children => (
               <a target="_blank" rel="noopener noreferrer" className="block w-full group" href={e.url}>

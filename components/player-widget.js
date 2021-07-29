@@ -9,7 +9,10 @@ var track = null;
 if (!isMobile) {
   track = new Howl({
     src: ['./stems/girl-from-osaka.mp3'],
-    volume: 0.75
+    volume: 0.75,
+    loop: true,
+    preload: 'metadata',
+    html5: true
   });
 }
 
