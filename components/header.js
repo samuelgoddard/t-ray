@@ -41,7 +41,7 @@ export default function Header({currentlyPlaying, route}) {
 
   return (
     <LazyMotion features={domAnimation}>
-      <header className="pt-[20px] md:pt-[25px] fixed z-50 top-0 left-0 w-full font-mono">
+      <header className="pt-[20px] md:pt-[25px] fixed z-50 top-0 left-0 w-full font-mono bg-transparent ">
         <Container>
           <div className="flex flex-wrap">
             <Link href="/">
@@ -54,13 +54,13 @@ export default function Header({currentlyPlaying, route}) {
               <nav>
                 <ul className="flex items-center">
                   <li>                    
-                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] px-1 md:px-2 overflow-hidden relative group">
+                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] px-1 md:px-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
                       <Rollover label="Insta" />
                     </a>
                   </li>
-                  <li className="ml-1 md:ml-2">&bull;</li>
+                  <li className="ml-1 md:ml-2 transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">&bull;</li>
                   <li>
-                    <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] px-1 md:px-2 my-1 md:my-2 overflow-hidden relative group">
+                    <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] px-1 md:px-2 my-1 md:my-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
                       <Rollover label="Youtube" />
                     </a>
                   </li>
@@ -73,7 +73,7 @@ export default function Header({currentlyPlaying, route}) {
                 <ul className="flex items-center">
                   <li>
                     <Link href="/jam" prefetch={false}>
-                      <a onClick={() => stopGlobalMusic() } aria-label="Navigate to jam page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl transition ease-in-out duration-300 ${route === '/jam' ? 'scale-0 delay-100' : 'delay-500'}`}>
+                      <a onClick={() => stopGlobalMusic() } aria-label="Navigate to jam page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl transition ease-in-out duration-500 text-off-black dark:text-off-white ${route === '/jam' ? 'scale-0' : 'scale-100'}`}>
                         <svg className="w-7 inline-block absolute top-0 left-0 md:mt-[10px] z-10 xl:mt-[14px] ml-3" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.777c0 3.5 1.558 8.578 6.25 8.578 4.693 0 6.25-5.078 6.25-8.579 0-10.83-12.5-10.83-12.5 0zm5.32 7.955c-3.994 0-4.987-4.686-4.987-7.693 0-10.35 9.973-10.35 9.973 0 0 3.006-.992 7.693-4.986 7.693zM12.501 8.777c0 3.5 1.557 8.578 6.25 8.578 4.692 0 6.249-5.078 6.249-8.579 0-10.83-12.499-10.83-12.499 0zm5.32 7.955c-3.996 0-4.987-4.686-4.987-7.693 0-10.35 9.972-10.35 9.972 0 0 3.006-.992 7.693-4.986 7.693z" fill="currentColor"/><path d="M.333 9.102c0 2.47 1.814 4.36 4.053 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.104-6.075-8.104 0zM12.833 9.102c0 2.47 1.814 4.36 4.052 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.103-6.075-8.103 0z" fill="currentColor"/></svg>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Jam Mode" />
@@ -95,7 +95,7 @@ export default function Header({currentlyPlaying, route}) {
                 <ul className="flex">
                   <li>
                     <Link href="/">
-                      <a aria-label="Navigate to biography page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative ${route === '/' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                      <a aria-label="Navigate to biography page" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative ${route === '/' ? 'text-off-white dark:text-off-black ' : ''}`}>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Bio" />
                         </div>
@@ -105,7 +105,7 @@ export default function Header({currentlyPlaying, route}) {
                   </li>
                   <li>
                     <Link href="/feed">
-                      <a aria-label="Navigate to the latest feed" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route === '/feed' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                      <a aria-label="Navigate to the latest feed" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group relative rounded-2xl ${route === '/feed' ? 'text-off-white dark:text-off-black ' : ''}`}>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Feed" />
                         </div>
@@ -115,7 +115,7 @@ export default function Header({currentlyPlaying, route}) {
                   </li>
                   <li>
                     <Link href="/music">
-                      <a aria-label="Navigate to music page" className={`ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black transition-colors duration-500 ease-in-out' : ''}`}>
+                      <a aria-label="Navigate to music page" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/music' ? 'text-off-white dark:text-off-black ' : ''}`}>
                         <div className="relative overflow-hidden z-10">
                           <Rollover label="Music" />
                         </div>
@@ -125,9 +125,9 @@ export default function Header({currentlyPlaying, route}) {
                   </li>
                   <li>
                     <button aria-label="Open Bag" onClick={() => modalTrayBag.current.open()}>
-                      <span className="ml-2 md:ml-3 xl:ml-4 uppercase block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
+                      <span className="ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
                         { cart?.length > 0 && (
-                          <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
+                          <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition-opacity ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
                         )}
                         <div className="relative overflow-hidden">
                           <Rollover label="Bag" />
@@ -151,10 +151,10 @@ export default function Header({currentlyPlaying, route}) {
               >
                 
                 <span className="md:text-upright--rotate block relative overflow-hidden">
-                  <div className="block md:hidden">
+                  <div className="block md:hidden dark:text-off-white text-off-black transition-colors ease-in-out duration-500">
                     <Rollover label="Vibe" />
                   </div>
-                  <div className="hidden md:block">
+                  <div className="hidden md:block dark:text-off-white text-off-black transition-colors ease-in-out duration-500">
                     <Rollover label="Vibe" horizontal />
                   </div>
                 </span>
@@ -174,10 +174,10 @@ export default function Header({currentlyPlaying, route}) {
                 onClick={() => setTheme('light')}
               >
                 <span className="md:text-upright--rotate block relative overflow-hidden">
-                  <div className="block md:hidden">
+                  <div className="block md:hidden dark:text-off-white text-off-black transition-colors ease-in-out duration-500">
                     <Rollover label="Chill" />
                   </div>
-                  <div className="hidden md:block">
+                  <div className="hidden md:block dark:text-off-white text-off-black transition-colors ease-in-out duration-500">
                     <Rollover label="Chill" horizontal />
                   </div>
                 </span>

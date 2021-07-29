@@ -31,7 +31,7 @@ const bodySerializers = {
   contentFull: {
     component: ContentFull,
     wrapper: ({ children }) => 
-      <div className="mb-[10vw] md:mb-[16vw]">
+      <div className="mb-[10vw] md:mb-[16vw] transition-colors ease-in-out duration-500">
         {children}
       </div>
   },

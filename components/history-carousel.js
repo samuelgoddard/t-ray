@@ -38,15 +38,15 @@ const HistoryCarousel = ({ slides }) => {
                 </div>
 
                 {slide.year && (
-                  <h2 className="embla__slide__title text-3xl md:text-4xl xl:text-5xl mb-1 md:mb-2 xl:mb-3">{slide.year}</h2>
+                  <h2 className="embla__slide__title text-3xl md:text-4xl xl:text-5xl mb-1 md:mb-2 xl:mb-3 transition-colors ease-in-out duration-500">{slide.year}</h2>
                 )}
 
                 {slide.title && (
-                  <h3 className="text-lg md:text-2xl xl:text-3xl leading-[1.2] w-11/12 mb-4 md:mb-5">{slide.title}</h3>
+                  <h3 className="text-lg md:text-2xl xl:text-3xl leading-[1.2] w-11/12 mb-4 md:mb-5 transition-colors ease-in-out duration-500">{slide.title}</h3>
                 )}
 
                 {slide.descriptionText && (
-                  <p className="w-11/12 md:w-10/12 text-base md:text-xl xl:text-2xl tracking-tight leading-tight md:leading-tight xl:leading-tight block">{slide.descriptionText}</p>
+                  <p className="w-11/12 md:w-10/12 text-base md:text-xl xl:text-2xl tracking-tight leading-tight md:leading-tight xl:leading-tight block transition-colors ease-in-out duration-500">{slide.descriptionText}</p>
                 )}
               </div>
             </div>

@@ -90,11 +90,11 @@ export default function Product(initialData) {
   return (
     <Layout>
       <NextSeo
-        title="I'm Really A Trex"
+        title={productData.title}
         description="T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010."
         openGraph={{
           url: 'https://t-ray.vercel.app/',
-          title: `I'm Really A Trex | T-Ray`,
+          title: `${productData.title} | T-Ray`,
           description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
           images: [
             {
@@ -104,7 +104,7 @@ export default function Product(initialData) {
               alt: `I'm Really A Trex | T-Ray Logo`,
             },
           ],
-          site_name: `I'm Really A Trex | T-Ray`,
+          site_name: `I'm Really A Trex`,
         }}
         twitter={{
           cardType: 'summary_large_image',

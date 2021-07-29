@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  @apply font-sans antialiased text-off-black bg-off-white dark:bg-off-black dark:text-off-white transition-colors ease-in-out duration-500;
+  @apply font-sans antialiased;
 
   @screen md {
     cursor: none !important;
@@ -131,7 +131,7 @@ a, button {
     
     &:before {
       content: '→';
-      @apply pr-3 dark:text-yellow text-red;
+      @apply pr-3 dark:text-yellow text-red transition-colors ease-in-out duration-300;
     }
   }
 }
@@ -237,7 +237,7 @@ html.has-scroll-dragging {
 }
 
 .release-teaser__title {
-  @apply transition ease-in-out duration-500;
+  @apply transition-colors ease-in-out duration-500;
 }
 
 .release-teaser:hover,

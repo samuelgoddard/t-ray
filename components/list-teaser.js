@@ -10,7 +10,7 @@ export default function ListTeaser({ image, title, date, type, purchaseLinks, vi
   return (
     <div className="mt-5 pb-5 border-b border-current">
       <div className="flex flex-wrap justify-start items-center">
-        <span className="block w-full lg:w-64 mb-3 lg:mb-0">
+        <span className="block w-full lg:w-64 mb-3 lg:mb-0 transition-colors ease-in-out duration-500">
           <MetaTeaser marqueeForce date={date} type={type} />
         </span>
 
@@ -22,7 +22,7 @@ export default function ListTeaser({ image, title, date, type, purchaseLinks, vi
             </Link>
           )}
         >
-          <a {...(external ? {target: '_blank', rel: 'noopener noreferrer'} : {})} className={`block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none uppercase font-display lg:pl-[5vw] pr-4 mb-2 md:mb-0 relative ${ href ? 'group hover:text-red transition ease-in-out duration-300' : ''}`}>
+          <a {...(external ? {target: '_blank', rel: 'noopener noreferrer'} : {})} className={`block flex-1 mr-auto text-[19px] md:text-[21px] xl:text-[26px] leading-none uppercase font-display lg:pl-[5vw] pr-4 mb-2 md:mb-0 relative ${ href ? 'group hover:text-red transition-colors ease-in-out duration-500' : 'transition-colors ease-in-out duration-500'}`}>
             <span className="inline-block relative w-auto">
               { image && (
                 <div className="absolute top-0 right-0 w-[190px] h-[250px] mr-[-10%] mt-[-17%] rounded-lg opacity-0 rotate-0 scale-75 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-6 ease-in-out duration-300 transition z-[30] hidden md:block">
@@ -53,7 +53,7 @@ export default function ListTeaser({ image, title, date, type, purchaseLinks, vi
           <span className="flex uppercase md:justify-center space-x-2 text-sm md:text-base md:ml-auto w-full md:w-auto">
             {purchaseLinks.map((e, i) => {
               return (
-                <span key={i} className="flex items-center">
+                <span key={i} className="flex items-center transition-colors ease-in-out duration-500">
                   <a href={e.url} target="_blank" rel="noopener noreferrer" className="group">
                     <div className="overflow-hidden inline-block">
                       <Rollover animatedUnderline label={e.title} />

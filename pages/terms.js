@@ -42,7 +42,7 @@ export default function Terms() {
         description="T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010."
         openGraph={{
           url: 'https://t-ray.vercel.app/',
-          title: `I'm Really A Trex | T-Ray`,
+          title: `Terms & Conditions | T-Ray`,
           description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
           images: [
             {
@@ -52,7 +52,7 @@ export default function Terms() {
               alt: `I'm Really A Trex | T-Ray Logo`,
             },
           ],
-          site_name: `I'm Really A Trex | T-Ray`,
+          site_name: `I'm Really A Trex`,
         }}
         twitter={{
           cardType: 'summary_large_image',
@@ -65,7 +65,7 @@ export default function Terms() {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="mt-[100px] md:mt-[140px] xl:mt-[160px]"
+              className="pt-[100px] md:pt-[140px] xl:pt-[160px]"
               data-scroll-section
             >
               <Container>
@@ -83,11 +83,11 @@ export default function Terms() {
                       />
                     </div> */}
 
-                    <div className="w-11/12 md:w-8/12 xl:w-7/12 text-[20px] md:text-[24px] xl:text-[32px] leading-[1.175] text-indent tracking-normal content mb-8">
+                    <div className="w-11/12 md:w-8/12 transition-colors ease-in-out duration-500 xl:w-7/12 text-[20px] md:text-[24px] xl:text-[32px] leading-[1.175] text-indent tracking-normal content mb-8">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     
-                    <div className="w-11/12 md:w-8/12 xl:w-7/12 text-[18px] md:text-[20px] xl:text-[23px] leading-[1.175] tracking-normal content">
+                    <div className="w-11/12 md:w-8/12 transition-colors ease-in-out duration-500 xl:w-7/12 text-[18px] md:text-[20px] xl:text-[23px] leading-[1.175] tracking-normal content">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

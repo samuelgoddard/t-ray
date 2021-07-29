@@ -74,7 +74,7 @@ export default function Home(initialData) {
               alt: `I'm Really A Trex | T-Ray Logo`,
             },
           ],
-          site_name: `I'm Really A Trex | T-Ray`,
+          site_name: `I'm Really A Trex`,
         }}
         twitter={{
           cardType: 'summary_large_image',
@@ -94,7 +94,7 @@ export default function Home(initialData) {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="mt-[100px] md:mt-[140px] xl:mt-[160px]"
+              className="pt-[100px] md:pt-[140px] xl:pt-[160px]"
               data-scroll-section
             >
               <Container bleedMobile>
@@ -180,7 +180,7 @@ export default function Home(initialData) {
                   
                   <div className="flex justify-center mb-[14vw] md:mb-[10vw] px-[15px] md:px-0">
                     <div className="w-11/12 md:w-8/12" data-scroll data-scroll-speed="1">
-                      <div className="text-[23px] md:text-[32px] xl:text-[40px] 2xl:text-[46px] leading-[1.175] text-indent tracking-tight">
+                      <div className="text-[23px] md:text-[32px] xl:text-[40px] 2xl:text-[46px] leading-[1.175] text-indent tracking-tight transition-colors ease-in-out duration-500">
                         <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.introBioText} />
                       </div>
                     </div>
@@ -211,13 +211,13 @@ export default function Home(initialData) {
                           </div>
                         </div>
                         <div className="w-full md:w-6/12 xl:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
-                          <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8">
+                          <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 transition-colors ease-in-out duration-500">
                             <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentBioText} />
                           </div>
 
                           <ul className="text-[17px] md:text-[20px] xl:text-[22px] leading-[1.25] tracking-tight">
                             <li className="mb-2">
-                              <div className="relative overflow-hidden">
+                              <div className="relative overflow-hidden transition-colors ease-in-out duration-500">
                                 <m.div variants={reveal}>
                                   <a href="https://www.youtube.com/c/ImReallyATRex" className="flex items-center group" rel="noopener noreferrer" target="_blank">
                                     <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
@@ -229,7 +229,7 @@ export default function Home(initialData) {
                               </div>
                             </li>
                             <li className="mb-2">
-                              <div className="relative overflow-hidden">
+                              <div className="relative overflow-hidden transition-colors ease-in-out duration-500">
                                 <m.div variants={reveal}>
                                   <a href="https://www.instagram.com/imreallyatrex" className="flex items-center group" rel="noopener noreferrer" target="_blank">
                                     <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>

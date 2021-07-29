@@ -41,7 +41,7 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
             </div>
           </div>
             
-          <div className="flex justify-center mb-4 md:mb-6">
+          <div className="flex justify-center mb-4 md:mb-6 transition-colors ease-in-out duration-500">
             <MetaTeaser marqueeForce={marqueeForce} date={date} type={type}/>
           </div>
           
@@ -57,7 +57,7 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
         <span className="xl:flex xl:flex-wrap uppercase justify-center md:space-x-2 text-[14px] md:text-[16px]">
           {purchaseLinks.map((e, i) => {
             return (
-              <div key={i} className="xl:flex xl:flex-wrap items-center text-center">
+              <div key={i} className="xl:flex xl:flex-wrap items-center text-center transition-colors ease-in-out duration-500">
                 <div className="overflow-hidden relative pb-[3px] w-full flex justify-center xl:inline-block xl:w-auto">
                   <m.div variants={reveal} className="w-auto">
                     <a href={e.url} target="_blank" rel="noopener noreferrer" className="group block p-0 m-0 h-[25px]">

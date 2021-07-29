@@ -42,7 +42,7 @@ export default function News(initialData) {
         description="T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010."
         openGraph={{
           url: 'https://t-ray.vercel.app/',
-          title: `I'm Really A Trex | T-Ray`,
+          title: `${title} | T-Ray`,
           description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
           images: [
             {
@@ -52,7 +52,7 @@ export default function News(initialData) {
               alt: `I'm Really A Trex | T-Ray Logo`,
             },
           ],
-          site_name: `I'm Really A Trex | T-Ray`,
+          site_name: `I'm Really A Trex`,
         }}
         twitter={{
           cardType: 'summary_large_image',
@@ -65,18 +65,18 @@ export default function News(initialData) {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="mt-[100px] md:mt-[140px] xl:mt-[160px]"
+              className="pt-[100px] md:pt-[140px] xl:pt-[160px]"
               data-scroll-section
             >
               <Container>
                 <m.div variants={fade} className="flex flex-wrap justify-center mb-[5vw] md:mb-[8vw] xl:mb-[10vw]">
                   <div className="w-full md:w-9/12 xl:w-10/12 max-w-screen-2xl">
-                    <div className="mb-6 md:mb-10 xl:mb-12">
+                    <div className="mb-6 md:mb-10 xl:mb-12 transition-colors ease-in-out duration-500">
                       <MetaTeaser marqueeForce date={date} type='Latest News' />
                     </div>
                     <h1 className="text-red font-display uppercase text-[8vw] md:text-[7.5vw] xl:text-[7vw] 2xl:text-[120px] leading-[0.9] w-full md:w-11/12 block">{title}</h1>
 
-                    <div className="flex flex-wrap items-center mt-8 mb-6 md:mb-8 md:mt-12 xl:mt-16">
+                    <div className="flex flex-wrap items-center mt-8 mb-6 md:mb-8 md:mt-12 xl:mt-16 transition-colors ease-in-out duration-500">
                       <a href="#" className="block uppercase text-[12px] md:text-base">Copy Link</a>
                       <span className="block uppercase text-[10px] mx-2 md:mx-3">&bull;</span>
                       <a href="#" className="block uppercase text-[12px] md:text-base">Share On Twitter</a>

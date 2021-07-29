@@ -205,7 +205,7 @@ export default function Player() {
                     <m.span variants={fadeDelay} className="block">LET’S JAM!</m.span>
                   </span>
                 </h2>
-                <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 z-20">
+                <div className="absolute inset-0 flex justify-center pointer-events-none z-20">
                   <div className="overflow-hidden xl:pt-[4px]">
                     <m.div variants={fade}>
                       <div className="w-[78vw] pointer-events-none motion-safe:animate-float ml-[-1.2vw] mt-[-1.3vw]">

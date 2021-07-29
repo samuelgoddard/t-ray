@@ -90,7 +90,7 @@ export default function News(initialData) {
               alt: `I'm Really A Trex | T-Ray Logo`,
             },
           ],
-          site_name: `Feed | I'm Really A Trex`,
+          site_name: `I'm Really A Trex`,
         }}
         twitter={{
           cardType: 'summary_large_image',
@@ -103,7 +103,7 @@ export default function News(initialData) {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="mt-[100px] md:mt-[140px] xl:mt-[160px]"
+              className="pt-[100px] md:pt-[140px] xl:pt-[160px]"
               data-scroll-section
             >
               <Container>

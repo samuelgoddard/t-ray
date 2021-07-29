@@ -7,7 +7,7 @@ export default function HeadingKanji({ heading, subHeading, kanji }) {
     <div className="mb-[12vw] relative">
       <div className="relative z-20">
         <h2 className="uppercase text-4xl md:text-[7vw] xl:text-[6vw] leading-[0.95] text-center will-change block relative z-20">
-          <span className="block relative overflow-hidden">
+          <span className="block relative overflow-hidden transition-colors ease-in-out duration-500">
             <m.span variants={reveal} className="block">
               {heading}
             </m.span>
@@ -15,7 +15,7 @@ export default function HeadingKanji({ heading, subHeading, kanji }) {
         </h2>
         { subHeading && (
           <span className="text-[22px] md:text-[26px] xl:text-[32px] 2xl:text-[40px] leading-[1.1] text-center block relative z-20">
-            <span className="block relative overflow-hidden">
+            <span className="block relative overflow-hidden transition-colors ease-in-out duration-500">
             <m.span variants={reveal} className="block">
               {subHeading}
             </m.span>
