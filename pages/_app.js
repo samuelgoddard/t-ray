@@ -1,5 +1,4 @@
 import '@/styles/main.css'
-import dynamic from 'next/dynamic'
 import { ThemeProvider } from 'next-themes'
 import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion'
 import { useRouter } from 'next/router'
@@ -10,10 +9,9 @@ import { useState } from 'react'
 import { Context } from '@/context/state';
 import { JamContext } from '@/context/jam';
 import { CartProvider } from '@/context/store'
+import CursorMotion from '@/components/cursor-motion'
 import Div100vh from 'react-div-100vh'
 import { IntroContext } from '@/context/intro'
-
-const CursorMotion = dynamic(() => import('../components/cursor-motion'))
 
 const introEnd = {
   visible: { opacity: 0 },

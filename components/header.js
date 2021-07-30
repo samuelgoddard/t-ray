@@ -1,22 +1,19 @@
-import dynamic from 'next/dynamic'
 import { useRef, useState, useContext } from 'react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import Container from './container'
 import Logo from '@/components/logo'
+import PlayerWidget from '@/components/player-widget'
 import Rollover from '@/components/rollover'
 import Image from 'next/image'
 import themeToggleActive from '@/public/images/theme-toggle-active.svg'
 import themeToggleActiveDark from '@/public/images/theme-toggle-active-dark.svg'
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import ModalTray from '@/components/modal-tray'
+import CartTray from '@/components/cart-tray'
 import { Context } from '@/context/state'
 import { useCartContext } from '@/context/store'
 import { isMobile } from 'react-device-detect'
-
-const CartTray = dynamic(() => import('../components/cart-tray'))
-const PlayerWidget = dynamic(() => import('../components/player-widget'))
-
 
 const variants = {
   open: { opacity: 1 },
