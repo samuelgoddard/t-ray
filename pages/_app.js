@@ -30,7 +30,7 @@ const reveal = {
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
-  const [introContext, setIntroContext] = useState(false);
+  const [introContext, setIntroContext] = useState(true);
   const [globalMusicPlaying, setGlobalMusicPlaying] = useState(false);
   const [globalFooterInView, setGlobalFooterInView] = useState(false);
   const [jamAccepted, setJamAccepted] = useState(false);
