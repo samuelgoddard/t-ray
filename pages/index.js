@@ -61,9 +61,7 @@ export default function Home(initialData) {
   const containerRef = useRef(null)
 
   useEffect(() => {
-    setTimeout(() => {
-      setIntroContext(true)
-    }, 4000);
+    setIntroContext(true)
   },[]);
 
   const fade = {
