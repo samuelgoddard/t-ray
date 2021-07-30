@@ -1,9 +1,23 @@
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withBundleAnalyzer({
+  reactStrictMode: true,
   images: {
     domains: ['cdn.sanity.io', 'cdn.shopify.com'],
   },
   webpack(config, options) {
-    const { isServer } = options;
+    const { isServer, dev } = options;
+
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
+      });
+    }
+
     config.module.rules.push({
       test: /\.(ogg|mp3|wav|mpe?g)$/i,
       exclude: config.exclude,
@@ -24,4 +38,4 @@ module.exports = {
 
     return config;
   },
-};
+});

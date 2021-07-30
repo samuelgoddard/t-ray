@@ -2,8 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { m } from 'framer-motion'
 import { scaleUp, reveal } from '@/helpers/transitions'
-
-import addToBag from '@/public/images/add-to-bag.svg'
 import productBg from '@/public/images/product-bg.svg'
 
 export default function ProductTeaser({ href, image, title, price, imageWidth, imageHeight }) {

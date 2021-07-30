@@ -28,6 +28,8 @@ export default function Ticker({href, word1, word2}) {
                   <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
                   <span className="mx-3"><Logo ticker/></span>
+                  <span className="mx-3">{word2}</span>
+                  <span className="mx-3"><Logo ticker/></span>
                 </div>
 
                 <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
@@ -44,6 +46,8 @@ export default function Ticker({href, word1, word2}) {
                   <span className="mx-3">{word2}</span>
                   <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word1}</span>
+                  <span className="mx-3"><Logo ticker/></span>
+                  <span className="mx-3">{word2}</span>
                   <span className="mx-3"><Logo ticker/></span>
                   <span className="mx-3">{word2}</span>
                   <span className="mx-3"><Logo ticker/></span>

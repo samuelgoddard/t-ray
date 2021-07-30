@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  
   @screen md {
     cursor: none !important;
   }
@@ -17,21 +18,6 @@ a, button {
   @screen md {
     cursor: none !important;
   }
-}
-
-.cursor {
-    @apply bg-red dark:bg-pink;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    transition: all 300ms ease;
-    transition-property: background-color, opacity, transform, mix-blend-mode;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    overflow: visible;
 }
 
 /* 
@@ -218,14 +204,9 @@ html.has-scroll-dragging {
   white-space: nowrap;
   height: 100%; }
 
-.text-outline {
-  color: currentColor;
-  -webkit-text-fill-color: rgba(0,0,0,0);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: currentColor;
-}
 
-.rounded-md {
+.rounded-md,
+.rounded-lg {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 

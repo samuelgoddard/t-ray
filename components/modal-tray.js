@@ -1,7 +1,7 @@
 
 import React, { useEffect, useImperativeHandle, useState, forwardRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-import {motion, AnimatePresence} from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 
 export function ModalTray({ children, defaultOpened = false }, ref) {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -49,7 +49,7 @@ export function ModalTray({ children, defaultOpened = false }, ref) {
       <>
       <AnimatePresence>
         { isOpen ? (
-          <motion.div 
+          <m.div 
             initial={"initial"}
             animate={"isOpen"}
             exit={"exit"}
@@ -58,14 +58,14 @@ export function ModalTray({ children, defaultOpened = false }, ref) {
           >
             <div className="bg-off-white dark:bg-off-black absolute inset-0 w-full h-full bg-opacity-70 dark:bg-opacity-80 z-40" onClick={close} />
 
-            <motion.div
+            <m.div
               initial={"initial"}
               animate={"isOpen"}
               exit={"exit"}
               variants={modalTrayVariant}
               className={`absolute top-0 max-w-lg z-50 w-[82vw] md:w-[50vw] xl:w-[40vw] bg-off-black dark:bg-red text-off-white dark:text-off-white h-full right-0`}
             >
-              <motion.div
+              <m.div
                 initial={"initial"}
 
                 animate={"isOpen"}
@@ -74,9 +74,9 @@ export function ModalTray({ children, defaultOpened = false }, ref) {
                 className="h-full overflow-y-scroll bag-inner"
               >
                 {children}
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </m.div>
+            </m.div>
+          </m.div>
         ) : null }
       </AnimatePresence>
       </>,

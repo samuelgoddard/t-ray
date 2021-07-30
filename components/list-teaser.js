@@ -6,7 +6,7 @@ import ImageWrapper from "./image-wrapper"
 import { m } from "framer-motion"
 import { reveal } from "@/helpers/transitions"
 
-export default function ListTeaser({ image, title, date, type, purchaseLinks, video, href, external }) {
+export default function ListTeaser({ image, title, date, type, purchaseLinks, href, external }) {
   return (
     <div className="mt-5 pb-5 border-b border-current">
       <div className="flex flex-wrap justify-start items-center">

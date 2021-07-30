@@ -15,8 +15,7 @@ function ImageWrapper({ image, sizes, className, alt, baseWidth, baseHeight, noP
     sanity.client,
     image,
     { imageBuilder: (imageUrlBuilder, options) => customImageBuilder(imageUrlBuilder, options, baseWidth, baseHeight, fill, ignoreCropping)} 
-  ) 
-
+  )
 
   let setBaseWidth = imageProps.width
   let removeWidth = false

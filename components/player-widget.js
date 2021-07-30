@@ -1,4 +1,3 @@
-// import raf from 'raf'
 import { useContext } from 'react'
 import { Howl } from 'howler'
 import { Context } from '@/context/state'
@@ -51,17 +50,6 @@ export default function PlayerWidget() {
 
   return (
     <div className="bg-yellow rounded-full p-3 px-3 md:px-6 max-w-[450px] flex overflow-hidden">
-      {/* <ReactHowler 
-        onLoad={this.handleOnLoad}
-        ref={(ref) => (this.playerFull = ref)}
-        html5={true}
-        preload={true}
-        src='/stems/girl-from-osaka.mp3'
-        playing={this.state.playing}
-        volume={0.5}
-        mute={false}
-      /> */}
-
       <button className="text-off-black block w-auto" onClick={() => togglePlay() }>
         <div className="md:mr-[10px]">
           { globalMusicPlaying ? (

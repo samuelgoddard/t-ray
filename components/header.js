@@ -26,7 +26,7 @@ const revealVariants = {
   closed: { y: '100%' },
 }
 
-export default function Header({currentlyPlaying, route}) {
+export default function Header({route}) {
   const {theme, setTheme} = useTheme()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const modalTrayBag = useRef(null)
@@ -55,13 +55,13 @@ export default function Header({currentlyPlaying, route}) {
                 <ul className="flex items-center">
                   <li>                    
                     <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="uppercase block text-[16px] md:text-[17px] xl:text-[22px] mx-1 md:mx-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
-                      <Rollover animatedUnderline underlineDotted label="Insta" />
+                      <Rollover animatedUnderline label="Insta" />
                     </a>
                   </li>
                   <li className="ml-1 md:ml-2 transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">&bull;</li>
                   <li>
                     <a href="https://www.youtube.com/c/ImReallyATRex" target="_blank" rel="noopener noreferrer" className="uppercase block text-[16px] md:text-[17px] xl:text-[22px] mx-1 md:mx-2 my-1 md:my-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
-                      <Rollover animatedUnderline underlineDotted label="Youtube" />
+                      <Rollover animatedUnderline label="Youtube" />
                     </a>
                   </li>
                 </ul>

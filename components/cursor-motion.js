@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import classNames from "classnames";
 
 export default function CursorMotion() {
 
@@ -24,7 +23,7 @@ export default function CursorMotion() {
     };
 
     addEventListeners();
-    handleLinkHoverEvents();
+    // handleLinkHoverEvents();
 
     window.addEventListener("mousemove", moveCursor);
 
@@ -36,75 +35,69 @@ export default function CursorMotion() {
 
   const addEventListeners = () => {
     document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseenter", onMouseEnter);
-    document.addEventListener("mouseleave", onMouseLeave);
-    document.addEventListener("mousedown", onMouseDown);
-    document.addEventListener("mouseup", onMouseUp);
+    // document.addEventListener("mouseenter", onMouseEnter);
+    // document.addEventListener("mouseleave", onMouseLeave);
+    // document.addEventListener("mousedown", onMouseDown);
+    // document.addEventListener("mouseup", onMouseUp);
   };
   
   const removeEventListeners = () => {
     document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseenter", onMouseEnter);
-    document.removeEventListener("mouseleave", onMouseLeave);
-    document.removeEventListener("mousedown", onMouseDown);
-    document.removeEventListener("mouseup", onMouseUp);
+    // document.removeEventListener("mouseenter", onMouseEnter);
+    // document.removeEventListener("mouseleave", onMouseLeave);
+    // document.removeEventListener("mousedown", onMouseDown);
+    // document.removeEventListener("mouseup", onMouseUp);
   };
 
   const onMouseMove = (e) => {
     setPosition({ x: e.clientX, y: e.clientY });
   };
 
-  const onMouseDown = () => {
-    setClicked(true);
-  };
+  // const onMouseDown = () => {
+  //   setClicked(true);
+  // };
 
-  const onMouseUp = () => {
-    setClicked(false);
-  };
+  // const onMouseUp = () => {
+  //   setClicked(false);
+  // };
 
-  const onMouseLeave = () => {
-    setHidden(true);
-  };
+  // const onMouseLeave = () => {
+  //   setHidden(true);
+  // };
 
-  const onMouseEnter = () => {
-    setHidden(false);
-  };
+  // const onMouseEnter = () => {
+  //   setHidden(false);
+  // };
 
-  const handleLinkHoverEvents = () => {
-    document.querySelectorAll("a").forEach((el) => {
-      el.addEventListener("mouseover", () => setLinkHovered(true));
-      el.addEventListener("mouseout", () => setLinkHovered(false));
-    });
-    document.querySelectorAll("button").forEach((el) => {
-      el.addEventListener("mouseover", () => setLinkHovered(true));
-      el.addEventListener("mouseout", () => setLinkHovered(false));
-    });
-    document.querySelectorAll(".music-video").forEach((el) => {
-      el.addEventListener("mouseover", () => setMusicVideoLinkHovered(true));
-      el.addEventListener("mouseout", () => setMusicVideoLinkHovered(false));
-    });
-  };
+  // const handleLinkHoverEvents = () => {
+  //   document.querySelectorAll("a").forEach((el) => {
+  //     el.addEventListener("mouseover", () => setLinkHovered(true));
+  //     el.addEventListener("mouseout", () => setLinkHovered(false));
+  //   });
+  //   document.querySelectorAll("button").forEach((el) => {
+  //     el.addEventListener("mouseover", () => setLinkHovered(true));
+  //     el.addEventListener("mouseout", () => setLinkHovered(false));
+  //   });
+  //   document.querySelectorAll(".music-video").forEach((el) => {
+  //     el.addEventListener("mouseover", () => setMusicVideoLinkHovered(true));
+  //     el.addEventListener("mouseout", () => setMusicVideoLinkHovered(false));
+  //   });
+  // };
 
-  const cursorClasses = classNames("cursor-motion", {
-    "cursor--clicked": clicked,
-    "cursor--hidden": hidden,
-    "cursor--link-hovered": linkHovered,
-    "cursor--link-hovered-music-video": musicVideoLinkHovered,
-  });
-  
-  const cursorInnerClasses = classNames("cursor-inner", {});
+  // const cursorClasses = classNames("cursor-motion", {});
+  // const cursorInnerClasses = classNames("cursor-inner", {});
 
   return (
     <>
     <motion.div
-      className={cursorClasses}
+      className={"cursor-motion"}
       style={{
         translateX: cursorXSpring,
         translateY: cursorYSpring,
       }}
     />
     <div
-      className={cursorInnerClasses}
+      className={"cursor-inner"}
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
     />
     </>
