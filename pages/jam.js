@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic'
 import { useContext, useEffect, useRef } from 'react'
 import Layout from '@/components/layout'
 import { NextSeo } from 'next-seo'
 import { LazyMotion, domMax, m } from "framer-motion"
-import Player from '@/components/jam-hooks'
 import { IntroContext } from '@/context/intro'
+
+const Player = dynamic(() => import('../components/jam-hooks'))
 
 export default function Jam() {
   const [introContext, setIntroContext] = useContext(IntroContext);
