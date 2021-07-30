@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import { fade, intro, reveal, fadeDelay } from "@/helpers/transitions"
+import { fade, fadeDelay } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import ReleaseTeaser from '@/components/release-teaser'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
@@ -10,13 +10,12 @@ import Image from 'next/image'
 import newsText from '@/public/images/news.svg'
 import newsTextDark from '@/public/images/news-dark.svg'
 import HeadingKanji from '@/components/heading-kanji'
-import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import kanjiMore from '@/public/images/kanji-more.svg'
 import insta from '@/public/images/insta.jpg'
 import { NextSeo } from 'next-seo'
 import ListTeaser from '@/components/list-teaser'
-import { Context } from '../../context/state'
 import SanityPageService from '@/services/sanityPageService'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "news": *[_type == "news"] | order(date desc) {
@@ -47,8 +46,9 @@ const query = `{
       url
     }
   },
-  "musicVideos": *[_type == "musicVideos"] | order(date desc) {
+  "musicVideos": *[_type == "musicVideos"] | order(order asc) {
     title,
+    order,
     url,
     videoSnippetUrl {
       asset-> {
@@ -73,7 +73,7 @@ const pageService = new SanityPageService(query)
 export default function News(initialData) {
   const { data: { news, musicVideos, music }  } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)

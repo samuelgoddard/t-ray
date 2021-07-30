@@ -16,9 +16,9 @@ import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import musicKanki from '@/public/images/kanji-music.svg'
 import { NextSeo } from 'next-seo'
 import MetaTeaser from '@/components/meta-teaser'
-import { Context } from '../context/state'
 import BlockContent from '@sanity/block-content-to-react'
 import SanityPageService from '@/services/sanityPageService'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "music": *[_type == "music" && (featured == null || featured == false)] {
@@ -60,7 +60,7 @@ const pageService = new SanityPageService(query)
 export default function Music(initialData) {
   const { data: { music, featuredMusic }} = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)

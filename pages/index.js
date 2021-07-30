@@ -21,7 +21,7 @@ import japaneseCharacters from '@/public/images/japanese-characters.svg'
 import itsMeKanji from '@/public/images/kanji-its-me.svg'
 import { NextSeo } from 'next-seo'
 import BlockContent from '@sanity/block-content-to-react'
-import { Context } from '../context/state'
+import { IntroContext } from '@/context/intro'
 import SanityPageService from '@/services/sanityPageService'
 
 const query = `{
@@ -57,7 +57,7 @@ const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
   const { data: { home, products } } = pageService.getPreviewHook(initialData)()
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
   const containerRef = useRef(null)
 
   useEffect(() => {
@@ -104,7 +104,7 @@ export default function Home(initialData) {
   
   const imageScale = {
     initial: { opacity: introContext ? 1 : 1, scale: 1.2 },
-    enter: { scale: 1, opacity: 1, transition: { delay: introContext ? 0 : 2, duration: introContext ? 0.65 : 1, ease: [0.83, 0, 0.17, 1] }},
+    enter: { scale: 1, opacity: 1, transition: { delay: introContext ? 0.3 : 2, duration: introContext ? 0.65 : 1, ease: [0.83, 0, 0.17, 1] }},
     exit: { scale: 1.2, opacity: 1, transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
   }
 
@@ -384,7 +384,7 @@ export default function Home(initialData) {
               </Container>
               
               <m.div variants={fade}>
-                <div className="mb-[32vw] md:mb-[18vw] xl:mb-[22vw]">
+                <div className="mb-[32vw] md:mb-[26vw] xl:mb-[24vw]">
                   <HistoryCarousel slides={home.historyStories} />
                 </div>
               </m.div>

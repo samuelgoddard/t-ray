@@ -320,3 +320,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.bag-inner::-webkit-scrollbar {
+  display: none !important;
+}

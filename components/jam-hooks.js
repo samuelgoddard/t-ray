@@ -57,6 +57,7 @@ export default function Player() {
   const [jamAccepted, setJamAccepted] = useContext(Context)
 
   useEffect(() => {
+    console.log(jamAccepted)
     if (isBassLoaded == 'loaded' && isGuitarLoaded == 'loaded' && isVoxLoaded == 'loaded' && isKeysLoaded == 'loaded' && isDrumsLoaded == 'loaded') {
     } else {
       const intervalId = setInterval(() => { 

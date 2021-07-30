@@ -8,11 +8,7 @@ import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import Image from 'next/image'
-import Logo from '@/components/logo'
-import ProductTeaser from '@/components/product-teaser'
-import tee from '@/public/images/tee.webp'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
-import { Context } from '../../context/state'
 import bolt from '@/public/images/bolt.svg'
 import { NextSeo } from 'next-seo'
 import { useCartContext, useAddToCartContext } from '@/context/store'
@@ -20,6 +16,7 @@ import SanityPageService from '@/services/sanityPageService'
 import ReleaseTeaser from '@/components/release-teaser'
 import Ticker from '@/components/ticker'
 import Div100vh from 'react-div-100vh'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "musicVideos": *[_type == "musicVideos"] | order(date desc) {
@@ -49,7 +46,7 @@ export default function Product(initialData) {
   const { data: { productData, musicVideos } } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
   const [variantPrice, setVariantPrice] = useState(productData.variants.edges[0].node.price)
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)

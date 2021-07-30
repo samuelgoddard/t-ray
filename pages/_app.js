@@ -14,6 +14,7 @@ import { JamContext } from '@/context/jam';
 import { CartProvider } from '@/context/store'
 import CursorMotion from '@/components/cursor-motion'
 import Div100vh from 'react-div-100vh'
+import { IntroContext } from '@/context/intro'
 
 const introEnd = {
   visible: { opacity: 0 },
@@ -57,136 +58,137 @@ export default function App({ Component, pageProps }) {
       <DefaultSeo {...SEO} />
 
       <CartProvider>
-        <Context.Provider 
-          value={
-            [globalMusicPlaying, setGlobalMusicPlaying],
-            [jamAccepted, setJamAccepted],
-            [globalFooterInView, setGlobalFooterInView],
-            [introContext, setIntroContext]
-          }
-        >
-          <JamContext.Provider
+        <IntroContext.Provider value={[introContext, setIntroContext]}>
+          <Context.Provider 
             value={
-              [isDrumsLoaded, setIsDrumsLoaded],
-              [isBassLoaded, setIsBassLoaded],
-              [isGuitarLoaded, setIsGuitarLoaded],
-              [isVoxLoaded, setIsVoxLoaded],
-              [isKeysLoaded, setIsKeysLoaded]
+              [globalMusicPlaying, setGlobalMusicPlaying],
+              [jamAccepted, setJamAccepted],
+              [globalFooterInView, setGlobalFooterInView]
             }
           >
-            <div className={`text-off-black bg-off-white dark:bg-off-black dark:text-off-white transition-colors ease-in-out duration-500 fixed inset-0 w-full h-full z-0`}></div>
-              {/* <div className="fixed bottom-0 left-[40vw] z-[10000] bg-white text-black text-[12px] p-2">
-                
-                <span className="block">Drums Loaded: {JSON.stringify(isDrumsLoaded)}</span>
-                <span className="block">Bass Loaded: {JSON.stringify(isBassLoaded)}</span>
-                <span className="block">Guitar Loaded: {JSON.stringify(isGuitarLoaded)}</span>
-                <span className="block">Vox Loaded: {JSON.stringify(isVoxLoaded)}</span>
-                <span className="block">Keys Loaded: {JSON.stringify(isKeysLoaded)}</span>
-              </div> */}
+            <JamContext.Provider
+              value={
+                [isDrumsLoaded, setIsDrumsLoaded],
+                [isBassLoaded, setIsBassLoaded],
+                [isGuitarLoaded, setIsGuitarLoaded],
+                [isVoxLoaded, setIsVoxLoaded],
+                [isKeysLoaded, setIsKeysLoaded]
+              }
+            >
+              <div className={`text-off-black bg-off-white dark:bg-off-black dark:text-off-white transition-colors ease-in-out duration-500 fixed inset-0 w-full h-full z-0`}></div>
+                {/* <div className="fixed bottom-0 left-[40vw] z-[10000] bg-white text-black text-[12px] p-2">
+                  
+                  <span className="block">Drums Loaded: {JSON.stringify(isDrumsLoaded)}</span>
+                  <span className="block">Bass Loaded: {JSON.stringify(isBassLoaded)}</span>
+                  <span className="block">Guitar Loaded: {JSON.stringify(isGuitarLoaded)}</span>
+                  <span className="block">Vox Loaded: {JSON.stringify(isVoxLoaded)}</span>
+                  <span className="block">Keys Loaded: {JSON.stringify(isKeysLoaded)}</span>
+                </div> */}
 
-              <div className={`transition-opacity ease-in-out duration-500 ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 '}`}>
-                <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
-              </div>
+                <div className={`transition-opacity ease-in-out duration-500 ${router.asPath === '/jam' ? 'opacity-0 pointer-events-none' : 'opacity-100 '}`}>
+                  <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
+                </div>
 
-              {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-[5000]">
-                <span className="block">Intro State... {JSON.stringify(introContext)}</span>
-              </div> */}
+                {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-[5000]">
+                  <span className="block">Intro State... {JSON.stringify(jamAccepted)}</span>
+                </div> */}
 
-              {/* INTRO START */}
-              <LazyMotion features={domAnimation}>
-                { !introContext && router.asPath == '/' && (
-                  <m.div 
-                    initial="hidden"
-                    animate="visible"
-                    variants={introEnd}
-                    transition={{ delay: 1.4, duration: 1.5, ease: [0.83, 0, 0.17, 1] }}
-                    className="bg-transparent dark:bg-transparent fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px] opacity-90"
-                  >
-                    <Div100vh className="fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px]">
-                      <div className="fixed inset-0 w-full h-full z-20">
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-off-white"
-                          transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-off-white"
-                          transition={{ delay: 1.1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-off-white"
-                          transition={{ delay: 1.2, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-off-white"
-                          transition={{ delay: 1.25, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-off-white"
-                          transition={{ delay: 1.3, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                      </div>
-                      <div className={`fixed top-0 left-0 right-0 w-full z-30 flex flex-wrap justify-center mt-5 `}>
-                        <div className="relative pt-[80px] md:pt-[120px] xl:pt-[140px]">
-                          <span
-                            // initial="hidden"
-                            // animate="visible"
-                            // variants={colorSwap}
-                            // transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                            className={`text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-red p-0 mb-6 font-display uppercase bg-blend-difference`}>
-                            <span className="block overflow-hidden relative">
-                              <m.span 
-                                initial="hidden"
-                                animate="visible"
-                                variants={reveal}
-                                className="block"
-                                transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                              >
-                                ImReally
-                              </m.span>
-                            </span>
-                            <span className="block overflow-hidden relative">
-                              <m.span 
-                                initial="hidden"
-                                animate="visible"
-                                variants={reveal}
-                                className="block"
-                                transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                              >
-                                A Trex
-                              </m.span>
-                            </span>
-                          </span>
+                {/* INTRO START */}
+                <LazyMotion features={domAnimation}>
+                  { !introContext && router.asPath == '/' && (
+                    <m.div 
+                      initial="hidden"
+                      animate="visible"
+                      variants={introEnd}
+                      transition={{ delay: 1.4, duration: 1.5, ease: [0.83, 0, 0.17, 1] }}
+                      className="bg-transparent dark:bg-transparent fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px] opacity-90"
+                    >
+                      <Div100vh className="fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px]">
+                        <div className="fixed inset-0 w-full h-full z-20">
+                          <m.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={innerReveal}
+                            className="h-[20vh] w-full bg-off-white"
+                            transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                          ></m.div>
+                          <m.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={innerReveal}
+                            className="h-[20vh] w-full bg-off-white"
+                            transition={{ delay: 1.1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                          ></m.div>
+                          <m.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={innerReveal}
+                            className="h-[20vh] w-full bg-off-white"
+                            transition={{ delay: 1.2, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                          ></m.div>
+                          <m.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={innerReveal}
+                            className="h-[20vh] w-full bg-off-white"
+                            transition={{ delay: 1.25, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                          ></m.div>
+                          <m.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={innerReveal}
+                            className="h-[20vh] w-full bg-off-white"
+                            transition={{ delay: 1.3, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                          ></m.div>
                         </div>
-                      </div>
-                    </Div100vh>
-                  </m.div>
-                )}
-              </LazyMotion>
-              {/* Intro End */}
+                        <div className={`fixed top-0 left-0 right-0 w-full z-30 flex flex-wrap justify-center mt-5 `}>
+                          <div className="relative pt-[80px] md:pt-[120px] xl:pt-[140px]">
+                            <span
+                              // initial="hidden"
+                              // animate="visible"
+                              // variants={colorSwap}
+                              // transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                              className={`text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-red p-0 mb-6 font-display uppercase bg-blend-difference`}>
+                              <span className="block overflow-hidden relative">
+                                <m.span 
+                                  initial="hidden"
+                                  animate="visible"
+                                  variants={reveal}
+                                  className="block"
+                                  transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                                >
+                                  ImReally
+                                </m.span>
+                              </span>
+                              <span className="block overflow-hidden relative">
+                                <m.span 
+                                  initial="hidden"
+                                  animate="visible"
+                                  variants={reveal}
+                                  className="block"
+                                  transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                                >
+                                  A Trex
+                                </m.span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </Div100vh>
+                    </m.div>
+                  )}
+                </LazyMotion>
+                {/* Intro End */}
 
-              <CursorMotion/>
-              <div className="dark:text-off-white text-off-black relative z-10">
-                <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
-                  <Component {...pageProps} key={router.asPath} />
-                </AnimatePresence>
-              </div>
-          </JamContext.Provider>
-        </Context.Provider>
+                <CursorMotion/>
+                <div className="dark:text-off-white text-off-black relative z-10">
+                  <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
+                    <Component {...pageProps} key={router.asPath} />
+                  </AnimatePresence>
+                </div>
+            </JamContext.Provider>
+          </Context.Provider>
+        </IntroContext.Provider>
       </CartProvider>
     </ThemeProvider>
   )

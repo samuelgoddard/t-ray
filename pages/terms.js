@@ -8,7 +8,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
-import { Context } from '../context/state'
+import { IntroContext } from '@/context/intro'
 
 // const query = `*[_type == "news" && slug.current == $slug][0]{
 //   title,
@@ -31,7 +31,7 @@ import { Context } from '../context/state'
 export default function Terms() {
   // const { data: { title, date, slug, teaserImage, contentBlocks }  } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)

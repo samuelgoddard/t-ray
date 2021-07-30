@@ -34,7 +34,7 @@ export default function CartTray({ cart, checkoutUrl }) {
 
       <hr className="border-off-white dark:border-white border-t w-full mb-8" />
 
-      <div className="my-auto max-h-[60vh] h-full overflow-scroll">
+      <div className="my-auto max-h-[60vh] h-full overflow-scroll bag-inner">
         { cartItems.length > 0 ? (
           <ul>
             {cartItems.map(item => (

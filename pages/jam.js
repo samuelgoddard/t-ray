@@ -3,10 +3,10 @@ import Layout from '@/components/layout'
 import { NextSeo } from 'next-seo'
 import { LazyMotion, domMax, m } from "framer-motion"
 import Player from '@/components/jam-hooks'
-import { Context } from '../context/state'
+import { IntroContext } from '@/context/intro'
 
 export default function Jam() {
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)

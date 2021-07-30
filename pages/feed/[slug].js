@@ -3,17 +3,16 @@ import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Container from '@/components/container'
-import { fade, intro } from "@/helpers/transitions"
+import { fade } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
-import Image from 'next/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import MetaTeaser from '@/components/meta-teaser'
 import BodyRenderer from '@/components/body-renderer'
 import ImageWrapper from '@/components/image-wrapper'
-import { Context } from '../../context/state'
+import { IntroContext } from '@/context/intro'
 
 const query = `*[_type == "news" && slug.current == $slug][0]{
   title,
@@ -38,7 +37,7 @@ export default function News(initialData) {
   const containerRef = useRef(null)
   const router = useRouter()
   const [copied, setCopied] = useState(false);
-  const [introContext, setIntroContext] = useContext(Context);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)

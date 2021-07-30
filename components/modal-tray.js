@@ -71,7 +71,7 @@ export function ModalTray({ children, defaultOpened = false }, ref) {
                 animate={"isOpen"}
                 exit={"exit"}
                 variants={containerVariant}
-                className="h-full overflow-y-scroll"
+                className="h-full overflow-y-scroll bag-inner"
               >
                 {children}
               </motion.div>
