@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
@@ -8,10 +8,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
-import SanityPageService from '@/services/sanityPageService'
-import MetaTeaser from '@/components/meta-teaser'
-import BodyRenderer from '@/components/body-renderer'
-import ImageWrapper from '@/components/image-wrapper'
+import { Context } from '../context/state'
 
 // const query = `*[_type == "news" && slug.current == $slug][0]{
 //   title,
@@ -34,6 +31,11 @@ import ImageWrapper from '@/components/image-wrapper'
 export default function Terms() {
   // const { data: { title, date, slug, teaserImage, contentBlocks }  } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
+  const [introContext, setIntroContext] = useContext(Context);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

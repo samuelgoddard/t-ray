@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
@@ -11,9 +11,11 @@ import newsText from '@/public/images/news.svg'
 import newsTextDark from '@/public/images/news-dark.svg'
 import HeadingKanji from '@/components/heading-kanji'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
+import kanjiMore from '@/public/images/kanji-more.svg'
 import insta from '@/public/images/insta.jpg'
 import { NextSeo } from 'next-seo'
 import ListTeaser from '@/components/list-teaser'
+import { Context } from '../../context/state'
 import SanityPageService from '@/services/sanityPageService'
 
 const query = `{
@@ -71,6 +73,11 @@ const pageService = new SanityPageService(query)
 export default function News(initialData) {
   const { data: { news, musicVideos, music }  } = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
+  const [introContext, setIntroContext] = useContext(Context);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   const feed = news.concat(music)
   return (
@@ -230,7 +237,7 @@ export default function News(initialData) {
                     </div>
                   </div>
 
-                  <HeadingKanji heading="Moar!!" kanji={japaneseCharacters} />
+                  <HeadingKanji horizontal heading="Moar!!" kanji={kanjiMore} />
 
                   <div className="border-t border-current w-11/12 mx-auto mb-[20vw] md:mb-[16vw] mt-[80px] md:mt-0">
                     <ul>

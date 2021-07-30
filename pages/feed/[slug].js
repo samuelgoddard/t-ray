@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
@@ -13,6 +13,7 @@ import SanityPageService from '@/services/sanityPageService'
 import MetaTeaser from '@/components/meta-teaser'
 import BodyRenderer from '@/components/body-renderer'
 import ImageWrapper from '@/components/image-wrapper'
+import { Context } from '../../context/state'
 
 const query = `*[_type == "news" && slug.current == $slug][0]{
   title,
@@ -37,6 +38,11 @@ export default function News(initialData) {
   const containerRef = useRef(null)
   const router = useRouter()
   const [copied, setCopied] = useState(false);
+  const [introContext, setIntroContext] = useContext(Context);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
   
   const copy = () => {
     const el = document.createElement("input");

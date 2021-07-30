@@ -1,8 +1,9 @@
 import HeadingKanji from '@/components/heading-kanji'
-import japaneseCharacters from '@/public/images/japanese-characters.svg'
+import imADinoKanji from '@/public/images/kanji-im-a-dino.svg'
+
 
 export default function Heading({ text }) {
   return(
-    <HeadingKanji heading={text} kanji={japaneseCharacters} />
+    <HeadingKanji horizontal heading={text} kanji={imADinoKanji} />
   )
 }

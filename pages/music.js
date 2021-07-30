@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Layout from '@/components/layout'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
@@ -13,8 +13,10 @@ import ImageWrapper from '@/components/image-wrapper'
 import musicText from '@/public/images/music.svg'
 import musicTextDark from '@/public/images/music-dark.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
+import musicKanki from '@/public/images/kanji-music.svg'
 import { NextSeo } from 'next-seo'
 import MetaTeaser from '@/components/meta-teaser'
+import { Context } from '../context/state'
 import BlockContent from '@sanity/block-content-to-react'
 import SanityPageService from '@/services/sanityPageService'
 
@@ -58,6 +60,11 @@ const pageService = new SanityPageService(query)
 export default function Music(initialData) {
   const { data: { music, featuredMusic }} = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
+  const [introContext, setIntroContext] = useContext(Context);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>
@@ -193,7 +200,7 @@ export default function Music(initialData) {
                   })}
 
                   {/* Further Releases */}
-                  <HeadingKanji heading="Releases" kanji={japaneseCharacters} />
+                  <HeadingKanji horizontal heading="Releases" kanji={musicKanki} />
 
                   <div className="flex justify-center mb-[25vw] md:mb-[16vw] max-w-screen-2xl mx-auto mt-20 md:mt-0">
                     <div className="w-9/12 md:w-10/12 xl:w-11/12">

@@ -22,12 +22,12 @@ export default function CartTray({ cart, checkoutUrl }) {
     <div className="h-screen p-5 md:p-10 flex flex-col">
       <span className="text-[16vw] md:text-[10vw] xl:text-[7.8vw] 2xl:text-[140px] font-display leading-none uppercase text-red dark:text-yellow text-center block mb-2 w-full">Bag</span>
       
-      <div className="flex justify-center mb-8 w-full">
-        <span className="inline-block rounded-full border border-off-white dark:border-white font-mono uppercase px-3 py-1 text-center mx-auto text-xs relative overflow-hidden text-off-white dark:text-white">
-          <span className={`flex space-x-3 meta-teaser__text`}>
-            <span>{cartItems.length} Items</span>
-            <span>&bull;</span>
-            <span>Free Delivery</span>
+      <div className="mb-8 w-full">
+        <span className="block rounded-full border border-off-white dark:border-white font-mono uppercase px-3 py-1 text-center mx-auto text-xs relative overflow-hidden text-off-white dark:text-white">
+          <span className={`flex flex-wrap space-x-3 h-[15px] justify-center`}>
+            <span className="block h-[15px]">{cartItems.length} Items</span>
+            <span className="block h-[15px]">&bull;</span>
+            <span className="block h-[15px]">Free Delivery</span>
           </span>
         </span>
       </div>
@@ -98,11 +98,11 @@ export default function CartTray({ cart, checkoutUrl }) {
         )}
       </div>
 
-      <div className="border-off-white dark:border-white border-t border-b flex w-full mt-auto mb-8 text-off-white dark:text-white">
-        <span className="text-[18px] md:text-[20px] xl:text-[22px] font-display leading-none uppercase text-center block py-3">Total</span>
+      <div className="border-off-white dark:border-white border-t border-b w-full mt-auto mb-8 text-off-white dark:text-white text-right">
+        <span className="text-[18px] md:text-[20px] xl:text-[22px] font-display leading-none uppercase text-center inline-block py-3 px-3">Total</span>
 
 
-        <span className="text-[18px] md:text-[20px] xl:text-[22px] font-display leading-none uppercase text-center block py-3 ml-auto">{ subtotal === 0 ? <>$0</> : <>${subtotal}</>}</span>
+        <span className="text-[18px] md:text-[20px] xl:text-[22px] font-display leading-none uppercase inline-block py-3 ml-auto text-right">{ subtotal === 0 ? <>$0</> : <>${subtotal}</>}</span>
       </div>
 
       <div className="w-full">

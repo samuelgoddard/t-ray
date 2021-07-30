@@ -1,10 +1,16 @@
-import { useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Layout from '@/components/layout'
 import { NextSeo } from 'next-seo'
 import { LazyMotion, domMax, m } from "framer-motion"
 import Player from '@/components/jam-hooks'
+import { Context } from '../context/state'
 
 export default function Jam() {
+  const [introContext, setIntroContext] = useContext(Context);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
   // const containerRef = useRef(null)
   // const [globalMusicPlaying, setGlobalMusicPlaying] = useContext(Context);
 

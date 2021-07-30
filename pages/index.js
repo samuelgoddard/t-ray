@@ -1,8 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { getAllProductsInCollection } from '../lib/shopify'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import { fade, fadeDelay, imageScale, reveal, scaleUp } from "@/helpers/transitions"
 import { LazyMotion, domMax, m } from "framer-motion"
 import HeadingKanji from '@/components/heading-kanji'
 import HistoryCarousel from '@/components/history-carousel'
@@ -19,8 +18,10 @@ import trayText from '@/public/images/imreallyatrex.svg'
 import trayTextDark from '@/public/images/imreallyatrexdark.svg'
 import homeKanji from '@/public/images/home-kanji.svg'
 import japaneseCharacters from '@/public/images/japanese-characters.svg'
+import itsMeKanji from '@/public/images/kanji-its-me.svg'
 import { NextSeo } from 'next-seo'
 import BlockContent from '@sanity/block-content-to-react'
+import { Context } from '../context/state'
 import SanityPageService from '@/services/sanityPageService'
 
 const query = `{
@@ -56,7 +57,74 @@ const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
   const { data: { home, products } } = pageService.getPreviewHook(initialData)()
+  const [introContext, setIntroContext] = useContext(Context);
   const containerRef = useRef(null)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIntroContext(true)
+    }, 3000);
+  },[]);
+
+  const fade = {
+    initial: { opacity: 0 },
+    enter: { 
+      opacity: 1,
+      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+  
+  const fadeDelay = {
+    initial: { opacity: 0 },
+    enter: { 
+      opacity: 1,
+      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+  
+  const reveal = {
+    initial: { y: '100%' },
+    enter: { 
+      y: 0,
+      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    },
+    exit: {
+      y: '100%',
+      transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+  
+  const imageScale = {
+    initial: { scale: 1.2 },
+    enter: { 
+      scale: 1,
+      transition: { delay: introContext ? 0 : 2.25, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    },
+    exit: {
+      scale: 1.2,
+      transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+  
+  const scaleUp = {
+    initial: { scale: 0.5 },
+    enter: { 
+      scale: 1,
+      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    },
+    exit: {
+      scale: 0.5,
+      transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
 
   return (
     <Layout>
@@ -260,7 +328,7 @@ export default function Home(initialData) {
                     </div>
                   </div>
 
-                  <HeadingKanji heading="History" subHeading="A look back in time" kanji={japaneseCharacters} />
+                  <HeadingKanji horizontal heading="History" subHeading="A look back in time" kanji={itsMeKanji} />
                 </m.div>
               </Container>
               
@@ -274,13 +342,46 @@ export default function Home(initialData) {
                 <m.div variants={fade}>
                   <HeadingKanji heading="Swag!" subHeading="Get the merch and get the vibe" kanji={japaneseCharacters} />
 
+
+                  {/* { productData.variants.edges.length > 1 ? (
+                    <div className="flex space-x-5 uppercase text-xl md:text-4xl xl:text-5xl w-full justify-end">
+                      { productData.variants.edges.map((item, i) => (
+                        <>
+                        { item.node.quantityAvailable > 0 && (
+                          <span className="first-of-type:block hidden">${item.node.price}</span>
+                        )}
+                        </>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex space-x-5 uppercase text-xl md:text-4xl xl:text-5xl w-full justify-end">
+                      <span className="block">${productData.variants.edges[0].node.price}</span>
+                    </div>
+                  )} */}
+                  
                   <div className="justify-center mb-[25vw] md:mb-[16vw] mt-[5vw] md:mt-[-7.5vw] flex">
                     <div className="w-full md:w-11/12 max-w-screen-3xl mx-auto">
                       <div className="flex flex-wrap justify-center md:-mx-4">
                         {products.map((product, index) => {
+                          let price = '$0'
+                          let priceAvailable = product.node.variants.edges.find( ({node}) => node.quantityAvailable > 0);
+
+                          if (product.node.variants.edges.length > 1) {
+                            price = priceAvailable.node.price
+                          } else {
+                            price = product.node.variants.edges[0].node.price
+                          }
+
                           return (
                             <div className="w-1/2 md:w-1/3 md:px-4 block mb-4 md:mb-0" key={index}>
-                              <ProductTeaser href={`/products/${product.node.handle}`} title={product.node.title} price={product.node.variants.edges[0].node.price} image={product.node.images.edges[0].node.originalSrc} imageWidth={product.node.images.edges[0].node.width} imageHeight={product.node.images.edges[0].node.height} />
+                              <ProductTeaser
+                                href={`/products/${product.node.handle}`}
+                                title={product.node.title}
+                                price={price}
+                                image={product.node.images.edges[0].node.originalSrc}
+                                imageWidth={product.node.images.edges[0].node.width}
+                                imageHeight={product.node.images.edges[0].node.height}
+                              />
                             </div>
                           )
                         })}
