@@ -88,9 +88,9 @@ export default function App({ Component, pageProps }) {
                 <Header currentlyPlaying={isIntroAccepted} route={router.asPath} />
               </div>
 
-              <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-[5000]">
+              {/* <div className="fixed bottom-0 right-0 bg-white text-black font-mono text-[12px] p-2 z-[5000]">
                 <span className="block">Intro State... {JSON.stringify(introContext)}</span>
-              </div>
+              </div> */}
 
               {/* INTRO START */}
               <LazyMotion features={domAnimation}>
@@ -99,8 +99,8 @@ export default function App({ Component, pageProps }) {
                     initial="hidden"
                     animate="visible"
                     variants={introEnd}
-                    transition={{ delay: 2.3, duration: 0.75, ease: [0.83, 0, 0.17, 1] }}
-                    className="bg-off-white dark:bg-off-black fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px] opacity-90"
+                    transition={{ delay: 1.4, duration: 1.5, ease: [0.83, 0, 0.17, 1] }}
+                    className="bg-transparent dark:bg-transparent fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px] opacity-90"
                   >
                     <Div100vh className="fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px]">
                       <div className="fixed inset-0 w-full h-full z-20">
@@ -108,46 +108,46 @@ export default function App({ Component, pageProps }) {
                           initial="hidden"
                           animate="visible"
                           variants={innerReveal}
-                          className="h-[20vh] w-full bg-red"
+                          className="h-[20vh] w-full bg-off-white"
                           transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
                         ></m.div>
                         <m.div
                           initial="hidden"
                           animate="visible"
                           variants={innerReveal}
-                          className="h-[20vh] w-full bg-red"
-                          transition={{ delay: 1.15, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                          className="h-[20vh] w-full bg-off-white"
+                          transition={{ delay: 1.1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
                         ></m.div>
                         <m.div
                           initial="hidden"
                           animate="visible"
                           variants={innerReveal}
-                          className="h-[20vh] w-full bg-red"
+                          className="h-[20vh] w-full bg-off-white"
+                          transition={{ delay: 1.2, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                        ></m.div>
+                        <m.div
+                          initial="hidden"
+                          animate="visible"
+                          variants={innerReveal}
+                          className="h-[20vh] w-full bg-off-white"
+                          transition={{ delay: 1.25, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                        ></m.div>
+                        <m.div
+                          initial="hidden"
+                          animate="visible"
+                          variants={innerReveal}
+                          className="h-[20vh] w-full bg-off-white"
                           transition={{ delay: 1.3, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-red"
-                          transition={{ delay: 1.45, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                        ></m.div>
-                        <m.div
-                          initial="hidden"
-                          animate="visible"
-                          variants={innerReveal}
-                          className="h-[20vh] w-full bg-red"
-                          transition={{ delay: 1.6, duration: 1, ease: [0.83, 0, 0.17, 1] }}
                         ></m.div>
                       </div>
                       <div className={`fixed top-0 left-0 right-0 w-full z-30 flex flex-wrap justify-center mt-5 `}>
                         <div className="relative pt-[80px] md:pt-[120px] xl:pt-[140px]">
-                          <m.span
-                            initial="hidden"
-                            animate="visible"
-                            variants={colorSwap}
-                            transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
-                            className={`text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-yellow p-0 mb-6 font-display uppercase`}>
+                          <span
+                            // initial="hidden"
+                            // animate="visible"
+                            // variants={colorSwap}
+                            // transition={{ delay: 1, duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                            className={`text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-red p-0 mb-6 font-display uppercase bg-blend-difference`}>
                             <span className="block overflow-hidden relative">
                               <m.span 
                                 initial="hidden"
@@ -170,7 +170,7 @@ export default function App({ Component, pageProps }) {
                                 A Trex
                               </m.span>
                             </span>
-                          </m.span>
+                          </span>
                         </div>
                       </div>
                     </Div100vh>

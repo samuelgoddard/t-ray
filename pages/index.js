@@ -63,14 +63,14 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 3000);
+    }, 4000);
   },[]);
 
   const fade = {
     initial: { opacity: 0 },
     enter: { 
       opacity: 1,
-      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+      transition: { delay: introContext ? 0 : 1.75, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
     },
     exit: {
       opacity: 0,
@@ -82,7 +82,7 @@ export default function Home(initialData) {
     initial: { opacity: 0 },
     enter: { 
       opacity: 1,
-      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+      transition: { delay: introContext ? 0 : 1.75, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
     },
     exit: {
       opacity: 0,
@@ -94,7 +94,7 @@ export default function Home(initialData) {
     initial: { y: '100%' },
     enter: { 
       y: 0,
-      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+      transition: { delay: introContext ? 0 : 1.75, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
     },
     exit: {
       y: '100%',
@@ -103,15 +103,42 @@ export default function Home(initialData) {
   }
   
   const imageScale = {
-    initial: { scale: 1.2 },
-    enter: { 
-      scale: 1,
-      transition: { delay: introContext ? 0 : 2.25, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
-    },
-    exit: {
-      scale: 1.2,
-      transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }
-    }
+    initial: { opacity: introContext ? 1 : 1, scale: 1.2 },
+    enter: { scale: 1, opacity: 1, transition: { delay: introContext ? 0 : 2, duration: introContext ? 0.65 : 1, ease: [0.83, 0, 0.17, 1] }},
+    exit: { scale: 1.2, opacity: 1, transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+  }
+
+  const innerReveal = {
+    initial: { x: 0 },
+    enter: { x: '-100%', transition: { delay: introContext ? 0.05 : 1.9, duration: 1, ease: [0.83, 0, 0.17, 1] }},
+    exit: { x: 0, transition: {delay: 0.05,  duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+  }
+  const innerReveal2 = {
+    initial: { x: 0 },
+    enter: { x: '-100%', transition: { delay: introContext ? 0.10 : 1.95, duration: 1, ease: [0.83, 0, 0.17, 1] }},
+    exit: { x: 0, transition: { delay: 0.10, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+  }
+  const innerReveal3 = {
+    initial: { x: 0 },
+    enter: { x: '-100%', transition: { delay: introContext ? 0.15 : 2, duration: 1, ease: [0.83, 0, 0.17, 1] }},
+    exit: { x: 0, transition: { delay: 0.15, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+  }
+  const innerReveal4 = {
+    initial: { x: 0 },
+    enter: { x: '-100%', transition: { delay: introContext ? 0.20 : 2.05, duration: 1, ease: [0.83, 0, 0.17, 1] }},
+    exit: { x: 0, transition: { delay: 0.20, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+  }
+
+  const imageFrameFade = {
+    initial: { opacity: introContext ? 1 : 0 },
+    enter: {  opacity: 1, transition: { delay: introContext ? 0 : 1., duration: 0.2, ease: [0.83, 0, 0.17, 1] }},
+    exit: { opacity: 1, transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
+  }
+
+  const imageKanjiFade = {
+    initial: { opacity: introContext ? 1 : 0, scale: introContext ? 1 : 0.5 },
+    enter: {  opacity: 1, scale: 1, transition: { delay: introContext ? 0 : 2.2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }},
+    exit: { scale: 1, opacity: 1, transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
   }
   
   const scaleUp = {
@@ -219,13 +246,35 @@ export default function Home(initialData) {
                         >
                           <div className="relative overflow-hidden rounded-lg -rotate-2">
                             <div className="absolute inset-0 w-full z-10 scale-[1.0025]">
-                              <Image
-                                src={trayImageFrame}
-                                alt="Placeholder"
-                                layout="responsive"
-                                className="w-full will-change pointer-events-none rounded-lg"
-                                priority
-                              />
+                              <m.div
+                                variants={innerReveal}
+                                className="h-[26.5%] w-full bg-off-white dark:bg-off-black absolute top-0 left-0 right-0 z-20"
+                              ></m.div>
+
+                              <m.div
+                                variants={innerReveal2}
+                                className="h-[26.5%] w-full bg-off-white dark:bg-off-black absolute top-0 left-0 right-0 z-20 mt-[15.5%]"
+                              ></m.div>
+
+                              <m.div
+                                variants={innerReveal3}
+                                className="h-[26.5%] w-full bg-off-white dark:bg-off-black absolute top-0 left-0 right-0 z-20 mt-[30%]"
+                              ></m.div>
+                              
+                              <m.div
+                                variants={innerReveal4}
+                                className="h-[26.5%] w-full bg-off-white dark:bg-off-black absolute top-0 left-0 right-0 z-20 mt-[45.5%]"
+                              ></m.div>
+
+                              <m.div variants={imageFrameFade}>
+                                <Image
+                                  src={trayImageFrame}
+                                  alt="Placeholder"
+                                  layout="responsive"
+                                  className="w-full will-change pointer-events-none rounded-lg"
+                                  priority
+                                />
+                              </m.div>
                             </div>
                             <m.div variants={imageScale}>
                               <div className="relative z-0">
@@ -244,14 +293,16 @@ export default function Home(initialData) {
 
                           <div className="absolute bottom-0 left-0 ml-[15px] md:ml-[-5vw] mb-[-8.5vw] md:mb-[-5vw] will-change z-30" data-scroll data-scroll-speed="0.75">
                             <div className="w-[28vw] md:w-[14.5vw] motion-safe:animate-spin-slow">
-                              <m.div variants={scaleUp}>
-                                <Image
-                                  src={homeKanji}
-                                  alt="Kanji Letters"
-                                  layout="responsive"
-                                  className="w-full will-change"
-                                  priority
-                                />
+                              <m.div variants={imageKanjiFade}>
+                                <m.div variants={scaleUp}>
+                                  <Image
+                                    src={homeKanji}
+                                    alt="Kanji Letters"
+                                    layout="responsive"
+                                    className="w-full will-change"
+                                    priority
+                                  />
+                                </m.div>
                               </m.div>
                             </div>
                           </div>
