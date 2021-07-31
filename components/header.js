@@ -107,7 +107,7 @@ export default function Header({route}) {
                         <div className="relative overflow-hidden z-10">
                           <Rollover animatedUnderline={route != '/'} underlineDotted label="Bio" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/' ? 'scale-100 opacity-100' : 'opacity-0 scale-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/' ? 'scale-[1.01] opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
@@ -117,7 +117,7 @@ export default function Header({route}) {
                         <div className="relative overflow-hidden z-10">
                           <Rollover animatedUnderline={!route.includes('/feed')} underlineDotted label="Feed" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route.includes('/feed') ? 'scale-100 opacity-100' : 'opacity-0 scale-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route.includes('/feed') ? 'scale-[1.01] opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
@@ -127,7 +127,7 @@ export default function Header({route}) {
                         <div className="relative overflow-hidden z-10">
                           <Rollover animatedUnderline={route != '/music'} underlineDotted label="Music" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/music' ? 'scale-100 opacity-100' : 'opacity-0 scale-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/music' ? 'scale-[1.01] opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
