@@ -64,16 +64,16 @@ a, button {
   }
 }
 
-.cursor-inner {
+/* .cursor-motion {
   &.cursor--clicked {
-    @apply scale-[2] !important;
+    transform: scale3d(1.25) !important;
   }
 }
 
 
-.cursor-inner {
+.cursor-motion {
   &.cursor--link-hovered {
-    @apply scale-[2] !important;
+    transform: scale3d(1.25) !important;
   }
 }
 
@@ -108,7 +108,7 @@ a, button {
       content: 'STREAM ONLINE'
     }
   }
-}
+} */
 
 /* Content Stylings */
 .content > p {
