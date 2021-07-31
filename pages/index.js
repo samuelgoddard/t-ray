@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { getAllProductsInCollection } from '../lib/shopify'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
@@ -59,6 +59,7 @@ export default function Home(initialData) {
   const { data: { home, products } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
   const containerRef = useRef(null)
+  const [imageIsLoaded, setImageIsLoaded] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
@@ -212,8 +213,14 @@ export default function Home(initialData) {
                                 src={trayText}
                                 alt="ImReallyATrex"
                                 layout="responsive"
-                                className="w-full will-change"
+                                className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
                                 priority
+                                onLoad={event => {
+                                  const target = event.target;
+                                  if (target.src.indexOf('data:image/gif;base64') < 0) {
+                                      setImageIsLoaded(true)
+                                  }
+                                }}
                               />
                             </div>
                           </m.div>
@@ -230,6 +237,13 @@ export default function Home(initialData) {
                                 layout="responsive"
                                 className="w-full will-change"
                                 priority
+                                className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
+                                onLoad={event => {
+                                  const target = event.target;
+                                  if (target.src.indexOf('data:image/gif;base64') < 0) {
+                                      setImageIsLoaded(true)
+                                  }
+                                }}
                               />
                             </div>
                           </m.div>
@@ -282,10 +296,16 @@ export default function Home(initialData) {
                                   src={trayImage}
                                   alt="Placeholder"
                                   layout="responsive"
-                                  className="w-full will-change pointer-events-none rounded-lg"
                                   data-scroll
                                   data-scroll-speed="-0.85"
                                   priority
+                                  className={`w-full will-change pointer-events-none rounded-lg ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
+                                  onLoad={event => {
+                                    const target = event.target;
+                                    if (target.src.indexOf('data:image/gif;base64') < 0) {
+                                        setImageIsLoaded(true)
+                                    }
+                                  }}
                                 />
                               </div>
                             </m.div>
@@ -299,8 +319,14 @@ export default function Home(initialData) {
                                     src={homeKanji}
                                     alt="Kanji Letters"
                                     layout="responsive"
-                                    className="w-full will-change"
                                     priority
+                                    className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
+                                    onLoad={event => {
+                                      const target = event.target;
+                                      if (target.src.indexOf('data:image/gif;base64') < 0) {
+                                          setImageIsLoaded(true)
+                                      }
+                                    }}
                                   />
                                 </m.div>
                               </m.div>

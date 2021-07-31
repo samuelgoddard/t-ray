@@ -22,7 +22,7 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
             <div className="overflow-hidden rounded-md relative">
               { videoOverlay && (
                 <m.div variants={imageScale} className="absolute inset-0 w-full h-full z-10">
-                  <video loop={true} autoPlay="autoplay" playsInline={true} muted preload={true} className="object-cover z-10 scale-110 w-full h-full will-change release-teaser__video">
+                  <video loop={true} autoPlay="autoplay" playsInline={true} muted className="object-cover z-10 scale-110 w-full h-full will-change release-teaser__video">
                   <source src={ videoOverlay } type="video/mp4" />
 
                     Sorry. Your browser does not support the video tag.

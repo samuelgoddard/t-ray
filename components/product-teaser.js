@@ -3,8 +3,11 @@ import Image from 'next/image'
 import { m } from 'framer-motion'
 import { scaleUp, reveal } from '@/helpers/transitions'
 import productBg from '@/public/images/product-bg.svg'
+import { useState } from 'react'
 
 export default function ProductTeaser({ href, image, title, price, imageWidth, imageHeight }) {
+  const [imageIsLoaded, setImageIsLoaded] = useState(false)
+
   return(
     <Link href={href}>
       <a className="group relative block w-full pt-2 md:pt-4 xl:pt-6 2xl:pt-10">
@@ -12,15 +15,21 @@ export default function ProductTeaser({ href, image, title, price, imageWidth, i
           <div className="w-11/12 md:w-10/12 xl:w-9/12 mx-auto mb-1" data-scroll data-scroll-speed="0.25">
             <div className="overflow-hidden relative p-5 md:p-8 xl:p-10 h-[58vw] md:h-[28vw] lg:h-[30vw] xl:h-[30vw] flex flex-wrap">
               <m.div variants={scaleUp} className="w-full">
-                <div className="md:group-hover:scale-110 transition-transform ease-in-out duration-500 delay-75 md:group-hover:-rotate-6 h-full items-center flex">
+                <div className="md:group-hoviomer:scale-110 transition-transform ease-in-out duration-500 delay-75 md:group-hover:-rotate-6 h-full items-center flex">
                   <div className="w-full">
                     <Image
                       src={image}
                       alt="Placeholder"
                       layout="responsive"
-                      className="w-full"
+                      className={`w-full ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
                       width={imageWidth}
                       height={imageHeight}
+                      onLoad={event => {
+                        const target = event.target;
+                        if (target.src.indexOf('data:image/gif;base64') < 0) {
+                            setImageIsLoaded(true)
+                        }
+                      }}
                     />
                   </div>
                 </div>

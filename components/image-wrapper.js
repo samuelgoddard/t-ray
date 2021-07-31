@@ -1,6 +1,7 @@
 import Img from 'next/image';
 import { imageUrlBuilder, useNextSanityImage } from 'next-sanity-image';
 import sanity from '../services/sanity';
+import { useState } from 'react';
 
 const customImageBuilder = (imageUrlBuilder, options, baseWidth, baseHeight, fill, ignoreCropping) => {
   return ignoreCropping ? imageUrlBuilder.fit('clip') : imageUrlBuilder
@@ -10,6 +11,7 @@ const customImageBuilder = (imageUrlBuilder, options, baseWidth, baseHeight, fil
 };
 
 function ImageWrapper({ image, sizes, className, alt, baseWidth, baseHeight, noPlaceholder, fill, objectFit, ignoreCropping, priority, next }) {
+  const [imageIsLoaded, setImageIsLoaded] = useState(false)
   if (next && !(image?.asset?.metadata?.dimensions || image?.asset?._ref)) return <></>
   const imageProps =  useNextSanityImage(
     sanity.client,
@@ -40,16 +42,22 @@ function ImageWrapper({ image, sizes, className, alt, baseWidth, baseHeight, noP
   }
 
   return (
-    <div className={`${className} ${ noPlaceholder ? '' : ''}`}>
+    <div className={`${className} ${ noPlaceholder ? '' : ''} bg-black dark:bg-opacity-25 bg-opacity-10`}>
       <Img
         src={imageProps.src}
         { ...( !removeWidth && { width: setBaseWidth } ) }
         { ...( !removeHeight && { height:  setBaseHeight } ) }
-        className={className}
+        className={`${className} ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
         alt={alt}
         layout={fill ? 'fill' : 'responsive'}
         objectFit={fill ? 'cover' : null}
         priority={priority ? priority : false}
+        onLoad={event => {
+          const target = event.target;
+          if (target.src.indexOf('data:image/gif;base64') < 0) {
+              setImageIsLoaded(true)
+          }
+        }}
       />
     </div>
   )
