@@ -239,7 +239,7 @@ export default function News(initialData) {
 
                   <HeadingKanji horizontal heading="Moar!!" subHeading={"Previous news and views"} kanji={kanjiMore} />
 
-                  <div className="border-t border-current w-full md:w-11/12 mx-auto mb-[20vw] md:mb-[16vw] mt-[80px] md:mt-0">
+                  <div className="border-t border-current w-full md:w-11/12 mx-auto mb-[20vw] md:mb-[16vw] mt-[80px] md:mt-[-4vw]">
                     <ul>
                       {musicVideos.slice(3).map((e, i) => {
                         let href = null;

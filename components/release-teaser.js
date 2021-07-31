@@ -6,7 +6,16 @@ import Rollover from '@/components/rollover';
 import { imageScale, reveal } from '@/helpers/transitions';
 import { m } from 'framer-motion';
 
-export default function ReleaseTeaser({image, title, date, type, purchaseLinks, video, videoOverlay, href, external, musicVideo, marqueeForce}) {
+export default function ReleaseTeaser({image, title, date, type, purchaseLinks, video, videoOverlay, href, external, musicVideo, marqueeForce, music}) {
+  let typeWrapper = ''
+  if (musicVideo)
+    typeWrapper = 'music-video'
+  else if (music) {
+    typeWrapper = 'music-release'
+  }
+  else if (href) {
+    typeWrapper = 'article'
+  }
   return(
     <div className={ href ? 'release-teaser' : ''}>
       <ConditionalWrap
@@ -18,8 +27,8 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
         )}
       >
         <a {...(external ? {target: '_blank', rel: 'noopener noreferrer'} : {})} className={`block w-full ${href ? '' : ''}`}>
-          <div className={`w-full mb-6 ${musicVideo ? 'music-video' : ''}`}>
-            <div className="overflow-hidden rounded-md relative">
+          <div className={`w-full mb-6 ${typeWrapper}`}>
+            <div className={`overflow-hidden rounded-md relative `}>
               { videoOverlay && (
                 <m.div variants={imageScale} className="absolute inset-0 w-full h-full z-10">
                   <video loop={true} autoPlay="autoplay" playsInline={true} muted className="object-cover z-10 scale-110 w-full h-full will-change release-teaser__video">

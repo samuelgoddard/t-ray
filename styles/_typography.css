@@ -64,26 +64,49 @@ a, button {
   }
 }
 
-
-.cursor--link-hovered {
-  transform: translate(-50%, -50%) scale(1.25);
+.cursor-inner {
+  &.cursor--clicked {
+    @apply scale-[2] !important;
+  }
 }
 
-/* .cursor--link-hovered-music-video {
-  @apply bg-transparent border-transparent !important;
 
-  &:before {
-    @apply opacity-100;
-    content: 'WATCH VIDEO'
+.cursor-inner {
+  &.cursor--link-hovered {
+    @apply scale-[2] !important;
   }
-} */
+}
 
-.cursor--link-hovered-article {
-  @apply bg-transparent !important;
+.cursor-inner {
+  &.cursor--link-hovered-music-video {
+    @apply bg-transparent border-transparent scale-[1] ml-[-35px] mt-[-28px] mix-blend-difference !important;
 
-  &:before {
-    @apply opacity-100;
-    content: 'READ MORE'
+    &:before {
+      @apply opacity-100 bg-blend-difference;
+      content: 'WATCH VIDEO'
+    }
+  }
+}
+
+.cursor-inner {
+  &.cursor--link-hovered-article {
+    @apply bg-transparent border-transparent scale-[1] ml-[-35px] mt-[-28px] mix-blend-difference !important;
+
+    &:before {
+      @apply opacity-100 bg-blend-difference;
+      content: 'READ MORE'
+    }
+  }
+}
+
+.cursor-inner {
+  &.cursor--link-hovered-music-release {
+    @apply bg-transparent border-transparent scale-[1] ml-[-35px] mt-[-28px] mix-blend-difference !important;
+
+    &:before {
+      @apply opacity-100 bg-blend-difference;
+      content: 'STREAM ONLINE'
+    }
   }
 }
 
@@ -311,7 +334,6 @@ input[type=number] {
   height: 0; 
   border-top: 25px solid transparent;
   border-bottom: 25px solid transparent;
-  
   border-left: 40px solid currentColor;
 }
 

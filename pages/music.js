@@ -244,6 +244,7 @@ export default function Music(initialData) {
                                 type={e.type}
                                 purchaseLinks={e.purchaseLinks}
                                 external
+                                music
                               />
                             </div>
                           )

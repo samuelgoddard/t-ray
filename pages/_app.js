@@ -160,10 +160,11 @@ export default function App({ Component, pageProps }) {
                     </Div100vh>
                   </m.div>
                 )}
+
+                <CursorMotion/>
               </LazyMotion>
               {/* Intro End */}
 
-              <CursorMotion/>
               <div className="dark:text-off-white text-off-black relative z-10">
                 <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
                   <Component {...pageProps} key={router.asPath} />

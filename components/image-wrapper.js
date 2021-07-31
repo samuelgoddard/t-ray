@@ -47,7 +47,7 @@ function ImageWrapper({ image, sizes, className, alt, baseWidth, baseHeight, noP
         src={imageProps.src}
         { ...( !removeWidth && { width: setBaseWidth } ) }
         { ...( !removeHeight && { height:  setBaseHeight } ) }
-        className={`${className} ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
+        className={`${className} ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition duration-500 ease-in-out`}
         alt={alt}
         layout={fill ? 'fill' : 'responsive'}
         objectFit={fill ? 'cover' : null}

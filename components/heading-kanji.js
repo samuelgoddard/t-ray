@@ -27,7 +27,7 @@ export default function HeadingKanji({ heading, subHeading, kanji, horizontal })
       </div>
 
       { kanji && (
-        <div className={`absolute top-0 left-0 right-0 flex justify-center items-center z-0 transform ${horizontal ? 'rotate-90 mt-[0vw]' : 'mt-[-5vw]'}`}>
+        <div className={`absolute top-0 left-0 right-0 flex justify-center items-center z-0 transform pointer-events-none ${horizontal ? 'rotate-90 mt-[0vw]' : 'mt-[-5vw]'}`}>
           <div className={`opacity-100 dark:opacity-50 transition-opacity duration-500 ease-in-out transform ${horizontal ? 'rotate- w-[30vw] md:w-[18vw]' : 'w-[18vw] md:w-[10vw]'}`} data-scroll data-scroll-speed="0.35" data-scroll-direction={horizontal ? 'horizontal' : 'vertical'}>
             <Image
               src={kanji}
