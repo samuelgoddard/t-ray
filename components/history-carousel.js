@@ -56,7 +56,7 @@ const HistoryCarousel = ({ slides }) => {
                     image={slide.image.asset}
                     className="embla__slide__img will-change"
                     baseWidth={900}
-                    baseHeight={570}
+                    baseHeight={550}
                   />
                 </div>
 
