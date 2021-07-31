@@ -241,8 +241,8 @@ export default function Product(initialData) {
                         </div>
 
                         <div className="w-full text-right">
-                          <button onClick={handleAddToCart} className={`transition-colors ease-in-out duration-300 bg-red dark:bg-yellow text-off-white dark:text-off-black font-display uppercase leading-none p-5 rounded-lg block w-full md:w-auto ${ isLoading ? 'cursor-disabled opacity-10' : ''}`}>
-                            Add To Bag
+                          <button onClick={handleAddToCart} className={`transition-colors ease-in-out duration-300 bg-red dark:bg-yellow text-off-white dark:text-off-black font-display uppercase leading-none p-5 rounded-lg block w-full md:w-full ${ isLoading ? 'cursor-disabled opacity-50' : ''}`}>
+                            { isLoading ? 'Added to bag' : 'Add to bag'}
                           </button>
                         </div>
                       </div>

@@ -213,14 +213,8 @@ export default function Home(initialData) {
                                 src={trayText}
                                 alt="ImReallyATrex"
                                 layout="responsive"
-                                className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
+                                className={`w-full will-change`}
                                 priority
-                                onLoad={event => {
-                                  const target = event.target;
-                                  if (target.src.indexOf('data:image/gif;base64') < 0) {
-                                      setImageIsLoaded(true)
-                                  }
-                                }}
                               />
                             </div>
                           </m.div>
@@ -237,13 +231,7 @@ export default function Home(initialData) {
                                 layout="responsive"
                                 className="w-full will-change"
                                 priority
-                                className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
-                                onLoad={event => {
-                                  const target = event.target;
-                                  if (target.src.indexOf('data:image/gif;base64') < 0) {
-                                      setImageIsLoaded(true)
-                                  }
-                                }}
+                                className={`w-full will-change`}
                               />
                             </div>
                           </m.div>
@@ -299,13 +287,7 @@ export default function Home(initialData) {
                                   data-scroll
                                   data-scroll-speed="-0.85"
                                   priority
-                                  className={`w-full will-change pointer-events-none rounded-lg ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
-                                  onLoad={event => {
-                                    const target = event.target;
-                                    if (target.src.indexOf('data:image/gif;base64') < 0) {
-                                        setImageIsLoaded(true)
-                                    }
-                                  }}
+                                  className={`w-full will-change pointer-events-none rounded-lg`}
                                 />
                               </div>
                             </m.div>

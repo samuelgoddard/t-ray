@@ -28,7 +28,7 @@ export default function CartTray({ cart, checkoutUrl }) {
           <span className={`flex flex-wrap space-x-3 h-[15px] justify-center`}>
             <span className="block h-[15px]">{cartItems.length} Items</span>
             <span className="block h-[15px]">&bull;</span>
-            <span className="block h-[15px]">Free Delivery</span>
+            <span className="block h-[15px]">US Only</span>
           </span>
         </span>
       </div>

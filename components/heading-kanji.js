@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import { m } from 'framer-motion'
 import { reveal } from '@/helpers/transitions'
+import { useState } from 'react'
 
 export default function HeadingKanji({ heading, subHeading, kanji, horizontal }) {
+  const [imageIsLoaded, setImageIsLoaded] = useState(false)
   return (
     <div className="mb-[20vw] md:mb-[12vw] relative">
       <div className="relative z-20">
@@ -31,7 +33,13 @@ export default function HeadingKanji({ heading, subHeading, kanji, horizontal })
               src={kanji}
               alt="Placeholder"
               layout="responsive"
-              className="w-full will-change"
+              className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
+              onLoad={event => {
+                const target = event.target;
+                if (target.src.indexOf('data:image/gif;base64') < 0) {
+                    setImageIsLoaded(true)
+                }
+              }}
             />
           </div>
         </div>

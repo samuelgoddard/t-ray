@@ -257,7 +257,7 @@ export default function Player() {
 
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-full text-yellow group-hover:text-off-black transition-colors duration-500 ease-in-out" fill="none">
                       <defs/>
-                      <path fill="currentColor" fill-rule="evenodd" d="M138.4 113H59.2l-1.8-.1h-6l-1.3-.1h-3.6l-1.1-.1h-2.1l-1-.1h-2l-.8-.1h-1l-.8-.1h-1.6l-.8-.1h-.8l-.7-.1H33l-.8-.1h-.7l-.6-.1h-.7l-.6-.2H28.4l-.6-.1-.6-.1h-.6l-.6-.1-.5-.1h-.6l-.5-.1-.5-.1h-.6l-.5-.2h-.5l-.5-.1-.5-.1H21l-.5-.2H20l-.5-.2h-.4l-.5-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.2h-.3l-.4-.2h-.3l-.4-.2-.3-.1-.4-.1-.3-.2h-.3l-.4-.2-.3-.1-.3-.2-.3-.1-.3-.2h-.3l-.3-.2-.3-.2-.2-.1-.3-.2-.3-.1-.2-.2-.3-.1-.3-.2-.2-.2-.3-.1-.2-.2-.2-.2-.3-.1-.2-.2-.2-.2-.2-.2-.2-.2-.3-.2-.2-.1-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.1-.2-.2-.3-.2-.2-.1-.3-.1-.2-.2-.3-.1-.3-.2-.3v-.2l-.2-.3-.1-.3-.2-.3v-.4l-.2-.3v-.3l-.2-.4v-.3L2 97v-.3l-.2-.4V96l-.1-.4-.1-.4v-.5l-.2-.4v-1l-.2-.5v-1.1L1 91v-.6l-.1-.7v-1.5l-.1-.8v-2.9l-.1-1.3V25.6l.1-.8v-1.5l.1-.7V22l.1-.6v-.6l.1-.5.1-.5v-.5l.1-.5.1-.4v-.5l.2-.4V17l.1-.4.1-.4.1-.4.1-.3.1-.4.1-.3.1-.4.1-.3.1-.3.1-.3.2-.3V13l.2-.3.2-.3v-.2l.2-.3.2-.3.1-.2.2-.3.1-.2.2-.3.2-.2.1-.2.2-.3.2-.2.1-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.3-.2.2-.2.2-.1.2-.2L8 7l.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.3-.2.3-.1.3-.1.3-.2.3-.1.3-.2.3-.1.3-.1.3-.2h.3l.3-.2.4-.1.3-.2h.3l.4-.2.4-.1.3-.1.4-.1.4-.1.3-.1.4-.2h.4l.4-.2h.4l.4-.1.5-.1.4-.1.4-.1.5-.1.4-.1h.5l.5-.2h.5l.4-.1.5-.1.5-.1h.6l.5-.1.5-.1h.6l.5-.2h1.2l.6-.2h1.2l.6-.1.7-.1h.7l.6-.1h.7l.7-.1h.8l.7-.1h.8l.8-.1h1.6l.8-.1h1l.8-.1h2l1-.1h2l1.1-.1H50l1.3-.1h4.3l1.7-.1h23.2l5.2-.1h131.8l1.7.1h6l1.3.1h3.7l1 .1h2.2l1 .1h2l.8.1h1.8l.8.1h.8l.8.1h.8l.7.1h.8l.7.1h.7l.7.1h.6l.7.1.6.1h.7l.6.1h.6l.5.2h1.2l.5.2h.6l.5.1h.5l.5.2h.5l.5.1.5.1h.5l.5.2h.4l.5.1.4.1.4.1.5.1.4.1.4.1.4.1.4.1.4.1.4.1.3.1.4.1.4.2h.3l.4.2.3.1.4.1.3.1.3.2.4.1.3.1.3.2h.3l.3.2.3.2.3.1.3.2.2.1.3.1.3.2.2.2.3.1.3.2.2.1.3.2.2.2.2.1.3.2.2.2.2.2.2.1.3.2.2.2.2.2.2.2.2.2.2.2.2.2.1.2.2.3.2.2.2.2.1.2.2.3.2.2.1.2.2.3.1.2.2.3.1.3.1.2.2.3.1.3.1.3.2.3v.3l.2.3.1.3.1.4.1.3.1.3.1.4.1.4.1.4v.4l.2.4v.4l.1.4v.5l.2.4v1l.1.6.1.5v.6l.1.6v1.4l.1.8v1.6l.1 1v7.4l.1 3V85.4l-.1 1v1.8l-.1.7v1.4l-.1.7v.6l-.1.6v.5l-.1.5-.1.5v.5l-.1.5-.1.4-.1.4v.5l-.2.4v.3l-.1.4-.1.4-.1.3-.1.4-.1.3-.2.3v.4l-.2.3-.1.3-.1.3-.2.2v.3l-.2.3-.2.3-.1.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.2-.2.2-.2.3-.2.2-.1.2-.2.2-.2.2-.2.2-.2.2-.2.2-.3.2-.2.2-.2.1-.2.2-.3.2-.2.2-.2.1-.3.2-.2.2-.3.1-.2.2-.3.1-.3.2-.2.1-.3.2-.3.1-.3.2-.3.1-.3.1-.3.2-.3.1-.3.1-.3.2h-.3l-.4.2-.3.1-.3.2h-.4l-.4.2-.3.1-.4.1-.4.1-.3.1-.4.1-.4.1-.4.1-.4.1-.4.1-.5.1-.4.1-.4.1-.5.1h-.4l-.5.2h-.5l-.4.1-.5.1-.5.1h-.5l-.5.2h-.6l-.5.1h-.5l-.6.1-.6.1h-.6l-.5.1-.7.1h-.6l-.6.1h-.6l-.7.1-.7.1h-.7l-.7.1h-.7l-.7.1h-.8l-.8.1h-1.6l-.9.1h-.8l-1 .1h-1.9l-1 .1h-2l-1 .1H227l-1.3.1H220l-1.7.1H197l-5 .1h-53.7z" clip-rule="evenodd"/>
+                      <path fill="currentColor" fill-rule="evenodd" d="M138.4 113H59.2l-1.8-.1h-6l-1.3-.1h-3.6l-1.1-.1h-2.1l-1-.1h-2l-.8-.1h-1l-.8-.1h-1.6l-.8-.1h-.8l-.7-.1H33l-.8-.1h-.7l-.6-.1h-.7l-.6-.2H28.4l-.6-.1-.6-.1h-.6l-.6-.1-.5-.1h-.6l-.5-.1-.5-.1h-.6l-.5-.2h-.5l-.5-.1-.5-.1H21l-.5-.2H20l-.5-.2h-.4l-.5-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.2h-.3l-.4-.2h-.3l-.4-.2-.3-.1-.4-.1-.3-.2h-.3l-.4-.2-.3-.1-.3-.2-.3-.1-.3-.2h-.3l-.3-.2-.3-.2-.2-.1-.3-.2-.3-.1-.2-.2-.3-.1-.3-.2-.2-.2-.3-.1-.2-.2-.2-.2-.3-.1-.2-.2-.2-.2-.2-.2-.2-.2-.3-.2-.2-.1-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.1-.2-.2-.3-.2-.2-.1-.3-.1-.2-.2-.3-.1-.3-.2-.3v-.2l-.2-.3-.1-.3-.2-.3v-.4l-.2-.3v-.3l-.2-.4v-.3L2 97v-.3l-.2-.4V96l-.1-.4-.1-.4v-.5l-.2-.4v-1l-.2-.5v-1.1L1 91v-.6l-.1-.7v-1.5l-.1-.8v-2.9l-.1-1.3V25.6l.1-.8v-1.5l.1-.7V22l.1-.6v-.6l.1-.5.1-.5v-.5l.1-.5.1-.4v-.5l.2-.4V17l.1-.4.1-.4.1-.4.1-.3.1-.4.1-.3.1-.4.1-.3.1-.3.1-.3.2-.3V13l.2-.3.2-.3v-.2l.2-.3.2-.3.1-.2.2-.3.1-.2.2-.3.2-.2.1-.2.2-.3.2-.2.1-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.3-.2.2-.2.2-.1.2-.2L8 7l.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.3-.2.3-.1.3-.1.3-.2.3-.1.3-.2.3-.1.3-.1.3-.2h.3l.3-.2.4-.1.3-.2h.3l.4-.2.4-.1.3-.1.4-.1.4-.1.3-.1.4-.2h.4l.4-.2h.4l.4-.1.5-.1.4-.1.4-.1.5-.1.4-.1h.5l.5-.2h.5l.4-.1.5-.1.5-.1h.6l.5-.1.5-.1h.6l.5-.2h1.2l.6-.2h1.2l.6-.1.7-.1h.7l.6-.1h.7l.7-.1h.8l.7-.1h.8l.8-.1h1.6l.8-.1h1l.8-.1h2l1-.1h2l1.1-.1H50l1.3-.1h4.3l1.7-.1h23.2l5.2-.1h131.8l1.7.1h6l1.3.1h3.7l1 .1h2.2l1 .1h2l.8.1h1.8l.8.1h.8l.8.1h.8l.7.1h.8l.7.1h.7l.7.1h.6l.7.1.6.1h.7l.6.1h.6l.5.2h1.2l.5.2h.6l.5.1h.5l.5.2h.5l.5.1.5.1h.5l.5.2h.4l.5.1.4.1.4.1.5.1.4.1.4.1.4.1.4.1.4.1.4.1.3.1.4.1.4.2h.3l.4.2.3.1.4.1.3.1.3.2.4.1.3.1.3.2h.3l.3.2.3.2.3.1.3.2.2.1.3.1.3.2.2.2.3.1.3.2.2.1.3.2.2.2.2.1.3.2.2.2.2.2.2.1.3.2.2.2.2.2.2.2.2.2.2.2.2.2.1.2.2.3.2.2.2.2.1.2.2.3.2.2.1.2.2.3.1.2.2.3.1.3.1.2.2.3.1.3.1.3.2.3v.3l.2.3.1.3.1.4.1.3.1.3.1.4.1.4.1.4v.4l.2.4v.4l.1.4v.5l.2.4v1l.1.6.1.5v.6l.1.6v1.4l.1.8v1.6l.1 1v7.4l.1 3V85.4l-.1 1v1.8l-.1.7v1.4l-.1.7v.6l-.1.6v.5l-.1.5-.1.5v.5l-.1.5-.1.4-.1.4v.5l-.2.4v.3l-.1.4-.1.4-.1.3-.1.4-.1.3-.2.3v.4l-.2.3-.1.3-.1.3-.2.2v.3l-.2.3-.2.3-.1.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.2-.2.2-.2.3-.2.2-.1.2-.2.2-.2.2-.2.2-.2.2-.2.2-.3.2-.2.2-.2.1-.2.2-.3.2-.2.2-.2.1-.3.2-.2.2-.3.1-.2.2-.3.1-.3.2-.2.1-.3.2-.3.1-.3.2-.3.1-.3.1-.3.2-.3.1-.3.1-.3.2h-.3l-.4.2-.3.1-.3.2h-.4l-.4.2-.3.1-.4.1-.4.1-.3.1-.4.1-.4.1-.4.1-.4.1-.4.1-.5.1-.4.1-.4.1-.5.1h-.4l-.5.2h-.5l-.4.1-.5.1-.5.1h-.5l-.5.2h-.6l-.5.1h-.5l-.6.1-.6.1h-.6l-.5.1-.7.1h-.6l-.6.1h-.6l-.7.1-.7.1h-.7l-.7.1h-.7l-.7.1h-.8l-.8.1h-1.6l-.9.1h-.8l-1 .1h-1.9l-1 .1h-2l-1 .1H227l-1.3.1H220l-1.7.1H197l-5 .1h-53.7z" clipRule="evenodd"/>
                     </svg>
                   </div>
                 </button>
@@ -269,40 +269,40 @@ export default function Player() {
                         <m.div variants={reveal}>
                           <div className="relative flex overflow-x-hidden will-change mx-5">
                             <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
                             </div>
 
                             <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
-                              <span>Loading</span>
-                              <span className="mx-3">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
+                              <span className="block">Loading</span>
+                              <span className="mx-3 block">&bull;</span>
                             </div>
                           </div>
                         </m.div>
@@ -311,7 +311,7 @@ export default function Player() {
 
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-full text-off-black transition-colors duration-500 ease-in-out" fill="none">
                       <defs/>
-                      <path fill="currentColor" fill-rule="evenodd" d="M138.4 113H59.2l-1.8-.1h-6l-1.3-.1h-3.6l-1.1-.1h-2.1l-1-.1h-2l-.8-.1h-1l-.8-.1h-1.6l-.8-.1h-.8l-.7-.1H33l-.8-.1h-.7l-.6-.1h-.7l-.6-.2H28.4l-.6-.1-.6-.1h-.6l-.6-.1-.5-.1h-.6l-.5-.1-.5-.1h-.6l-.5-.2h-.5l-.5-.1-.5-.1H21l-.5-.2H20l-.5-.2h-.4l-.5-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.2h-.3l-.4-.2h-.3l-.4-.2-.3-.1-.4-.1-.3-.2h-.3l-.4-.2-.3-.1-.3-.2-.3-.1-.3-.2h-.3l-.3-.2-.3-.2-.2-.1-.3-.2-.3-.1-.2-.2-.3-.1-.3-.2-.2-.2-.3-.1-.2-.2-.2-.2-.3-.1-.2-.2-.2-.2-.2-.2-.2-.2-.3-.2-.2-.1-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.1-.2-.2-.3-.2-.2-.1-.3-.1-.2-.2-.3-.1-.3-.2-.3v-.2l-.2-.3-.1-.3-.2-.3v-.4l-.2-.3v-.3l-.2-.4v-.3L2 97v-.3l-.2-.4V96l-.1-.4-.1-.4v-.5l-.2-.4v-1l-.2-.5v-1.1L1 91v-.6l-.1-.7v-1.5l-.1-.8v-2.9l-.1-1.3V25.6l.1-.8v-1.5l.1-.7V22l.1-.6v-.6l.1-.5.1-.5v-.5l.1-.5.1-.4v-.5l.2-.4V17l.1-.4.1-.4.1-.4.1-.3.1-.4.1-.3.1-.4.1-.3.1-.3.1-.3.2-.3V13l.2-.3.2-.3v-.2l.2-.3.2-.3.1-.2.2-.3.1-.2.2-.3.2-.2.1-.2.2-.3.2-.2.1-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.3-.2.2-.2.2-.1.2-.2L8 7l.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.3-.2.3-.1.3-.1.3-.2.3-.1.3-.2.3-.1.3-.1.3-.2h.3l.3-.2.4-.1.3-.2h.3l.4-.2.4-.1.3-.1.4-.1.4-.1.3-.1.4-.2h.4l.4-.2h.4l.4-.1.5-.1.4-.1.4-.1.5-.1.4-.1h.5l.5-.2h.5l.4-.1.5-.1.5-.1h.6l.5-.1.5-.1h.6l.5-.2h1.2l.6-.2h1.2l.6-.1.7-.1h.7l.6-.1h.7l.7-.1h.8l.7-.1h.8l.8-.1h1.6l.8-.1h1l.8-.1h2l1-.1h2l1.1-.1H50l1.3-.1h4.3l1.7-.1h23.2l5.2-.1h131.8l1.7.1h6l1.3.1h3.7l1 .1h2.2l1 .1h2l.8.1h1.8l.8.1h.8l.8.1h.8l.7.1h.8l.7.1h.7l.7.1h.6l.7.1.6.1h.7l.6.1h.6l.5.2h1.2l.5.2h.6l.5.1h.5l.5.2h.5l.5.1.5.1h.5l.5.2h.4l.5.1.4.1.4.1.5.1.4.1.4.1.4.1.4.1.4.1.4.1.3.1.4.1.4.2h.3l.4.2.3.1.4.1.3.1.3.2.4.1.3.1.3.2h.3l.3.2.3.2.3.1.3.2.2.1.3.1.3.2.2.2.3.1.3.2.2.1.3.2.2.2.2.1.3.2.2.2.2.2.2.1.3.2.2.2.2.2.2.2.2.2.2.2.2.2.1.2.2.3.2.2.2.2.1.2.2.3.2.2.1.2.2.3.1.2.2.3.1.3.1.2.2.3.1.3.1.3.2.3v.3l.2.3.1.3.1.4.1.3.1.3.1.4.1.4.1.4v.4l.2.4v.4l.1.4v.5l.2.4v1l.1.6.1.5v.6l.1.6v1.4l.1.8v1.6l.1 1v7.4l.1 3V85.4l-.1 1v1.8l-.1.7v1.4l-.1.7v.6l-.1.6v.5l-.1.5-.1.5v.5l-.1.5-.1.4-.1.4v.5l-.2.4v.3l-.1.4-.1.4-.1.3-.1.4-.1.3-.2.3v.4l-.2.3-.1.3-.1.3-.2.2v.3l-.2.3-.2.3-.1.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.2-.2.2-.2.3-.2.2-.1.2-.2.2-.2.2-.2.2-.2.2-.2.2-.3.2-.2.2-.2.1-.2.2-.3.2-.2.2-.2.1-.3.2-.2.2-.3.1-.2.2-.3.1-.3.2-.2.1-.3.2-.3.1-.3.2-.3.1-.3.1-.3.2-.3.1-.3.1-.3.2h-.3l-.4.2-.3.1-.3.2h-.4l-.4.2-.3.1-.4.1-.4.1-.3.1-.4.1-.4.1-.4.1-.4.1-.4.1-.5.1-.4.1-.4.1-.5.1h-.4l-.5.2h-.5l-.4.1-.5.1-.5.1h-.5l-.5.2h-.6l-.5.1h-.5l-.6.1-.6.1h-.6l-.5.1-.7.1h-.6l-.6.1h-.6l-.7.1-.7.1h-.7l-.7.1h-.7l-.7.1h-.8l-.8.1h-1.6l-.9.1h-.8l-1 .1h-1.9l-1 .1h-2l-1 .1H227l-1.3.1H220l-1.7.1H197l-5 .1h-53.7z" clip-rule="evenodd"/>
+                      <path fill="currentColor" fill-rule="evenodd" d="M138.4 113H59.2l-1.8-.1h-6l-1.3-.1h-3.6l-1.1-.1h-2.1l-1-.1h-2l-.8-.1h-1l-.8-.1h-1.6l-.8-.1h-.8l-.7-.1H33l-.8-.1h-.7l-.6-.1h-.7l-.6-.2H28.4l-.6-.1-.6-.1h-.6l-.6-.1-.5-.1h-.6l-.5-.1-.5-.1h-.6l-.5-.2h-.5l-.5-.1-.5-.1H21l-.5-.2H20l-.5-.2h-.4l-.5-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.2h-.3l-.4-.2h-.3l-.4-.2-.3-.1-.4-.1-.3-.2h-.3l-.4-.2-.3-.1-.3-.2-.3-.1-.3-.2h-.3l-.3-.2-.3-.2-.2-.1-.3-.2-.3-.1-.2-.2-.3-.1-.3-.2-.2-.2-.3-.1-.2-.2-.2-.2-.3-.1-.2-.2-.2-.2-.2-.2-.2-.2-.3-.2-.2-.1-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.1-.2-.2-.3-.2-.2-.1-.3-.1-.2-.2-.3-.1-.3-.2-.3v-.2l-.2-.3-.1-.3-.2-.3v-.4l-.2-.3v-.3l-.2-.4v-.3L2 97v-.3l-.2-.4V96l-.1-.4-.1-.4v-.5l-.2-.4v-1l-.2-.5v-1.1L1 91v-.6l-.1-.7v-1.5l-.1-.8v-2.9l-.1-1.3V25.6l.1-.8v-1.5l.1-.7V22l.1-.6v-.6l.1-.5.1-.5v-.5l.1-.5.1-.4v-.5l.2-.4V17l.1-.4.1-.4.1-.4.1-.3.1-.4.1-.3.1-.4.1-.3.1-.3.1-.3.2-.3V13l.2-.3.2-.3v-.2l.2-.3.2-.3.1-.2.2-.3.1-.2.2-.3.2-.2.1-.2.2-.3.2-.2.1-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.3-.2.2-.2.2-.1.2-.2L8 7l.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.3-.2.3-.1.3-.1.3-.2.3-.1.3-.2.3-.1.3-.1.3-.2h.3l.3-.2.4-.1.3-.2h.3l.4-.2.4-.1.3-.1.4-.1.4-.1.3-.1.4-.2h.4l.4-.2h.4l.4-.1.5-.1.4-.1.4-.1.5-.1.4-.1h.5l.5-.2h.5l.4-.1.5-.1.5-.1h.6l.5-.1.5-.1h.6l.5-.2h1.2l.6-.2h1.2l.6-.1.7-.1h.7l.6-.1h.7l.7-.1h.8l.7-.1h.8l.8-.1h1.6l.8-.1h1l.8-.1h2l1-.1h2l1.1-.1H50l1.3-.1h4.3l1.7-.1h23.2l5.2-.1h131.8l1.7.1h6l1.3.1h3.7l1 .1h2.2l1 .1h2l.8.1h1.8l.8.1h.8l.8.1h.8l.7.1h.8l.7.1h.7l.7.1h.6l.7.1.6.1h.7l.6.1h.6l.5.2h1.2l.5.2h.6l.5.1h.5l.5.2h.5l.5.1.5.1h.5l.5.2h.4l.5.1.4.1.4.1.5.1.4.1.4.1.4.1.4.1.4.1.4.1.3.1.4.1.4.2h.3l.4.2.3.1.4.1.3.1.3.2.4.1.3.1.3.2h.3l.3.2.3.2.3.1.3.2.2.1.3.1.3.2.2.2.3.1.3.2.2.1.3.2.2.2.2.1.3.2.2.2.2.2.2.1.3.2.2.2.2.2.2.2.2.2.2.2.2.2.1.2.2.3.2.2.2.2.1.2.2.3.2.2.1.2.2.3.1.2.2.3.1.3.1.2.2.3.1.3.1.3.2.3v.3l.2.3.1.3.1.4.1.3.1.3.1.4.1.4.1.4v.4l.2.4v.4l.1.4v.5l.2.4v1l.1.6.1.5v.6l.1.6v1.4l.1.8v1.6l.1 1v7.4l.1 3V85.4l-.1 1v1.8l-.1.7v1.4l-.1.7v.6l-.1.6v.5l-.1.5-.1.5v.5l-.1.5-.1.4-.1.4v.5l-.2.4v.3l-.1.4-.1.4-.1.3-.1.4-.1.3-.2.3v.4l-.2.3-.1.3-.1.3-.2.2v.3l-.2.3-.2.3-.1.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.2-.2.2-.2.3-.2.2-.1.2-.2.2-.2.2-.2.2-.2.2-.2.2-.3.2-.2.2-.2.1-.2.2-.3.2-.2.2-.2.1-.3.2-.2.2-.3.1-.2.2-.3.1-.3.2-.2.1-.3.2-.3.1-.3.2-.3.1-.3.1-.3.2-.3.1-.3.1-.3.2h-.3l-.4.2-.3.1-.3.2h-.4l-.4.2-.3.1-.4.1-.4.1-.3.1-.4.1-.4.1-.4.1-.4.1-.4.1-.5.1-.4.1-.4.1-.5.1h-.4l-.5.2h-.5l-.4.1-.5.1-.5.1h-.5l-.5.2h-.6l-.5.1h-.5l-.6.1-.6.1h-.6l-.5.1-.7.1h-.6l-.6.1h-.6l-.7.1-.7.1h-.7l-.7.1h-.7l-.7.1h-.8l-.8.1h-1.6l-.9.1h-.8l-1 .1h-1.9l-1 .1h-2l-1 .1H227l-1.3.1H220l-1.7.1H197l-5 .1h-53.7z" clipRule="evenodd"/>
                     </svg>
                   </div>
                 </button>
@@ -567,10 +567,10 @@ export default function Player() {
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleVox}>
-                      <span className={`${!isVoxPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isVoxPlaying ? 'text-blue dark:text-off-white' : 'text-blue dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center text-center dark:text-red text-off-white leading-none">
                           { isVoxPlaying ? (
-                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                            <span className="block w-[40px] h-[40px] bg-pink dark:bg-current"></span>
                           ) : (
                             <span className="block arrow-right ml-[7px]"></span>
                           ) }
@@ -586,10 +586,10 @@ export default function Player() {
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleGuitar}>
-                      <span className={`${!isGuitarPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isGuitarPlaying ? 'text-blue dark:text-off-white' : 'text-blue dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
                           { isGuitarPlaying ? (
-                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                            <span className="block w-[40px] h-[40px] bg-pink dark:bg-current"></span>
                           ) : (
                             <span className="block arrow-right ml-[7px]"></span>
                           )}
@@ -605,10 +605,10 @@ export default function Player() {
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleBass}>
-                      <span className={`${!isBassPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isBassPlaying ? 'text-blue dark:text-off-white' : 'text-blue dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
                           { isBassPlaying ? (
-                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                            <span className="block w-[40px] h-[40px] bg-pink dark:bg-current"></span>
                           ) : (
                             <span className="block arrow-right ml-[7px]"></span>
                           )}
@@ -624,10 +624,10 @@ export default function Player() {
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleDrums}>
-                      <span className={`${!isDrumsPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isDrumsPlaying ? 'text-blue dark:text-off-white' : 'text-blue dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
                           { isDrumsPlaying ? (
-                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                            <span className="block w-[40px] h-[40px] bg-pink dark:bg-current"></span>
                           ) : (
                             <span className="block arrow-right ml-[7px]"></span>
                           )}
@@ -643,10 +643,10 @@ export default function Player() {
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleKeys}>
-                      <span className={`${!isKeysPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isKeysPlaying ? 'text-blue dark:text-off-white' : 'text-blue dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
                           { isKeysPlaying ? (
-                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                            <span className="block w-[40px] h-[40px] bg-pink dark:bg-current"></span>
                           ) : (
                             <span className="block arrow-right ml-[7px]"></span>
                           )}
