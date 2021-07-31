@@ -1,12 +1,12 @@
 export default {
-  defaultTitle: `I'm Really A Trex | T-Ray`,
+  defaultTitle: `ImReallyATRex | ImReallyATRex`,
   description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
-  titleTemplate: `%s | T-Ray`,
+  titleTemplate: `%s | ImReallyATRex`,
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: 'https://t-ray.vercel.app/',
-    site_name: `I'm Really A Trex | T-Ray`,
+    site_name: `ImReallyATRex | ImReallyATRex`,
   },
   twitter: {
     site: '@site',
