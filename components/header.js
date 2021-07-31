@@ -8,12 +8,13 @@ import Rollover from '@/components/rollover'
 import Image from 'next/image'
 import themeToggleActive from '@/public/images/theme-toggle-active.svg'
 import themeToggleActiveDark from '@/public/images/theme-toggle-active-dark.svg'
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion"
 import ModalTray from '@/components/modal-tray'
 import CartTray from '@/components/cart-tray'
 import { Context } from '@/context/state'
 import { useCartContext } from '@/context/store'
 import { isMobile } from 'react-device-detect'
+import { IntroContext } from '@/context/intro'
 
 const variants = {
   open: { opacity: 1 },
@@ -26,10 +27,17 @@ const revealVariants = {
   closed: { y: '100%' },
 }
 
+const strokeAnimate = {
+  initial: { pathLength: 0 },
+  open: { pathLength: 1 },
+  closed: { pathLength: 0 },
+}
+
 export default function Header({route}) {
   const {theme, setTheme} = useTheme()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const modalTrayBag = useRef(null)
+  const [introContext, setIntroContext] = useContext(IntroContext);
   const [cart, checkoutUrl] = useCartContext()
   const [globalMusicPlaying, setGlobalMusicPlaying] = useContext(Context)
 
@@ -99,7 +107,7 @@ export default function Header({route}) {
                         <div className="relative overflow-hidden z-10">
                           <Rollover animatedUnderline={route != '/'} underlineDotted label="Bio" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 ${route === '/' ? 'opacity-100' : 'opacity-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/' ? 'scale-100 opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
@@ -109,7 +117,7 @@ export default function Header({route}) {
                         <div className="relative overflow-hidden z-10">
                           <Rollover animatedUnderline={!route.includes('/feed')} underlineDotted label="Feed" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 ${route.includes('/feed') ? 'opacity-100' : 'opacity-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route.includes('/feed') ? 'scale-100 opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
@@ -119,13 +127,13 @@ export default function Header({route}) {
                         <div className="relative overflow-hidden z-10">
                           <Rollover animatedUnderline={route != '/music'} underlineDotted label="Music" />
                         </div>
-                        <div className={`active-pill absolute inset-0 z-0 ${route === '/music' ? 'opacity-100' : 'opacity-0' }`}></div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/music' ? 'scale-100 opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <button aria-label="Open Bag" onClick={() => modalTrayBag.current.open()}>
-                      <span className="ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
+                      <span className="ml-2 md:ml-3 xl:ml-4 uppercase transition ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
                         { cart?.length > 0 && (
                           <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition-opacity ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
                         )}
@@ -158,13 +166,30 @@ export default function Header({route}) {
                     <Rollover label="Vibe" horizontal />
                   </div>
                 </span>
-                <span className="absolute bottom-0 ml-[-5px] md:ml-[-17px] mb-[-24px] md:mb-[-24px] hidden dark:block w-[50px] md:w-[68px] xl:w-[75px] rotate-90 md:rotate-0">
-                  <Image
-                    src={themeToggleActive}
-                    alt="Menu Active State"
-                    layout="responsive"
-                    className="w-full will-change"
-                  />
+                <span className="absolute bottom-0 ml-[-5px] md:ml-[-17px] mb-[-24px] block md:mb-[-24px] w-[50px] md:w-[68px] xl:w-[75px] rotate-90 md:rotate-0 opacity-100">
+                  <AnimatePresence>
+                    { theme === 'dark' && (
+                      <m.svg className="w-full text-red opacity-100" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 841.89">
+                        <m.path 
+                          d="M77 500.19s6.88-370.59 190.89-447.6c44.2-18.5 99.09-4.66 141.75 31.21 54.27 45.63 121 193.58 101.67 381.14 0 0-18 190.87-121 260s-215 22.82-283.32-132.35C35.77 431 72.54 245.47 88.32 190.26 106.94 125.08 199.38-65.72 343 48.63c142.14 113.15 179.78 507.92 66.22 677.63q-3.3 4.92-6.43 10c-12.6 20.3-68.1 100.76-149.57 88.54C149.81 809.23 82.33 644.51 77 500.19z"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          strokeWidth="6"
+                          initial={"initial"}
+                          animate={"open"}
+                          exit={"closed"}
+                          variants={strokeAnimate}
+                          transition={{
+                            delay: introContext ? 0 : 1.5,
+                            duration: 1,
+                            ease: 'easeInOut'
+                          }}
+                        />
+                      </m.svg>
+                    )}
+                  </AnimatePresence>
                 </span>
               </button>
 
@@ -181,19 +206,35 @@ export default function Header({route}) {
                     <Rollover label="Chill" horizontal />
                   </div>
                 </span>
-                <span className="absolute bottom-0 ml-[0px] md:ml-[-20px] mb-[-21px] md:mb-[10px] block dark:hidden w-[50px] md:w-[72px] xl:w-[80px] rotate-90 md:rotate-0">
-                  <Image
-                    src={themeToggleActiveDark}
-                    alt="Menu Active State"
-                    layout="responsive"
-                    className="w-full will-change"
-                  />
+                <span className="absolute bottom-0 ml-[0px] md:ml-[-20px] mb-[-21px] md:mb-[10px] block w-[50px] md:w-[72px] xl:w-[80px] rotate-90 md:rotate-0">
+                  <AnimatePresence>
+                    { theme === 'light' && (
+                      <m.svg className="w-full text-off-black opacity-100" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 841.89">
+                        <m.path 
+                          d="M77 500.19s6.88-370.59 190.89-447.6c44.2-18.5 99.09-4.66 141.75 31.21 54.27 45.63 121 193.58 101.67 381.14 0 0-18 190.87-121 260s-215 22.82-283.32-132.35C35.77 431 72.54 245.47 88.32 190.26 106.94 125.08 199.38-65.72 343 48.63c142.14 113.15 179.78 507.92 66.22 677.63q-3.3 4.92-6.43 10c-12.6 20.3-68.1 100.76-149.57 88.54C149.81 809.23 82.33 644.51 77 500.19z"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          strokeWidth="6"
+                          initial={"initial"}
+                          animate={"open"}
+                          exit={"closed"}
+                          variants={strokeAnimate}
+                          transition={{
+                            duration: 1,
+                            ease: 'easeInOut'
+                          }}
+                        />
+                      </m.svg>
+                    )}
+                  </AnimatePresence>
                 </span>
               </button>
             </div>
 
             { !isMobile && (
-              <div className={`fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-160px] xl:mr-[-170px] mb-[20px] md:mb-[14.5rem] md:rotate-90 pointer transition-opacity ease-in-out duration-500 delay-300 ${ route.includes('/products') ? 'opacity-0 pointer-events-none' : '' }`}>
+              <div className={`fixed bottom-0 right-0 z-40 mr-[20px] md:mr-[-120px] xl:mr-[-125px] mb-[20px] md:mb-[11.5rem] md:rotate-90 pointer transition-opacity ease-in-out duration-500 delay-300 ${ route.includes('/products') ? 'opacity-0 pointer-events-none' : '' }`}>
                 <PlayerWidget />
                 {/* <PlayerWidget isCurrentlyPlaying={currentlyPlaying} /> */}
               </div>

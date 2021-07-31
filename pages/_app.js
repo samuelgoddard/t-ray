@@ -83,7 +83,7 @@ export default function App({ Component, pageProps }) {
                     initial="hidden"
                     animate="visible"
                     variants={introEnd}
-                    transition={{ delay: 1.4, duration: 1.5, ease: [0.83, 0, 0.17, 1] }}
+                    transition={{ delay: 2.25, duration: 0.65, ease: [0.83, 0, 0.17, 1] }}
                     className="bg-transparent dark:bg-transparent fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px] opacity-90"
                   >
                     <Div100vh className="fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px]">

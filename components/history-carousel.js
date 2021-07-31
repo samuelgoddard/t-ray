@@ -26,7 +26,7 @@ const HistoryCarousel = ({ slides }) => {
         <div className="embla__container">
           {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
-              <div className="embla__slide__inner will-change">
+              <div className="embla__slide__inner will-change" data-scroll data-scroll-direction="horizontal" data-scroll-speed="1.2">
                 <div className="mb-8 md:mb-12">
                   <ImageWrapper
                     image={slide.image.asset}

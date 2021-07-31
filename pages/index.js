@@ -70,7 +70,7 @@ export default function Home(initialData) {
     initial: { opacity: 0 },
     enter: { 
       opacity: 1,
-      transition: { delay: introContext ? 0 : 1.75, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+      transition: { delay: introContext ? 0 : 2, duration: 0.75, ease: [0.83, 0, 0.17, 1] }
     },
     exit: {
       opacity: 0,
@@ -82,7 +82,7 @@ export default function Home(initialData) {
     initial: { opacity: 0 },
     enter: { 
       opacity: 1,
-      transition: { delay: introContext ? 0 : 1.75, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
+      transition: { delay: introContext ? 0 : 2, duration: 0.65, ease: [0.83, 0, 0.17, 1] }
     },
     exit: {
       opacity: 0,
