@@ -117,13 +117,13 @@ export default function News(initialData) {
                 <div>
                   <div className="relative mb-[10px] md:mb-[3vw]">
                     <div className="overflow-hidden">
-                      <h1 className={`uppercase text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
+                      <h1 className={`uppercase text-[15vw] md:text-[13vw] leading-[0.85] tracking-[-0.02em] text-center break-all will-change relative text-red`}>
                         <m.span variants={fadeDelay} className="block">Feed</m.span>
 
                         <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500 mt-[-0.01em] ml-[0.025em]">
                           <div className="overflow-hidden">
                             <m.div variants={fade}>
-                              <div className="w-[47vw] pointer-eveants-none motion-safe:animate-float">
+                              <div className="w-[55vw] md:w-[47vw] pointer-eveants-none motion-safe:animate-float">
                                 <Image
                                   src={newsTextDark}
                                   alt="Feed Lettering"
@@ -137,7 +137,7 @@ export default function News(initialData) {
                         </div>
 
                         <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500 mt-[-0.01em] ml-[0.025em]">
-                          <m.div variants={fade} className="w-[47vw] pointer-events-none motion-safe:animate-float">
+                          <m.div variants={fade} className="w-[55vw] md:w-[47vw] pointer-events-none motion-safe:animate-float">
                             <Image
                               src={newsText}
                               alt="Feed Lettering"
@@ -153,10 +153,10 @@ export default function News(initialData) {
                 </div>
                 
                 <m.div variants={fade}>
-                  <div className="flex justify-center mb-[17vw] md:mb-[14vw] max-w-screen-2xl mx-auto mt-4 md:mt-0">
-                    <div className="w-10/12 md:w-10/12 xl:w-10/12">
+                  <div className="flex justify-center mb-[17vw] md:mb-[3vw] max-w-screen-2xl mx-auto mt-4 md:mt-0">
+                    <div className="w-full md:w-10/12 xl:w-10/12">
                       <div className="flex flex-wrap md:-mx-8 lg:-mx-12 xl:-mx-16 justify-center">
-                        <div className="w-full md:w-[60%] xl:w-2/3 md:px-8 lg:px-12 xl:px-16 mb-8 md:mb-0">
+                        <div className="w-full md:w-[60%] xl:w-2/3 md:px-8 lg:px-12 xl:px-16 mb-0 md:mb-0">
                           {musicVideos.slice(0,3).map((e, i) => {
                             let href = null;
                             let external = false;
@@ -185,7 +185,7 @@ export default function News(initialData) {
                             )
                           })}
                         </div>
-                        <div className="w-9/12 md:w-[40%] xl:w-1/3 md:px-8 lg:px-12 xl:px-16 mb-8 md:mt-[6vw]" data-scroll data-scroll-speed={1.2}>
+                        <div className="w-full md:w-[40%] xl:w-1/3 md:px-8 lg:px-12 xl:px-16 mb-10 md:mb-8 md:mt-[6vw]" data-scroll data-scroll-speed={1.2}>
                           {feed.slice(0, 3).map((e, i) => {
                             let href = null;
                             let external = false;
@@ -237,9 +237,9 @@ export default function News(initialData) {
                     </div>
                   </div>
 
-                  <HeadingKanji horizontal heading="Moar!!" kanji={kanjiMore} />
+                  <HeadingKanji horizontal heading="Moar!!" subHeading={"Previous news and views"} kanji={kanjiMore} />
 
-                  <div className="border-t border-current w-11/12 mx-auto mb-[20vw] md:mb-[16vw] mt-[80px] md:mt-0">
+                  <div className="border-t border-current w-full md:w-11/12 mx-auto mb-[20vw] md:mb-[16vw] mt-[80px] md:mt-0">
                     <ul>
                       {musicVideos.slice(3).map((e, i) => {
                         let href = null;
@@ -256,7 +256,7 @@ export default function News(initialData) {
                           <li key={i}>
                             <ListTeaser title={e.title} date={e.date} type="Music Video" href={href} external={external} image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} purchaseLinks={e.purchaseLinks} />
                           </li>
-                        )
+                      )
                       })}
                       {feed.slice(3).map((e, i) => {
                         let href = null;

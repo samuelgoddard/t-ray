@@ -10,20 +10,20 @@ export function ModalTray({ children, defaultOpened = false }, ref) {
 
   const modalTrayVariant = {
     initial: { x: '100%' },
-    isOpen: { x: '0', transition: { type: "easeInOut", duration: 0.3, delay: 0.1 }},
-    exit: { x: '100%', transition: { type: "easeInOut", duration: 0.3 }}
+    isOpen: { x: '0', transition: { type: "easeInOut", duration: 0.6, delay: 0.2, ease: [0.83, 0, 0.17, 1] }},
+    exit: { x: '100%', transition: { type: "easeInOut", duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
   };
 
   const modalVariant = {
     initial: { opacity: 0 },
-    isOpen: { opacity: 1, transition: { type: "easeInOut", duration: 0.2 }},
-    exit: { opacity: 0, transition: { type: "easeInOut", duration: 0.2, delay: 0.2 }}
+    isOpen: { opacity: 1, transition: { type: "easeInOut", duration: 0.6, ease: [0.83, 0, 0.17, 1] }},
+    exit: { opacity: 0, transition: { type: "easeInOut", duration: 0.6, delay: 0.25, ease: [0.83, 0, 0.17, 1] }}
   };
 
   const containerVariant = {
     initial: { opacity: 0 },
-    isOpen: { opacity: 1, transition: { type: "easeInOut", duration: 0.2 }},
-    exit: { opacity: 0, transition: { type: "easeInOut", duration: 0.2 }}
+    isOpen: { opacity: 1, transition: { type: "easeInOut", duration: 0.6, ease: [0.83, 0, 0.17, 1] }},
+    exit: { opacity: 0, transition: { type: "easeInOut", duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
   };
 
   useImperativeHandle(ref, () => ({

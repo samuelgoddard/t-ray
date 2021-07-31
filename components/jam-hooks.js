@@ -185,8 +185,7 @@ export default function Player() {
                     <ul className="flex items-center">
                       <li>
                         <Link href="/">
-                          <a onClick={() => stop() } aria-label="Navigate to home page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl text-off-white dark:text-off-white`}>
-                            <svg className="w-7 inline-block absolute top-0 left-0 md:mt-[10px] z-10 xl:mt-[14px] ml-3" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.777c0 3.5 1.558 8.578 6.25 8.578 4.693 0 6.25-5.078 6.25-8.579 0-10.83-12.5-10.83-12.5 0zm5.32 7.955c-3.994 0-4.987-4.686-4.987-7.693 0-10.35 9.973-10.35 9.973 0 0 3.006-.992 7.693-4.986 7.693zM12.501 8.777c0 3.5 1.557 8.578 6.25 8.578 4.692 0 6.249-5.078 6.249-8.579 0-10.83-12.499-10.83-12.499 0zm5.32 7.955c-3.996 0-4.987-4.686-4.987-7.693 0-10.35 9.972-10.35 9.972 0 0 3.006-.992 7.693-4.986 7.693z" fill="currentColor"/><path d="M.333 9.102c0 2.47 1.814 4.36 4.053 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.104-6.075-8.104 0zM12.833 9.102c0 2.47 1.814 4.36 4.052 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.103-6.075-8.103 0z" fill="currentColor"/></svg>
+                          <a onClick={() => stop() } aria-label="Navigate to home page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-0 md:pl-0 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl text-off-white dark:text-off-white`}>
                             <div className="relative overflow-hidden z-10">
                               <Rollover label="Go Back" />
                             </div>
@@ -224,16 +223,16 @@ export default function Player() {
                 </div>
               </div>
 
-              <span className="text-[22px] md:text-[25px] xl:text-[28px] 2xl:text-[32px] leading-[0.95] text-center block relative z-20 uppercase text-off-white dark:text-off-white">
+              {/* <span className="text-[22px] md:text-[25px] xl:text-[28px] 2xl:text-[32px] leading-[0.95] text-center block relative z-20 uppercase text-off-white dark:text-off-white">
                 <span className="block overflow-hidden relative">
                   <m.span variants={reveal} className="block">
                     Get ready to jam with T-Ray
                   </m.span>
                 </span>
-              </span>
+              </span> */}
             </div>
 
-            <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-8vw] z-0">
+            <div className="absolute top-0 left-0 right-0 flex justify-center items-center mt-[-6.5vw] 2xl:mt-[-8vw] z-0">
               <div className="w-[20vw] md:w-[17vw] xl:w-[15vw] opacity-40 transition-opacity duration-500 ease-in-out" data-scroll data-scroll-speed="0.35">
                 <Image
                   src={kanji}
@@ -245,98 +244,75 @@ export default function Player() {
             </div>
 
             <div className="flex justify-center relative z-10 mt-8">
-              {isDrumsLoaded =='loaded' && isBassLoaded =='loaded' && isGuitarLoaded =='loaded' && isVoxLoaded =='loaded' && isKeysLoaded =='loaded' ? (
-                <button onClick={() => acceptJam() } className="bg-off-black block text-off-white font-mono uppercase px-6 py-3 rounded-lg text-[22px] h-[60px] w-[320px] relative">
-                  <div className={`block w-full whitespace-nowrap absolute top-0 left-0 right-0 px-3 mt-[14px]`}>
-                    <div className="overflow-hidden relative">
-                      <m.div variants={reveal}>
-                        <div className="relative flex overflow-x-hidden will-change">
-                          <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                          </div>
-
-                          <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Ready! Let's Jam!</span>
-                            <span className="mx-3">&bull;</span>
-                          </div>
-                        </div>
-                      </m.div>
+              {isDrumsLoaded == 'loaded' && isBassLoaded == 'loaded' && isGuitarLoaded == 'loaded' && isVoxLoaded == 'loaded' && isKeysLoaded == 'loaded' ? (
+                <button onClick={() => acceptJam() } className="block group hover:text-off-white text-off-black transition-colors duration-500 ease-in-out font-display uppercase rounded-lg text-[22px] h-[115px] w-[280px] relative tracking-wide scale-100">
+                  <div className={`block w-full whitespace-nowrap absolute top-0 left-0 right-0`}>
+                    <div className="absolute inset-0 h-[115px] flex items-center justify-center">
+                      <div className="overflow-hidden relative">
+                        <m.div variants={reveal}>
+                          <span className="mx-3 block">Let's Go!</span>
+                        </m.div>
+                      </div>
                     </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-full text-yellow group-hover:text-off-black transition-colors duration-500 ease-in-out" fill="none">
+                      <defs/>
+                      <path fill="currentColor" fill-rule="evenodd" d="M138.4 113H59.2l-1.8-.1h-6l-1.3-.1h-3.6l-1.1-.1h-2.1l-1-.1h-2l-.8-.1h-1l-.8-.1h-1.6l-.8-.1h-.8l-.7-.1H33l-.8-.1h-.7l-.6-.1h-.7l-.6-.2H28.4l-.6-.1-.6-.1h-.6l-.6-.1-.5-.1h-.6l-.5-.1-.5-.1h-.6l-.5-.2h-.5l-.5-.1-.5-.1H21l-.5-.2H20l-.5-.2h-.4l-.5-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.2h-.3l-.4-.2h-.3l-.4-.2-.3-.1-.4-.1-.3-.2h-.3l-.4-.2-.3-.1-.3-.2-.3-.1-.3-.2h-.3l-.3-.2-.3-.2-.2-.1-.3-.2-.3-.1-.2-.2-.3-.1-.3-.2-.2-.2-.3-.1-.2-.2-.2-.2-.3-.1-.2-.2-.2-.2-.2-.2-.2-.2-.3-.2-.2-.1-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.1-.2-.2-.3-.2-.2-.1-.3-.1-.2-.2-.3-.1-.3-.2-.3v-.2l-.2-.3-.1-.3-.2-.3v-.4l-.2-.3v-.3l-.2-.4v-.3L2 97v-.3l-.2-.4V96l-.1-.4-.1-.4v-.5l-.2-.4v-1l-.2-.5v-1.1L1 91v-.6l-.1-.7v-1.5l-.1-.8v-2.9l-.1-1.3V25.6l.1-.8v-1.5l.1-.7V22l.1-.6v-.6l.1-.5.1-.5v-.5l.1-.5.1-.4v-.5l.2-.4V17l.1-.4.1-.4.1-.4.1-.3.1-.4.1-.3.1-.4.1-.3.1-.3.1-.3.2-.3V13l.2-.3.2-.3v-.2l.2-.3.2-.3.1-.2.2-.3.1-.2.2-.3.2-.2.1-.2.2-.3.2-.2.1-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.3-.2.2-.2.2-.1.2-.2L8 7l.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.3-.2.3-.1.3-.1.3-.2.3-.1.3-.2.3-.1.3-.1.3-.2h.3l.3-.2.4-.1.3-.2h.3l.4-.2.4-.1.3-.1.4-.1.4-.1.3-.1.4-.2h.4l.4-.2h.4l.4-.1.5-.1.4-.1.4-.1.5-.1.4-.1h.5l.5-.2h.5l.4-.1.5-.1.5-.1h.6l.5-.1.5-.1h.6l.5-.2h1.2l.6-.2h1.2l.6-.1.7-.1h.7l.6-.1h.7l.7-.1h.8l.7-.1h.8l.8-.1h1.6l.8-.1h1l.8-.1h2l1-.1h2l1.1-.1H50l1.3-.1h4.3l1.7-.1h23.2l5.2-.1h131.8l1.7.1h6l1.3.1h3.7l1 .1h2.2l1 .1h2l.8.1h1.8l.8.1h.8l.8.1h.8l.7.1h.8l.7.1h.7l.7.1h.6l.7.1.6.1h.7l.6.1h.6l.5.2h1.2l.5.2h.6l.5.1h.5l.5.2h.5l.5.1.5.1h.5l.5.2h.4l.5.1.4.1.4.1.5.1.4.1.4.1.4.1.4.1.4.1.4.1.3.1.4.1.4.2h.3l.4.2.3.1.4.1.3.1.3.2.4.1.3.1.3.2h.3l.3.2.3.2.3.1.3.2.2.1.3.1.3.2.2.2.3.1.3.2.2.1.3.2.2.2.2.1.3.2.2.2.2.2.2.1.3.2.2.2.2.2.2.2.2.2.2.2.2.2.1.2.2.3.2.2.2.2.1.2.2.3.2.2.1.2.2.3.1.2.2.3.1.3.1.2.2.3.1.3.1.3.2.3v.3l.2.3.1.3.1.4.1.3.1.3.1.4.1.4.1.4v.4l.2.4v.4l.1.4v.5l.2.4v1l.1.6.1.5v.6l.1.6v1.4l.1.8v1.6l.1 1v7.4l.1 3V85.4l-.1 1v1.8l-.1.7v1.4l-.1.7v.6l-.1.6v.5l-.1.5-.1.5v.5l-.1.5-.1.4-.1.4v.5l-.2.4v.3l-.1.4-.1.4-.1.3-.1.4-.1.3-.2.3v.4l-.2.3-.1.3-.1.3-.2.2v.3l-.2.3-.2.3-.1.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.2-.2.2-.2.3-.2.2-.1.2-.2.2-.2.2-.2.2-.2.2-.2.2-.3.2-.2.2-.2.1-.2.2-.3.2-.2.2-.2.1-.3.2-.2.2-.3.1-.2.2-.3.1-.3.2-.2.1-.3.2-.3.1-.3.2-.3.1-.3.1-.3.2-.3.1-.3.1-.3.2h-.3l-.4.2-.3.1-.3.2h-.4l-.4.2-.3.1-.4.1-.4.1-.3.1-.4.1-.4.1-.4.1-.4.1-.4.1-.5.1-.4.1-.4.1-.5.1h-.4l-.5.2h-.5l-.4.1-.5.1-.5.1h-.5l-.5.2h-.6l-.5.1h-.5l-.6.1-.6.1h-.6l-.5.1-.7.1h-.6l-.6.1h-.6l-.7.1-.7.1h-.7l-.7.1h-.7l-.7.1h-.8l-.8.1h-1.6l-.9.1h-.8l-1 .1h-1.9l-1 .1h-2l-1 .1H227l-1.3.1H220l-1.7.1H197l-5 .1h-53.7z" clip-rule="evenodd"/>
+                    </svg>
                   </div>
                 </button>
               ) : (
-                <button disabled className="bg-off-black block text-off-white font-mono uppercase px-6 py-3 rounded-lg text-[22px] h-[60px] w-[320px] relative">
-                  <div className={`block w-full whitespace-nowrap absolute top-0 left-0 right-0 px-3 mt-[14px]`}>
-                    <div className="overflow-hidden relative">
-                      <m.div variants={reveal}>
-                        <div className="relative flex overflow-x-hidden will-change">
-                          <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                          </div>
+                <button disabled className="block group text-off-white transition-colors duration-500 ease-in-out font-display uppercase rounded-lg text-[22px] h-[115px] w-[280px] relative tracking-wide">
+                  <div className={`block w-full whitespace-nowrap absolute top-0 left-0 right-0`}>
+                    <div className="absolute inset-0 h-[115px] flex items-center justify-center">
+                      <div className="overflow-hidden relative">
+                        <m.div variants={reveal}>
+                          <div className="relative flex overflow-x-hidden will-change mx-5">
+                            <div className="motion-safe:animate-marquee whitespace-nowrap flex items-center">
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                            </div>
 
-                          <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
-                            <span>Preparing Jam Mode</span>
-                            <span className="mx-3">&bull;</span>
+                            <div className="absolute top-0 motion-safe:animate-marquee2 whitespace-nowrap flex items-center">
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                              <span>Loading</span>
+                              <span className="mx-3">&bull;</span>
+                            </div>
                           </div>
-                        </div>
-                      </m.div>
+                        </m.div>
+                      </div>
                     </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-full text-off-black transition-colors duration-500 ease-in-out" fill="none">
+                      <defs/>
+                      <path fill="currentColor" fill-rule="evenodd" d="M138.4 113H59.2l-1.8-.1h-6l-1.3-.1h-3.6l-1.1-.1h-2.1l-1-.1h-2l-.8-.1h-1l-.8-.1h-1.6l-.8-.1h-.8l-.7-.1H33l-.8-.1h-.7l-.6-.1h-.7l-.6-.2H28.4l-.6-.1-.6-.1h-.6l-.6-.1-.5-.1h-.6l-.5-.1-.5-.1h-.6l-.5-.2h-.5l-.5-.1-.5-.1H21l-.5-.2H20l-.5-.2h-.4l-.5-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.1-.4-.2h-.3l-.4-.2h-.3l-.4-.2-.3-.1-.4-.1-.3-.2h-.3l-.4-.2-.3-.1-.3-.2-.3-.1-.3-.2h-.3l-.3-.2-.3-.2-.2-.1-.3-.2-.3-.1-.2-.2-.3-.1-.3-.2-.2-.2-.3-.1-.2-.2-.2-.2-.3-.1-.2-.2-.2-.2-.2-.2-.2-.2-.3-.2-.2-.1-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.2-.2-.2-.2-.1-.2-.2-.3-.2-.2-.1-.2-.2-.3-.2-.2-.1-.3-.1-.2-.2-.3-.1-.3-.2-.3v-.2l-.2-.3-.1-.3-.2-.3v-.4l-.2-.3v-.3l-.2-.4v-.3L2 97v-.3l-.2-.4V96l-.1-.4-.1-.4v-.5l-.2-.4v-1l-.2-.5v-1.1L1 91v-.6l-.1-.7v-1.5l-.1-.8v-2.9l-.1-1.3V25.6l.1-.8v-1.5l.1-.7V22l.1-.6v-.6l.1-.5.1-.5v-.5l.1-.5.1-.4v-.5l.2-.4V17l.1-.4.1-.4.1-.4.1-.3.1-.4.1-.3.1-.4.1-.3.1-.3.1-.3.2-.3V13l.2-.3.2-.3v-.2l.2-.3.2-.3.1-.2.2-.3.1-.2.2-.3.2-.2.1-.2.2-.3.2-.2.1-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.2-.2.3-.2.2-.2.2-.1.2-.2L8 7l.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.3-.2.3-.1.3-.1.3-.2.3-.1.3-.2.3-.1.3-.1.3-.2h.3l.3-.2.4-.1.3-.2h.3l.4-.2.4-.1.3-.1.4-.1.4-.1.3-.1.4-.2h.4l.4-.2h.4l.4-.1.5-.1.4-.1.4-.1.5-.1.4-.1h.5l.5-.2h.5l.4-.1.5-.1.5-.1h.6l.5-.1.5-.1h.6l.5-.2h1.2l.6-.2h1.2l.6-.1.7-.1h.7l.6-.1h.7l.7-.1h.8l.7-.1h.8l.8-.1h1.6l.8-.1h1l.8-.1h2l1-.1h2l1.1-.1H50l1.3-.1h4.3l1.7-.1h23.2l5.2-.1h131.8l1.7.1h6l1.3.1h3.7l1 .1h2.2l1 .1h2l.8.1h1.8l.8.1h.8l.8.1h.8l.7.1h.8l.7.1h.7l.7.1h.6l.7.1.6.1h.7l.6.1h.6l.5.2h1.2l.5.2h.6l.5.1h.5l.5.2h.5l.5.1.5.1h.5l.5.2h.4l.5.1.4.1.4.1.5.1.4.1.4.1.4.1.4.1.4.1.4.1.3.1.4.1.4.2h.3l.4.2.3.1.4.1.3.1.3.2.4.1.3.1.3.2h.3l.3.2.3.2.3.1.3.2.2.1.3.1.3.2.2.2.3.1.3.2.2.1.3.2.2.2.2.1.3.2.2.2.2.2.2.1.3.2.2.2.2.2.2.2.2.2.2.2.2.2.1.2.2.3.2.2.2.2.1.2.2.3.2.2.1.2.2.3.1.2.2.3.1.3.1.2.2.3.1.3.1.3.2.3v.3l.2.3.1.3.1.4.1.3.1.3.1.4.1.4.1.4v.4l.2.4v.4l.1.4v.5l.2.4v1l.1.6.1.5v.6l.1.6v1.4l.1.8v1.6l.1 1v7.4l.1 3V85.4l-.1 1v1.8l-.1.7v1.4l-.1.7v.6l-.1.6v.5l-.1.5-.1.5v.5l-.1.5-.1.4-.1.4v.5l-.2.4v.3l-.1.4-.1.4-.1.3-.1.4-.1.3-.2.3v.4l-.2.3-.1.3-.1.3-.2.2v.3l-.2.3-.2.3-.1.2-.2.3-.1.2-.2.3-.1.2-.2.3-.2.2-.1.2-.2.2-.2.3-.2.2-.1.2-.2.2-.2.2-.2.2-.2.2-.2.2-.3.2-.2.2-.2.1-.2.2-.3.2-.2.2-.2.1-.3.2-.2.2-.3.1-.2.2-.3.1-.3.2-.2.1-.3.2-.3.1-.3.2-.3.1-.3.1-.3.2-.3.1-.3.1-.3.2h-.3l-.4.2-.3.1-.3.2h-.4l-.4.2-.3.1-.4.1-.4.1-.3.1-.4.1-.4.1-.4.1-.4.1-.4.1-.5.1-.4.1-.4.1-.5.1h-.4l-.5.2h-.5l-.4.1-.5.1-.5.1h-.5l-.5.2h-.6l-.5.1h-.5l-.6.1-.6.1h-.6l-.5.1-.7.1h-.6l-.6.1h-.6l-.7.1-.7.1h-.7l-.7.1h-.7l-.7.1h-.8l-.8.1h-1.6l-.9.1h-.8l-1 .1h-1.9l-1 .1h-2l-1 .1H227l-1.3.1H220l-1.7.1H197l-5 .1h-53.7z" clip-rule="evenodd"/>
+                    </svg>
                   </div>
                 </button>
               )}
@@ -346,11 +322,11 @@ export default function Player() {
           <div className="pb-[20px] md:pb-[25px] fixed z-[100] bottom-0 left-0 w-full font-mono">          
             <div className="flex items-center justify-center w-full">
               <div>
-                <svg className="mx-auto w-[32px] mb-3 text-yellow" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 7H.77a.765.765 0 01-.545-.228.782.782 0 01-.225-.55V.778C0 .57.081.374.225.228A.765.765 0 01.77 0H10c.204 0 .4.082.544.228a.782.782 0 01.225.55v5.444a.782.782 0 01-.225.55A.765.765 0 0110 7zM.77.778v5.444H10V.778H.77z" fill="currentColor"/><path d="M2.962 4.577h4.307v.807H2.962v-.807zM1.615 1.615h.808v.808h-.808v-.808zM2.962 1.615h.807v.808h-.807v-.808zM4.577 1.615h.808v.808h-.808v-.808zM6.192 1.615H7v.808h-.808v-.808zM1.615 4.577h.808v.807h-.808v-.807zM1.615 2.961h.808v.808h-.808v-.808zM2.962 2.961h.807v.808h-.807v-.808zM4.577 2.961h.808v.808h-.808v-.808zM7.808 1.615h1.346v.808H7.808v-.808zM7.808 2.961h1.346v.808H7.808v-.808zM6.192 2.961H7v.808h-.808v-.808zM8.077 4.577h1.077v.807H8.077v-.807z" fill="currentColor"/><path d="M10 7H.77a.765.765 0 01-.545-.228.782.782 0 01-.225-.55V.778C0 .57.081.374.225.228A.765.765 0 01.77 0H10c.204 0 .4.082.544.228a.782.782 0 01.225.55v5.444a.782.782 0 01-.225.55A.765.765 0 0110 7zM.77.778v5.444H10V.778H.77z" fill="currentColor"/><path d="M2.962 4.577h4.307v.807H2.962v-.807zM1.615 1.615h.808v.808h-.808v-.808zM2.962 1.615h.807v.808h-.807v-.808zM4.577 1.615h.808v.808h-.808v-.808zM6.192 1.615H7v.808h-.808v-.808zM1.615 4.577h.808v.807h-.808v-.807zM1.615 2.961h.808v.808h-.808v-.808zM2.962 2.961h.807v.808h-.807v-.808zM4.577 2.961h.808v.808h-.808v-.808zM7.808 1.615h1.346v.808H7.808v-.808zM7.808 2.961h1.346v.808H7.808v-.808zM6.192 2.961H7v.808h-.808v-.808zM8.077 4.577h1.077v.807H8.077v-.807z" fill="currentColor"/></svg>
-                <span className="block text-yellow text-center text-xl">
+                <svg className="mx-auto w-[32px] mb-3 text-off-white" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 7H.77a.765.765 0 01-.545-.228.782.782 0 01-.225-.55V.778C0 .57.081.374.225.228A.765.765 0 01.77 0H10c.204 0 .4.082.544.228a.782.782 0 01.225.55v5.444a.782.782 0 01-.225.55A.765.765 0 0110 7zM.77.778v5.444H10V.778H.77z" fill="currentColor"/><path d="M2.962 4.577h4.307v.807H2.962v-.807zM1.615 1.615h.808v.808h-.808v-.808zM2.962 1.615h.807v.808h-.807v-.808zM4.577 1.615h.808v.808h-.808v-.808zM6.192 1.615H7v.808h-.808v-.808zM1.615 4.577h.808v.807h-.808v-.807zM1.615 2.961h.808v.808h-.808v-.808zM2.962 2.961h.807v.808h-.807v-.808zM4.577 2.961h.808v.808h-.808v-.808zM7.808 1.615h1.346v.808H7.808v-.808zM7.808 2.961h1.346v.808H7.808v-.808zM6.192 2.961H7v.808h-.808v-.808zM8.077 4.577h1.077v.807H8.077v-.807z" fill="currentColor"/><path d="M10 7H.77a.765.765 0 01-.545-.228.782.782 0 01-.225-.55V.778C0 .57.081.374.225.228A.765.765 0 01.77 0H10c.204 0 .4.082.544.228a.782.782 0 01.225.55v5.444a.782.782 0 01-.225.55A.765.765 0 0110 7zM.77.778v5.444H10V.778H.77z" fill="currentColor"/><path d="M2.962 4.577h4.307v.807H2.962v-.807zM1.615 1.615h.808v.808h-.808v-.808zM2.962 1.615h.807v.808h-.807v-.808zM4.577 1.615h.808v.808h-.808v-.808zM6.192 1.615H7v.808h-.808v-.808zM1.615 4.577h.808v.807h-.808v-.807zM1.615 2.961h.808v.808h-.808v-.808zM2.962 2.961h.807v.808h-.807v-.808zM4.577 2.961h.808v.808h-.808v-.808zM7.808 1.615h1.346v.808H7.808v-.808zM7.808 2.961h1.346v.808H7.808v-.808zM6.192 2.961H7v.808h-.808v-.808zM8.077 4.577h1.077v.807H8.077v-.807z" fill="currentColor"/></svg>
+                <span className="block text-off-white text-center text-xl">
                   <span className="block overflow-hidden relative">
                     <m.span variants={reveal} className="block">
-                      Get your keyboard ready!
+                      Get your keyboard &amp; Speakers ready!
                     </m.span>
                   </span>
                 </span>
@@ -450,22 +426,22 @@ export default function Player() {
       
         {/* Play Button / Widget */}
         <m.div variants={fade} className="w-1/4 absolute bottom-0 left-0 ml-[30px] mb-[30px] z-20">
-          <div className="bg-yellow rounded-full p-3 px-3 md:px-6 max-w-[450px] flex overflow-hidden">
+          <div className="bg-yellow rounded-full p-1 px-1 md:px-2 md:pr-5 max-w-[350px] flex overflow-hidden items-center">
           <button className="text-off-black block w-auto focus:border-none focus:outline-none" onClick={() => togglePlay() }>
             <div className="md:mr-[10px]">
               { isPlaying ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-[40px] w-[40px]" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-[40px] w-[40px]" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                 </svg>
               )}
             </div>
           </button>
 
-          <span className="uppercase text-[16px] md:text-[20px] xl:text-[22px] tracking-tight dark:text-off-black flex-1 overflow-hidden hidden md:block">
+          <span className="uppercase text-[16px] md:text-[20px] xl:text-[20px] tracking-tight dark:text-off-black flex-1 overflow-hidden hidden md:block">
             <div className="relative flex overflow-x-hidden">
               <div className="motion-safe:animate-marquee whitespace-nowrap font-mono">
                 <span className="mx-1">I'm Fine</span>
@@ -501,8 +477,7 @@ export default function Player() {
                   <ul className="flex items-center">
                     <li>
                       <Link href="/">
-                        <a onClick={() => stop() } aria-label="Navigate to home page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-9 md:pl-12 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl`}>
-                          <svg className="w-7 inline-block absolute top-0 left-0 md:mt-[10px] z-10 xl:mt-[14px] ml-3" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.777c0 3.5 1.558 8.578 6.25 8.578 4.693 0 6.25-5.078 6.25-8.579 0-10.83-12.5-10.83-12.5 0zm5.32 7.955c-3.994 0-4.987-4.686-4.987-7.693 0-10.35 9.973-10.35 9.973 0 0 3.006-.992 7.693-4.986 7.693zM12.501 8.777c0 3.5 1.557 8.578 6.25 8.578 4.692 0 6.249-5.078 6.249-8.579 0-10.83-12.499-10.83-12.499 0zm5.32 7.955c-3.996 0-4.987-4.686-4.987-7.693 0-10.35 9.972-10.35 9.972 0 0 3.006-.992 7.693-4.986 7.693z" fill="currentColor"/><path d="M.333 9.102c0 2.47 1.814 4.36 4.053 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.104-6.075-8.104 0zM12.833 9.102c0 2.47 1.814 4.36 4.052 4.36 2.238 0 4.051-1.89 4.051-4.36 0-6.075-8.103-6.075-8.103 0z" fill="currentColor"/></svg>
+                        <a onClick={() => stop() } aria-label="Navigate to home page" className={`ml-1 md:ml-2 uppercase block text-[16px] md:text-[17px] xl:text-[22px] pl-0 md:pl-0 md:pr-3 py-1 md:py-2 group relative overflow-hidden rounded-2xl`}>
                           <div className="relative overflow-hidden z-10">
                             <Rollover label="Go Back" />
                           </div>
@@ -592,75 +567,95 @@ export default function Player() {
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleVox}>
-                      <span className={`${!isVoxPlaying ? 'text-blue dark:text-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
-                        <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
-                          { isVoxPlaying ? (<>Mute</>) : (<>Unmute</> ) }
+                      <span className={`${!isVoxPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                        <span className="absolute inset-0 w-full h-full flex items-center justify-center text-center dark:text-red text-off-white leading-none">
+                          { isVoxPlaying ? (
+                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                          ) : (
+                            <span className="block arrow-right ml-[7px]"></span>
+                          ) }
                         </span>
                         
                         <svg className="w-full" viewBox="0 0 142 143" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M142 71.5l-6.206 29.242-17.545 24.186-25.85 14.947L62.711 143l-28.389-9.238-22.182-20.004L0 86.448V56.552l12.14-27.31L34.325 9.238 62.712 0l29.686 3.125 25.851 14.948 17.545 24.185L142 71.5z" fill="currentColor"/></svg>
                       </span>
                     </button>
-                    <span className="font-mono block text-center text-xl">Vocals</span>
+                    <span className={`font-mono block text-center text-xl ${isVoxPlaying ? '' : 'line-through'}`}>Vocals</span>
                   </div>
 
                   <div className="w-24 xl:w-32">
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleGuitar}>
-                      <span className={`${!isGuitarPlaying ? 'text-blue dark:text-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isGuitarPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
-                          { isGuitarPlaying ? (<>Mute</>) : (<>Unmute</> ) }
+                          { isGuitarPlaying ? (
+                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                          ) : (
+                            <span className="block arrow-right ml-[7px]"></span>
+                          )}
                         </span>
                         
                         <svg className="w-full" viewBox="0 0 142 143" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M142 71.5l-6.206 29.242-17.545 24.186-25.85 14.947L62.711 143l-28.389-9.238-22.182-20.004L0 86.448V56.552l12.14-27.31L34.325 9.238 62.712 0l29.686 3.125 25.851 14.948 17.545 24.185L142 71.5z" fill="currentColor"/></svg>
                       </span>
                     </button>
-                    <span className="font-mono block text-center text-xl">Guitar</span>
+                    <span className={`font-mono block text-center text-xl ${isGuitarPlaying ? '' : 'line-through'}`}>Guitar</span>
                   </div>
 
                   <div className="w-24 xl:w-32">
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleBass}>
-                      <span className={`${!isBassPlaying ? 'text-blue dark:text-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isBassPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
-                          { isBassPlaying ? (<>Mute</>) : (<>Unmute</> ) }
+                          { isBassPlaying ? (
+                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                          ) : (
+                            <span className="block arrow-right ml-[7px]"></span>
+                          )}
                         </span>
                         
                         <svg className="w-full" viewBox="0 0 142 143" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M142 71.5l-6.206 29.242-17.545 24.186-25.85 14.947L62.711 143l-28.389-9.238-22.182-20.004L0 86.448V56.552l12.14-27.31L34.325 9.238 62.712 0l29.686 3.125 25.851 14.948 17.545 24.185L142 71.5z" fill="currentColor"/></svg>
                       </span>
                     </button>
-                    <span className="font-mono block text-center text-xl">Bass</span>
+                    <span className={`font-mono block text-center text-xl ${isBassPlaying ? '' : 'line-through'}`}>Bass</span>
                   </div>
 
                   <div className="w-24 xl:w-32">
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleDrums}>
-                      <span className={`${!isDrumsPlaying ? 'text-blue dark:text-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isDrumsPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
-                          { isDrumsPlaying ? (<>Mute</>) : (<>Unmute</> ) }
+                          { isDrumsPlaying ? (
+                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                          ) : (
+                            <span className="block arrow-right ml-[7px]"></span>
+                          )}
                         </span>
                         
                         <svg className="w-full" viewBox="0 0 142 143" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M142 71.5l-6.206 29.242-17.545 24.186-25.85 14.947L62.711 143l-28.389-9.238-22.182-20.004L0 86.448V56.552l12.14-27.31L34.325 9.238 62.712 0l29.686 3.125 25.851 14.948 17.545 24.185L142 71.5z" fill="currentColor"/></svg>
                       </span>
                     </button>
-                    <span className="font-mono block text-center text-xl">Drums</span>
+                    <span className={`font-mono block text-center text-xl ${isDrumsPlaying ? '' : 'line-through'}`}>Drums</span>
                   </div>
 
                   <div className="w-24 xl:w-32">
                     <button 
                       className="text-off-white dark:text-off-black font-mono relative w-24 xl:w-32 h-24 xl:h-32 mb-3"
                       onClick={toggleKeys}>
-                      <span className={`${!isKeysPlaying ? 'text-blue dark:text-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
+                      <span className={`${!isKeysPlaying ? 'text-blue dark:text-off-white' : 'text-pink dark:text-yellow' } absolute inset-0 block`}>
                         <span className="absolute inset-0 w-full h-full flex items-center justify-center dark:text-red text-off-white">
-                          { isKeysPlaying ? (<>Mute</>) : (<>Unmute</> ) }
+                          { isKeysPlaying ? (
+                            <span className="block w-[40px] h-[40px] bg-current">■</span>
+                          ) : (
+                            <span className="block arrow-right ml-[7px]"></span>
+                          )}
                         </span>
                         
                         <svg className="w-full" viewBox="0 0 142 143" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M142 71.5l-6.206 29.242-17.545 24.186-25.85 14.947L62.711 143l-28.389-9.238-22.182-20.004L0 86.448V56.552l12.14-27.31L34.325 9.238 62.712 0l29.686 3.125 25.851 14.948 17.545 24.185L142 71.5z" fill="currentColor"/></svg>
                       </span>
                     </button>
-                    <span className="font-mono block text-center text-xl">Keys</span>
+                    <span className={`font-mono block text-center text-xl ${isKeysPlaying ? '' : 'line-through'}`}>Keys</span>
                   </div>
                 </div>
               </div>

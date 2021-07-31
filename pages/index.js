@@ -195,7 +195,7 @@ export default function Home(initialData) {
             >
               <Container bleedMobile>
                 <m.div variants={fade}>
-                  <div className="relative mb-[15vw] md:mb-[29vw] xl:mb-[27vw]px">
+                  <div className="relative mb-[18vw] md:mb-[29vw] xl:mb-[27vw]">
                     <h1 className={`uppercase text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-red`}>
                       <span className="block overflow-hidden relative">
                         <m.span variants={fadeDelay} className="block">ImReally</m.span>
@@ -240,7 +240,7 @@ export default function Home(initialData) {
                     <div className="">
                       <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[18vw] xl:mt-[13vw] flex items-center justify-center">
                         <div
-                          className="w-full md:w-7/12 relative will-change"
+                          className="w-[99%] md:w-7/12 relative will-change"
                           data-scroll
                           data-scroll-speed="1.5"
                         >
@@ -311,7 +311,7 @@ export default function Home(initialData) {
                     </div>
                   </div>
                   
-                  <div className="flex justify-center mb-[14vw] md:mb-[10vw] px-[15px] md:px-0">
+                  <div className="flex justify-center mb-[14vw] md:mb-[6vw] px-[15px] md:px-0">
                     <div className="w-11/12 md:w-8/12" data-scroll data-scroll-speed="1">
                       <div className="text-[23px] md:text-[32px] xl:text-[40px] 2xl:text-[46px] leading-[1.175] text-indent tracking-tight transition-colors ease-in-out duration-500">
                         <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.introBioText} />
@@ -321,21 +321,21 @@ export default function Home(initialData) {
                 </m.div>
               </Container>
 
-              <m.div variants={fade} className="py-[1.5vw] md:py-[1vw] xl:py-[2.5vw] overflow-hidden">
-                <Ticker href="/music" word1="New Drop!" word2="Listen Here!" />
+              <m.div variants={fade} className="pt-[1.5vw] pb-[0] md:pt-[1vw] md:pb-[1vw] xl:pt-[2.5vw] xl:pb-[2.5vw] overflow-hidden relative z-20">
+                <Ticker href="/music" word1="New Drop!" word2="Listen Here!" noPad />
               </m.div>
               
-              <Container>
-                <m.div variants={fade}>
-                  <div className="flex justify-center mb-[25vw] md:mb-[18vw]">
-                    <div className="w-11/12 md:w-10/12 xl:w-9/12">
+              <Container bleedMobile>
+                <m.div variants={fade} className="mt-[-50px] md:mt-[-6vw] relative z-10">
+                  <div className="flex justify-center mb-[30vw] md:mb-[18vw]">
+                    <div className="w-full md:w-10/12 xl:w-9/12">
                       <div className="flex flex-wrap md:mx-[-3vw] items-center md:items-start xl:items-center">
-                        <div className="w-full md:w-6/12 xl:w-7/12 md:px-[3vw] mb-8 md:mb-0 will-change bg-off-white dark:bg-off-black transition-colors ease-in-out duration-500" data-scroll-speed="0.35">
+                        <div className="w-full md:w-6/12 xl:w-7/12 md:px-[3vw] mb-16 md:mb-0 will-change bg-off-white dark:bg-off-black transition-colors ease-in-out duration-500" data-scroll-speed="0.35">
                           <div className="relative overflow-hidden">
                             {/* <m.div variants={imageScale}> */}
                               <ImageWrapper
                                 image={home.contentImage.asset}
-                                className="w-full mix-blend-multiply dark:mix-blend-lighten rounded-md will-change"
+                                className="w-full mix-blend-multiply dark:mix-blend-lighten md:rounded-md will-change"
                                 baseWidth={900}
                                 baseHeight={1150}
                                 alt={'T-Ray Portrait'}
@@ -343,7 +343,7 @@ export default function Home(initialData) {
                             {/* </m.div> */}
                           </div>
                         </div>
-                        <div className="w-full md:w-6/12 xl:w-5/12 md:px-[3vw]" data-scroll data-scroll-speed="0.65">
+                        <div className="w-full md:w-6/12 xl:w-5/12 px-[25px] md:px-[3vw]" data-scroll data-scroll-speed="0.65">
                           <div className="text-[19px] md:text-[22px] xl:text-[24px] 2xl:text-[24px] leading-[1.175] text-indent tracking-tight mb-5 md:mb-8 transition-colors ease-in-out duration-500">
                             <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentBioText} />
                           </div>
@@ -384,7 +384,7 @@ export default function Home(initialData) {
               </Container>
               
               <m.div variants={fade}>
-                <div className="mb-[32vw] md:mb-[26vw] xl:mb-[24vw]">
+                <div className="mb-[32vw] md:mb-[17vw] xl:mb-[16vw]">
                   <HistoryCarousel slides={home.historyStories} />
                 </div>
               </m.div>
@@ -410,7 +410,7 @@ export default function Home(initialData) {
                     </div>
                   )} */}
                   
-                  <div className="justify-center mb-[25vw] md:mb-[16vw] mt-[5vw] md:mt-[-7.5vw] flex">
+                  <div className="justify-center mb-[25vw] md:mb-[16vw] mt-[0vw] md:mt-[-4.5vw] flex">
                     <div className="w-full md:w-11/12 max-w-screen-3xl mx-auto">
                       <div className="flex flex-wrap justify-center md:-mx-4">
                         {products.map((product, index) => {

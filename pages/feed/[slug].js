@@ -87,14 +87,14 @@ export default function News(initialData) {
               data-scroll-section
             >
               <Container>
-                <m.div variants={fade} className="flex flex-wrap justify-center mb-[5vw] md:mb-[8vw] xl:mb-[10vw]">
+                <m.div variants={fade} className="flex flex-wrap justify-center md:mb-[0vw] xl:mb-[0vw]">
                   <div className="w-full md:w-9/12 xl:w-10/12 max-w-screen-2xl">
-                    <div className="mb-6 md:mb-10 xl:mb-12 transition-colors ease-in-out duration-500">
+                    <div className="mb-4 md:mb-10 xl:mb-12 transition-colors ease-in-out duration-500">
                       <MetaTeaser marqueeForce date={date} type='Latest News' />
                     </div>
-                    <h1 className="text-red font-display uppercase text-[8vw] md:text-[7.5vw] xl:text-[7vw] 2xl:text-[120px] leading-[0.9] w-full md:w-11/12 block">{title}</h1>
+                    <h1 className="text-red font-display uppercase text-[10.5vw] md:text-[7.5vw] xl:text-[7vw] 2xl:text-[120px] leading-[0.9] w-full md:w-11/12 block">{title}</h1>
 
-                    <div className="flex flex-wrap items-center mt-8 mb-6 md:mb-8 md:mt-12 xl:mt-16">
+                    <div className="flex flex-wrap items-center mt-8 mb-5 md:mb-3 md:mt-12 xl:mt-16">
                       <button className="block group uppercase text-[12px] md:text-base focus:border-none" onClick={copy}>
                         <div className="overflow-hidden relative transition-colors ease-in-out duration-500">
                           <div className={`relative py-[2px]`}>
@@ -135,8 +135,15 @@ export default function News(initialData) {
                       </a>
                       </Link>
                     </div>
+                  </div>
+                </m.div>
+              </Container>
 
-                    <div className="w-full mb-12 md:mb-28 xl:mb-40 will-change">
+              <Container bleedMobile>
+                <m.div variants={fade} className="flex flex-wrap justify-center mb-[5vw] md:mb-[8vw] xl:mb-[10vw]">
+                  <div className="w-full md:w-9/12 xl:w-10/12 max-w-screen-2xl">
+
+                    <div className="w-full mb-5 md:mb-28 xl:mb-40 will-change">
                       <ImageWrapper
                         image={teaserImage}
                         className="w-full will-change release-teaser__image"
@@ -146,13 +153,15 @@ export default function News(initialData) {
                       />
                     </div>
 
-                    <div className="w-full">
+                    <div className="w-full px-[20px] md:px-0">
                       <BodyRenderer body={contentBlocks} />
                     </div>
                   </div>
                 </m.div>
-                
-                <Footer/>
+
+                <div className="px-[20px] md:px-0 md:mt-[-10vw]">
+                  <Footer/>
+                </div>  
               </Container>
             </m.div>
           </div>

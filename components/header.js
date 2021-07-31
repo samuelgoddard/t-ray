@@ -94,9 +94,14 @@ export default function Header({route}) {
             </div>
 
             <div className="ml-auto relative z-10">
-              <button className="block md:hidden w-14 h-auto py-[10px] text-off-black dark:text-off-white" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
+              <button className="block md:hidden w-14 h-auto py-[10px] text-off-black dark:text-off-white relative" onClick={() => setMenuOpen(isMenuOpen => !isMenuOpen)}>
                 <span className="block w-full h-[3px] mb-2 bg-current"></span>
                 <span className="block ml-auto w-3/4 h-[3px] bg-current"></span>
+
+                { cart?.length > 0 && (
+                  <span
+                  className={`absolute top-0 right-0 mt-[-5px] mr-[-10px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-500 font-sans z-10 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
+                )}
               </button>
 
               <nav className="hidden md:block">
@@ -135,7 +140,7 @@ export default function Header({route}) {
                     <button aria-label="Open Bag" onClick={() => modalTrayBag.current.open()}>
                       <span className="ml-2 md:ml-3 xl:ml-4 uppercase transition ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 group rounded-2xl relative">
                         { cart?.length > 0 && (
-                          <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition-opacity ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
+                          <span className={`absolute top-0 right-0 mt-[-4px] mr-[-8px] bg-red text-off-white dark:text-off-black text-[13px] w-[20px] h-[20px] flex items-center justify-center rounded-full opacity-0 transition ease-in-out duration-300 ${cart.length > 0 ? 'opacity-100' : ''}`}>{cart.length}</span>
                         )}
                         <div className="relative overflow-hidden">
                           <Rollover animatedUnderline underlineDotted label="Bag" />

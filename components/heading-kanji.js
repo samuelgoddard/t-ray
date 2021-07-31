@@ -4,9 +4,9 @@ import { reveal } from '@/helpers/transitions'
 
 export default function HeadingKanji({ heading, subHeading, kanji, horizontal }) {
   return (
-    <div className="mb-[12vw] relative">
+    <div className="mb-[20vw] md:mb-[12vw] relative">
       <div className="relative z-20">
-        <h2 className="uppercase text-4xl md:text-[7vw] xl:text-[6vw] leading-[0.95] text-center will-change block relative z-20">
+        <h2 className="uppercase text-[40px] md:text-[7vw] xl:text-[6vw] leading-[0.95] text-center will-change block relative z-20 mb-[6px] md:mb-[14px]">
           <span className="block relative overflow-hidden transition-colors ease-in-out duration-500">
             <m.span variants={reveal} className="block">
               {heading}
@@ -14,7 +14,7 @@ export default function HeadingKanji({ heading, subHeading, kanji, horizontal })
           </span>
         </h2>
         { subHeading && (
-          <span className="text-[22px] md:text-[26px] xl:text-[32px] 2xl:text-[40px] leading-[1.1] text-center block relative z-20">
+          <span className="text-[18px] md:text-[26px] xl:text-[32px] 2xl:text-[40px] leading-[1.1] text-center block relative z-20">
             <span className="block relative overflow-hidden transition-colors ease-in-out duration-500">
             <m.span variants={reveal} className="block">
               {subHeading}
@@ -26,7 +26,7 @@ export default function HeadingKanji({ heading, subHeading, kanji, horizontal })
 
       { kanji && (
         <div className={`absolute top-0 left-0 right-0 flex justify-center items-center z-0 transform ${horizontal ? 'rotate-90 mt-[0vw]' : 'mt-[-5vw]'}`}>
-          <div className={`opacity-100 dark:opacity-50 transition-opacity duration-500 ease-in-out transform ${horizontal ? 'rotate- w-[20vw] md:w-[18vw]' : 'w-[13vw] md:w-[10vw]'}`} data-scroll data-scroll-speed="0.35" data-scroll-direction={horizontal ? 'horizontal' : 'vertical'}>
+          <div className={`opacity-100 dark:opacity-50 transition-opacity duration-500 ease-in-out transform ${horizontal ? 'rotate- w-[30vw] md:w-[18vw]' : 'w-[18vw] md:w-[10vw]'}`} data-scroll data-scroll-speed="0.35" data-scroll-direction={horizontal ? 'horizontal' : 'vertical'}>
             <Image
               src={kanji}
               alt="Placeholder"

@@ -8,7 +8,7 @@ export default function MetaTeaser({ date, type, latest, marqueeForce}) {
   let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
 
   return(
-    <span className="inline-block rounded-full border border-current font-mono uppercase px-3 py-1 text-center mx-auto text-xs relative overflow-hidden">
+    <span className="inline-block rounded-full border border-current font-mono uppercase px-3 py-1 text-center mx-auto text-[10px] md:text-xs relative overflow-hidden">
       <span className="overflow-hidden relative block">
         <m.span variants={reveal} className="block">
           <span className={`flex space-x-3 meta-teaser__text ${ marqueeForce ? 'opacity-0' :'opacity-100'}`}>

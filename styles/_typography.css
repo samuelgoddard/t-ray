@@ -259,14 +259,14 @@ html.has-scroll-dragging {
 
 
 .clouds {
-  animation: clouds 30s linear 0s infinite;
+  animation: clouds 38s linear 0s infinite;
   opacity: 0;
   /* display: none !important; */
 }
 
 .clouds--delayed {
   opacity: 0;
-  animation: cloudsDelayed 20s linear 20s infinite;
+  animation: cloudsDelayed 50s linear 15s infinite;
 }
 
 @keyframes clouds {
@@ -304,4 +304,22 @@ input[type=number] {
 
 .bag-inner::-webkit-scrollbar {
   display: none !important;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  
+  border-left: 40px solid currentColor;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+input[type="text"] {
+  -webkit-appearance: none;
 }

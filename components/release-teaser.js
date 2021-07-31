@@ -47,17 +47,35 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
           
           <div className="overflow-hidden mb-2 xl:mb-4">
             <m.div variants={reveal}>
-              <h3 className="text-[19px] md:text-[21px] xl:text-[26px] text-center leading-none release-teaser__title mb-0 pb-0">{title}</h3>
+              <h3 className="text-[21px] md:text-[21px] xl:text-[26px] text-center leading-none release-teaser__title mb-0 pb-0">{title}</h3>
             </m.div>
           </div>
         </a>
       </ConditionalWrap>
 
       {purchaseLinks && (
-        <span className="xl:flex xl:flex-wrap uppercase justify-center md:space-x-2 text-[14px] md:text-[16px]">
+        <span className="flex uppercase justify-center space-x-2 text-sm md:text-base md:ml-auto w-full md:w-auto">
           {purchaseLinks.map((e, i) => {
             return (
-              <div key={i} className="xl:flex xl:flex-wrap items-center text-center transition-colors ease-in-out duration-500">
+              <span key={i} className="flex items-center transition-colors ease-in-out duration-500">
+                <a href={e.url} target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="overflow-hidden inline-block">
+                    <Rollover animatedUnderline label={e.title} />
+                  </div>
+                </a>
+                { i !== purchaseLinks.length - 1 && (
+                  <span className="inline-block ml-2 text-[11px] md:text-[16px] mt-[-5px] md:mt-[-10px]">&bull;</span>
+                )}
+              </span>
+            )
+          })}
+        </span>
+      )}
+      {/* {purchaseLinks && (
+        <span className="flex flex-wrap md:block md:flex-none xl:flex xl:flex-wrap uppercase justify-center md:space-x-2 text-[14px] md:text-[16px]">
+          {purchaseLinks.map((e, i) => {
+            return (
+              <div key={i} className="w-full flex flex-wrap md:block md:flex-none xl:flex xl:flex-wrap items-center text-center transition-colors ease-in-out duration-500">
                 <div className="overflow-hidden relative pb-[3px] w-full flex justify-center xl:inline-block xl:w-auto">
                   <m.div variants={reveal} className="w-auto">
                     <a href={e.url} target="_blank" rel="noopener noreferrer" className="group block p-0 m-0 h-[25px]">
@@ -68,7 +86,7 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
                   </m.div>
                 </div>
                 { i !== purchaseLinks.length - 1 && (
-                  <div className="hidden xl:inline-block">
+                  <div className="inline-block md:hidden xl:inline-block">
                     <m.div variants={reveal}>
                       <span className="ml-2 mt-[-13px] text-[12px]">&bull;</span>
                     </m.div>
@@ -78,7 +96,7 @@ export default function ReleaseTeaser({image, title, date, type, purchaseLinks, 
             )
           })}
         </span>
-      )}
+      )} */}
     </div>
   )
 }

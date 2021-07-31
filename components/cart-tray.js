@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useUpdateCartQuantityContext } from '@/context/store'
 import Link from 'next/link'
 import Image from 'next/image'
+import Div100vh from 'react-div-100vh'
 import { getCartSubTotal } from '@/helpers/shop-helpers'
 
 export default function CartTray({ cart, checkoutUrl }) {
@@ -19,7 +20,7 @@ export default function CartTray({ cart, checkoutUrl }) {
   }
 
   return (
-    <div className="h-screen p-5 md:p-10 flex flex-col">
+    <Div100vh className="h-full p-5 md:p-10 flex flex-col">
       <span className="text-[16vw] md:text-[10vw] xl:text-[7.8vw] 2xl:text-[140px] font-display leading-none uppercase text-red dark:text-yellow text-center block mb-2 w-full">Bag</span>
       
       <div className="mb-8 w-full">
@@ -113,7 +114,6 @@ export default function CartTray({ cart, checkoutUrl }) {
           </span>
         </a>
       </div>
-
-    </div>
+    </Div100vh>
   )
 }
