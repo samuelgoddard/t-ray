@@ -3,7 +3,15 @@ import { m } from 'framer-motion'
 import { reveal } from '@/helpers/transitions'
 import { useState } from 'react'
 
-export default function HeadingKanji({ heading, subHeading, kanji, horizontal }) {
+export default function HeadingKanji({ heading, subHeading, kanji, horizontal, large}) {
+  let widthClass = ''
+  if (horizontal) {
+    widthClass = 'w-[30vw] md:w-[18vw]'
+  } else if (large) {
+    widthClass = 'w-[14vw] md:w-[7vw]'
+  } else {
+    widthClass = 'w-[18vw] md:w-[10vw]'
+  }
   const [imageIsLoaded, setImageIsLoaded] = useState(false)
   return (
     <div className="mb-[20vw] md:mb-[12vw] relative">
@@ -28,7 +36,7 @@ export default function HeadingKanji({ heading, subHeading, kanji, horizontal })
 
       { kanji && (
         <div className={`absolute top-0 left-0 right-0 flex justify-center items-center z-0 transform pointer-events-none ${horizontal ? 'rotate-90 mt-[0vw]' : 'mt-[-5vw]'}`}>
-          <div className={`opacity-100 dark:opacity-50 transition-opacity duration-500 ease-in-out transform ${horizontal ? 'rotate- w-[30vw] md:w-[18vw]' : 'w-[18vw] md:w-[10vw]'}`} data-scroll data-scroll-speed="0.35" data-scroll-direction={horizontal ? 'horizontal' : 'vertical'}>
+          <div className={`opacity-100 dark:opacity-50 transition-opacity duration-500 ease-in-out transform ${widthClass}`} data-scroll data-scroll-speed="0.35" data-scroll-direction={horizontal ? 'horizontal' : 'vertical'}>
             <Image
               src={kanji}
               alt="Placeholder"

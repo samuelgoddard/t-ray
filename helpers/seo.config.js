@@ -5,7 +5,7 @@ export default {
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://t-ray.vercel.app/',
+    url: 'https://imreallyatrex.com',
     site_name: `ImReallyATRex | ImReallyATRex`,
   },
   twitter: {

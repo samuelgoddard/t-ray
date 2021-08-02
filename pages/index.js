@@ -160,7 +160,7 @@ export default function Home(initialData) {
         title="Bio"
         description="T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010."
         openGraph={{
-          url: 'https://t-ray.vercel.app/',
+          url: 'https://imreallyatrex.com',
           title: `Bio | ImReallyATRex`,
           description: 'T-Ray Armstrong, aka IAmReallyATrex, is a drummer and musician, born on May 31, 1993 in Barbados. He began his career playing with the Barbadian band Cover Drive in 2010.',
           images: [
@@ -387,7 +387,7 @@ export default function Home(initialData) {
                     </div>
                   </div>
 
-                  <HeadingKanji horizontal heading="History" subHeading="A look back in time" kanji={itsMeKanji} />
+                  <HeadingKanji heading="History" subHeading="A look back in time" kanji={itsMeKanji} />
                 </m.div>
               </Container>
               
