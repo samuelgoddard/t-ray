@@ -26,7 +26,7 @@ function DrumMachine() {
   const [hatFeedback, setHatFeedback] = useState(false);
   const [crashFeedback, setCrashFeedback] = useState(false);
 
-  useKeypress(['b', '1', '3', 'h'], (event) => {
+  useKeypress(['b', 'B', '1', '3', 'h', 'H'], (event) => {
     if (event.key === '3') {
       snare.play();
       setSnareFeedback(true)
@@ -41,14 +41,14 @@ function DrumMachine() {
       setTimeout(() => {
         setKickFeedback(false)
       }, 75);
-    } else if (event.key === 'b') {
+    } else if (event.key === 'b' || event.key == 'B') {
       hat.play();
       setHatFeedback(true)
 
       setTimeout(() => {
         setHatFeedback(false)
       }, 75);
-    } else if (event.key === 'h') {
+    } else if (event.key === 'h' || event.key == 'H') {
       crash.play();
       setCrashFeedback(true)
 

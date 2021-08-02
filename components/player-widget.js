@@ -7,7 +7,7 @@ var track = null;
 
 if (!isMobile) {
   track = new Howl({
-    src: ['./stems/next-time.mp3'],
+    src: ['../stems/next-time.mp3'],
     volume: 0.75,
     loop: true,
     preload: 'metadata',
