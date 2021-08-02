@@ -175,7 +175,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
   
 .content > h2,
 .content > .h2 {
-  @apply text-3xl;
+  @apply text-xl md:text-2xl xl:text-3xl;
 }
 
 @responsive {
