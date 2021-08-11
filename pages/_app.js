@@ -5,13 +5,14 @@ import { useRouter } from 'next/router'
 import Header from '@/components/header'
 import SEO from '@/helpers/seo.config'
 import { DefaultSeo } from 'next-seo'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Context } from '@/context/state';
 import { JamContext } from '@/context/jam';
 import { CartProvider } from '@/context/store'
 import CursorMotion from '@/components/cursor-motion'
 import Div100vh from 'react-div-100vh'
 import { IntroContext } from '@/context/intro'
+import * as gtag from '@/helpers/gtag'
 
 const introEnd = {
   visible: { opacity: 0 },
@@ -40,6 +41,16 @@ export default function App({ Component, pageProps }) {
   const [isGuitarLoaded, setIsGuitarLoaded] = useState(false)
   const [isVoxLoaded, setIsVoxLoaded] = useState(false)
   const [isKeysLoaded, setIsKeysLoaded] = useState(false)
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
