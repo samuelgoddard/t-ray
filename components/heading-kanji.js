@@ -2,8 +2,9 @@ import Image from 'next/image'
 import { m } from 'framer-motion'
 import { reveal } from '@/helpers/transitions'
 import { useState } from 'react'
+import Link from 'next/link'
 
-export default function HeadingKanji({ heading, subHeading, kanji, horizontal, large}) {
+export default function HeadingKanji({ heading, subHeading, kanji, horizontal, large, subHeadingShopLink}) {
   let widthClass = ''
   if (horizontal) {
     widthClass = 'w-[30vw] md:w-[18vw]'
@@ -28,6 +29,15 @@ export default function HeadingKanji({ heading, subHeading, kanji, horizontal, l
             <span className="block relative overflow-hidden transition-colors ease-in-out duration-500">
             <m.span variants={reveal} className="block">
               {subHeading}
+            </m.span>
+          </span>
+          </span>
+        )}
+        { subHeadingShopLink && (
+          <span className="text-[18px] md:text-[26px] xl:text-[32px] 2xl:text-[40px] leading-[1.1] text-center block relative z-20">
+            <span className="block relative overflow-hidden transition-colors ease-in-out duration-500">
+            <m.span variants={reveal} className="block">
+              Clock all the swag <Link href="/store"><a className="inline-block border-b border-current hover:border-red transition-colors ease-in-out duration-300">in the store</a></Link>
             </m.span>
           </span>
           </span>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import { getAllProductsInCollection } from '../lib/shopify'
+import { get3LatestProducts } from '../lib/shopify'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
 import { LazyMotion, domMax, m } from "framer-motion"
@@ -23,6 +23,7 @@ import { NextSeo } from 'next-seo'
 import BlockContent from '@sanity/block-content-to-react'
 import { IntroContext } from '@/context/intro'
 import SanityPageService from '@/services/sanityPageService'
+import Link from 'next/link'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -399,7 +400,10 @@ export default function Home(initialData) {
               
               <Container>
                 <m.div variants={fade}>
-                  <HeadingKanji heading="Swag!" subHeading="Get the merch and get the vibe" kanji={japaneseCharacters} />
+                  <HeadingKanji
+                  heading="New Swag!"
+                  subHeadingShopLink              
+                  kanji={japaneseCharacters} />
 
 
                   {/* { productData.variants.edges.length > 1 ? (
@@ -426,7 +430,7 @@ export default function Home(initialData) {
                           let priceAvailable = product.node.variants.edges.find( ({node}) => node.quantityAvailable > 0);
 
                           if (product.node.variants.edges.length > 1) {
-                            price = priceAvailable.node.price
+                            price = priceAvailable ? priceAvailable.node.price : 'SOLD OUT'
                           } else {
                             price = product.node.variants.edges[0].node.price
                           }
@@ -461,7 +465,7 @@ export default function Home(initialData) {
 
 export async function getStaticProps(context) {
   const cms = await pageService.fetchQuery(context)
-  const products = await getAllProductsInCollection()
+  const products = await get3LatestProducts()
 
   return {
     props: { ...cms, products }

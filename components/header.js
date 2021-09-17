@@ -58,7 +58,7 @@ export default function Header({route}) {
               </a>
             </Link>
 
-            <div className="mx-auto hidden md:block">
+            <div className="mx-auto hidden lg:block">
               <nav>
                 <ul className="flex items-center">
                   <li>                    
@@ -133,6 +133,16 @@ export default function Header({route}) {
                           <Rollover animatedUnderline={route != '/music'} underlineDotted label="Music" />
                         </div>
                         <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/music' ? 'scale-[1.01] opacity-100' : 'opacity-0 scale-0' }`}></div>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/store">
+                      <a aria-label="Navigate to store page" className={`ml-2 md:ml-3 xl:ml-4 uppercase transition-colors ease-in-out duration-500 dark:text-off-white text-off-black block text-[16px] md:text-[17px] xl:text-[22px] p-1 md:p-2 rounded-2xl group relative ${route === '/store' ? 'text-off-white dark:text-off-black ' : ''}`}>
+                        <div className="relative overflow-hidden z-10">
+                          <Rollover animatedUnderline={route != '/store'} underlineDotted label="Store" />
+                        </div>
+                        <div className={`active-pill absolute inset-0 z-0 transition ease-in-out duration-500 ${route === '/store' ? 'scale-[1.01] opacity-100' : 'opacity-0 scale-0' }`}></div>
                       </a>
                     </Link>
                   </li>
