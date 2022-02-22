@@ -7,6 +7,14 @@ export default {
     locale: 'en_GB',
     url: 'https://imreallyatrex.com',
     site_name: `ImReallyATRex | ImReallyATRex`,
+    images: [
+      {
+        url: '/images/social.jpg',
+        width: 1200,
+        height: 630,
+        alt: `ImReallyATRex | T-Ray Logo`,
+      },
+    ],
   },
   twitter: {
     site: '@site',
