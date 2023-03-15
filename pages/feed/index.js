@@ -271,7 +271,7 @@ export default function News(initialData) {
 
                         return (
                           <li key={i}>
-                            <ListTeaser title={e.title} date={e.date} type={e.type ? e.type : "Latest News"} image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} purchaseLinks={e.purchaseLinks} />
+                            <ListTeaser href={href} title={e.title} date={e.date} type={e.type ? e.type : "Latest News"} image={e.teaserImage ? e.teaserImage.asset : e.coverArtwork.asset} purchaseLinks={e.purchaseLinks} />
                           </li>
                         )
                       })}
