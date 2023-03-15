@@ -302,13 +302,8 @@ export default function Home(initialData) {
                                     alt="Kanji Letters"
                                     layout="responsive"
                                     priority
-                                    className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out`}
-                                    onLoad={event => {
-                                      const target = event.target;
-                                      if (target.src.indexOf('data:image/gif;base64') < 0) {
-                                          setImageIsLoaded(true)
-                                      }
-                                    }}
+                                    className={`w-full will-change ${imageIsLoaded ? 'opacity-100' : 'opacity-100'} transition-opacity duration-500 ease-in-out`}
+                                    
                                   />
                                 </m.div>
                               </m.div>
