@@ -39,8 +39,8 @@ module.exports = {
           '100%': { transform: 'translateX(0%)' },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(1.1%)' },
-          '50%': { transform: 'translateY(-1.55%)' },
+          '0%, 100%': { transform: 'translateY(0.5%)' },
+          '50%': { transform: 'translateY(-1%)' },
         },
         floatWobble: {
           '0%, 100%': { transform: 'translateY(1.25%) rotateZ(2deg) scale(1.05)' },

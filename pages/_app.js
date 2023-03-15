@@ -151,7 +151,7 @@ export default function App({ Component, pageProps }) {
                                 className="block"
                                 transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
                               >
-                                ImReally
+                                Rex & The
                               </m.span>
                             </span>
                             <span className="block overflow-hidden relative">
@@ -162,7 +162,7 @@ export default function App({ Component, pageProps }) {
                                 className="block"
                                 transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
                               >
-                                A Trex
+                                Rhythm
                               </m.span>
                             </span>
                           </span>

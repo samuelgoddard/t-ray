@@ -62,7 +62,7 @@ export default function Header({route}) {
               <nav>
                 <ul className="flex items-center">
                   <li>                    
-                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="uppercase block text-[16px] md:text-[17px] xl:text-[22px] mx-1 md:mx-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
+                    <a href="https://www.instagram.com/callhimrex/" target="_blank" rel="noopener noreferrer" className="uppercase block text-[16px] md:text-[17px] xl:text-[22px] mx-1 md:mx-2 overflow-hidden relative group transition-colors ease-in-out duration-500 dark:text-off-white text-off-black">
                       <Rollover animatedUnderline label="Insta" />
                     </a>
                   </li>
@@ -350,7 +350,7 @@ export default function Header({route}) {
               <nav className="mt-auto">
                 <ul className="flex items-center">
                   <li>
-                    <a href="https://www.instagram.com/imreallyatrex" target="_blank" rel="noopener noreferrer" className="text-white uppercase text-[20px]">
+                    <a href="https://www.instagram.com/callhimrex/" target="_blank" rel="noopener noreferrer" className="text-white uppercase text-[20px]">
                       <span className="block relative overflow-hidden">
                         <m.span
                           animate={isMenuOpen ? "open" : "closed"}

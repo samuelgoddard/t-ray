@@ -197,19 +197,19 @@ export default function Home(initialData) {
             >
               <Container bleedMobile>
                 <m.div variants={fade}>
-                  <div className="relative mb-[18vw] md:mb-[29vw] xl:mb-[27vw]">
+                  <div className="relative mb-[18vw] md:mb-[35vw] xl:mb-[35vw]">
                     <h1 className={`uppercase text-[12.5vw] leading-[0.82] text-center break-all will-change relative text-red`}>
                       <span className="block overflow-hidden relative">
-                        <m.span variants={fadeDelay} className="block">ImReally</m.span>
+                        <m.span variants={fadeDelay} className="block">Rex & The</m.span>
                       </span>
                       <span className="block overflow-hidden relative">
-                        <m.span variants={fadeDelay} className="block">A Trex</m.span>
+                        <m.span variants={fadeDelay} className="block">Rhythm</m.span>
                       </span>
 
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-0 dark:opacity-100 transition-opacity ease-in-out duration-500">
                         <div className="overflow-hidden xl:pt-[4px]">
                           <m.div variants={fade}>
-                            <div className="w-[85vw] pointer-events-none motion-safe:animate-float">
+                            <div className="w-[88.55vw] pointer-events-none motion-safe:animate-float">
                               <Image
                                 src={trayText}
                                 alt="ImReallyATrex"
@@ -225,12 +225,11 @@ export default function Home(initialData) {
                       <div className="absolute inset-0 flex justify-center pointer-events-none opacity-100 dark:opacity-0 transition-opacity ease-in-out duration-500">
                         <div className="overflow-hidden xl:pt-[4px]">
                           <m.div variants={fade}>
-                            <div className="w-[85vw] pointer-events-none motion-safe:animate-float">
+                            <div className="w-[88.55vw] pointer-events-none motion-safe:animate-float">
                               <Image
                                 src={trayTextDark}
                                 alt="ImReallyATrex"
                                 layout="responsive"
-                                className="w-full will-change"
                                 priority
                                 className={`w-full will-change`}
                               />
@@ -241,7 +240,7 @@ export default function Home(initialData) {
                     </h1>
                     
                     <div className="">
-                      <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[18vw] xl:mt-[13vw] flex items-center justify-center">
+                      <div className="md:absolute inset-0 z-10 w-full h-full mt-[9vw] md:mt-[25vw] xl:mt-[23vw] flex items-center justify-center">
                         <div
                           className="w-[99%] md:w-7/12 relative will-change"
                           data-scroll
@@ -373,7 +372,7 @@ export default function Home(initialData) {
                             <li className="mb-2">
                               <div className="relative overflow-hidden transition-colors ease-in-out duration-500">
                                 <m.div variants={reveal}>
-                                  <a href="https://www.instagram.com/imreallyatrex" className="flex items-center group" rel="noopener noreferrer" target="_blank">
+                                  <a href="https://www.instagram.com/callhimrex/" className="flex items-center group" rel="noopener noreferrer" target="_blank">
                                     <span className="text-red dark:text-yellow mr-3 transition-colors ease-in-out duration-500">→</span>
                                     <div className="overflow-hidden relative">
                                       <Rollover label="On Instagram" underline />
